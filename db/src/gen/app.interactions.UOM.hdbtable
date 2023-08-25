@@ -1,0 +1,7 @@
+COLUMN TABLE app_interactions_UOM (
+  Industry NVARCHAR(25) NOT NULL,
+  Measure NVARCHAR(5000) NOT NULL,
+  Unit NVARCHAR(5000) NOT NULL,
+  Abbreviation NVARCHAR(5000) NOT NULL,
+  PRIMARY KEY(Industry, Measure, Abbreviation)
+)

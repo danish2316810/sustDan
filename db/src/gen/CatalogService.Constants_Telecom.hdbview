@@ -1,0 +1,5 @@
+VIEW CatalogService_Constants_Telecom AS SELECT
+  Constants_Telecom_0.ID,
+  Constants_Telecom_0.Value,
+  Constants_Telecom_0.Industry
+FROM app_interactions_Constants_Telecom AS Constants_Telecom_0

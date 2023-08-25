@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="V_SocialTableA" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="V_SocialTableA"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="APP_INTERACTIONS_SOCIALTABLEA">
+    <resourceUri>APP_INTERACTIONS_SOCIALTABLEA</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+
+<logicalModel id="APP_INTERACTIONS_SOCIALTABLEA">
+  <attributes>
+    <attribute id="YEAR" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="YEAR"/>
+    </attribute>
+    <attribute id="LOCATION" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOCATION"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="LOCATION"/>
+    </attribute>
+    <attribute id="TYPE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TYPE"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="TYPE"/>
+    </attribute>
+    <attribute id="SUBTYPE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUBTYPE"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="SUBTYPE"/>
+    </attribute>
+    <attribute id="KPI" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KPI"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="KPI"/>
+    </attribute>
+    <attribute id="DIVISION" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DIVISION"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="DIVISION"/>
+    </attribute>
+    <attribute id="PREFIX" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PREFIX"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="PREFIX"/>
+    </attribute>
+    <attribute id="IDENTIFIER" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="IDENTIFIER"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="IDENTIFIER"/>
+    </attribute>
+    <attribute id="TEMPLATE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEMPLATE"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="TEMPLATE"/>
+    </attribute>
+    <attribute id="LOGIC" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOGIC"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="LOGIC"/>
+    </attribute>
+    <attribute id="RESPONSE" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RESPONSE"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="RESPONSE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="FUPTO30YRS" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FUPTO30YRS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="FUPTO30YRS"/>
+    </measure>
+    <measure id="FUPTO50YRS" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FUPTO50YRS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="FUPTO50YRS"/>
+    </measure>
+    <measure id="FMORETHAN50YRS" order="13" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FMORETHAN50YRS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="FMORETHAN50YRS"/>
+    </measure>
+    <measure id="MUPTO30YRS" order="14" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="MUPTO30YRS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="MUPTO30YRS"/>
+    </measure>
+    <measure id="MUPTO50YRS" order="15" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="MUPTO50YRS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="MUPTO50YRS"/>
+    </measure>
+    <measure id="MMORETHAN50YRS" order="16" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="MMORETHAN50YRS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="MMORETHAN50YRS"/>
+    </measure>
+    <measure id="NUPTO30YRS" order="17" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="NUPTO30YRS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="NUPTO30YRS"/>
+    </measure>
+    <measure id="NUPTO50YRS" order="18" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="NUPTO50YRS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="NUPTO50YRS"/>
+    </measure>
+    <measure id="NMORETHAN50YRS" order="19" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="NMORETHAN50YRS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="NMORETHAN50YRS"/>
+    </measure>
+    <measure id="FEMALE" order="20" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FEMALE"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="FEMALE"/>
+    </measure>
+    <measure id="MALE" order="21" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="MALE"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="MALE"/>
+    </measure>
+    <measure id="NEUTRAL" order="22" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="NEUTRAL"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="NEUTRAL"/>
+    </measure>
+    <measure id="OPERATIONALCHGE" order="24" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="OPERATIONALCHGE"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="OPERATIONALCHGE"/>
+    </measure>
+    <measure id="NOOFWEEKS" order="25" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="NOOFWEEKS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="NOOFWEEKS"/>
+    </measure>
+    <measure id="NOOFINCIDENTS" order="26" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="NOOFINCIDENTS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="NOOFINCIDENTS"/>
+    </measure>
+    <measure id="REVIEWEDBY" order="27" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="REVIEWEDBY"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="REVIEWEDBY"/>
+    </measure>
+    <measure id="REMEDIATIONPLAN" order="28" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="REMEDIATIONPLAN"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="REMEDIATIONPLAN"/>
+    </measure>
+    <measure id="RESULTS" order="29" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="RESULTS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="RESULTS"/>
+    </measure>
+    <measure id="SAC" order="30" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="SAC"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="SAC"/>
+    </measure>
+    <measure id="NUMBER" order="31" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="NUMBER"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="NUMBER"/>
+    </measure>
+    <measure id="NOOFHRS" order="32" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="NOOFHRS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="NOOFHRS"/>
+    </measure>
+    <measure id="NOOFEMPLOYEES" order="33" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="NOOFEMPLOYEES"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="NOOFEMPLOYEES"/>
+    </measure>
+    <measure id="COVERED_OHS" order="34" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="COVERED_OHS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="COVERED_OHS"/>
+    </measure>
+    <measure id="COVERED_IAUDIT" order="35" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="COVERED_IAUDIT"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="COVERED_IAUDIT"/>
+    </measure>
+    <measure id="CERTIFIED_OHS" order="36" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="CERTIFIED_OHS"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="CERTIFIED_OHS"/>
+    </measure>
+    <measure id="FATALITIES" order="37" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FATALITIES"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="FATALITIES"/>
+    </measure>
+    <measure id="HIGH_CONSEQUENCE" order="38" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="HIGH_CONSEQUENCE"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="HIGH_CONSEQUENCE"/>
+    </measure>
+    <measure id="RECORDABLE" order="39" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="RECORDABLE"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="RECORDABLE"/>
+    </measure>
+    <measure id="HRSWORKED" order="40" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="HRSWORKED"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="HRSWORKED"/>
+    </measure>
+    <measure id="EMP_ENTITLED_LEAVE" order="41" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="EMP_ENTITLED_LEAVE"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="EMP_ENTITLED_LEAVE"/>
+    </measure>
+    <measure id="EMP_TOOK_LEAVE" order="42" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="EMP_TOOK_LEAVE"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="EMP_TOOK_LEAVE"/>
+    </measure>
+    <measure id="EMP_RETURNED_TO_WORK" order="43" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="EMP_RETURNED_TO_WORK"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="EMP_RETURNED_TO_WORK"/>
+    </measure>
+    <measure id="EMP_STILL_EMPLOYED" order="44" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="EMP_STILL_EMPLOYED"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_SOCIALTABLEA" columnName="EMP_STILL_EMPLOYED"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  </shapes>
+</layout>
+</Calculation:scenario>

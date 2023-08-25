@@ -1,0 +1,113 @@
+{
+    "catalog": {
+      "clothing": {
+        "categories": [
+          {"name": "Universal Standards", "categories": [           
+              {"name": "GRI 1: Foundation", "categories": [                
+              ]},
+              {"name": "GRI 2: General Disclosures", "categories": [
+                {"name": "Disclosure 2-1: Organizational details", "amount": 24.99, "currency": "USD", "size": "M"},
+                {"name": "Disclosure 2-2: Entities included in the organization’s sustainability reporting", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-3: Reporting period, frequency and contact point", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-4: Restatements of information", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-5: External assurance", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-6: Activities, value chain and other business relationship", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-7: Employees", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-8: Workers who are not employees", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-9: Governance structure and composition", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-10: Nomination and selection of the highest governance body", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-11: Chair of the highest governance body", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-12: Role of the highest governance body in overseeing the management of impacts", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-13: Delegation of responsibility for managing impacts", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-14: Role of the highest governance body in sustainability reporting", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-15: Conflicts of interest", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-16: Communication of critical concerns", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-17: Collective knowledge of the highest governance body", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-18: Evaluation of the performance of the highest governance body", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-19: Remuneration policies", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-20: Process to determine remuneration", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-21: Annual total compensation ratio", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-22: Statement on sustainable development strategy", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-23: Policy commitments", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-24: Embedding policy commitments", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-25: Processes to remediate negative impacts", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-26: Mechanisms for seeking advice and raising concerns", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-27: Compliance with laws and regulations", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-28: Membership associations", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-29: Approach to stakeholder engagement", "amount": 14.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 2-30: Collective bargaining agreements", "amount": 14.99, "currency": "USD", "size": "S"}
+              ]},
+              {"name": "GRI 3: Material Topics", "categories": [
+                {"name": "Disclosure 3-1: Process to determine material topics", "amount": 32.99, "currency": "USD", "size": "M"},
+                {"name": "Disclosure 3-2: List of material topics", "amount": 44.99, "currency": "USD", "size": "S"},
+                {"name": "Disclosure 3-3: Management of material topics", "amount": 99.99, "currency": "USD", "size": "XS"}                
+              ]}       
+          ]},
+          {"name": "Sector Starndards", "categories": [           
+              {"name": "GRI 11: Oil and Gas Sector", "categories": [
+                {"name": "Topic 11.1: GHG emissions", "amount": 9.99, "currency": "USD", "size": "XL"},
+                {"name": "Topic 11.2: Climate adaptation, resilience, and transition", "amount": 47.99, "currency": "USD", "size": "M"},
+                {"name": "Topic 11.3: Air emissions", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.4: Biodiversity", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.5:  Waste", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.6: Water and effluents", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.7: Closure and rehabilitation", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.8: Asset integrity and critical incident management", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.9: Occupational health and safety", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.10: Employment practices", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.11: Non-discrimination and equal opportunity", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.12: Forced labor and modern slavery", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.13: Freedom of association and collective bargaining", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.14: Economic impacts", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.15: Local communities", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.16: Land and resource rights", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.17: Rights of indigenous peoples", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.18: Conflict and security", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.19: Anti-competitive behavior", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.20: Anti-corruption", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.21: Payments to governments", "amount": 103.99, "currency": "USD", "size": "L"},
+                {"name": "Topic 11.22: Public policy", "amount": 103.99, "currency": "USD", "size": "L"}
+              ]},
+              {"name": "GRI 12: Coal Sector", "categories": [
+                {"name": "Topic 12.1: GHG emissions", "amount": 78.99, "currency": "USD", "size": "M"},
+                {"name": "Topic 12.2: Climate adaptation, resilience, and transition", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.3: Closure and rehabilitation", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.4: Air emissions", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.5: Biodiversity", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.6 Waste", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.7 Water and effluents", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.8 Economic impacts", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.9 Local communities", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.10 Land and resource rights", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.11 Rights of indigenous peoples", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.12 Conflict and security", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.13 Asset integrity and critical incident management", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.14 Occupational health and safety", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.15 Employment practices", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.16 Child labor", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.17 Forced labor and modern slavery", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.18 Freedom of association and collective bargaining", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.19 Non-discrimination and equal opportunity", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.20 Anti-corruption", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.21 Payments to governments", "amount": 54.99, "currency": "USD", "size": "S"},
+                {"name": "Topic 12.22 Public policy", "amount": 54.99, "currency": "USD", "size": "S"}
+
+              ]},
+              {"name": "GRI 13: Agriculture, Aquaculture and Fishing Sectors", "categories": [
+                {"name": "Disclosure 13-1 Process to determine material topics", "amount": 62.99, "currency": "USD", "size": "M"}                
+              ]}         
+          ]},
+            {"name": "Topic Standards Data", "categories": [              
+                  
+            ]}
+              
+          ]}
+  
+      },
+    "sizes": [
+      {"key": "XS", "value": "Extra Small"},
+      {"key": "S", "value": "Small"},
+      {"key": "M", "value": "Medium"},
+      {"key": "L", "value": "Large"}
+    ]
+    }

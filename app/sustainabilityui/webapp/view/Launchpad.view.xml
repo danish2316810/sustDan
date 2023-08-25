@@ -1,0 +1,307 @@
+<mvc:View
+    controllerName="com.techm.sustainabilityui.controller.Launchpad"
+   xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:uxap="sap.uxap"
+>    
+<App id="app" > 
+    <Page > 
+        <customHeader >
+            <Bar class="headerBar">
+                <contentLeft>							
+                    <Image src="./images/JS1.png" class="sapUiSmallMarginEnd" />
+                    <!--<Image src="./images/sap.png" />-->
+                </contentLeft>
+                <contentMiddle >
+                    <!--<Title level="H1" text="i.Sustain - TechM SAP Sustainability Solution" class="titleAlign" >
+                    <layoutData>
+                            <OverflowToolbarLayoutData priority="Low" />
+                        </layoutData>
+                    </Title>-->
+                    <HBox>
+                    <Image src="./images/iSustainLogo_01.png" class="titleAlign sapUiTinyMarginTop "/>
+                    <Title level="H6" text="TechM Sustainability Reporting Framework" class="sapUiSmallMarginTop sapUiTinyMarginBegin fntBold" ></Title>
+                    <Image src="./images/btp.jpg" class="sapUiSmallMarginTop sapUiTinyMarginBegin"/>
+                    </HBox>
+                </contentMiddle>
+                <contentRight>
+                       <ComboBox xmlns="sap.m" id="Industry" items="{IndustryModel>/results}"  selectionChange="onSelectionIndustry" selectedKey="IT">                
+                            <core:Item xmlns:core="sap.ui.core" 
+                                key="{IndustryModel>Industry}"      
+                                text="{IndustryModel>IndustryDesc}"/>                                        
+                        </ComboBox> 
+                        <Image src="./images/avatar2.png" densityAware="false"></Image>
+                    <Text text="Welcome, John Doe!" class = "userName" />
+                    <Button icon="sap-icon://arrow-down"  />						
+                </contentRight>
+            </Bar>
+		</customHeader>
+      <!--  <Bar class="headerBar">
+            <contentLeft><Title text="My Home" class="sapUiSmallMarginTop myHome"/></contentLeft>
+            <contentMiddle></contentMiddle>
+            <contentRight></contentRight>
+        </Bar>-->
+        <content>
+     <!--   <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Admin" >
+            <TileContent>
+               
+            <ToolbarSpacer/>
+           <ImageContent src="sap-icon://clear-all"/>
+            </TileContent>			
+        </GenericTile>
+
+        <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Sustainability Officier" >
+            <TileContent>               
+                <ToolbarSpacer/>
+                <ImageContent src="sap-icon://customer-order-entry"/>
+            </TileContent>
+        </GenericTile>
+
+        <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Location Head" >
+            <TileContent>               
+                <ToolbarSpacer/>
+                <ImageContent src="sap-icon://customer-financial-fact-sheet"/>
+            </TileContent>
+        </GenericTile>
+
+       <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Corporate Services" press="handleTilePress">
+            <TileContent>               
+                <ToolbarSpacer/>
+                <ImageContent src="sap-icon://official-service"/>
+            </TileContent>
+        </GenericTile>
+
+        <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Human Resource" press="handleTilePress_HR">
+                <TileContent>               
+                <ToolbarSpacer/>
+                <ImageContent src="sap-icon://hr-approval"/>
+            </TileContent>
+        </GenericTile>
+
+        <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Finance" press="handleTilePress_FI">
+             <TileContent>               
+                <ToolbarSpacer/>
+                <ImageContent src="sap-icon://customer-financial-fact-sheet"/>
+            </TileContent>
+        </GenericTile>-->
+        
+
+        <uxap:ObjectPageLayout showTitleInHeaderContent="true" showHeaderContent="false" showAnchorBar="true" subSectionLayout="TitleOnTop">
+            <uxap:sections>
+
+  <uxap:ObjectPageSection showTitle="true" title="Sustainability Officier" titleUppercase="false" visible="true">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection title="Sustainability Officer" >
+                            <uxap:blocks>
+                                <HBox class="sapUiMediumMarginBottom" >
+                                    <GenericTile class="sapUiTinyMarginBegin sapUiSmallMarginEnd" header="Sustainability Officer" subheader="" press="onTilePress">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/officer.png"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                    <GenericTile class="sapUiTinyMarginBegin sapUiSmallMarginEnd" header="Dashboard" subheader="" press="handleTilePress_DB">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/report.jpg"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                    <GenericTile class="sapUiTinyMarginBegin " header="Notifications" subheader="" press="">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/notifications.jpg"/>                                                    
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                </HBox>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                    </uxap:ObjectPageSection>
+
+
+                    <uxap:ObjectPageSection showTitle="true" title="ESG" titleUppercase="false" visible="true">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection title="ESG">
+                            <uxap:blocks>
+                                <HBox class="sapUiMediumMarginBottom" >
+                                    <GenericTile class="sapUiTinyMarginBegin sapUiSmallMarginEnd" header="Environment" subheader="" press="handleTilePress">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/Env1.jpg"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                    <GenericTile class="sapUiTinyMarginBegin sapUiSmallMarginEnd" header="Social" subheader="" press="handleTilePress_HR">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/Social2.png"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                    <GenericTile class="sapUiTinyMarginBegin " header="Governance" subheader="" press="handleTilePress_FI">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/Governance.jpg"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                </HBox>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                    </uxap:ObjectPageSection>
+
+                   <!-- <uxap:ObjectPageSection showTitle="true" title="Social" titleUppercase="false" visible="true">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection title="Social">
+                            <uxap:blocks>
+                                <HBox class="sapUiMediumMarginBottom" >
+                                    <GenericTile class="sapUiTinyMarginBegin " header="Social" subheader="" press="handleTilePress_HR">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/BusinessService.jpg"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                </HBox>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                    </uxap:ObjectPageSection>-->
+
+                   <!-- <uxap:ObjectPageSection showTitle="true" title="Governance" titleUppercase="false" visible="true">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection title="Governance">
+                            <uxap:blocks>
+                                <HBox class="sapUiMediumMarginBottom" >
+                                    <GenericTile class="sapUiTinyMarginBegin " header="Governance" subheader="" press="handleTilePress_FI">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/finance.jpg"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                </HBox>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                    </uxap:ObjectPageSection>-->
+
+
+                  
+                    <uxap:ObjectPageSection showTitle="true" title="Location Head" titleUppercase="false" visible="true">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection title="Location Head">
+                            <uxap:blocks>
+                                <HBox class="sapUiMediumMarginBottom" >
+                                    <GenericTile class="sapUiTinyMarginBegin sapUiSmallMarginEnd" header="Location Head" subheader="" press="">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                   <ImageContent src="./images/locatio.png"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                    <GenericTile class="sapUiTinyMarginBegin sapUiSmallMarginEnd" header="Dashboard" subheader="" press="">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/report.jpg"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                    <GenericTile class="sapUiTinyMarginBegin " header="Notifications" subheader="" press="">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/notifications.jpg"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                </HBox>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                    </uxap:ObjectPageSection>
+
+
+                    <uxap:ObjectPageSection showTitle="true" title="Admin" titleUppercase="false" visible="true" class="myLPadHead">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection title="Admin" >
+                            <uxap:blocks>
+                                <HBox class="sapUiMediumMarginBottom" >
+                                    <GenericTile class="sapUiTinyMarginBegin" header="Admin" press="handleTilePress_Admin">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/admin.jpg"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                </HBox>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                    </uxap:ObjectPageSection>
+
+                    <uxap:ObjectPageSection showTitle="true" title="Bulk Upload" titleUppercase="false" visible="true" class="myLPadHead">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection title="Bulk Upload" >
+                            <uxap:blocks>
+                                <HBox class="sapUiMediumMarginBottom" >
+                                    <GenericTile class="sapUiTinyMarginBegin" header="Bulk Upload" press="handleTilePress_BulkUpload">
+                                        <tileContent>
+                                            <TileContent >
+                                                <content>																
+                                                    <ImageContent src="./images/admin.jpg"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                </HBox>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                    </uxap:ObjectPageSection>
+
+
+                </uxap:sections>
+		    </uxap:ObjectPageLayout>
+
+            <!--<ComboBox xmlns="sap.m" id="Industry" items="{IndustryModel>/results}"  selectionChange="" selectedKey="">                
+                <core:Item xmlns:core="sap.ui.core" 
+                                            key="{IndustryModel>Industry}"      
+                                            text="{IndustryModel>Industry}"/>                                        
+            </ComboBox> -->
+
+            
+        </content>
+    </Page>        
+ </App>
+</mvc:View>

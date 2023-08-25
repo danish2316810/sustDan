@@ -1,0 +1,12 @@
+COLUMN TABLE app_interactions_MediaFile (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  id NVARCHAR(36) NOT NULL,
+  content BLOB,
+  mediaType NVARCHAR(5000),
+  fileName NVARCHAR(5000),
+  url NVARCHAR(5000),
+  PRIMARY KEY(id)
+)

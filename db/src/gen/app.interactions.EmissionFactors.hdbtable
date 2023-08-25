@@ -1,0 +1,16 @@
+COLUMN TABLE app_interactions_EmissionFactors (
+  Industry NVARCHAR(25) NOT NULL,
+  KPI NVARCHAR(5000) NOT NULL,
+  Type NVARCHAR(5000) NOT NULL,
+  SubType NVARCHAR(5000) NOT NULL,
+  Standard NVARCHAR(5000) NOT NULL,
+  Shortlong NVARCHAR(5000) NOT NULL,
+  class NVARCHAR(5000) NOT NULL,
+  EmissionFactor DECIMAL,
+  UoM NVARCHAR(5000),
+  Deno NVARCHAR(5000),
+  Nume NVARCHAR(5000),
+  createdAt TIMESTAMP,
+  modifiedAt TIMESTAMP,
+  PRIMARY KEY(Industry, KPI, Type, SubType, Standard, Shortlong, class)
+)

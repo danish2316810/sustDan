@@ -1,0 +1,5 @@
+VIEW CatalogService_Measure_Validation AS SELECT
+  Measure_Validation_0.MeasureType,
+  Measure_Validation_0.InputUom,
+  Measure_Validation_0.OutputUoM
+FROM app_interactions_Measure_Validation AS Measure_Validation_0

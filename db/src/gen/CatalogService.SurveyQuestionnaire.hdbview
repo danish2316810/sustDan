@@ -1,0 +1,9 @@
+VIEW CatalogService_SurveyQuestionnaire AS SELECT
+  SurveyQuestionnaire_0.SurveyID,
+  SurveyQuestionnaire_0.ReportingYear,
+  SurveyQuestionnaire_0.Section,
+  SurveyQuestionnaire_0.QuestionID,
+  SurveyQuestionnaire_0.QuestionText,
+  SurveyQuestionnaire_0.KPI_Mapping,
+  SurveyQuestionnaire_0.Industry
+FROM app_interactions_SurveyQuestionnaire AS SurveyQuestionnaire_0

@@ -1,0 +1,14 @@
+VIEW CatalogService_Supplier AS SELECT
+  Supplier_0.SupplierID,
+  Supplier_0.SupplierName,
+  Supplier_0.SupplierAddress,
+  Supplier_0.SupplierContactPoint,
+  Supplier_0.SupplierContactNumber,
+  Supplier_0.Supplier_Category,
+  Supplier_0.KPI_List,
+  Supplier_0.CompanySPOC,
+  Supplier_0.Status,
+  Supplier_0.RelationshipStartDate,
+  Supplier_0.RelationshipEndDate,
+  Supplier_0.Industry
+FROM app_interactions_Supplier AS Supplier_0

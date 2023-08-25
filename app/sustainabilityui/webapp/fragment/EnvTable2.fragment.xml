@@ -1,0 +1,126 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified" xmlns:uxap="sap.uxap"
+    xmlns:u="sap.ui.unified">
+    <Table id="EnvTable2" alternateRowColors="true" growing="true"  width="90%"  sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+            items="{path: 'EnvModel>/results'}" mode="MultiSelect">
+            <headerToolbar></headerToolbar>
+            <infoToolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer/> 
+                    <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                    <Button	icon="sap-icon://add" press="OnPressAddNewEntryEnvTable2" tooltip = "Add New Entry"/>
+                <!--    <Button	icon="sap-icon://less" press="" tooltip = "Remove Selected Entry"/>  mk -->
+                </OverflowToolbar>
+            </infoToolbar>
+            <columns>
+                <Column hAlign="Center" width="4em">
+                    <Text text="S/No" ></Text>
+                </Column>
+                <Column hAlign="Center" width="10em">
+                    <Text text="Date" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="Value" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="Unit" ></Text>
+                </Column>
+                <Column hAlign="Center"  demandPopin="true">
+                    <Text text="Cost" ></Text>
+                </Column>
+                <Column demandPopin="true">
+                    <Text text="Currency" ></Text>
+                </Column>
+                <Column  hAlign="Center"  >
+                    <Text text="Class" ></Text>
+                </Column>
+                <Column  hAlign="Center"  >
+                    <Text text="Quality" ></Text>
+                </Column>
+                <Column  hAlign="Center"  >
+                    <Text text="Comment" ></Text>
+                </Column>
+               <!-- <Column hAlign="Center" >
+                    <Text text="Owner" ></Text>
+                </Column>
+                <Column hAlign="Center"  >
+                    <Text text="Approver" ></Text>
+                </Column>-->
+
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                       <Text text="{EnvModel>Sno}" />                     
+                       
+                       <DatePicker id="DP1" value="{EnvModel>Date}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" />
+
+                      <!--<DatePicker id="DP1" value="{ path:'EnvModel>Date', formatter: '.formatDate'}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" />-->
+                
+
+                       
+                       <!--<DatePicker
+							id="DP1"
+							value="{EnvModel>Date}"
+							formatPattern="yyyy"
+							/>-->
+                       <Input value="{EnvModel>Value}" placeholder="Value"/>
+                       <!--<Input value="{EnvModel>Unit}" placeholder="Value"/>-->
+                       <HBox>
+                            <Input value="{EnvModel>Unit}" visible="{EnvModel>isExistingRow}" editable="false"/>
+                            <ComboBox xmlns="sap.m" id="cbUnitTable2" selectionChange="onChangeUnit"
+                                items  ="{ path : 'UOMListModel>/results' ,templateShareable:true}" 
+                                    selectedKey="{EnvModel>Unit}" editable="true" visible="{EnvModel>isNewRow}">
+                                    <core:Item xmlns:core="sap.ui.core" key="{UOMListModel>Abbreviation}" text="{UOMListModel>Abbreviation}"/>                                
+                            </ComboBox>
+                        </HBox>
+                       <Input value="{EnvModel>Cost}" placeholder="Value"/>
+                       <!--<Input value="{EnvModel>Currency}" placeholder="Value"/>-->
+                       <HBox>
+                            <Input value="{EnvModel>Currency}" visible="{EnvModel>isExistingRow}" editable="{EnvModel>isNewRow}"/>
+                            <ComboBox xmlns="sap.m" id="currency_Table2" selectionChange="onChangeCurrency"
+                                    items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'Currency' } ] }"  
+                                    selectedKey="{EnvModel>Currency}" editable="true" visible="{EnvModel>isNewRow}">                                                
+                                <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                    text="{ConstantsModel>Value}"/>                                        
+                            </ComboBox> 
+                        </HBox>
+                       <!--<Input value="{EnvModel>Class}" placeholder="Value"/>-->
+                       <!--added for class combo box-->
+                       <HBox>
+                            <Input value="{EnvModel>Class}" visible="{EnvModel>isExistingRow}" editable="{EnvModel>isNewRow}"/>
+                            <ComboBox xmlns="sap.m" id="Class" selectionChange=""
+                                    items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'CLASS' } ] }"  
+                                    selectedKey="{EnvModel>class}" editable="true" visible="{EnvModel>isNewRow}">                                                
+                                <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                    text="{ConstantsModel>Value}"/>                                        
+                            </ComboBox> 
+                        </HBox>
+<!--
+                        <HBox>
+                            <Input value="{EnvModel>Sno}" placeholder="Value"/>
+                            <ComboBox xmlns="sap.m" id="envTable2Currency" selectionChange=""
+                                    items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'Currency' } ] }"  
+                                    selectedKey="{EnvModel>Currency}" editable="true" >                                                
+                                <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                    text="{ConstantsModel>Value}"/>                                        
+                            </ComboBox> 
+                        </HBox>
+                        -->
+                        <Switch id ="switch2" type="AcceptReject" state="{ path:'EnvModel>Quality', formatter: '.formatQuality'}">                        
+                            <layoutData>
+                                <FlexItemData growFactor="1"/>
+                            </layoutData>
+                        </Switch>
+                       <Input value="{EnvModel>Comment}" placeholder="Value"/>
+                       <!--<Text text="{EnvModel>Owner}" placeholder="Value"/>
+                       <Text text="{EnvModel>Approver}" placeholder="Value"/>-->
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+</core:FragmentDefinition>

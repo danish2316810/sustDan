@@ -1,0 +1,143 @@
+POST http://localhost:4004/catalog/$batch HTTP/1.1
+Host: host
+OData-Version: 4.0
+Content-Type: multipart/mixed; boundary=batch_52e1-93c6-33b0
+
+Content-Length: 1862
+
+ 
+
+
+--batch_52e1-93c6-33b0
+Content-Type: multipart/mixed; boundary=changeset_1ecf-20cb-bbaf
+
+--changeset_1ecf-20cb-bbaf
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+POST Environment_Report HTTP/1.1
+sap-contextid-accept: header
+Accept: application/json
+Accept-Language: en-US
+DataServiceVersion: 2.0
+MaxDataServiceVersion: 2.0
+X-Requested-With: XMLHttpRequest
+Content-Type: application/json
+Content-ID: id-1672908902729-195
+Content-Length: 467
+
+{"Year":"2020","Month":"February","Location":"Bangalore - TMEC","Type":"ENERGY","SubType":"Direct Energy","KPI":"HSD","Value":4.4,"Unit":"kL","Cost":0,"Currency":"INR","Quality":"OK","Comment":"NA","Owner":"","Approver":"","Division":"ACME Industries","Sno":0,"Date":null,"Value2":null,"Distance":null,"Weight":null,"Scope":"","Associates":null,"Logic":"Logic 1","Measure":"Volume","GRIStd":"305-1","SDG":"SDG 13: Climate Action","RenNon":null,"FValue":0,"FValue1":0}
+--changeset_1ecf-20cb-bbaf
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+POST Environment_Report HTTP/1.1
+sap-contextid-accept: header
+Accept: application/json
+Accept-Language: en-US
+DataServiceVersion: 2.0
+MaxDataServiceVersion: 2.0
+X-Requested-With: XMLHttpRequest
+Content-Type: application/json
+Content-ID: id-1672908902730-197
+Content-Length: 465
+
+{"Year":"2020","Month":"March","Location":"Bangalore - TMEC","Type":"ENERGY","SubType":"Direct Energy","KPI":"HSD","Value":10.5,"Unit":"kL","Cost":0,"Currency":"INR","Quality":"OK","Comment":"NA","Owner":"","Approver":"","Division":"ACME Industries","Sno":0,"Date":null,"Value2":null,"Distance":null,"Weight":null,"Scope":"","Associates":null,"Logic":"Logic 1","Measure":"Volume","GRIStd":"305-1","SDG":"SDG 13: Climate Action","RenNon":null,"FValue":0,"FValue1":0}
+--changeset_1ecf-20cb-bbaf--
+
+--batch_52e1-93c6-33b0--
+
+###
+##
+POST /catalog/$batch HTTP/1.1
+Host: localhost:4004
+Content-Type: application/json
+Content-Length: 1721
+
+{
+    "requests": [
+     
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r2",
+            "method": "POST",
+            "url": "/Environment_Report",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+       "Year": "2020",
+  "Month": "February",
+  "Location": "Bangalore - TMEC",
+  "Type": "ENERGY",
+  "SubType": "Direct Energy",
+  "KPI": "HSD",
+  "Value": 4.4,
+  "Unit": "kL",
+  "Cost": 0,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Owner": "",
+  "Approver": "",
+  "Division": "ACME Industries",
+  "Sno": 0,
+  "Date": null,
+  "Value2": null,
+  "Distance": null,
+  "Weight": null,
+  "Scope": "",
+  "Associates": null,
+  "Logic": "Logic 1",
+  "Measure": "Volume",
+  "GRIStd": "305-1",
+  "SDG": "SDG 13: Climate Action",
+  "RenNon": null,
+  "FValue": 0,
+  "FValue1": 0
+ }
+        },
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r3",
+            "method": "POST",
+            "url": "/Environment_Report",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+       "Year": "2020",
+  "Month": "March",
+  "Location": "Bangalore - TMEC",
+  "Type": "ENERGY",
+  "SubType": "Direct Energy",
+  "KPI": "HSD",
+  "Value": 10.5,
+  "Unit": "kL",
+  "Cost": 0,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Owner": "",
+  "Approver": "",
+  "Division": "ACME Industries",
+  "Sno": 0,
+  "Date": null,
+  "Value2": null,
+  "Distance": null,
+  "Weight": null,
+  "Scope": "",
+  "Associates": null,
+  "Logic": "Logic 1",
+  "Measure": "Volume",
+  "GRIStd": "305-1",
+  "SDG": "SDG 13: Climate Action",
+  "RenNon": null,
+  "FValue": 0,
+  "FValue1": 0
+ }
+        }
+    ]
+}

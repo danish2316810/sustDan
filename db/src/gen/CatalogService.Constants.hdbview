@@ -1,0 +1,4 @@
+VIEW CatalogService_Constants AS SELECT
+  Constants_0.ID,
+  Constants_0.Value
+FROM app_interactions_Constants AS Constants_0

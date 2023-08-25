@@ -1,0 +1,13 @@
+VIEW CatalogService_PeopleImperative AS SELECT
+  PeopleImperative_0.Type,
+  PeopleImperative_0.SubType,
+  PeopleImperative_0.Category,
+  PeopleImperative_0.Gender,
+  PeopleImperative_0.Upto30yrs,
+  PeopleImperative_0.Upto50yrs,
+  PeopleImperative_0.Morethan50Yrs,
+  PeopleImperative_0.Total,
+  PeopleImperative_0.Division,
+  PeopleImperative_0.Location,
+  PeopleImperative_0."YEAR"
+FROM app_interactions_PeopleImperative AS PeopleImperative_0

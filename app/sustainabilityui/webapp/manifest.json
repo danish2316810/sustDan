@@ -1,0 +1,221 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+      "id": "com.techm.sustainabilityui",
+      "type": "application",
+      "i18n": "i18n/i18n.properties",
+      "applicationVersion": {
+        "version": "0.0.1"
+      },
+      "title": "{{appTitle}}",
+      "description": "{{appDescription}}",
+      "resources": "resources.json",
+      "dataSources": {
+        "mainService": {
+          "uri": "/v2/catalog/",
+          "type": "OData",
+          "settings": {
+              "odataVersion": "2.0"
+          }
+        }
+      }
+    },
+    "sap.ui": {
+      "technology": "UI5",
+      "icons": {
+        "icon": "",
+        "favIcon": "",
+        "phone": "",
+        "phone@2": "",
+        "tablet": "",
+        "tablet@2": ""
+      },
+      "deviceTypes": {
+        "desktop": true,
+        "tablet": true,
+        "phone": true
+      }
+    },
+    "sap.ui5": {
+      "flexEnabled": true,
+      "dependencies": {
+        "minUI5Version": "1.102.19",
+        "libs": {
+          "sap.m": {},
+          "sap.ui.core": {},
+          "sap.f": {},
+          "sap.suite.ui.generic.template": {},
+          "sap.ui.comp": {},
+          "sap.ui.generic.app": {},
+          "sap.ui.table": {},
+          "sap.ushell": {}
+        }
+      },
+      "contentDensities": {
+        "compact": true,
+        "cozy": true
+      },
+      "models": {
+        "i18n": {
+          "type": "sap.ui.model.resource.ResourceModel",
+          "settings": {
+            "bundleName": "com.techm.sustainabilityui.i18n.i18n"
+          }
+        },
+        "Nodes":{
+          "type":"sap.ui.model.json.JSONModel",
+          "uri":"./model/Nodes.json"
+         },
+        "dataModel": {
+          "dataSource": "mainService",
+          "preload": true,
+          "settings": {
+              "BindingMode": "OneWay",
+              "operationMode": "Server",
+              "CountMode": "Request",
+              "useBatch": false
+          }
+        }
+      },
+      "resources": {
+        "css": [
+          {
+            "uri": "css/style.css"
+          }
+        ]
+      },
+      "routing": {
+        "config": {
+          "routerClass": "sap.m.routing.Router",
+          "viewType": "XML",
+          "async": true,
+          "viewPath": "com.techm.sustainabilityui.view",
+          "controlAggregation": "pages",
+          "controlId": "app",
+          "clearControlAggregation": false
+        },
+        "routes": [
+          {
+              "name": "Launchpad",
+              "pattern": "Launchpad",
+              "target": "Launchpad"
+          },
+          {
+              "name": "TrackerForm",
+              "pattern": "TrackerForm",
+              "target": "TrackerForm"
+          },
+          {
+              "name": "HumanResource",
+              "pattern": "HumanResource",
+              "target": "HumanResource"
+          },
+          {
+              "name": "Finance",
+              "pattern": "Finance",
+              "target": "Finance"
+          },
+          {
+              "name": "Dashboard",
+              "pattern": "Dashboard",
+              "target": "Dashboard"
+          },
+          {
+              "name": "Admin",
+              "pattern": "Admin",
+              "target": "Admin"
+          },
+          {
+              "name": "MiningForm",
+              "pattern": "MiningForm",
+              "target": "MiningForm"
+          },
+          {
+              "name": "Environment",
+              "pattern": "Environment",
+              "target": "Environment"
+          },
+          {
+              "name": "Social",
+              "pattern": "Social",
+              "target": "Social"
+          },
+          {
+            "name": "Login",
+            "pattern": "Login",
+            "target": "Login"
+          },
+          {
+            "name": "BulkUpload",
+            "pattern": "BulkUpload",
+            "target": "BulkUpload"
+          }
+        ],
+        "targets": {
+          "Launchpad": {
+              "viewType": "XML",
+              "transition": "slide",
+              "clearControlAggregation": false,
+              "viewId": "Launchpad",
+              "viewName": "Launchpad"
+          },
+          "TrackerForm": {
+              "viewType": "XML",
+              "viewId": "TrackerFormId",           
+              "viewName": "TrackerForm"
+          },
+          "HumanResource": {
+              "viewType": "XML",
+              "viewId": "HumanResource",           
+              "viewName": "HumanResource"
+          },
+          "Finance": {
+              "viewType": "XML",
+              "viewId": "Finance",           
+              "viewName": "Finance"
+          },
+          "Dashboard": {
+              "viewType": "XML",
+              "viewId": "Dashboard",           
+              "viewName": "Dashboard"
+          },
+          "Admin": {
+              "viewType": "XML",
+              "viewId": "Admin",           
+              "viewName": "Admin"
+          },
+          "MiningForm": {
+              "viewType": "XML",
+              "viewId": "MiningForm",           
+              "viewName": "MiningForm"
+          },
+          "Environment": {
+              "viewType": "XML",
+              "viewId": "Environment",           
+              "viewName": "Environment"
+          },
+          "Social": {
+              "viewType": "XML",
+              "viewId": "Social",           
+              "viewName": "Social"
+          },
+          "Login": {
+            "viewType": "XML",
+            "viewId": "Login",           
+            "viewName": "Login"
+          },
+          "BulkUpload": {
+            "viewType": "XML",
+            "viewId": "BulkUpload",           
+            "viewName": "BulkUpload"
+          }
+        }
+      },
+      "rootView": {
+        "viewName": "com.techm.sustainabilityui.view.Launchpad",
+        "type": "XML",
+        "async": true,
+        "id": "TrackerForm"
+      }
+    }
+  }

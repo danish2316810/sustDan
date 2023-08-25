@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified" xmlns:uxap="sap.uxap"
+    xmlns:u="sap.ui.unified">
+    
+    <Table id="SocialTableC" alternateRowColors="true" growing="true"  width="90%"  sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+            items="{path: 'SocialModel>/results'}" mode="MultiSelect">
+            <headerToolbar></headerToolbar>
+            <infoToolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer/> 
+                    <Button	icon="sap-icon://add" press="OnPressAddNewEntry" tooltip = "Add New Entry"/>              
+                </OverflowToolbar>
+            </infoToolbar>
+            <columns>
+                <Column >
+                 <!--<Text id="ColHeaderSocialTableC" text="Benefits" ></Text>               -->
+                    <Text id="ColHeaderSocialTableC" text="" ></Text>               
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="Response" ></Text>
+                </Column>
+               
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Input value="{SocialModel>Identifier}" width="20rem"/>
+                     <!--   <Text text="{SocialModel>Response}" /> 
+                        <Switch id ="" type="AcceptReject"  state="{ path:'SocialModel>Response', formatter: '.formatQuality'}">                        
+                            <layoutData>
+                                <FlexItemData growFactor="1"/>
+                            </layoutData>
+                        </Switch> -->
+                        <Switch type="AcceptReject" state="true">
+				<layoutData>
+					<FlexItemData growFactor="1" />
+				</layoutData>
+			</Switch>
+			
+
+                                             
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+       
+</core:FragmentDefinition>

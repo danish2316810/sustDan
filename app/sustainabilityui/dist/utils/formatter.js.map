@@ -1,0 +1,1 @@
+{"version":3,"file":"formatter.js","names":["sap","ui","define","formatField","isNewRow","isEditableRow","isExistingRow"],"sources":["formatter-dbg.js"],"mappings":"AACAA,IAAIC,GAAGC,OAAO,GAAI,WACjB,aACA,MAAO,CACNC,YAAa,SAAUC,EAAUC,EAAeC,GACtC,GAAGF,GAAYC,EAAc,CACzB,OAAO,IACX,MACK,GAAGC,EAAe,CACnB,OAAO,KACX,CACA,OAAO,KAEjB,EAEF"}

@@ -1,0 +1,16 @@
+COLUMN TABLE app_interactions_SupplierSurvey (
+  SurveyID INTEGER NOT NULL,
+  SupplierID INTEGER NOT NULL,
+  ReportingYear NVARCHAR(5000),
+  Section NVARCHAR(5000),
+  SurveyResponse NVARCHAR(5000),
+  SurveyResponseValue DECIMAL,
+  Fvalue DECIMAL,
+  FValue1 DECIMAL,
+  EmissionLogic NVARCHAR(50),
+  EnergyLogic NVARCHAR(5000),
+  Ratings DECIMAL,
+  Remarks NVARCHAR(5000),
+  Industry NVARCHAR(50),
+  PRIMARY KEY(SurveyID, SupplierID)
+)

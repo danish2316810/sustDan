@@ -1,0 +1,12 @@
+COLUMN TABLE app_interactions_LocationKPI (
+  LocKPIId INTEGER NOT NULL,
+  LocKpiName NVARCHAR(5000),
+  LocId INTEGER,
+  BaselineWaterStress INTEGER,
+  FacilityType INTEGER,
+  ProAreaName NVARCHAR(5000),
+  ProAreaDesgn INTEGER,
+  ProAreaDist INTEGER,
+  ReportingYear DATE,
+  PRIMARY KEY(LocKPIId)
+)

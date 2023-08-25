@@ -1,0 +1,1637 @@
+<mvc:View controllerName="com.techm.sustainabilityui.controller.Admin" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table" 
+xmlns:core="sap.ui.core" displayBlock="true" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" xmlns:layout="sap.ui.layout" 
+xmlns:uxap="sap.uxap" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified" >
+    <Page enableScrolling="false">
+        <customHeader>
+            <Bar class="headerBar">
+                <contentLeft>
+                    <Button icon="sap-icon://nav-back" press="onPressBack" class="sapUiSmallMarginEnd" />
+                    <Image src="./images/JS1.png" class="sapUiSmallMarginEnd" />
+                </contentLeft>
+                <contentMiddle>
+                    <HBox>
+                        <Image src="./images/iSustainLogo_01.png" class="titleAlign sapUiTinyMarginTop " />
+                        <Title level="H6" text="TechM Sustainability Reporting Framework" class="sapUiSmallMarginTop sapUiTinyMarginBegin fntBold" />
+                        <Image src="./images/btp.jpg" class="sapUiSmallMarginTop sapUiTinyMarginBegin" />
+                    </HBox>
+                </contentMiddle>
+                <contentRight>
+                    <Image src="./images/avatar2.png" densityAware="false" />
+                    <Text text="Welcome, Michael Clark!" class="userName" />
+                    <Button icon="sap-icon://arrow-down" />
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>
+         <!--added newly-->
+           <!-- <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.filter" type="XML" />-->
+
+            <TabContainer id="myTabContainer" showAddNewButton="false" class="sapUiResponsiveContentPadding sapUiResponsivePadding--header noCloseButtons" 
+                addNewButtonPress="" itemClose="" itemSelect="itemSelectHandler">
+                <items>                  
+                    <TabContainerItem  name="Corporate Structure" id="CorporateStructure" >
+                            <content>
+                                <TabContainer id="myTabContainer1" showAddNewButton="false" class="sapUiResponsiveContentPadding sapUiResponsivePadding--header noCloseButtons" 
+                                addNewButtonPress="" itemClose="" itemSelect="itemSelectHandlerMyTab1">
+                                    <items>
+                                         <TabContainerItem  name="Division" id="Division" >
+                                            <content>
+                                            <ScrollContainer
+                                                height="80%"
+                                                width="100%"
+                                                vertical="true"
+                                                focusable="true">
+                                                <Table id="tblDivision" 
+                                                    items="{ path : 'divisionModel>/results' ,templateShareable:false }"
+                                                    width="40%"
+                                                    mode="MultiSelect"
+                                                    class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                                                    alternateRowColors="true"
+                                                    growing="true"
+                                                    sticky="ColumnHeaders,HeaderToolbar,InfoToolbar">
+                                                    <headerToolbar />
+                                                    <infoToolbar>
+                                                        <OverflowToolbar>
+                                                            <ToolbarSpacer />
+                                                            <Label text="Division" />
+                                                            <ToolbarSpacer />
+                                                            <Button icon="sap-icon://add" press="OnPressAddNewEntry_Division" tooltip="Add New Entry" />                                       
+                                                        </OverflowToolbar>
+                                                    </infoToolbar>
+                                                    <columns>
+                                                        <Column >
+                                                            <Text text="Select All" class="fntItalic" />
+                                                        </Column>
+                                                    </columns>
+                                                    <items>
+                                                        <ColumnListItem>
+                                                            <cells>                                            
+                                                                <HBox>
+                                                                    <Text text="{divisionModel>Division}" visible="{parts: [{path: 'divisionModel>isNewRow'}, {path: 'divisionModel>isEditableRow'}, {path: 'divisionModel>isExistingRow'}],
+                                                                            formatter: '.formatDisplayField'}" />
+                                                                    <Input value="{divisionModel>Division}" visible="{parts: [{path: 'divisionModel>isNewRow'}, {path: 'divisionModel>isEditableRow'}, {path: 'divisionModel>isExistingRow'}],
+                                                                            formatter: '.formatEditField'}" />
+                                                                </HBox>	
+                                                            </cells>
+                                                        </ColumnListItem>
+                                                    </items>
+                                                </Table>
+                                                </ScrollContainer>
+                                                
+                                            </content>
+                                        </TabContainerItem>
+                                        <TabContainerItem name="Location" id="Location">
+                                            <content>
+                                            <ScrollContainer
+                                                height="80%"
+                                                width="100%"
+                                                vertical="true"
+                                                focusable="true">
+                                                <Table id="tblLocation"                               
+                                                    items="{ path : 'locationModel>/results' ,templateShareable:false   }"
+                                                    width="40%"
+                                                    mode="MultiSelect"
+                                                    class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                                                    alternateRowColors="true"
+                                                    growing="true"
+                                                    sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+                                                    updateFinished="onUpdateFinished"
+                                                >
+                                                    <headerToolbar />
+                                                    <infoToolbar>
+                                                        <OverflowToolbar>
+                                                            <ToolbarSpacer />
+                                                            <Label text="Location" />
+                                                            <ToolbarSpacer />
+                                                            <Button icon="sap-icon://add" press="OnPressAddNewEntry_Location" tooltip="Add New Entry" />                                       
+                                                        </OverflowToolbar>
+                                                    </infoToolbar>
+                                                    <columns>
+                                                        <Column>
+                                                            <Text text="Select All" class="fntItalic" />
+                                                        </Column>
+                                                    </columns>
+                                                    <items>
+                                                        <ColumnListItem>
+                                                            <cells>                                            
+                                                                <HBox>
+                                                                    <Text text="{locationModel>Location}" visible="{parts: [{path: 'locationModel>isNewRow'}, {path: 'locationModel>isEditableRow'}, {path: 'locationModel>isExistingRowis'}],
+                                                                            formatter: '.formatDisplayField'}" />
+                                                                    <Input value="{locationModel>Location}" visible="{parts: [{path: 'locationModel>isNewRow'}, {path: 'locationModel>isEditableRow'}, {path: 'locationModel>isExistingRow'}],
+                                                                            formatter: '.formatEditField'}" />
+                                                                </HBox>
+                                                            </cells>
+                                                        </ColumnListItem>
+                                                    </items>
+                                                </Table>
+                                                </ScrollContainer>
+                                            </content>
+                                        </TabContainerItem>
+                                    </items>
+                                </TabContainer>
+                            </content>
+                    </TabContainerItem>
+
+                    <!--<TabContainerItem  name="Division" id="Division" >
+                        <content>
+                        <ScrollContainer
+                            height="80%"
+                            width="100%"
+                            vertical="true"
+                            focusable="true">
+                            <Table id="tblDivision" 
+                                items="{ path : 'divisionModel>/results' ,templateShareable:false }"
+                                width="40%"
+                                mode="MultiSelect"
+                                class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                                alternateRowColors="true"
+                                growing="true"
+                                sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+                            >
+                                <headerToolbar />
+                                <infoToolbar>
+                                    <OverflowToolbar>
+                                        <ToolbarSpacer />
+                                        <Label text="Division" />
+                                        <ToolbarSpacer />
+                                        <Button icon="sap-icon://add" press="OnPressAddNewEntry_Division" tooltip="Add New Entry" />                                       
+                                    </OverflowToolbar>
+                                </infoToolbar>
+                                <columns>
+                                    <Column >
+                                        <Text text="Select All" class="fntItalic" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>                                            
+                                            <HBox>
+                                                <Text text="{divisionModel>Division}" visible="{parts: [{path: 'divisionModel>isNewRow'}, {path: 'divisionModel>isEditableRow'}, {path: 'divisionModel>isExistingRow'}],
+                                                        formatter: '.formatDisplayField'}" />
+                                                <Input value="{divisionModel>Division}" visible="{parts: [{path: 'divisionModel>isNewRow'}, {path: 'divisionModel>isEditableRow'}, {path: 'divisionModel>isExistingRow'}],
+                                                        formatter: '.formatEditField'}" />
+                                            </HBox>	
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                            </ScrollContainer>
+                           
+                        </content>
+                    </TabContainerItem>
+                    <TabContainerItem name="" id="Location">
+                        <content>
+                        <ScrollContainer
+                            height="80%"
+                            width="100%"
+                            vertical="true"
+                            focusable="true">
+                            <Table id="tblLocation"                               
+                                items="{ path : 'locationModel>/results' ,templateShareable:false   }"
+                                width="40%"
+                                mode="MultiSelect"
+                                class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                                alternateRowColors="true"
+                                growing="true"
+                                sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+                                updateFinished="onUpdateFinished"
+                            >
+                                <headerToolbar />
+                                <infoToolbar>
+                                    <OverflowToolbar>
+                                        <ToolbarSpacer />
+                                        <Label text="Location" />
+                                        <ToolbarSpacer />
+                                        <Button icon="sap-icon://add" press="OnPressAddNewEntry_Location" tooltip="Add New Entry" />                                       
+                                    </OverflowToolbar>
+                                </infoToolbar>
+                                <columns>
+                                    <Column>
+                                        <Text text="Select All" class="fntItalic" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>                                            
+                                            <HBox>
+                                                <Text text="{locationModel>Location}" visible="{parts: [{path: 'locationModel>isNewRow'}, {path: 'locationModel>isEditableRow'}, {path: 'locationModel>isExistingRowis'}],
+                                                        formatter: '.formatDisplayField'}" />
+                                                <Input value="{locationModel>Location}" visible="{parts: [{path: 'locationModel>isNewRow'}, {path: 'locationModel>isEditableRow'}, {path: 'locationModel>isExistingRow'}],
+                                                        formatter: '.formatEditField'}" />
+                                            </HBox>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                             </ScrollContainer>
+                        </content>
+                    </TabContainerItem>-->
+                    <TabContainerItem name="Reporting Year" id="Year">
+                        <content>
+                            <!--<Table
+                                items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Year' } ] }"
+                                width="40%"
+                                mode="MultiSelect"
+                                class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                                alternateRowColors="true"
+                                growing="true"
+                                sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+                            >
+                                <headerToolbar />
+                                <infoToolbar>
+                                    <OverflowToolbar>
+                                        <ToolbarSpacer />
+                                        <Label text="Year" />
+                                        <ToolbarSpacer />
+                                        <Button icon="sap-icon://add" press="onDataExport" tooltip="Add New Entry" />                                       
+                                    </OverflowToolbar>
+                                </infoToolbar>
+                                <columns>
+                                    <Column>
+                                        <Text text="Value" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <Text text="{ConstantsModel>Value}" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>-->
+
+                            <Table id="generalYearTbl" items="{path: 'yearModel>/results'}" width="60%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin">
+                                <headerToolbar></headerToolbar>
+                                <infoToolbar>
+                                    <OverflowToolbar>
+                                        <ToolbarSpacer/>
+                                        <Label text="Fiscal Year"/>
+                                        <ToolbarSpacer/>
+                                        <Button	icon="sap-icon://add" press="OnPressAddNewEntry_General_Year" tooltip = "Add New Entry"/>                                        
+                                    </OverflowToolbar>
+                                </infoToolbar>
+                                <columns>     
+                                   <Column class="sapUiSmallMargin" >
+                                        <Text text="Name"/>
+                                    </Column>                   
+                                    <Column class="sapUiSmallMargin" >
+                                        <Text text="From Date"/>
+                                    </Column> 
+                                    <Column class="sapUiSmallMargin" >
+                                        <Text text="To Date"/>
+                                    </Column>    
+                                    <Column class="sapUiSmallMargin" >
+                                        <Text text="Reporting Year"/>
+                                    </Column>                                                                                 									
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem >                                                    
+                                            <cells> 
+                                                
+                                                <HBox>
+                                                    <Text text="{yearModel>fiscal}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />                                                    
+                                                    <!--<Input value="{yearModel>fiscal}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}" placeholder="Name"/>-->
+                                                    <Input value="{yearModel>fiscal}" visible="{yearModel>isNewRow}" placeholder="Name"/>
+                                                </HBox>
+                                                <HBox>
+                                                    <Text text="{yearModel>StartDate}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRowis'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <DatePicker value="{yearModel>StartDate}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}" id="FromDP" placeholder="Start Date" displayFormat="long"/>
+                                                </HBox>	 
+                                                    
+                                                <HBox>
+                                                    <Text text="{yearModel>EndDate}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRowis'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <DatePicker value="{yearModel>EndDate}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}" id="ToDP" placeholder="End Date" displayFormat="long"/>
+                                                </HBox>	   
+                                                <Text text="{yearModel>YearA}" id="yearA" />          
+                                            </cells>                                                    
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                                <!--Value help-->
+                              <!--  <Input
+                                    id="productInput"
+                                    textFormatMode="KeyValue"
+                                    placeholder="Enter product"
+                                    showSuggestion="true"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onValueHelpRequest"
+                                    suggestionItems="{/Product}"
+                                    suggestionItemSelected=".onSuggestionItemSelected">
+                                    <suggestionItems>
+                                        <core:ListItem
+                                            key="{ProductId}"
+                                            text="{Name}"
+                                            additionalText="{ProductId}" />
+                                    </suggestionItems>
+                                </Input>-->
+                               
+
+                                <!--	<MultiInput width="40%"
+                                        id="multiInput1"
+                                        suggestionItems="{
+                                            path: '/Product',
+                                            sorter: { path: 'Name',
+                                            templateShareable:true
+                                             }
+                                        }"
+                                        valueHelpRequest="onValueHelpRequest">
+                                        <core:Item key="{Name}" text="{Name}" />
+                                    </MultiInput>-->
+             
+                                <!--Value help end-->
+                        </content>
+                    </TabContainerItem>
+
+                    <TabContainerItem name="Measure" id="UoM">
+                        <content>
+                            <RadioButtonGroup id="UoM_Measure" columns="2" width="100%" class="sapUiMediumMarginBottom" select="onSelect_Radiobutton_General" selectedIndex="0">
+                                <RadioButton text="Measure Types" />
+                                <RadioButton text="UoM Values" />
+                            </RadioButtonGroup>
+
+                            <HBox id="uomValues" visible="false">                            
+                                <VBox class="sapUiLargeMargin">                                  
+                                    <RadioButtonGroup id="GroupA" select="onSelect_Radiobutton_UOM" buttons="{ path : 'generalModel>/results' ,templateShareable:false}">
+                                        <RadioButton text="{generalModel>Value}" />
+                                    </RadioButtonGroup>                                   
+                                </VBox>
+                                <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.UOM" type="XML" />
+                            </HBox>
+
+                            <VBox class="sapUiSmallMargin" id="meaType">                                    
+                                    <Table id="generalTbl" items="{path: 'generalModel>/results'}" width="40%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin">
+                                        <headerToolbar></headerToolbar>
+                                        <infoToolbar>
+                                            <OverflowToolbar>
+                                                <ToolbarSpacer/>
+                                                <Label text="Measure Types"/>
+                                                <ToolbarSpacer/>
+                                                <Button	icon="sap-icon://add" press="OnPressAddNewEntry_General" tooltip = "Add New Entry"/>                                                            
+                                                <!--<Button	icon="sap-icon://less" press="" tooltip = "Remove Selected Entry"/>-->
+                                            </OverflowToolbar>
+                                        </infoToolbar>
+                                        <columns>                        
+                                            <Column >
+                                                <Text text="Select All" class="fntItalic" />
+                                            </Column>                                                                                      									
+                                            </columns>
+                                            <items>
+                                                <ColumnListItem >                                                    
+                                                    <cells>                                    
+                                                        <!--<Input value="{generalModel>Value}"/>																	-->
+                                                        <HBox>
+                                                            <Text text="{generalModel>Value}" visible="{parts: [{path: 'generalModel>isNewRow'}, {path: 'generalModel>isEditableRow'}, {path: 'generalModel>isExistingRowis'}],
+                                                                    formatter: '.formatDisplayField'}" />
+                                                            <Input value="{generalModel>Value}" visible="{parts: [{path: 'generalModel>isNewRow'}, {path: 'generalModel>isEditableRow'}, {path: 'generalModel>isExistingRow'}],
+                                                                    formatter: '.formatEditField'}" />
+                                                        </HBox>	
+                                                    </cells>                                                    
+                                                </ColumnListItem>
+                                            </items>
+                                        </Table>
+                                </VBox>
+
+
+                        </content>
+                    </TabContainerItem>
+
+                    <TabContainerItem  name="Factors" id="Factors" >
+                            <content>
+                        <TabContainer id="myTabContainer2" showAddNewButton="false" class="sapUiResponsiveContentPadding sapUiResponsivePadding--header noCloseButtons" 
+                                addNewButtonPress="" itemClose="" itemSelect="itemSelectHandlerMyTab2">
+                                    <items>
+									 
+
+                    <TabContainerItem name="Conversion Factors" id="UoM_Conversions">
+                        <content>
+                            <RadioButtonGroup id="conversions" columns="2" width="100%" class="sapUiMediumMarginBottom" select="onSelect_Convs" selectedIndex="0">
+                                <RadioButton text="UoM Conversions" />
+                                <RadioButton text="Measure Conversions" />
+                            </RadioButtonGroup>
+
+                            <HBox id="uom">
+                                <VBox class="sapUiLargeMargin">
+                                    <!--<RadioButtonGroup id="GroupB" select="onSelect_Radiobutton_UOMConvs" buttons="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'Measure' } ] }">
+                                        <RadioButton text="{ConstantsModel>Value}" />
+                                    </RadioButtonGroup>-->                                    
+                                    <RadioButtonGroup id="GroupB" select="onSelect_Radiobutton_UOMConvs" buttons="{ path : 'generalModel>/results' ,templateShareable:false}">
+                                        <RadioButton text="{generalModel>Value}" />
+                                    </RadioButtonGroup>
+                                </VBox>
+                                <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.UOMConvTable" type="XML" />
+                            </HBox>
+
+                            <HBox id="measure" visible="false">
+                                <VBox class="sapUiLargeMargin" >                                                                      
+                                    <RadioButtonGroup id="GroupMeasure" select="onSelect_Radiobutton_MeasureConvs" buttons="{ path : 'generalModel>/results' ,templateShareable:false}">
+                                        <RadioButton text="{generalModel>Value}" />
+                                    </RadioButtonGroup>
+                                </VBox>
+                                <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.MeasureConvTable" type="XML" />
+                            </HBox>
+
+                            <!--<HBox id="energy" visible="false" >
+                                <VBox class="sapUiLargeMargin">                                    
+                                    <RadioButtonGroup id="GroupC" select="onSelect_Radiobutton_Energy" buttons="{ path : 'EmissionModel>/' }">
+                                        <RadioButton text="{EmissionModel>}" />
+                                    </RadioButtonGroup>
+                                </VBox>                                
+                                <VBox class="sapUiSmallMargin">
+                                    <HBox>
+                                        <Label text="Sub Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+                                        <ComboBox xmlns="sap.m" id="Sub_Type" items="{ path : '/Countries' }" selectionChange="onChange_Energy" selectedKey="">
+                                            <core:Item xmlns:core="sap.ui.core" key="{SubType}" text="{SubType}" />
+                                        </ComboBox>
+                                    </HBox>
+                                    <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.Energy" type="XML" />
+                                </VBox>
+                            </HBox>-->
+
+                        </content>
+                    </TabContainerItem>
+
+                     <TabContainerItem name="Energy Factors" id="Energy_Factors">
+                        <content>
+                              <HBox id="energy" >
+                                <VBox class="sapUiLargeMargin">                                    
+                                    <RadioButtonGroup id="GroupC" select="onSelect_Radiobutton_Energy" buttons="{ path : 'EmissionModel>/' }">
+                                        <RadioButton text="{EmissionModel>}" />
+                                    </RadioButtonGroup>
+                                </VBox>                                
+                                <VBox class="sapUiSmallMargin">
+                                    <HBox>
+                                        <Label text="Sub Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+                                        <ComboBox xmlns="sap.m" id="Sub_Type" items="{ path : '/Countries' }" selectionChange="onChange_Energy" selectedKey="">
+                                            <core:Item xmlns:core="sap.ui.core" key="{SubType}" text="{SubType}" />
+                                        </ComboBox>
+                                    </HBox>
+                                    <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.Energy" type="XML" />
+                                </VBox>
+                            </HBox>
+                        </content>
+                    </TabContainerItem>
+                    <!--Emission Factors Start-->
+
+                    <TabContainerItem name="Emission Factors" id="Emission_Factors">
+                        <content>
+                            <RadioButtonGroup id="efStd_RB" columns="2" width="100%" class="sapUiTinyMarginBottom" select="onSelect_EF" selectedIndex="0">
+                                <RadioButton text="DEFRA" />
+                                <RadioButton text="User Defined" />
+                            </RadioButtonGroup>
+                            <HBox >                                
+                                <VBox >
+                                    <HBox id="Defra" class="sapUiSmallMargin">
+                                        <Label text="Year" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+                                        <ComboBox xmlns="sap.m" id="defraYear"  selectionChange="onChangeDefraYear" selectedKey="2021">
+                                            <core:Item xmlns:core="sap.ui.core" key="2020" text="2020" />
+                                            <core:Item xmlns:core="sap.ui.core" key="2021" text="2021" />
+                                        </ComboBox>
+                                    </HBox>    
+                                    <RadioButtonGroup id="EmissonFactors" select="onSelect_Radiobutton_EF" buttons="{ path : 'EmissionModel>/' }" class="sapUiMediumMargin">
+                                        <RadioButton text="{EmissionModel>}" />
+                                    </RadioButtonGroup>                               
+                                </VBox>                       
+                                <VBox class="sapUiTinyMargin" >
+                                    <HBox>
+                                        <Label text="Sub Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd sapUiMediumMarginBegin" />
+                                        <ComboBox xmlns="sap.m" id="EF_Type" items="{ path : '/Countries' }" selectionChange="onChangeEF_Energy1" selectedKey="">
+                                            <core:Item xmlns:core="sap.ui.core" key="{SubType}" text="{SubType}" />
+                                        </ComboBox>
+                                    </HBox>
+                                    <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.EmissionFactors" type="XML" />
+                                </VBox>
+                            </HBox>
+                        </content>
+                    </TabContainerItem>
+                    
+                    <!--Emission Factors End-->
+                        </items>
+                    </TabContainer>
+                    </content>
+                </TabContainerItem>
+
+                    <TabContainerItem name="KPI List" id="KPI_List" >
+                        <content>
+                           
+
+                            <RadioButtonGroup id="RG_KPIList" columns="2" width="100%" class="sapUiTinyMarginBottom" select="onSelect_KPIList" selectedIndex="0">
+                                <RadioButton text="Environment" />
+                                <RadioButton text="Social" />
+                            </RadioButtonGroup>
+
+                            <ScrollContainer height="90%" width="145%" vertical="true" focusable="true">
+                                <Table mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin" id="KPIListTbl" alternateRowColors="true" growing="true" width="auto" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" items="{path: 'KPIModel>/results', templateShareable:true}" selectionChange="" onChange="">
+                                    <headerToolbar />
+                                    <infoToolbar>
+                                        <OverflowToolbar>
+                                            <ToolbarSpacer />
+                                            <Label text="KPI List" />
+                                            <ToolbarSpacer />
+                                            <SearchField search="onSearch" width="17.5rem" />
+                                            <Link text="Template" press="handleExcel_Template" />
+                                            <Button tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed" visible="false" />
+                                            <Button icon="sap-icon://add" press="OnPressAddNewEntry_KPIList" tooltip="Add New Entry" />
+                                            <Button icon="sap-icon://less" press="" tooltip="Remove Selected Entry" enabled="false"/>
+                                        </OverflowToolbar>
+                                    </infoToolbar>
+                                    <columns>
+                                        <Column width="5%">
+                                            <Text text="Type" /><!--0-->
+                                        </Column>
+                                        <Column width="5%">
+                                            <Text text="Sub-Type" /><!--1-->
+                                        </Column>
+                                        <Column>
+                                            <Text text="KPI" /><!--2-->
+                                        </Column>
+                                        <Column>
+                                            <Text text="Template" /><!--3-->
+                                        </Column>
+                                        <Column>
+                                            <Text text="UOM Type" /><!--4-->
+                                        </Column>
+                                        <Column>
+                                            <Text text="Emission Factor" /><!--5-->
+                                        </Column>
+                                        <Column visible="false">
+                                            <Text text="UOM Type2" /><!--6-->
+                                        </Column>
+                                        <Column visible="false">
+                                            <Text text="Emission Factor2" /><!--7-->
+                                        </Column>
+                                        <Column>
+                                            <Text text="Emission Logic" /><!--8-->
+                                        </Column>
+                                        <Column>
+                                            <Text text="Biogenic Emission" /><!--9 newly added-->
+                                        </Column>
+                                        <Column>
+                                            <Text text="Scope" /><!--10-->
+                                        </Column>
+                                        <Column>
+                                            <Text text="Energy Logic" /><!--11-->
+                                        </Column>   
+                                        <Column width="6%">
+                                            <Text text="Energy Use" /><!--12 newly added-->
+                                        </Column>                                     
+                                        <Column width="4%">
+                                            <Text text="RE/Non-RE" /><!--13-->
+                                        </Column>
+                                        <Column width="7%">
+                                            <Text text="Supplier" /><!--14 newly added-->
+                                        </Column> 
+                                        <Column>
+                                            <Text text="Standards" /><!--15-->
+                                        </Column>
+                                        <Column width="13%" > <!--16-->
+                                            <Text text="GRI" class="sapUiLargeMarginBegin"/><!--16 visible="false"-->
+                                        </Column>
+                                        <Column width="18%" > <!--17-->
+                                            <Text text="SDG" class="sapUiLargeMarginBegin" /><!--17-->
+                                        </Column>                                        
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem>
+                                            <cells>
+                                                <!--<Input value="{Type}" editable="{isNewRow}" />
+                                                <Input value="{SubType}" editable="{isNewRow}" />
+                                                <Input value="{KPI}" editable="{isNewRow}" />-->
+                                                <HBox>
+                                                    <Text text="{KPIModel>Type}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                                    <Input value="{KPIModel>Type}" visible="{KPIModel>isNewRow}" />
+                                                </HBox>
+                                                <HBox>
+                                                    <Text text="{KPIModel>SubType}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                                    <Input value="{KPIModel>SubType}" visible="{KPIModel>isNewRow}" />
+                                                </HBox>
+                                                <HBox>
+                                                    <Text text="{KPIModel>KPI}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                                    <Input value="{KPIModel>KPI}" visible="{KPIModel>isNewRow}" />
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{KPIModel>Template}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="Templates"
+                                                        selectionChange="onChangeTemplate"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                                filters: [ { path: 'ID', operator: 'EQ', value1: 'Template' } ] }"
+                                                        selectedKey="{KPIModel>Template}"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+                                                <HBox>
+                                                    <Text
+                                                        text="{KPIModel>Measure}"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}"
+                                                        editable="false"
+                                                    />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="UomType"
+                                                        selectionChange="onChangeUomType"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Measure' } ] }"
+                                                        selectedKey="{KPIModel>Measure}"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{KPIModel>EFStandard}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="EmissionFactor"
+                                                        selectionChange="onChangeEmissionFactor"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Standard' } ] }"
+                                                        selectedKey="{KPIModel>EFStandard}"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{KPIModel>Measure2}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="UomType2"
+                                                        selectionChange="onChangeUomType"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                        filters: [ { path: 'ID', operator: 'EQ', value1: 'Measure' } ] }"
+                                                        selectedKey="{KPIModel>Measure2}"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <!--<Input value="{Standard2}" editable="{isNewRow}" visible="{isExistingRow}" />-->
+                                                    <Text text="{KPIModel>Standard2}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="EmissionFactor2"
+                                                        selectionChange="onChangeEmissionFactor"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Standard' } ] }"
+                                                        selectedKey="{KPIModel>Standard2}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{KPIModel>EmissionLogic}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="Logic"
+                                                        selectionChange="onChangeLogic"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Calculation Logic' } ] }"
+                                                        selectedKey="{KPIModel>EmissionLogic}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>                                                
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{KPIModel>BiogenicEmissions}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="BiogenicEmissions"
+                                                        selectionChange=""
+                                                        items="{ path : 'BioGen>/data'}"
+                                                        selectedKey="{KPIModel>BiogenicEmissions}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{BioGen>value}" text="{BioGen>name}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{KPIModel>Scope}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="Scope"
+                                                        selectionChange="onChangeScope"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Scope' } ] }"
+                                                        selectedKey="{KPIModel>Scope}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{KPIModel>EnergyLogic}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="LogicE"
+                                                        selectionChange=""
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Energy Logic' } ] }"
+                                                        selectedKey="{KPIModel>EnergyLogic}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{KPIModel>EnergyUse}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="EnergyUse"
+                                                        selectionChange=""
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'EnergyUse' } ] }"
+                                                        selectedKey="{KPIModel>EnergyUse}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>                                                
+                                                </HBox>
+
+                                                 <HBox>
+                                                    <Text text="{KPIModel>RenNon}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="RENON"
+                                                        selectionChange="onChangeRenon"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Rennon' } ] }"
+                                                        selectedKey="{KPIModel>RenNon}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{KPIModel>Supplier}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="Supplier"
+                                                        selectionChange=""
+                                                        items="{ path : 'BioGen>/data' }"
+                                                        selectedKey="{KPIModel>Supplier}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{BioGen>value}" text="{BioGen>name}" />
+                                                    </ComboBox>                                                 
+                                                </HBox>
+
+                                                <!--<Input value="{GRIStd}" editable="{isNewRow}" />
+                                                <Input value="{GRIStd}" />-->
+                                                <HBox>
+                                                    <Text text="{KPIModel>ReportingStandard}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                   <!-- <MultiComboBox
+                                                            selectionChange=""
+                                                            selectionFinish="handleSelectionFinish_StdsLogic"   
+                                                            selectedKeys="{KPIModel>Standard1}"                                                         
+                                                            items="{path: 'StdsModel>/data'}"
+                                                            visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                                formatter: '.formatEditField'}">
+                                                            <core:Item key="{StdsModel>value}" text="{StdsModel>name}"/>
+                                                            
+                                                        </MultiComboBox>    -->
+                                                        <MultiComboBox
+                                                            selectionChange=""
+                                                            selectionFinish="handleSelectionFinish_StdsLogic"   
+                                                            selectedKeys="{KPIModel>ReportingStandard}"                                                         
+                                                            items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'ReportingStandard' } ] }"
+                                                            visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                                formatter: '.formatEditField'}">
+                                                            <core:Item key="{ConstantsModel>Value}" text="{ConstantsModel>Value}"/>
+                                                            
+                                                        </MultiComboBox>          
+                                                </HBox>
+                                                <HBox>
+                                                    <Text text="{KPIModel>GRIStd}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <Input
+                                                        value="{KPIModel>GRIStd}"
+                                                        editable="true" showValueHelp="true" valueHelpRequest="onChangeGRIStd"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}" change="onChangeGRIStd"                        
+                                                    />
+                                                   <!-- <MultiInput     selectedKey="{Product>Name}"
+                                                        id="multiInputGRI"                                                                                                           
+                                                        suggestionItems="{
+                                                            path: '/Product',
+                                                            sorter: { path: 'Name',
+                                                            templateShareable:false }
+                                                        }"
+                                                        valueHelpRequest="onChangeGRIStd"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}">
+                                                        <core:Item key="{Name}" text="{Name}" />
+                                                    </MultiInput>-->
+                                                    
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{KPIModel>SDG}" visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <!--<ComboBox
+                                                        xmlns="sap.m"
+                                                        id="SDG"
+                                                        selectionChange="onChangeSDG"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'SDG' } ] }"
+                                                        selectedKey="{KPIModel>SDG}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>-->
+                                                    <MultiInput width="100%"    selectedKey="{Product>Name}"  
+                                                        id="multiInput"                                                                                                           
+                                                        suggestionItems="{
+                                                            path: '/Product',
+                                                            sorter: { path: 'Name',
+                                                             templateShareable:true
+                                                             }
+                                                        }"
+                                                        valueHelpRequest="onValueHelpRequest"
+                                                        tokenUpdate="onTokenUpdateSDG"
+                                                        visible="{parts: [{path: 'KPIModel>isNewRow'}, {path: 'KPIModel>isEditableRow'}, {path: 'KPIModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}">
+                                                        <core:Item key="{Name}" text="{Name}" />
+                                                    </MultiInput>
+                                                </HBox>
+                                               
+                                                
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                                <Table id="SocialKPIList" alternateRowColors="true" growing="true" width="auto" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" items="{path: '/results'}" mode="MultiSelect" visible="false">
+                                    <headerToolbar />
+                                    <infoToolbar>
+                                        <OverflowToolbar>
+                                            <ToolbarSpacer />
+                                            <Label id="" text="Social KPI List" />
+                                            <ToolbarSpacer />
+                                            <Button icon="sap-icon://add" press="OnPressAddNewEntry_SocialKPI" tooltip="Add New Entry" />
+                                            <Button icon="sap-icon://less" press="" tooltip="Remove Selected Entry" enabled="false"/>
+                                        </OverflowToolbar>
+                                    </infoToolbar>
+                                    <columns>
+                                        <Column width="7em">
+                                            <Text text="Type" />
+                                        </Column>
+                                        <Column hAlign="Center">
+                                            <Text text="SubType" />
+                                        </Column>
+                                        <Column hAlign="Center">
+                                            <Text text="KPI" />
+                                        </Column>
+                                        <Column hAlign="Center">
+                                            <Text text="Information Type" />
+                                        </Column>
+                                        <Column hAlign="Center" width="8em">
+                                            <Text text="Template" />
+                                        </Column>
+                                        <Column hAlign="Center" demandPopin="true">
+                                            <Text text="Prefix" />
+                                        </Column>
+                                        <Column demandPopin="true" width="9em">
+                                            <Text text="Logic" />
+                                        </Column>
+                                        <Column hAlign="Center" width="7em">
+                                            <Text text="GRIStd" />
+                                        </Column>
+                                        <Column hAlign="Center">
+                                            <Text text="SDG" />
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem>
+                                            <cells>
+                                                <!-- <Input value="{Type}" editable="false"/>
+                                                <Input value="{SubType}" editable="false" />
+                                                <Input value="{KPI}" editable="false"/>
+                                                <Input value="{Template}" editable="false"/>
+                                                <Input value="{Prefix}" editable="false"/>
+                                                <Input value="{Logic}" editable="false"/>
+                                                <Input value="{GRIStd}" editable="false"/>
+                                                <Input value="{SDG}" editable="false"/>-->
+
+                                                <!-- <Input value="{Type}" editable="{isNewRow}"/>
+                                                <Input value="{SubType}" editable="{isNewRow}"/>
+                                                <Input value="{KPI}" editable="{isNewRow}"/>
+                                                <Input value="{Template}"  />
+                                                <Input value="{Prefix}"/>
+                                                <Input value="{Logic}"/>
+                                                <Input value="{GRIStd}" />
+                                                <Input value="{SDG}" visible="{isExistingRow}"/>-->
+
+                                                <HBox>
+                                                    <Text text="{Type}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                                    <Input value="{Type}" visible="{isNewRow}" />
+                                                </HBox>
+                                                <HBox>
+                                                    <Text text="{SubType}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                                    <Input value="{SubType}" visible="{isNewRow}" />
+                                                </HBox>
+                                                <HBox>
+                                                    <Text text="{KPI}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                                    <Input value="{KPI}" visible="{isNewRow}" />
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{InfoType}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />                                                    
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="InformationType"
+                                                        selectionChange=""
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'InformationType' } ] }"
+                                                        selectedKey="{InfoType}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{Template}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <!-- <Input
+                                                        value="{Template}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}"/>-->
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="SocialTemplates"
+                                                        selectionChange="onChangeTemplate"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'SocialTemplate' } ] }"
+                                                        selectedKey="{Template}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{Prefix}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                   <!-- <Input value="{Prefix}" editable="true" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}" />
+                                                            -->
+                                                    
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="prefixKPI"
+                                                        selectionChange=""
+                                                        items="{ path : 'PrefixTypesModel>/results' ,templateShareable:true}"
+                                                        selectedKey="{Prefix}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{PrefixTypesModel>prefix}" text="{PrefixTypesModel>prefix}" />
+                                                    </ComboBox>
+
+                                                   <!-- <MultiComboBox
+                                                            id="prefixKPI"
+                                                            selectionChange=""
+                                                            selectionFinish="handleSelectionFinish_PrefixKPI"   
+                                                            selectedKeys="{Prefix}"                                                         
+                                                            items="{path : 'PrefixTypesModel>/results' ,templateShareable:true}"
+                                                            visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}">
+                                                            <core:Item key="{PrefixTypesModel>prefix}" text="{PrefixTypesModel>prefix}"/>
+                                                            
+                                                        </MultiComboBox>-->
+
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{Logic}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <!--
+                                                    <Input
+                                                        value="{Logic}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}"/>
+                                              
+                                              -->
+
+                                                    <ComboBox
+                                                        xmlns="sap.m"
+                                                        id="SocialLogic"
+                                                        selectionChange="onChangeLogic"
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'SocialLogic' } ] }"
+                                                        selectedKey="{Logic}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </ComboBox>
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{GRIStd}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <Input value="{GRIStd}" editable="true" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}" />
+                                                </HBox>
+
+                                                <HBox>
+                                                    <Text text="{SDG}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatDisplayField'}" />
+                                                    <!-- <Input
+                                                        value="{SDG}"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}"/>
+                                                            -->
+                                                    <MultiComboBox
+                                                        xmlns="sap.m"
+                                                        id="SocialSDG"
+                                                        selectionChange="onChangeSDG"
+                                                        selectionFinish=""
+                                                        items="{ path : 'ConstantsModel>/results' ,templateShareable:true, 
+                                                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'SDG' } ] }"
+                                                        editable="true"
+                                                        visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                                    >
+                                                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                                    </MultiComboBox>
+                                                </HBox>
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+
+                                <!--    <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.SocialKPIList" type="XML" id="Social" />
+                           -->
+                            </ScrollContainer>
+                        </content>
+                    </TabContainerItem>
+
+                   <!-- <TabContainerItem name="Emission Factors" id="Emission_Factors">
+                        <content>
+                            <RadioButtonGroup id="efStd_RB" columns="2" width="100%" class="sapUiTinyMarginBottom" select="onSelect_EF" selectedIndex="0">
+                                <RadioButton text="DEFRA" />
+                                <RadioButton text="User Defined" />
+                            </RadioButtonGroup>
+                            <HBox >                                
+                                <VBox >
+                                    <HBox id="Defra" class="sapUiSmallMargin">
+                                        <Label text="Year" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+                                        <ComboBox xmlns="sap.m" id="defraYear"  selectionChange="onChangeDefraYear" selectedKey="2021">
+                                            <core:Item xmlns:core="sap.ui.core" key="2020" text="2020" />
+                                            <core:Item xmlns:core="sap.ui.core" key="2021" text="2021" />
+                                        </ComboBox>
+                                    </HBox>    
+                                    <RadioButtonGroup id="EmissonFactors" select="onSelect_Radiobutton_EF" buttons="{ path : 'EmissionModel>/' }" class="sapUiMediumMargin">
+                                        <RadioButton text="{EmissionModel>}" />
+                                    </RadioButtonGroup>                               
+                                </VBox>                       
+                                <VBox class="sapUiTinyMargin" >
+                                    <HBox>
+                                        <Label text="Sub Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd sapUiMediumMarginBegin" />
+                                        <ComboBox xmlns="sap.m" id="EF_Type" items="{ path : '/Countries' }" selectionChange="onChangeEF_Energy1" selectedKey="">
+                                            <core:Item xmlns:core="sap.ui.core" key="{SubType}" text="{SubType}" />
+                                        </ComboBox>
+                                    </HBox>
+                                    <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.EmissionFactors" type="XML" />
+                                </VBox>
+                            </HBox>
+                        </content>
+                    </TabContainerItem>-->
+
+                   
+                        
+                    <TabContainerItem name="General" id="General">
+                        <content>
+                            
+                            <Text text="UoM Vocabulary" class="fntDataExtract sapUiMediumMarginBottom"/>
+                            <HBox>
+                            <Button icon="sap-icon://download" type="Emphasized" text="Download" tooltip="Download Excel" class="sapUiMediumMarginEnd" press="handleDownloadExcel"/>
+                            <u:FileUploader id="FileUploaderId" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" buttonText="Upload" 
+                                fileType="XLSX,xlsx" icon="sap-icon://excel-attachment" iconFirst="true" style="Emphasized" change="onExportExcelMeasures" />
+
+                              <!--  <VBox class="sapUiSmallMargin">
+                                    <RadioButtonGroup id="GeneralRBtn" select="onSelect_Radiobutton_General">
+                                        <RadioButton text="Measure Type" />
+                                        <RadioButton text="Fiscal Year"  />
+                                    </RadioButtonGroup>
+                                </VBox>
+                                <VBox class="sapUiSmallMargin">                                    
+                                    <Table id="generalTbl" items="{path: 'generalModel>/results'}" width="40%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin">
+                                        <headerToolbar></headerToolbar>
+                                        <infoToolbar>
+                                            <OverflowToolbar>
+                                                <ToolbarSpacer/>
+                                                <Label text="Measure Type"/>
+                                                <ToolbarSpacer/>
+                                                <Button	icon="sap-icon://add" press="OnPressAddNewEntry_General" tooltip = "Add New Entry"/>                                                            <Button	icon="sap-icon://less" press="" tooltip = "Remove Selected Entry"/>
+                                            </OverflowToolbar>
+                                        </infoToolbar>
+                                        <columns>                        
+                                            <Column >
+                                                <Text text="Values"/>
+                                            </Column>                                                                                      									
+                                            </columns>
+                                            <items>
+                                                <ColumnListItem >                                                    
+                                                    <cells>                                    
+                                                        																	
+                                                        <HBox>
+                                                            <Text text="{generalModel>Value}" visible="{parts: [{path: 'generalModel>isNewRow'}, {path: 'generalModel>isEditableRow'}, {path: 'generalModel>isExistingRowis'}],
+                                                                    formatter: '.formatDisplayField'}" />
+                                                            <Input value="{generalModel>Value}" visible="{parts: [{path: 'generalModel>isNewRow'}, {path: 'generalModel>isEditableRow'}, {path: 'generalModel>isExistingRow'}],
+                                                                    formatter: '.formatEditField'}" />
+                                                        </HBox>	
+                                                    </cells>                                                    
+                                                </ColumnListItem>
+                                            </items>
+                                        </Table>
+                                </VBox>-->
+
+                                <!--<VBox class="sapUiSmallMargin" id="yearAlign" visible="false">-->
+                                   <!-- <RadioButtonGroup id="yearRBtn" select="onSelect_Radiobutton_Year" visible="false">
+                                        <RadioButton text="Jan - Dec" selected="true"/>
+                                        <RadioButton text="Apr - Mar" />
+                                    </RadioButtonGroup>-->
+                                   <!-- <Label text="From Date"/>
+                                    <DatePicker id="FromDP" valueFormat="yyyy-MM-dd" displayFormat="long"/>
+                                    <Label text="To Date"/>
+                                    <DatePicker id="ToDP" valueFormat="yyyy-MM-dd" displayFormat="long"/>-->
+                                     <!--<Table id="generalYearTbl" items="{path: 'yearModel>/results'}" width="60%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin">
+                                        <headerToolbar></headerToolbar>
+                                        <infoToolbar>
+                                            <OverflowToolbar>
+                                                <ToolbarSpacer/>
+                                                <Label text="Fiscal Year"/>
+                                                <ToolbarSpacer/>
+                                                <Button	icon="sap-icon://add" press="OnPressAddNewEntry_General_Year" tooltip = "Add New Entry"/>                                                            <Button	icon="sap-icon://less" press="" tooltip = "Remove Selected Entry"/>
+                                            </OverflowToolbar>
+                                        </infoToolbar>
+                                        <columns>                        
+                                            <Column class="sapUiSmallMargin" >
+                                                <Text text="From Date"/>
+                                            </Column> 
+                                            <Column class="sapUiSmallMargin" >
+                                                <Text text="To Date"/>
+                                            </Column>    
+                                            <Column class="sapUiSmallMargin" >
+                                                <Text text="Reporting Year"/>
+                                            </Column>                                                                                 									
+                                            </columns>
+                                            <items>
+                                                <ColumnListItem >                                                    
+                                                    <cells> 
+                                                      
+                                                       <HBox>
+                                                            <Text text="{yearModel>StartDate}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRowis'}],
+                                                                    formatter: '.formatDisplayField'}" />
+                                                            <DatePicker value="{yearModel>StartDate}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRow'}],
+                                                                    formatter: '.formatEditField'}" id="FromDP" placeholder="Start Date" displayFormat="long"/>
+                                                        </HBox>	 
+                                                          
+                                                        <HBox>
+                                                            <Text text="{yearModel>EndDate}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRowis'}],
+                                                                    formatter: '.formatDisplayField'}" />
+                                                            <DatePicker value="{yearModel>EndDate}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRow'}],
+                                                                    formatter: '.formatEditField'}" id="ToDP" placeholder="End Date" displayFormat="long"/>
+                                                        </HBox>	   
+                                                        <Text text="{yearModel>YearA}" id="yearA" />  
+                                                                                                           
+                                                    </cells>                                                    
+                                                </ColumnListItem>
+                                            </items>
+                                        </Table>-->
+                                <!--</VBox>  -->
+                                <!--<VBox class="sapUiSmallMargin" id="generalYearTblAlign" visible="false">                                   
+                                    <Table id="generalYearTbl" items="{path: 'yearModel>/results'}" width="40%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin">
+                                        <headerToolbar></headerToolbar>
+                                        <infoToolbar>
+                                            <OverflowToolbar>
+                                                <ToolbarSpacer/>
+                                                <Label text="Fiscal Year"/>
+                                                <ToolbarSpacer/>
+                                                <Button	icon="sap-icon://add" press="OnPressAddNewEntry_General_Year" tooltip = "Add New Entry"/>                                                            <Button	icon="sap-icon://less" press="" tooltip = "Remove Selected Entry"/>
+                                            </OverflowToolbar>
+                                        </infoToolbar>
+                                        <columns>                        
+                                            <Column >
+                                                <Text text="Values"/>
+                                            </Column>                                                                                      									
+                                            </columns>
+                                            <items>
+                                                <ColumnListItem >                                                    
+                                                    <cells>
+                                                        <HBox>
+                                                            <Text text="{yearModel>YearA}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRowis'}],
+                                                                    formatter: '.formatDisplayField'}" />
+                                                            <Input value="{yearModel>YearA}" visible="{parts: [{path: 'yearModel>isNewRow'}, {path: 'yearModel>isEditableRow'}, {path: 'yearModel>isExistingRow'}],
+                                                                    formatter: '.formatEditField'}" placeholder="YYYY-YYYY"/>
+                                                        </HBox>	
+                                                    </cells>                                                    
+                                                </ColumnListItem>
+                                            </items>
+                                        </Table>
+                                </VBox>-->
+                            </HBox>
+                            <!--Social Begin-->
+                                <Text text="Social" class="fntDataExtract sapUiMediumMarginBottom sapUiMediumMarginTop"/>
+                                <RadioButtonGroup id="prefixTypes_RBtn" columns="2" width="100%" class="sapUiTinyMarginBottom" select="onSelect_Radiobutton_PrefixTypes" selectedIndex="0">
+                                    <RadioButton text="Prefix Types" />
+                                    <RadioButton text="Prefix Values" />
+                                </RadioButtonGroup>
+
+                                <VBox class="sapUiSmallMargin" id="prefixTypes">                                    
+                                    <Table id="prefixTypesTbl" items="{ path : 'PrefixTypesModel>/results' ,templateShareable:false }" width="40%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin">
+                                        <headerToolbar></headerToolbar>
+                                        <infoToolbar>
+                                            <OverflowToolbar>
+                                                <ToolbarSpacer/>
+                                                <Label text="Prefix Types"/>
+                                                <ToolbarSpacer/>
+                                                <Button	icon="sap-icon://add" press="OnPressAddNewEntry_PrefixTypes" tooltip = "Add New Entry"/>                                                
+                                            </OverflowToolbar>
+                                        </infoToolbar>
+                                        <columns>                        
+                                            <Column >
+                                                <Text text="Select All" class="fntItalic" />
+                                            </Column>                                                                                      									
+                                            </columns>
+                                            <items>
+                                                <ColumnListItem >                                                    
+                                                    <cells>                                    
+                                                       <HBox>
+                                                            <Text text="{PrefixTypesModel>prefix}" visible="{parts: [{path: 'PrefixTypesModel>isNewRow'}, {path: 'PrefixTypesModel>isEditableRow'}, {path: 'PrefixTypesModel>isExistingRowis'}],
+                                                                    formatter: '.formatDisplayField'}" />
+                                                            <Input value="{PrefixTypesModel>prefix}" visible="{parts: [{path: 'PrefixTypesModel>isNewRow'}, {path: 'PrefixTypesModel>isEditableRow'}, {path: 'PrefixTypesModel>isExistingRow'}],
+                                                                    formatter: '.formatEditField'}" />
+                                                        </HBox>	
+                                                    </cells>                                                    
+                                                </ColumnListItem>
+                                            </items>
+                                        </Table>
+                                </VBox>
+
+                            <HBox id="prefixValues" visible="false">                            
+                                <VBox class="sapUiLargeMargin">                                  
+                                    <RadioButtonGroup id="prefixValues_RBtn" select="onSelect_Radiobutton_PrefixValues" buttons="{ path : 'PrefixTypesModel>/results' ,templateShareable:false}">
+                                        <RadioButton text="{PrefixTypesModel>prefix}" />
+                                    </RadioButtonGroup>                                   
+                                </VBox>
+                               
+                                <Table width="40%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin"                              
+                                            id="prefixValuesTbl" items="{ path : 'PrefixValuesModel>/results' ,templateShareable:false }"
+                                                growing="true" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" alternateRowColors="true">
+                                    <!--<headerToolbar></headerToolbar>
+                                    <infoToolbar>
+                                        <OverflowToolbar>
+                                            <ToolbarSpacer/>.
+                                            <Label text="Prefix Values"/>
+                                            <ToolbarSpacer/>
+                                            <Button	icon="sap-icon://add" press="OnPressAddNewEntry_Prefix_Values" tooltip = "Add New Entry"/>                                            
+                                        </OverflowToolbar>
+                                    </infoToolbar>-->
+                                    <headerToolbar></headerToolbar>
+                                        <infoToolbar>
+                                            <OverflowToolbar>
+                                                <ToolbarSpacer/>
+                                                <Label text="Prefix Values"/>
+                                                <ToolbarSpacer/>
+                                                <Button	icon="sap-icon://add" press="OnPressAddNewEntry_Prefix_Values" tooltip = "Add New Entry"/>                                                
+                                            </OverflowToolbar>
+                                        </infoToolbar>
+                                    <columns>                       										                        	
+                                        <Column >
+                                            <Text text="Values"/>
+                                        </Column>	
+                                    </columns>
+                                        <items>
+                                            <ColumnListItem >                               
+                                                <cells>                                    
+                                                 <HBox>
+                                                        <Text text="{PrefixValuesModel>value}" visible="{parts: [{path: 'PrefixValuesModel>isNewRow'}, {path: 'PrefixValuesModel>isEditableRow'}, {path: 'PrefixValuesModel>isExistingRowis'}],
+                                                                formatter: '.formatDisplayField'}" />
+                                                        <Input value="{PrefixValuesModel>value}" visible="{parts: [{path: 'PrefixValuesModel>isNewRow'}, {path: 'PrefixValuesModel>isEditableRow'}, {path: 'PrefixValuesModel>isExistingRow'}],
+                                                                formatter: '.formatEditField'}" />
+                                                    </HBox>	
+                                                </cells>                                                                              
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                            </HBox>
+                            <!--Social End-->
+
+                        </content>
+                    </TabContainerItem>
+                  <!--  <TabContainerItem name="Report" id="report">
+                        <content>
+                            <layout:VerticalLayout id="idVerticalLayout" class="sapUiContentPadding" width="100%">
+                            </layout:VerticalLayout>
+                        </content>
+                    </TabContainerItem>
+                    <TabContainerItem name="Report" id="report1">
+                        <content>
+                          <FlexBox height="70px" alignItems="Center" justifyContent="Start">
+                            <VBox class="sapUiSmallMarginEnd sapUiSmallMarginBegin" >
+                                <Label text="Location" />       
+                                <ComboBox xmlns="sap.m"  items="{ path : 'locationModel>/results' ,templateShareable:false }" 
+                                                    id="box1"  class="filterdd" selectedKey="" >
+                                    <items>                                      
+                                        <core:Item xmlns:core="sap.ui.core" key="{locationModel>Location}" text="{locationModel>Location}"  />
+                                    </items>    
+                                </ComboBox>
+                            </VBox>
+                            <VBox class="sapUiSmallMarginEnd sapUiSmallMarginBegin">
+                                <Label text="Year" />                
+                                <ComboBox xmlns="sap.m"  items="{ path : 'yearModel>/results' ,templateShareable:false }" 
+                                                    id="box2"  class="filterdd" selectedKey="" selectionChange="">
+                                    <items>                                      
+                                        <core:Item xmlns:core="sap.ui.core" key="{yearModel>fiscal}" text="{yearModel>fiscal}"  />
+                                    </items>    
+                                </ComboBox>
+                            </VBox>             
+                            <Button width = "90px" text="Search" press="onPressSearch" icon="sap-icon://search" class="sapUiSmallMarginTop sapUiSmallMarginEnd sapUiSmallMarginBegin"></Button>            
+                        </FlexBox>
+
+                         <Button icon="sap-icon://print" text="Print" type="Accept" press="handlePrint"/>
+                            <VBox class="sapUiMediumMargin">
+                                <FormattedText htmlText="{/HTML}" id="myText"/>
+                            </VBox>
+                        </content>
+                    </TabContainerItem>-->
+
+                    <!--Mining START-->
+                    <!-- <TabContainerItem name="Mining" id="Mining">
+                        <content>
+                        <HBox>                       
+                    <Table id="miningDirectEngTbl" items="{path: '/results', 
+                                            filters: [ { path: 'Category', operator: 'EQ', value1: 'Mining' }, 
+                                                { path: 'Type', operator: 'EQ', value1: 'DirectEnergy' } ]}" width="85%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin">
+                    <headerToolbar></headerToolbar>
+                    <infoToolbar>
+                        <OverflowToolbar>
+                            <ToolbarSpacer/>
+                            <Label text="Direct Energy"/>
+                            <ToolbarSpacer/>
+                            <Button	icon="sap-icon://add" press="OnPressAddNewEntry_Energy" tooltip = "Add New Entry"/>
+                                        <Button	icon="sap-icon://less" press="onDataExport" tooltip = "Remove Selected Entry"/>
+                        </OverflowToolbar>
+                    </infoToolbar>
+                    <columns>                        
+                        <Column >
+                            <Text text="Value"/>
+                        </Column>	
+                        <Column >
+                            <Text text="Emission Factor"/>
+                        </Column>			
+                        <Column >
+                            <Text text="Unit"/>
+                        </Column>										
+                        </columns>
+                        <items>
+                            <ColumnListItem >
+                                <cells>                             
+                                    <Input type="Text" value="{SubType}" editable="false" ></Input>												
+                                </cells>
+                                <cells>                                    
+                                    <Input value="{EF}"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="{Unit}"/>																	
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    
+                    <Table id="miningInDirectEngTbl" items="{path: '/results', 
+                            filters: [ { path: 'Category', operator: 'EQ', value1: 'Mining' }, 
+                                       { path: 'Type', operator: 'EQ', value1: 'InDirectEnergy' } ]}" width="85%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin">
+                    <headerToolbar></headerToolbar>
+                    <infoToolbar>
+                        <OverflowToolbar>
+                            <ToolbarSpacer/>
+                            <Label text="In-Direct Energy"/>
+                            <ToolbarSpacer/>
+                            <Button	icon="sap-icon://add" press="OnPressAddNewEntry_IndirectEnergy" tooltip = "Add New Entry"/>
+                                        <Button	icon="sap-icon://less" press="onDataExport" tooltip = "Remove Selected Entry"/>
+                        </OverflowToolbar>
+                    </infoToolbar>
+                    <columns>                        
+                        <Column >
+                            <Text text="Value"/>
+                        </Column>										
+                        <Column >
+                            <Text text="Emission Factor"/>
+                        </Column>			
+                        <Column >
+                            <Text text="Unit"/>
+                        </Column>	
+                        </columns>
+                        <items>
+                            <ColumnListItem >
+                                <cells>                                    
+                                    <Input type="Text" value="{SubType}" editable="false"  ></Input>														
+                                </cells>
+                                <cells>                                    
+                                    <Input value="{EF}"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="{Unit}"/>																	
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    </HBox> 
+                        </content>
+                    </TabContainerItem>-->
+                    <!--Mining-->
+
+                    <!-- <TabContainerItem name="Template" id="Template">
+                        <content>
+                            <HBox>                        
+                    <Table width="50%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                            id="templateTbl" >
+                    <headerToolbar></headerToolbar>
+                    <infoToolbar>
+                        <OverflowToolbar>
+                            <ToolbarSpacer/>
+                            <Label text="Templates"/>
+                            <ToolbarSpacer/>
+                            <Button	icon="sap-icon://add" press="onDataExport" tooltip = "Add New Entry"/>
+                                        <Button	icon="sap-icon://less" press="onDataExport" tooltip = "Remove Selected Entry"/>
+                        </OverflowToolbar>
+                    </infoToolbar>
+                    <columns>                  										
+                        <Column >
+                            <Text text="Values"/>
+                        </Column>	
+                        <Column >
+                            <Text text="Data Type"/>
+                        </Column>				
+                        </columns>
+                        <items>
+                            <ColumnListItem >                               
+                                <cells>                                    
+                                    <Input value="Month" editable="false"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="String" editable="false"/>																	
+                                </cells>
+                            </ColumnListItem>
+                           <ColumnListItem >                               
+                                <cells>                                    
+                                    <Input value="Value" editable="false"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="Decimal" editable="false"/>																	
+                                </cells>
+                            </ColumnListItem>
+                            <ColumnListItem >                               
+                                <cells>                                    
+                                    <Input value="Unit" editable="false"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="String" editable="false"/>																	
+                                </cells>
+                            </ColumnListItem>
+                            <ColumnListItem >                               
+                                <cells>                                    
+                                    <Input value="Costs" editable="false"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="Integer" editable="false"/>																	
+                                </cells>
+                            </ColumnListItem>
+                            <ColumnListItem >                               
+                                <cells>                                    
+                                    <Input value="Currency" editable="false"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="String" editable="false"/>																	
+                                </cells>
+                            </ColumnListItem>
+                            <ColumnListItem >                               
+                                <cells>                                    
+                                    <Input value="Quality" editable="false"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="String" editable="false"/>																	
+                                </cells>
+                            </ColumnListItem>
+                            <ColumnListItem >                               
+                                <cells>                                    
+                                    <Input value="Comment" editable="false"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="LText" editable="false"/>																	
+                                </cells>
+                            </ColumnListItem>
+                            <ColumnListItem >                               
+                                <cells>                                    
+                                    <Input value="Owner" editable="false"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="String" editable="false"/>																	
+                                </cells>
+                            </ColumnListItem>
+                            <ColumnListItem >                               
+                                <cells>                                    
+                                    <Input value="Approver" editable="false"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="String" editable="false"/>																	
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                     </HBox>
+                        </content>
+                    </TabContainerItem>-->
+                </items>
+            </TabContainer>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <!--<Button type="Accept" text="Submit" press="onPressSubmit" icon="sap-icon://accept" id="btn3" />-->
+                <Button type="Accept" text="Edit" icon="sap-icon://edit" width="90px" press="onPressEdit" id="btn1" />
+                <Button type="Accept" text="Reset" icon="sap-icon://reset" width="90px" press="onPressReset" id="btn2" enabled="true" />
+                <Button type="Accept" text="Submit" press="onPressSubmit" icon="sap-icon://accept" id="btn3" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

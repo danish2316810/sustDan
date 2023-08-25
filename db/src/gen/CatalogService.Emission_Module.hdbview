@@ -1,0 +1,15 @@
+VIEW CatalogService_Emission_Module AS SELECT
+  Emission_Module_0.id,
+  Emission_Module_0.YearL,
+  Emission_Module_0.scope,
+  Emission_Module_0.Level1,
+  Emission_Module_0.Level2,
+  Emission_Module_0.Level3,
+  Emission_Module_0.Level4,
+  Emission_Module_0.ColumnText,
+  Emission_Module_0.UomSimple,
+  Emission_Module_0.Uom,
+  Emission_Module_0.GHG,
+  Emission_Module_0.LookUp,
+  Emission_Module_0.GHGConversionFactor2021
+FROM app_interactions_Emission_Module AS Emission_Module_0

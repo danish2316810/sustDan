@@ -1,0 +1,702 @@
+<mvc:View
+    controllerName="com.techm.sustainabilityui.controller.Finance"
+   xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:uxap="sap.uxap" xmlns:f="sap.ui.layout.form"
+>   
+<Page >                   
+        <customHeader>
+        <Bar class="headerBar">
+            <contentLeft>						
+                <Button icon="sap-icon://nav-back" press="onPressBack" class="sapUiSmallMarginEnd"/>	
+                <Image src="./images/JS1.png" class="sapUiSmallMarginEnd" />
+                <!--<Image src="./images/sap.png" />-->
+            </contentLeft>
+            <contentMiddle >
+                <!--<Title level="H1" text="i.Sustain - TechM SAP Sustainability Solution" class="titleAlign" >
+                <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Title>-->
+                <HBox>
+                    <Image src="./images/iSustainLogo_01.png" class="titleAlign sapUiTinyMarginTop "/>
+                    <Title level="H6" text="TechM Sustainability Reporting Framework" class="sapUiSmallMarginTop sapUiTinyMarginBegin fntBold" ></Title>
+                    <Image src="./images/btp.jpg" class="sapUiSmallMarginTop sapUiTinyMarginBegin"/>
+                    </HBox>
+            </contentMiddle>
+            <contentRight>
+                    <Image src="./images/avatar2.png" densityAware="false"></Image>
+                <Text text="Welcome, Michael Clark!" class = "userName" />
+                <Button icon="sap-icon://arrow-down"  />						
+            </contentRight>
+        </Bar>
+        </customHeader>
+        <content >
+                <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.SearchBar" type="XML"/>
+
+               <uxap:ObjectPageLayout useIconTabBar="true" showFooter="true" showAnchorBar="true" subSectionLayout="TitleOnTop" 
+                    upperCaseAnchorBar="false" id="object1" class= "filterBorder_hr">
+						<uxap:sections>
+							<uxap:ObjectPageSection showTitle="true" title="Anti-corruption training by employee category" titleUppercase="false" visible="true">
+								<uxap:subSections>
+									<uxap:ObjectPageSubSection title="Management employees trained on Anti-corrpution policies and procedure											
+">
+										<uxap:blocks>
+											<Table class="sapUiSmallMarginBegin" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Trainingonanticorruption'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Mgmt Employees Trained'
+                                                                        }
+                                                                        
+                                                                    ]}">
+												<infoToolbar>
+													<OverflowToolbar>
+														<ToolbarSpacer/>
+														<Label text="Management employees trained on Anti-corrpution policies and procedure											
+"/>
+														<ToolbarSpacer/>
+													</OverflowToolbar>
+												</infoToolbar>
+												<columns>
+													<Column width="21em">
+														<Text text="Category"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Value"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Unit"/>
+													</Column>
+													<Column width="12em">
+														<Text text="Quality"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true">
+														<Text text="Comment"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem >
+														<cells>
+															<Text text="{Category}"/>
+															<Input value="{Value}"/>
+															<Input value="{Unit}"/>
+															<!--<Input value="{Quality}"/>-->
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="{Comment}"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+									<uxap:ObjectPageSubSection title="Non-management employees trained on Anti-corrpution policies and procedure												
+">
+										<uxap:blocks>
+											<Table class="sapUiSmallMarginBegin" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Trainingonanticorruption'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Non-management Employees Trained'
+                                                                        }
+                                                                        
+                                                                    ]}">
+												<infoToolbar>
+													<OverflowToolbar>
+														<ToolbarSpacer/>
+														<Label text="Non-management employees trained on Anti-corrpution policies and procedure												
+"/>
+														<ToolbarSpacer/>
+													</OverflowToolbar>
+												</infoToolbar>
+												<columns>
+													<Column width="21em">
+														<Text text="Category"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Value"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Unit"/>
+													</Column>
+													<Column width="12em">
+														<Text text="Quality"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true">
+														<Text text="Comment"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem >
+														<cells>
+															<Text text="{Category}"/>
+															<Input value="{Value}"/>
+															<Input value="{Unit}"/>
+															<!--<Input value="{Quality}"/>-->
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="{Comment}"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+									<uxap:ObjectPageSubSection title="Report how anti-corruption training has been conducted during the reporting period												
+">
+										<uxap:blocks>
+											<Table class="sapUiSmallMarginBegin" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Trainingonanticorruption'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Report on ConductedTraining'
+                                                                        }
+                                                                        
+                                                                    ]}">
+												<infoToolbar>
+													<OverflowToolbar>
+														<ToolbarSpacer/>
+														<Label text="Report how anti-corruption training has been conducted during the reporting period												
+"/>
+														<ToolbarSpacer/>
+													</OverflowToolbar>
+												</infoToolbar>
+												<columns>
+													<Column width="21em">
+														<Text text="Category"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Value"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Unit"/>
+													</Column>
+													<Column width="12em">
+														<Text text="Quality"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true">
+														<Text text="Comment"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem >
+														<cells>
+															<Text text="{Category}"/>
+															<Input value="{Value}"/>
+															<Input value="{Unit}"/>
+															<!--<Input value="{Quality}"/>-->
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="{Comment}"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+							
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+							<uxap:ObjectPageSection showTitle="true" title="Anti Corruption Incidents" titleUppercase="false" visible="true">
+								<uxap:subSections>
+									<uxap:ObjectPageSubSection title="Anti Corruption Incidents">
+										<uxap:blocks>
+											<Table class="sapUiSmallMarginBegin" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'AntiCorruptionIncidents'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Number of incidents of corruption'
+                                                                        }
+                                                                        
+                                                                    ]}">
+												<infoToolbar>
+													<OverflowToolbar>
+														<ToolbarSpacer/>
+														<Label text="Report the total number of incidents related to corruption"/>
+														<ToolbarSpacer/>
+													</OverflowToolbar>
+												</infoToolbar>
+												<columns>
+													<Column width="21em">
+														<Text text="Category"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Value"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Unit"/>
+													</Column>
+													<Column width="12em" hAlign="Center">
+														<Text text="Quality"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true">
+														<Text text="Comment"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem >
+														<cells>
+															<Text text="{Category}"/>
+															<Input value="{Value}"/>
+															<Input value="{Unit}"/>
+															<!--<Input value="{Quality}"/>-->
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="{Comment}"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+											</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+										<uxap:ObjectPageSubSection title="Description of incident of corruption">
+										<uxap:blocks>
+											<Table class="sapUiSmallMarginBegin" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'AntiCorruptionIncidents'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Description of incident of corruption'
+                                                                        }
+                                                                        
+                                                                    ]}">
+												<infoToolbar>
+													<OverflowToolbar>
+														<ToolbarSpacer/>
+														<Label text="Provide description of incident of corruption"/>
+														<ToolbarSpacer/>
+													</OverflowToolbar>
+												</infoToolbar>
+												<columns>
+													<Column width="21em">
+														<Text text="Category"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Text answer"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Comment"/>
+													</Column>
+												
+												</columns>
+												<items>
+													<ColumnListItem >
+														<cells>
+															<Text text="{Category}"/>
+															<Input value="{Textanswer}"/>
+															<Input value="{Comment}"/>
+															
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+											</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+									<uxap:ObjectPageSubSection title="Total number of incidents of corruption in which employee were dismissed or disciplined							
+">
+										<uxap:blocks>
+											<Table class="sapUiSmallMarginBegin" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'AntiCorruptionIncidents'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Employees Dismissed'
+                                                                        }
+                                                                        
+                                                                    ]}">
+												<infoToolbar>
+													<OverflowToolbar>
+														<ToolbarSpacer/>
+														<Label text="Report the total number of incidents of corruption in which employee were dismissed or disciplined"	/>
+														<ToolbarSpacer/>
+													</OverflowToolbar>
+												</infoToolbar>
+												<columns>
+													<Column width="21em">
+														<Text text="Category"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Value"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Unit"/>
+													</Column>
+													<Column width="12em" hAlign="Center">
+														<Text text="Quality"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true">
+														<Text text="Comment"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem >
+														<cells>
+															<Text text="{Category}"/>
+															<Input value="{Value}"/>
+															<Input value="{Unit}"/>
+															<!--<Input value="{Quality}"/>-->
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="{Comment}"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+											</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+										<uxap:ObjectPageSubSection title="Incidents where contracts with business partner were terminated">
+										<uxap:blocks>
+											<Table class="sapUiSmallMarginBegin"  items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'AntiCorruptionIncidents'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Contract of BP terminated'
+                                                                        }
+                                                                        
+                                                                    ]}">
+												<infoToolbar>
+													<OverflowToolbar>
+														<ToolbarSpacer/>
+														<Label text="Report the total number of confirmed incidents when contracts with business partners were terminated or not renewed due to violations related to corruption"	/>
+														<ToolbarSpacer/>
+													</OverflowToolbar>
+												</infoToolbar>
+												<columns>
+													<Column width="21em">
+														<Text text="Category"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Value"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Unit"/>
+													</Column>
+													<Column width="12em" hAlign="Center">
+														<Text text="Quality"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true">
+														<Text text="Comment"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem >
+														<cells>
+															<Text text="{Category}"/>
+															<Input value="{Value}"/>
+															<Input value="{Unit}"/>
+															<!--<Input value="{Quality}"/>-->
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="{Comment}"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+											</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+
+                            <!--Governance-->
+                                <uxap:ObjectPageSection showTitle="true" title="Governance" titleUppercase="false" visible="true">
+								<uxap:subSections>
+									<uxap:ObjectPageSubSection title="Board Independence">
+										<uxap:blocks>
+											<Table class="sapUiSmallMarginBegin" items="">
+												<infoToolbar>
+													<OverflowToolbar>
+														<ToolbarSpacer/>
+														<Label text="Board Independence"/>
+														<ToolbarSpacer/>
+													</OverflowToolbar>
+												</infoToolbar>
+												<columns>
+													<Column >
+														<Text text="Category"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Count"/>
+													</Column>	
+                                                    <Column width="12em" hAlign="Center">
+														<Text text="Quality"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true">
+														<Text text="Comment"/>
+													</Column>												
+												</columns>
+												<items>
+													<ColumnListItem >
+														<cells>
+															<Text text="Independent Director"/>
+															<Input value="6"/>	  
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/>                                                          														
+														</cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem >
+                                                        <cells>
+															<Text text="Non-Executive Director"/>
+															<Input value="3"/>	
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/> 														
+														</cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem >
+                                                        <cells>
+															<Text text="Executive Director"/>
+															<Input value="1"/>	
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/> 														
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+
+									<uxap:ObjectPageSubSection title="Board Diversity (by Gender)">
+										<uxap:blocks>
+											<Table class="sapUiSmallMarginBegin" >
+												<infoToolbar>
+													<OverflowToolbar>
+														<ToolbarSpacer/>
+														<Label text="Board Diversity (by Gender)"/>
+														<ToolbarSpacer/>
+													</OverflowToolbar>
+												</infoToolbar>
+												<columns>
+													<Column >
+														<Text text="Category"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="Count"/>
+													</Column>
+                                                    <Column width="12em" hAlign="Center">
+														<Text text="Quality"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true">
+														<Text text="Comment"/>
+													</Column>					
+												</columns>
+												<ColumnListItem >
+														<cells>
+															<Text text="Female"/>
+															<Input value="3"/>	  
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/>                                                           														
+														</cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem >
+                                                        <cells>
+															<Text text="Male"/>
+															<Input value="7"/>	
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/> 														
+														</cells>
+                                                    </ColumnListItem>
+											</Table>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+									<uxap:ObjectPageSubSection title="Training on anti-corruption policies and procedures by country">
+										<uxap:blocks>
+											<Table class="sapUiSmallMarginBegin" >
+												<infoToolbar>
+													<OverflowToolbar>
+														<ToolbarSpacer/>
+														<Label text="Training on anti-corruption policies and procedures by country"/>
+														<ToolbarSpacer/>
+													</OverflowToolbar>
+												</infoToolbar>
+												<columns>
+													<Column >
+														<Text text="Country"/>
+													</Column>
+													<Column minScreenWidth="Desktop" demandPopin="true">
+														<Text text="No of employees trained"/>
+													</Column>
+                                                    <Column width="12em" hAlign="Center">
+														<Text text="Quality"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true">
+														<Text text="Comment"/>
+													</Column>					
+												</columns>
+												<ColumnListItem >
+														<cells>
+															<Text text="India"/>
+															<Input value="3600"/>	
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/>                                                             														
+														</cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem >
+                                                        <cells>
+															<Text text="Philippines"/>
+															<Input value="4722"/>															
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/> 
+														</cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem >
+														<cells>
+															<Text text="U.S."/>
+															<Input value="4442"/>	                                                            														
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/> 
+														</cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem >
+                                                        <cells>
+															<Text text="Malaysia"/>
+															<Input value="5619"/>															
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/> 
+														</cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem >
+														<cells>
+															<Text text="China"/>
+															<Input value="5551"/>	                                                            														
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/> 
+														</cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem >
+                                                        <cells>
+															<Text text="Singapore"/>
+															<Input value="4977"/>															
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/> 
+														</cells>
+                                                    </ColumnListItem>
+                                                    <ColumnListItem >
+                                                        <cells>
+															<Text text="Australia"/>
+															<Input value="3095"/>															
+                                                            <Switch type="AcceptReject" state="true">
+                                                                <layoutData>
+                                                                    <FlexItemData growFactor="1" />
+                                                                </layoutData>
+                                                            </Switch>
+															<Input value="NA"/> 
+														</cells>
+                                                    </ColumnListItem>
+											</Table>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+							
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+                            <!--Governance-->
+						
+						</uxap:sections>
+					</uxap:ObjectPageLayout>
+
+        </content>
+        <footer>
+        <Toolbar>
+            <ToolbarSpacer/>
+            <Button type="Accept" text="Edit"  icon="sap-icon://edit" width = "90px" press="handleEditBtn" id = "btn1"/>
+            <Button type="Accept" text="Reset" icon="sap-icon://reset" width = "90px" press="callODataService" id = "btn2"/>
+            <Button type="Accept" text="Submit For Approval" press="onPressSubmit" icon="sap-icon://accept" id = "btn3"/>
+        </Toolbar>
+    </footer>
+    </Page>
+</mvc:View>

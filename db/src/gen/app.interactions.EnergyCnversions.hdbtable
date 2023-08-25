@@ -1,0 +1,11 @@
+COLUMN TABLE app_interactions_EnergyCnversions (
+  Industry NVARCHAR(25) NOT NULL,
+  KPI NVARCHAR(70) NOT NULL,
+  Type NVARCHAR(70) NOT NULL,
+  Subtype NVARCHAR(70) NOT NULL,
+  UserInputUnit NVARCHAR(5000) NOT NULL,
+  ExpectedOutputUnit NVARCHAR(5000) NOT NULL,
+  ConverstionFactor DECIMAL NOT NULL,
+  Operation NVARCHAR(5000) NOT NULL,
+  PRIMARY KEY(Industry, KPI, Type, Subtype, UserInputUnit)
+)

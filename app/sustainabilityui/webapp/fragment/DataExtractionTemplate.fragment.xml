@@ -1,0 +1,94 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+    	<Dialog id="DialogDataDisplay" resizable="true" draggable="true" 
+		title="Data Extraction"  
+		
+		>
+		
+			<Table id="dataExtractTblUpload" 
+				items=""				
+				mode="MultiSelect"
+				class="sapUiTinyMargin"
+				alternateRowColors="true"
+				growing="true"
+				sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+			>
+				<headerToolbar />
+				<infoToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer />
+						<Button icon="sap-icon://edit" press="" tooltip="Edit Existing Entry"  text="Edit" type="Emphasized"/>
+						<Button icon="sap-icon://accept" press="" tooltip="Save Existing Entry" text="OK" type="Emphasized"/>
+						<Button icon="sap-icon://decline" press="" tooltip="Edit Existing Entry" text="Close" type="Emphasized"/>						
+					</OverflowToolbar>
+				</infoToolbar>
+				<columns>
+					<Column >
+						<Text text="Division" />
+					</Column>
+
+					<Column >
+						<Text text="Location" />
+					</Column >
+
+					<Column >
+						<Text text="Year" />
+					</Column>
+
+					<Column >
+						<Text text="Type" />
+					</Column>
+
+					<Column >
+						<Text text="Sub-Type" />
+					</Column>
+
+					<Column >
+						<Text text="KPI" />						
+					</Column>
+
+					<Column >
+						<Text text="Month" />						
+					</Column>
+
+					<Column >
+						<Text text="Value" />						
+					</Column>
+
+					<Column >
+						<Text text="Unit" />						
+					</Column>
+
+					<Column >
+						<Text text="Costs" />						
+					</Column>
+
+					<Column >
+						<Text text="Currency" />						
+					</Column>
+
+					<Column >
+						<Text text="Quality" />						
+					</Column>
+
+					<Column >
+						<Text text="Comment" />						
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="" />
+							<Text text="" />
+							<Text text="" />
+							<Text text="" />
+							<Text text="" />
+							<Text text="" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+                            
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,12 @@
+COLUMN TABLE app_interactions_UoMConversions (
+  Industry NVARCHAR(25) NOT NULL,
+  Measure NVARCHAR(5000) NOT NULL,
+  UserInputUnit NVARCHAR(5000) NOT NULL,
+  ExpectedOutputUnit NVARCHAR(5000) NOT NULL,
+  ConverstionFactor DECIMAL NOT NULL,
+  Operation NVARCHAR(5000) NOT NULL,
+  KPI NVARCHAR(70),
+  Type NVARCHAR(70),
+  Subtype NVARCHAR(70),
+  PRIMARY KEY(Industry, Measure, UserInputUnit, ExpectedOutputUnit)
+)

@@ -1,0 +1,192 @@
+###
+curl --location --request POST 'http://localhost:4004/admin/$batch' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "requests": [
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r1",
+            "method": "POST",
+            "url": "/Authors",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+                "ID": 110,
+                "name": "Emily Brontë II."
+            }
+        },
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r2",
+            "method": "POST",
+            "url": "/Authors",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+                "ID": 221,
+                "name": "Sherlock Holmes"
+            }
+        },
+        {
+            "id": "r2",
+            "dependsOn": [
+                "g1"
+            ],
+            "method": "PATCH",
+            "url": "/Authors(110)",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+                "name": "Emily Brontë II of I."
+            }
+        },
+        {
+            "id": "r8",
+            "atomicityGroup": "g2",
+            "dependsOn": [
+                "g1",
+                "r2"
+            ],
+            "method": "GET",
+            "url": "/Authors",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            }
+        }
+    ]
+}'
+###
+POST /catalog/$batch HTTP/1.1
+Host: localhost:4004
+Content-Type: application/json
+Content-Length: 1721
+
+{
+    "requests": [
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r1",
+            "method": "PATCH",
+            "url": "/Environment_Report(Year='2024',Month='April',Location='Bangalore - TMEC',Type='ENERGY',SubType='Direct Energy',KPI='Plastic Scrap')",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+      
+  "Owner": "Henry Lucas113"
+  
+ }
+        },
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r2",
+            "method": "POST",
+            "url": "/Environment_Report",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+       "Year": "2020",
+  "Month": "February",
+  "Location": "Bangalore - TMEC",
+  "Type": "ENERGY",
+  "SubType": "Direct Energy",
+  "KPI": "HSD",
+  "Value": 4.4,
+  "Unit": "kL",
+  "Cost": 0,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Owner": "",
+  "Approver": "",
+  "Division": "ACME Industries",
+  "Sno": 0,
+  "Date": null,
+  "Value2": null,
+  "Distance": null,
+  "Weight": null,
+  "Scope": "",
+  "Associates": null,
+  "Logic": "Logic 1",
+  "Measure": "Volume",
+  "GRIStd": "305-1",
+  "SDG": "SDG 13: Climate Action",
+  "RenNon": null,
+  "FValue": 0,
+  "FValue1": 0
+ }
+        }
+    ]
+}
+
+###
+POST /catalog/$batch HTTP/1.1
+Host: localhost:4004
+Content-Type: application/json
+Content-Length: 1721
+
+{
+    "requests": [
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r1",
+            "method": "PATCH",
+            "url": "/Environment_Report(Year='2020',Month='June',Location='Bangalore - TMEC',Type='ENERGY',SubType='Direct Energy',KPI='HSD')",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+              "Value": "3.09"
+  
+  
+ }
+        },
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r2",
+            "method": "POST",
+            "url": "/Environment_Report",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+     "Year": "2020",
+    "Month": "June",
+    "Location": "Bangalore - TMEC",
+    "Type": "ENERGY",
+    "SubType": "Direct Energy",
+    "KPI": "HSD",
+    "Value": 3.6,
+    "Unit": "kL",
+    "Cost": 0,
+    "Currency": "",
+    "Quality": "OK",
+    "Comment": "NA",
+    "Owner": "Henry Lucas",
+    "Approver": "John Doe",
+    "Division": "ACME Industries",
+    "Value2": null,
+    "Unit2": null,
+    "Distance": null,
+    "Weight": null,
+    "Scope": "Scope 1",
+    "Associates": null,
+    "Sno": null,
+    "Date": null,
+    "FValue": 0
+ }
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+VIEW CatalogService_KPIList_Social_Ports AS SELECT
+  KPIList_Social_Ports_0.Type,
+  KPIList_Social_Ports_0.SubType,
+  KPIList_Social_Ports_0.KPI,
+  KPIList_Social_Ports_0.Prefix,
+  KPIList_Social_Ports_0.Template,
+  KPIList_Social_Ports_0.GRIStd,
+  KPIList_Social_Ports_0.SDG,
+  KPIList_Social_Ports_0.Logic,
+  KPIList_Social_Ports_0.InfoType
+FROM app_interactions_KPIList_Social_Ports AS KPIList_Social_Ports_0

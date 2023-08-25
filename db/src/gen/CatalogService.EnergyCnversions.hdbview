@@ -1,0 +1,10 @@
+VIEW CatalogService_EnergyCnversions AS SELECT
+  EnergyCnversions_0.Industry,
+  EnergyCnversions_0.KPI,
+  EnergyCnversions_0.Type,
+  EnergyCnversions_0.Subtype,
+  EnergyCnversions_0.UserInputUnit,
+  EnergyCnversions_0.ExpectedOutputUnit,
+  EnergyCnversions_0.ConverstionFactor,
+  EnergyCnversions_0.Operation
+FROM app_interactions_EnergyCnversions AS EnergyCnversions_0

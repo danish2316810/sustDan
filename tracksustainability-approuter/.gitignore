@@ -1,0 +1,27 @@
+/node_modules/
+package-lock.json
+
+
+
+
+
+# auto generated wildcard
+TrackSustainability/.env6
+# auto generated wildcard
+TrackSustainability/db/.env
+# auto generated wildcard
+TrackSustainability/.env
+# auto generated wildcard
+TrackSustainability/.env7
+# auto generated wildcard
+Odatav2Sample/db/.env
+# auto generated wildcard
+Odatav2Sample/.env1
+# auto generated wildcard
+iSustain/db/.env
+# auto generated wildcard
+iSustain/.env1
+# auto generated wildcard
+CrossTable/db/.env
+# auto generated wildcard
+CrossTable/.env1

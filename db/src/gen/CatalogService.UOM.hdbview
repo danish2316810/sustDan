@@ -1,0 +1,6 @@
+VIEW CatalogService_UOM AS SELECT
+  UOM_0.Industry,
+  UOM_0.Measure,
+  UOM_0.Unit,
+  UOM_0.Abbreviation
+FROM app_interactions_UOM AS UOM_0

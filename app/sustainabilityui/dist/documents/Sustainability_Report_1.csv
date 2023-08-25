@@ -1,0 +1,25 @@
+YEAR,MONTH,VALUE,UNIT,COST,CURRENCY,QUALITY,COMMENT,TYPE,SUBTYPE,OWNER,APPROVER,DIVISION,LOCATION
+2021 - 2022,April,5970,gl,308748,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,May,5928,gl,307184,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,June,1680,gl,216513,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,July,3671,gl,259320,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,August,3614,gl,129729,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,September,1680,gl,216513,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,October,8310,gl,360705,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,November,4519,gl,277551,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,December,5190,gl,299217,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,January,4469,gl,276476,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,Feburary,,gl,,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,March,,gl,,USD,OK,NA,Water discharge,Ground water,Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,April,5970,gl,308748,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,May,5928,gl,307184,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,June,1680,gl,216513,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,July,3671,gl,259320,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,August,3614,gl,129729,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,September,1680,gl,216513,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,October,8310,gl,360705,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,November,4519,gl,277551,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,December,5190,gl,299217,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,January,4469,gl,276476,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,Feburary,,gl,,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville
+2021 - 2022,March,,gl,,USD,OK,NA,Water discharge,Muncipal sewage (CETP),Henry Lucas,John Doe,ACME Industries,Nashville

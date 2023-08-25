@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageBox"],function(n){"use strict";return n.extend("com.techm.sustainabilityui.controller.BulkUpload",{onInit:function(){},onPressBack:function(n){this.getOwnerComponent().getRouter().navTo("Launchpad",{},true)},handleDownload:function(n){var t=this},handleUrlPress:function(n){},_getVal:function(n){}})});
+//# sourceMappingURL=BulkUpload.controller.js.map

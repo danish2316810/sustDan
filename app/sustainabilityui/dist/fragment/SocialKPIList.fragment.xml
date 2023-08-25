@@ -1,0 +1,84 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uxap="sap.uxap"
+    xmlns:u="sap.ui.unified">
+    
+   
+    <Table id="SocialKPIList" alternateRowColors="true" growing="true"  width="90%"  sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+            items="{path: '/results'}" mode="MultiSelect">
+            <headerToolbar></headerToolbar>
+            <infoToolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer/> 
+                    <Button	icon="sap-icon://add" press="OnPressAddNewEntry_SocialKPI" tooltip = "Add New Entry"/>              
+                </OverflowToolbar>
+            </infoToolbar>
+            <columns>
+                <Column >
+                    <Text text="Type" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="SubType" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="KPI"></Text>
+                </Column>
+                <Column hAlign="Center" >
+                    <Text text="Template"></Text>
+                </Column>
+                <Column  hAlign="Center"  demandPopin="true">
+                    <Text text="Prefix" ></Text>
+                </Column>
+                <Column  demandPopin="true">
+                    <Text text="Logic" ></Text>
+                </Column>
+                <Column  hAlign="Center"  >
+                    <Text text="GRIStd" ></Text>
+                </Column>
+                <Column hAlign="Center" >
+                    <Text text="SDG" ></Text>
+                </Column>                
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                       <!-- <Text text="{Type}" />
+                        <Text text="{SubType}" />
+                        <Text text="{KPI}" />
+
+                        <Text text="{Template}" />
+
+                        <Text text="{Prefix}" />
+                        <Text text="{Logic}" />
+
+                        <Text text="{GRIStd}" />
+                        <Text text="{SDG}" />-->
+
+                        <!--<Input value="{Type}" editable="{isNewRow}"/>-->
+                        <HBox>
+                            <Text text="{Type}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                    formatter: '.formatPKeyField'}" editable="false" />
+                            <Input value="{Type}"  visible="{isNewRow}" />
+                        </HBox>
+                        <Input value="{SubType}" editable="{isNewRow}"/>
+                        <Input value="{KPI}" editable="{isNewRow}"/>
+
+                        <Input value="{Template}" editable="{isNewRow}" />
+
+                        <Input value="{Prefix}" editable="{isNewRow}"/>
+                        <Input value="{Logic}" editable="{isNewRow}"/>
+
+                        <Input value="{GRIStd}" editable="{isNewRow}"/>
+                        <Input value="{SDG}" editable="{isNewRow}"/>
+                        
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+       
+
+
+
+
+
+</core:FragmentDefinition>

@@ -1,0 +1,1 @@
+{"version":3,"file":"Dashboard.controller.js","names":["sap","ui","define","Controller","extend","onInit","oRouter","core","UIComponent","getRouterFor","this"],"sources":["Dashboard-dbg.controller.js"],"mappings":"AAAAA,IAAIC,GAAGC,OAAO,CACV,8BAKA,SAAUC,GACN,aAEA,OAAOA,EAAWC,OAAO,kDAAmD,CAExEC,OAAO,WACH,IAAIC,EAAUN,IAAIC,GAAGM,KAAKC,YAAYC,aAAaC,KACvD,GAER"}

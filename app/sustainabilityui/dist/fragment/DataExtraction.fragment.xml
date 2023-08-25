@@ -1,0 +1,73 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="dataDialog" resizable="true" draggable="true" 
+		title="Data Extraction"  
+		class="frgDataExtract"
+		>
+			<Table id="dataExtractTbl" 
+				items="{ path : 'dataExtractModel>/' ,templateShareable:false }"				
+				mode="MultiSelect"
+				class="sapUiTinyMargin"
+				alternateRowColors="true"
+				growing="true"
+				sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+			>
+				<headerToolbar />
+				<infoToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer />
+						<Button icon="sap-icon://edit" press="onEditDialog" tooltip="Edit Existing Entry"  text="Edit" type="Emphasized"/>
+						<Button icon="sap-icon://accept" press="onOKDialog" tooltip="Save Existing Entry" text="OK" type="Emphasized"/>
+						<Button icon="sap-icon://decline" press="onCancelDialog" tooltip="Edit Existing Entry" text="Close" type="Emphasized"/>						
+					</OverflowToolbar>
+				</infoToolbar>
+				<columns>
+					<Column >
+						<Text text="Supplier Name" class="fntItalic" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<!-- <Text text="{dataExtractModel>name}"  />-->
+							<HBox>
+								<Text text="{dataExtractModel>name}" visible="{parts: [{path: 'dataExtractModel>isNewRow'}, {path: 'dataExtractModel>isEditableRow'}, {path: 'dataExtractModel>isExistingRowis'}],
+                                                                            formatter: '.formatDisplayField'}"/>
+								<Input value="{dataExtractModel>name}" visible="{parts: [{path: 'dataExtractModel>isNewRow'}, {path: 'dataExtractModel>isEditableRow'}, {path: 'dataExtractModel>isExistingRow'}],
+                                                                            formatter: '.formatEditField'}"/>
+							</HBox>	 
+							 
+							
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+                            
+	</Dialog>
+
+	<!--<TableSelectDialog
+		id="dataDialog"
+		noDataText="No Data Found"
+		title="Data Extraction"		
+		confirm=".handleClose"
+		cancel=".handleClose"
+		multiSelect="true"
+		class="frgDataExtract"
+		items="{dataModel>/}"
+		>		
+		
+		<ColumnListItem vAlign="Middle">
+			<cells>
+				<Text text="{dataModel>}"/>		              
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column >
+				<header>
+					<Text text="Supplier Name" />
+				</header>
+			</Column>		
+		</columns>
+	</TableSelectDialog>-->
+</core:FragmentDefinition>

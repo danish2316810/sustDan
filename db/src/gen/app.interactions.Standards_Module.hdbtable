@@ -1,0 +1,10 @@
+COLUMN TABLE app_interactions_Standards_Module (
+  id NVARCHAR(5000) NOT NULL,
+  HierarchyLevel NVARCHAR(5000),
+  ParentNodeID NVARCHAR(5000),
+  Description NVARCHAR(5000),
+  DrillState NVARCHAR(5000),
+  PRIMARY KEY(id)
+) WITH ASSOCIATIONS (
+  MANY TO MANY JOIN app_interactions_Standards_Module AS toStandards_Module ON (toStandards_Module.id = ParentNodeID)
+)

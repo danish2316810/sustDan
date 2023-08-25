@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="V_Media" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="V_Media"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="APP_INTERACTIONS_MEDIAFILE">
+    <resourceUri>APP_INTERACTIONS_MEDIAFILE</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+
+<logicalModel id="APP_INTERACTIONS_MEDIAFILE">
+  <attributes>
+    <attribute id="CONTENT" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONTENT"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_MEDIAFILE" columnName="CONTENT"/>
+    </attribute>
+    <attribute id="MEDIATYPE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MEDIATYPE"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_MEDIAFILE" columnName="MEDIATYPE"/>
+    </attribute>
+    <attribute id="FILENAME" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FILENAME"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_MEDIAFILE" columnName="FILENAME"/>
+    </attribute>
+    <attribute id="URL" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="URL"/>
+      <keyMapping columnObjectName="APP_INTERACTIONS_MEDIAFILE" columnName="URL"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="ID" order="1" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="ID"/>
+      <measureMapping columnObjectName="APP_INTERACTIONS_MEDIAFILE" columnName="ID"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  </shapes>
+</layout>
+</Calculation:scenario>

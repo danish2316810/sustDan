@@ -1,0 +1,12 @@
+COLUMN TABLE app_interactions_KPIList_Social_Ports (
+  Type NVARCHAR(50) NOT NULL,
+  SubType NVARCHAR(50) NOT NULL,
+  KPI NVARCHAR(5000) NOT NULL,
+  Prefix NVARCHAR(5000) NOT NULL,
+  Template NVARCHAR(5000),
+  GRIStd NVARCHAR(5000),
+  SDG NVARCHAR(5000),
+  Logic NVARCHAR(5000),
+  InfoType NVARCHAR(5000),
+  PRIMARY KEY(Type, SubType, KPI, Prefix)
+)

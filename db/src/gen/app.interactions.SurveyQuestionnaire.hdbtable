@@ -1,0 +1,10 @@
+COLUMN TABLE app_interactions_SurveyQuestionnaire (
+  SurveyID INTEGER NOT NULL,
+  ReportingYear NVARCHAR(5000),
+  Section NVARCHAR(5000),
+  QuestionID NVARCHAR(5000),
+  QuestionText NVARCHAR(5000),
+  KPI_Mapping NVARCHAR(5000),
+  Industry NVARCHAR(5000),
+  PRIMARY KEY(SurveyID)
+)

@@ -1,0 +1,60 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified">
+<VBox>
+<ScrollContainer
+		height="120%"
+		width="100%"
+		vertical="true"
+		focusable="true">
+
+      <!-- <Table width="40%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin"                              
+                            id="uomVolumeTbl" items="{path: '/results', 
+                                            filters: [ { path: 'Measure', operator: 'EQ', value1: 'Data' } ]}"
+                                            growing="true" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" alternateRowColors="true">-->
+        <Table width="40%" mode="MultiSelect" class="sapUiSmallMarginTop sapUiSmallMarginBegin"                              
+                            id="uomVolumeTbl" items="{path: '/results'}"
+                                            growing="true" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" alternateRowColors="true">
+                    <headerToolbar></headerToolbar>
+                    <infoToolbar>
+                        <OverflowToolbar>
+                            <ToolbarSpacer/>
+                            <Label text="UoM Values"/>
+                            <ToolbarSpacer/>
+                            <Button	icon="sap-icon://add" press="OnPressAddNewEntry_UOM_Volume" tooltip = "Add New Entry"/>
+                            <Button	icon="sap-icon://less" press="" tooltip = "Remove Selected Entry" enabled="false"/>
+                        </OverflowToolbar>
+                    </infoToolbar>
+                    <columns>                       										                        	
+                        <Column >
+                            <Text text="Unit"/>
+                        </Column>	
+                        <Column >
+                            <Text text="Abbreviation"/>
+                        </Column>			
+                        </columns>
+                        <items>
+                            <ColumnListItem >                               
+                                <cells>                                    
+                                   <!-- <Input value="{Unit}"/>	-->	
+                                    <HBox>
+                                        <Text text="{Unit}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                formatter: '.formatDisplayField'}" />
+                                        <Input value="{Unit}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                formatter: '.formatEditField'}" />
+                                    </HBox>		
+                                </cells>
+                                <cells>                                    
+                                  <!--  <Input value="{Abbreviation}"/>		-->	
+                                    <HBox>
+                                        <Text text="{Abbreviation}" visible="{parts: [{path: 'isNewRow'}, {path: 'isEditableRow'}, {path: 'isExistingRow'}],
+                                                formatter: '.formatPKeyField'}" />
+                                        <Input value="{Abbreviation}" visible="{isNewRow}" />
+                                    </HBox>														
+                                </cells>                                
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    </ScrollContainer>
+                    </VBox>
+</core:FragmentDefinition>

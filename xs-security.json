@@ -1,0 +1,270 @@
+{
+  "xsappname": "tracksustainability",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Administrator Scope"
+    },
+    {
+      "name": "$XSAPPNAME.LocAdmin",
+      "description": "Administrator Scope for KPIList"
+    },
+    {
+      "name": "$XSAPPNAME.LocViewer",
+      "description": "Viewer Scope for Location"
+    },
+    {
+      "name": "$XSAPPNAME.LocViewers",
+      "description": "Viewer Scope for Location"
+    },
+    {
+      "name": "$XSAPPNAME.DivViewer",
+      "description": "Viewer Scope for Division"
+    },
+    {
+      "name": "$XSAPPNAME.DivAdmin",
+      "description": "Administrator Scope for Division"
+    },
+   
+    {
+      "name": "$XSAPPNAME.SustainabilityViewer",
+      "description": "Viewer Scope"
+    },
+
+    {
+      "name": "$XSAPPNAME.TypeViewer",
+      "description": "Viewer Scope"
+    },
+
+    {
+      "name": "$XSAPPNAME.TypeAdmin",
+      "description": "Admin Scope"
+    },
+
+    {
+      "name": "$XSAPPNAME.SubTypeViewer",
+      "description": "Viewer Scope"
+    },
+
+    {
+      "name": "$XSAPPNAME.SubTypeAdmin",
+      "description": "Admin Scope"
+    },
+
+    {
+      "name": "$XSAPPNAME.KPIViewer",
+      "description": "Viewer Scope"
+    },
+    {
+      "name": "$XSAPPNAME.KPIAdmin",
+      "description": "Admin Scope"
+    }
+    
+  ],
+  "attributes":[
+
+    {
+      "name" : "Division",
+      "description" : "Division Attribute",
+       "valueType" : "string"
+    },
+    {
+      "name" : "Location",
+      "description" : "Location Attribute",
+       "valueType" : "string"
+    },
+    {
+      "name" : "Type",
+      "description" : "Type Attribute",
+       "valueType" : "string"
+    },
+
+    {
+      "name" : "SubType",
+      "description" : "Type Attribute",
+       "valueType" : "string"
+    },
+
+    {
+      "name" : "KPI",
+      "description" : "Type Attribute",
+       "valueType" : "string"
+    }
+
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    },
+    
+        
+    {
+      "name": "DivAdmin",
+      "description": ":Division Admin Role Template",
+      
+      "scope-references": [
+        "$XSAPPNAME.DivAdmin"
+      ]
+    },
+
+    {
+      "name": "DivViewer",
+      "description": ":Division Viewer Role Template",
+      "attribute-references": [
+       { "name" :"Division"
+       }
+      ],
+      "scope-references": [
+        "$XSAPPNAME.DivViewer"
+      ]
+    },
+
+    {
+      "name": "LocAdmin",
+      "description": ":Location Admin Role Template",
+      "attribute-references": [
+        "Division", "Location"
+       
+      ],
+      
+      "scope-references": [
+        "$XSAPPNAME.LocAdmin"
+      ]
+    },
+
+    {
+      "name": "LocViewer",
+      "description": ":Location Viewer Role Template",
+          
+      "scope-references": [
+        "$XSAPPNAME.LocViewer"
+      ]
+    },
+    {
+      "name": "LocViewers",
+      "description": ":Location Viewer Role Template",
+      "attribute-references": [
+        "Location"
+      
+     ],
+     
+      "scope-references": [
+        "$XSAPPNAME.LocViewers"
+      ]
+    },
+    
+
+    {
+      "name": "TypeAdmin",
+      "description": ":Type Admin Role Template",
+      "attribute-references": [
+       
+        "Division", "Location", "Type"
+       
+      ],
+      "scope-references": [
+        "$XSAPPNAME.TypeAdmin"
+      ]
+    },
+
+    {
+      "name": "TypeViewer",
+      "description": ":Type Viewer Role Template",
+      "attribute-references": [
+       
+        "Type"
+       
+      ],
+      "scope-references": [
+        "$XSAPPNAME.TypeViewer"
+      ]
+    },
+
+    {
+      "name": "SubTypeAdmin",
+      "description": ":SubType Admin Role Template",
+      "attribute-references": [
+        "Division", "Location", "Type", "SubType"
+      ],
+      "scope-references": [
+        "$XSAPPNAME.SubTypeAdmin"
+      ]
+    },
+
+    {
+      "name": "SubTypeViewer",
+      "description": ":Subtype Viewer Role Template",
+      "attribute-references": [
+        "Type", "SubType"
+      ],
+      "scope-references": [
+        "$XSAPPNAME.SubTypeViewer"
+      ]
+    },
+
+    {
+      "name": "KPIAdmin",
+      "description": ":KPI Admin Role Template",
+      "attribute-references": [
+        "Division", "Location", "Type", "SubType", "KPI"
+      ],
+      "scope-references": [
+        "$XSAPPNAME.KPIAdmin"
+      ]
+    },
+
+    {
+      "name": "KPIViewer",
+      "description": ":KPI Viewer Role Template",
+      "attribute-references": [
+        "Type", "SubType", "KPI"
+      ],
+      "scope-references": [
+        "$XSAPPNAME.KPIViewer"
+      ]
+    },
+
+    {
+      "name": "Admin",
+      "description": "Admin Role Template",
+      
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ]
+    },
+    {
+      "name": "SustainabilityViewer",
+      "description": "Viewer Role Template",
+      
+      "scope-references": [
+        "$XSAPPNAME.SustainabilityViewer"
+      ]
+    }
+  ],
+
+  "role-collections" :
+  [
+    {
+      "name": "app_Administrator",
+      "description": "Admin Role collection",
+      
+      "role-template-references": [
+        "$XSAPPNAME.Admin"
+      ]
+
+    }
+  ],
+ 
+}
+} "oauth2-configuration": {
+    "redirect-uris": ["https://*.eu10-004.hana.ondemand.com/**"]

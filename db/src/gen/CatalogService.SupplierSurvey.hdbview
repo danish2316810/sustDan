@@ -1,0 +1,15 @@
+VIEW CatalogService_SupplierSurvey AS SELECT
+  SupplierSurvey_0.SurveyID,
+  SupplierSurvey_0.SupplierID,
+  SupplierSurvey_0.ReportingYear,
+  SupplierSurvey_0.Section,
+  SupplierSurvey_0.SurveyResponse,
+  SupplierSurvey_0.SurveyResponseValue,
+  SupplierSurvey_0.Fvalue,
+  SupplierSurvey_0.FValue1,
+  SupplierSurvey_0.EmissionLogic,
+  SupplierSurvey_0.EnergyLogic,
+  SupplierSurvey_0.Ratings,
+  SupplierSurvey_0.Remarks,
+  SupplierSurvey_0.Industry
+FROM app_interactions_SupplierSurvey AS SupplierSurvey_0

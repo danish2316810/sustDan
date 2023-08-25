@@ -1,0 +1,13 @@
+COLUMN TABLE app_interactions_IndustryList (
+  Industry NVARCHAR(25) NOT NULL,
+  IndustryDesc NVARCHAR(5000),
+  TransactionTable NVARCHAR(50),
+  KPIListTable NVARCHAR(50),
+  SocialTable NVARCHAR(50),
+  UOM_Telecom NVARCHAR(50),
+  UoMConversions_Telecom NVARCHAR(50),
+  EmissionFactors_Telecom NVARCHAR(50),
+  ENergyConversions_Telecom NVARCHAR(50),
+  Measure_Telecom NVARCHAR(50),
+  PRIMARY KEY(Industry)
+)

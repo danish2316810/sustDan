@@ -1,0 +1,227 @@
+POST http://localhost:4004/catalog/Environment_Report_Telecom
+Authorization: Basic adminuser:67890
+Content-Type: application/json
+
+{
+  "Year": "2021",
+  "Month": "November",
+  "Location": "Maharashtra",
+  "Type": "NETWORK TRAFFIC",
+  "SubType": "Voice & Data Traffic",
+  "KPI": "3G Data Traffic",
+  "Sno": 0,
+  "supplier": "null",
+  "Value": 324,
+  "Unit": "GB",
+  "IUnit": "kWh",
+  "IValue": 90007.2,
+  "Cost": 78,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "FiscalType": false,
+  "YearA": "2021-2022",
+  "StartDate": "1-Apr-2021",
+  "EndDate": "31-Mar-2022",
+  "fiscal": "FY 2021-22",
+  "isValidationRequired": false,
+  "Owner": "",
+  "Approver": "",
+  "Division": "Bharti Airtel Limited",
+  "Value2": null,
+  "Unit2": null,
+  "Distance": null,
+  "Weight": null,
+  "Scope": "",
+  "Associates": null,
+  "Date": null,
+  "Logic": "LogicT",
+  "Measure": "Data",
+  "Standard1": "GRI",
+  "LogicE": "",
+  "GRIStd": "Disclosure 305-3: Other indirect (Scope 3) GHG emissions",
+  "SDG": "SDG 3 : Good Health and Well-being, SDG 12 : Responsible Consumption and Production, SDG 13 : Climate Action, SDG 14 : Life Below Water, SDG 15 : Life On Land",
+  "Class": null,
+  "RenNon": "Non-RE",
+  "createdAt": "2023-04-12T14:39:34.637Z",
+  "modifiedAt": "2023-04-12T14:39:34.637Z",
+  "FValue": 43.0234416,
+  "FValue1": 0
+}
+
+### Measure Validation
+  POST http://localhost:4004/catalog/Environment_Report_Telecom
+Content-Type: application/json
+
+{
+  "Year": "2021",
+"Month": "July",
+"Location": "Assam & NE",
+"Type": "DIESEL",
+"SubType": "Core Network",
+"KPI": "Leased",
+"Sno": 0,
+"Value": 100,
+"Unit": "L",
+"IUnit": "litres",
+"IValue": 378.5,
+"Cost": 10,
+"Currency": "INR",
+"Quality": "OK",
+"Comment": "NA",
+"FiscalType": false,
+"YearA": "2022-2023",
+"StartDate": "1-Apr-22",
+"EndDate": "31-Mar-23",
+"fiscal": "FY 2022-23",
+"isValidationRequired": true,
+"Owner": "",
+"Approver": "",
+"Division": "Bharti Airtel Limited",
+"Value2": null,
+"Unit2": null,
+"Distance": null,
+"Weight": null,
+"Scope": "",
+"Associates": null,
+"Date": null,
+"Logic": "Logic1",
+"Measure": "Volume",
+"Standard1": "GRI",
+"LogicE": "LogicE",
+"GRIStd": "Disclosure 303-1: Interactions with water as a shared resource",
+"SDG": "SDG 1 : No Poverty, SDG 2 : Zero Hunger, SDG 3 : Good Health and Well-being",
+"Class": null,
+"RenNon": "Non-RE",
+"createdAt": "2023-03-02T04:05:23.103Z",
+"modifiedAt": "2023-03-02T04:05:23.103Z",
+"FValue": 0.16814105499999998,
+"FValue1": 0
+}
+
+###
+
+POST http://localhost:4004/catalog/Environment_Report
+Authorization: Basic adminuser:67890
+Content-Type: application/json
+
+{
+  "Industry": "Telecom",
+  "Year": "1923",
+  "Month": "January",
+  "Location": "Andhra Pradesh",
+  "Type": "NETWORK TRAFFIC",
+  "SubType": "Voice & Data Traffic",
+  "KPI": "3G Data Traffic",
+  "Value": 123,
+  "Unit": "KB",
+  "Cost": 1,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Owner": "",
+  "Approver": "",
+  "Division": "Bharti Airtel Limited",
+  "Sno": 0,
+  "url": "",
+  "Date": null,
+  "Value2": null,
+  "Distance": null,
+  "Weight": null,
+  "Scope": "",
+  "Associates": null,
+  "Logic": "LogicT",
+  "Measure": "Data",
+  "GRIStd": "Topic 11.1: GHG emissions;,Topic 11.2: Climate adaptation, resilience, and transition",
+  "SDG": "SDG 5 : Gender Equality, SDG 6 : Clean Water and Sanitation",
+  "RenNon": "RE",
+  "FValue": 0,
+  "FValue1": 0,
+  "FiscalType": false,
+  "YearA": "2021-2022",
+  "fiscal": "FY 2021-22",
+  "isValidationRequired": false,
+  "StartDate": "1-Apr-21",
+  "EndDate": "31-Mar-22",
+  "LogicE": ""
+}
+###
+PATCH  http://localhost:4004/catalog/Environment_Report_Telecom(Year='2020',Month='Au2',Location='Maharashtra',Type='NETWORK TRAFFIC',SubType='Voice & Data Traffic',KPI='3G Data Traffic',Sno=0)
+Content-Type: application/json
+
+{
+  
+  "Value": "120",
+  "Unit": "MB"
+  
+}
+
+###
+POST http://localhost:4004/catalog/EmissionFactors_Telecom
+Content-Type: application/json
+
+{
+  "KPI": "6G Data Traffic3",
+  "Type": "NETWORK TRAFFIC1",
+  "SubType": "Voice & Data Traffic1",
+  "Standard": "User Defined",
+  "Shortlong": "",
+  "class": "",
+  "EmissionFactor": 100,
+  "UoM": "unit1",
+  "Deno": "unit1",
+  "Nume": ""
+}
+
+###
+POST http://localhost:4004/catalog/SocialTableA
+Authorization: Basic adminuser:67890
+Content-Type: application/json
+
+{
+  "Year": "",
+  "fiscal": "FY 2022-23",
+  "Location": "Terminal 1",
+  "Type": "PEOPLE",
+  "SubType": "Employment",
+  "KPI": "New employee hires",
+  "Division": "My Port",
+  "Prefix": "Employment Type",
+  "Identifier": "Test1",
+  "Template": "Table A",
+  "Logic": "S1",
+  "FUpto30yrs": 40,
+  "FUpto50yrs": 25,
+  "FMorethan50Yrs": 27,
+  "MUpto30yrs": 22,
+  "MUpto50yrs": 27,
+  "MMorethan50Yrs": 22,
+  "NUpto30yrs": 23,
+  "NUpto50yrs": 35,
+  "NMorethan50Yrs": 41,
+  "Female": null,
+  "Male": null,
+  "Neutral": null,
+  "Response": "Yes",
+  "OperationalChge": null,
+  "NoOfWeeks": null,
+  "NoOfIncidents": null,
+  "ReviewedBy": null,
+  "RemediationPlan": null,
+  "Results": null,
+  "sac": null,
+  "Number": null,
+  "NoOfHrs": null,
+  "NoOfEmployees": null,
+  "Covered_OHS": null,
+  "Covered_IAudit": null,
+  "Certified_OHS": null,
+  "Fatalities": null,
+  "High_Consequence": null,
+  "Recordable": null,
+  "HrsWorked": null,
+  "Emp_Entitled_leave": null,
+  "Emp_Took_Leave": null,
+  "Emp_Returned_To_Work": null,
+  "Emp_Still_Employed": null
+}

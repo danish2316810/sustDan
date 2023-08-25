@@ -1,0 +1,9 @@
+VIEW CatalogService_Year_Module AS SELECT
+  Year_Module_0.Industry,
+  Year_Module_0.YearL,
+  Year_Module_0.fiscal,
+  Year_Module_0.YearR,
+  Year_Module_0.YearA,
+  Year_Module_0.StartDate,
+  Year_Module_0.EndDate
+FROM app_interactions_Year_Module AS Year_Module_0

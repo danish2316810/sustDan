@@ -1,0 +1,13 @@
+COLUMN TABLE app_interactions_Governance_Report (
+  Type NVARCHAR(5000),
+  SubType NVARCHAR(5000),
+  Category NVARCHAR(5000),
+  Value DECIMAL,
+  Unit NVARCHAR(5000),
+  Quality NVARCHAR(5000),
+  Comment NVARCHAR(5000),
+  Textanswer NVARCHAR(5000),
+  Division NVARCHAR(5000),
+  Location NVARCHAR(5000),
+  "YEAR" NVARCHAR(5000)
+)

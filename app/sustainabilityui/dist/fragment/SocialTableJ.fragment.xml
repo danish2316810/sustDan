@@ -1,0 +1,47 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified" xmlns:uxap="sap.uxap"
+    xmlns:u="sap.ui.unified">
+    
+    <Table id="SocialTableJ" alternateRowColors="true" growing="true"  width="90%"  sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+            items="{path: 'SocialModel>/results'}" mode="MultiSelect">
+            <headerToolbar></headerToolbar>
+            <infoToolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer/> 
+                    <Button	icon="sap-icon://add" press="OnPressAddNewEntry" tooltip = "Add New Entry"/>              
+                </OverflowToolbar>
+            </infoToolbar>
+            <columns>
+                <Column >
+                   <Text id="ColHeaderSocialTableJ" text="" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="Fatalities Data" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="High consequence Data"></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="Recordable Data"></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="No of hours worked"></Text>
+                </Column>
+              
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Input value="{SocialModel>Identifier}" width="15em"/>
+                        <Input value="{SocialModel>Fatalities}" width="10em" type="Number" tooltip="Only digits"/>
+                        <Input value="{SocialModel>High_Consequence}" width="10em" type="Number" tooltip="Only digits"/>  
+                        <Input value="{SocialModel>Recordable}" width="10em" type="Number" tooltip="Only digits"/>  
+                        <Input value="{SocialModel>HrsWorked}" width="10em" type="Number" tooltip="Only digits"/>  
+                                             
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+       
+</core:FragmentDefinition>

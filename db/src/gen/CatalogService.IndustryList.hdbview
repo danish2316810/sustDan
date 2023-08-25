@@ -1,0 +1,12 @@
+VIEW CatalogService_IndustryList AS SELECT
+  IndustryList_0.Industry,
+  IndustryList_0.IndustryDesc,
+  IndustryList_0.TransactionTable,
+  IndustryList_0.KPIListTable,
+  IndustryList_0.SocialTable,
+  IndustryList_0.UOM_Telecom,
+  IndustryList_0.UoMConversions_Telecom,
+  IndustryList_0.EmissionFactors_Telecom,
+  IndustryList_0.ENergyConversions_Telecom,
+  IndustryList_0.Measure_Telecom
+FROM app_interactions_IndustryList AS IndustryList_0

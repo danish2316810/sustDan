@@ -1,0 +1,4 @@
+VIEW CatalogService_Location AS SELECT
+  Location_0.Location,
+  Location_0.Industry
+FROM app_interactions_Location AS Location_0

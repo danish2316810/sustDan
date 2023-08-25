@@ -1,0 +1,5 @@
+COLUMN TABLE app_interactions_Division (
+  Industry NVARCHAR(25) NOT NULL,
+  Division NVARCHAR(5000) NOT NULL,
+  PRIMARY KEY(Industry, Division)
+)

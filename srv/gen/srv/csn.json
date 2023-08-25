@@ -1,0 +1,3889 @@
+{
+  "definitions": {
+    "app.interactions": {
+      "kind": "context"
+    },
+    "app.interactions.BusinessKey": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 10
+    },
+    "app.interactions.SDate": {
+      "kind": "type",
+      "type": "cds.DateTime"
+    },
+    "app.interactions.LText": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 1024
+    },
+    "app.interactions.PeopleImperative": {
+      "kind": "entity",
+      "elements": {
+        "Type": {
+          "type": "cds.String"
+        },
+        "SubType": {
+          "type": "cds.String"
+        },
+        "Category": {
+          "type": "cds.String"
+        },
+        "Gender": {
+          "type": "cds.String"
+        },
+        "Upto30yrs": {
+          "type": "cds.Integer"
+        },
+        "Upto50yrs": {
+          "type": "cds.Integer"
+        },
+        "Morethan50Yrs": {
+          "type": "cds.Integer"
+        },
+        "Total": {
+          "type": "cds.Integer"
+        },
+        "Division": {
+          "type": "cds.String"
+        },
+        "Location": {
+          "type": "cds.String"
+        },
+        "Year": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "app.interactions.Location": {
+      "kind": "entity",
+      "elements": {
+        "Location": {
+          "type": "cds.String"
+        },
+        "Industry": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "app.interactions.Environment_Report": {
+      "kind": "entity",
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "Year": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25
+        },
+        "Month": {
+          "key": true,
+          "type": "cds.String",
+          "length": 14
+        },
+        "Location": {
+          "key": true,
+          "type": "cds.String",
+          "length": 120
+        },
+        "Type": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "SubType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Sno": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "url": {
+          "type": "cds.String"
+        },
+        "Value": {
+          "type": "cds.Decimal"
+        },
+        "Unit": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "IUnit": {
+          "type": "cds.String",
+          "length": 8
+        },
+        "IValue": {
+          "type": "cds.Decimal"
+        },
+        "Cost": {
+          "type": "cds.Decimal"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Quality": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "Comment": {
+          "type": "app.interactions.LText",
+          "length": 1024
+        },
+        "FiscalType": {
+          "type": "cds.Boolean"
+        },
+        "YearA": {
+          "type": "cds.String",
+          "length": 9
+        },
+        "StartDate": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "EndDate": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "fiscal": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "isValidationRequired": {
+          "type": "cds.Boolean"
+        },
+        "Owner": {
+          "type": "cds.String"
+        },
+        "Approver": {
+          "type": "cds.String"
+        },
+        "Division": {
+          "type": "cds.String"
+        },
+        "Value2": {
+          "type": "cds.Decimal"
+        },
+        "Unit2": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "Distance": {
+          "type": "cds.Decimal"
+        },
+        "Weight": {
+          "type": "cds.Decimal"
+        },
+        "Scope": {
+          "type": "cds.String"
+        },
+        "Associates": {
+          "type": "cds.Integer"
+        },
+        "Date": {
+          "type": "cds.Date"
+        },
+        "Logic": {
+          "type": "cds.String",
+          "length": 15
+        },
+        "Measure": {
+          "type": "cds.String",
+          "length": 70
+        },
+        "Standard1": {
+          "type": "cds.String"
+        },
+        "LogicE": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "GRIStd": {
+          "type": "cds.String"
+        },
+        "SDG": {
+          "type": "cds.String",
+          "length": 500
+        },
+        "Class": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "RenNon": {
+          "type": "cds.String"
+        },
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        },
+        "modifiedAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        },
+        "FValue": {
+          "type": "cds.Decimal"
+        },
+        "FValue1": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "app.interactions.Governance_Report": {
+      "kind": "entity",
+      "elements": {
+        "Type": {
+          "type": "cds.String"
+        },
+        "SubType": {
+          "type": "cds.String"
+        },
+        "Category": {
+          "type": "cds.String"
+        },
+        "Value": {
+          "type": "cds.Decimal"
+        },
+        "Unit": {
+          "type": "cds.String"
+        },
+        "Quality": {
+          "type": "cds.String"
+        },
+        "Comment": {
+          "type": "cds.String"
+        },
+        "Textanswer": {
+          "type": "cds.String"
+        },
+        "Division": {
+          "type": "cds.String"
+        },
+        "Location": {
+          "type": "cds.String"
+        },
+        "Year": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "app.interactions.EmissionFactors": {
+      "kind": "entity",
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Type": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "SubType": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Standard": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Shortlong": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "class": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "EmissionFactor": {
+          "type": "cds.Decimal"
+        },
+        "UoM": {
+          "type": "cds.String"
+        },
+        "Deno": {
+          "type": "cds.String"
+        },
+        "Nume": {
+          "type": "cds.String"
+        },
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        },
+        "modifiedAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        }
+      }
+    },
+    "app.interactions.Division": {
+      "kind": "entity",
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "Division": {
+          "key": true,
+          "type": "cds.String"
+        }
+      }
+    },
+    "app.interactions.UOM": {
+      "kind": "entity",
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "Measure": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Unit": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Abbreviation": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "app.interactions.UoMConversions": {
+      "kind": "entity",
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "Measure": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "UserInputUnit": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ExpectedOutputUnit": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ConverstionFactor": {
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Operation": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "KPI": {
+          "type": "cds.String",
+          "length": 70
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 70
+        },
+        "Subtype": {
+          "type": "cds.String",
+          "length": 70
+        }
+      }
+    },
+    "app.interactions.EnergyCnversions": {
+      "kind": "entity",
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String",
+          "length": 70
+        },
+        "Type": {
+          "key": true,
+          "type": "cds.String",
+          "length": 70
+        },
+        "Subtype": {
+          "key": true,
+          "type": "cds.String",
+          "length": 70
+        },
+        "UserInputUnit": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ExpectedOutputUnit": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ConverstionFactor": {
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Operation": {
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "app.interactions.KPIList": {
+      "kind": "entity",
+      "includes": [
+        "managed"
+      ],
+      "elements": {
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@UI.HiddenFilter": true,
+          "@Core.Immutable": true,
+          "@title": "{i18n>CreatedAt}",
+          "@readonly": true,
+          "type": "cds.Timestamp"
+        },
+        "createdBy": {
+          "@cds.on.insert": {
+            "=": "$user"
+          },
+          "@UI.HiddenFilter": true,
+          "@Core.Immutable": true,
+          "@title": "{i18n>CreatedBy}",
+          "@readonly": true,
+          "@description": "{i18n>UserID.Description}",
+          "type": "User",
+          "length": 255
+        },
+        "modifiedAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "@UI.HiddenFilter": true,
+          "@title": "{i18n>ChangedAt}",
+          "@readonly": true,
+          "type": "cds.Timestamp"
+        },
+        "modifiedBy": {
+          "@cds.on.insert": {
+            "=": "$user"
+          },
+          "@cds.on.update": {
+            "=": "$user"
+          },
+          "@UI.HiddenFilter": true,
+          "@title": "{i18n>ChangedBy}",
+          "@readonly": true,
+          "@description": "{i18n>UserID.Description}",
+          "type": "User",
+          "length": 255
+        },
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "Type": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "SubType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "EnergyUse": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "Supplier": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "BiogenicEmissions": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "Template": {
+          "type": "cds.String"
+        },
+        "Measure": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "EFStandard": {
+          "type": "cds.String"
+        },
+        "EmissionLogic": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Scope": {
+          "type": "cds.String"
+        },
+        "ReportingStandard": {
+          "type": "cds.String"
+        },
+        "EnergyLogic": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "GRIStd": {
+          "type": "cds.String"
+        },
+        "SDG": {
+          "type": "cds.String"
+        },
+        "RenNon": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "app.interactions.Temp": {
+      "kind": "entity",
+      "elements": {
+        "Identifier": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Lower": {
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "Upper": {
+          "type": "cds.Integer",
+          "notNull": true
+        }
+      }
+    },
+    "app.interactions.Constants": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Value": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "app.interactions.Constants_Telecom": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Value": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "app.interactions.IndustryList": {
+      "kind": "entity",
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "IndustryDesc": {
+          "type": "cds.String"
+        },
+        "TransactionTable": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "KPIListTable": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "SocialTable": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "UOM_Telecom": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "UoMConversions_Telecom": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "EmissionFactors_Telecom": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ENergyConversions_Telecom": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Measure_Telecom": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "app.interactions.Year_Module": {
+      "kind": "entity",
+      "elements": {
+        "Industry": {
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "YearL": {
+          "key": true,
+          "type": "cds.String",
+          "length": 4
+        },
+        "fiscal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25
+        },
+        "YearR": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "YearA": {
+          "type": "cds.String",
+          "length": 9
+        },
+        "StartDate": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "EndDate": {
+          "type": "cds.String",
+          "length": 25
+        }
+      }
+    },
+    "app.interactions.Emission_Module": {
+      "kind": "entity",
+      "elements": {
+        "id": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "YearL": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "scope": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "Level1": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Level2": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Level3": {
+          "type": "cds.String",
+          "length": 500
+        },
+        "Level4": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ColumnText": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "UomSimple": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "Uom": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "GHG": {
+          "key": true,
+          "type": "cds.String",
+          "length": 30
+        },
+        "LookUp": {
+          "key": true,
+          "type": "cds.String",
+          "length": 500
+        },
+        "GHGConversionFactor2021": {
+          "type": "cds.String",
+          "length": 25
+        }
+      }
+    },
+    "app.interactions.KPIList_Social_Ports": {
+      "kind": "entity",
+      "elements": {
+        "Type": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "SubType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Prefix": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Template": {
+          "type": "cds.String"
+        },
+        "GRIStd": {
+          "type": "cds.String"
+        },
+        "SDG": {
+          "type": "cds.String"
+        },
+        "Logic": {
+          "type": "cds.String"
+        },
+        "InfoType": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "app.interactions.SocialTableA": {
+      "kind": "entity",
+      "elements": {
+        "Year": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25
+        },
+        "Location": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Type": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "SubType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Division": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Prefix": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Identifier": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Template": {
+          "type": "cds.String"
+        },
+        "Logic": {
+          "type": "cds.String"
+        },
+        "ltext": {
+          "type": "cds.String"
+        },
+        "FUpto30yrs": {
+          "type": "cds.Integer"
+        },
+        "FUpto50yrs": {
+          "type": "cds.Integer"
+        },
+        "FMorethan50Yrs": {
+          "type": "cds.Integer"
+        },
+        "MUpto30yrs": {
+          "type": "cds.Integer"
+        },
+        "MUpto50yrs": {
+          "type": "cds.Integer"
+        },
+        "MMorethan50Yrs": {
+          "type": "cds.Integer"
+        },
+        "NUpto30yrs": {
+          "type": "cds.Integer"
+        },
+        "NUpto50yrs": {
+          "type": "cds.Integer"
+        },
+        "NMorethan50Yrs": {
+          "type": "cds.Integer"
+        },
+        "Female": {
+          "type": "cds.Integer"
+        },
+        "Male": {
+          "type": "cds.Integer"
+        },
+        "Neutral": {
+          "type": "cds.Integer"
+        },
+        "Response": {
+          "type": "cds.String"
+        },
+        "OperationalChge": {
+          "type": "cds.Integer"
+        },
+        "NoOfWeeks": {
+          "type": "cds.Integer"
+        },
+        "NoOfIncidents": {
+          "type": "cds.Integer"
+        },
+        "ReviewedBy": {
+          "type": "cds.Integer"
+        },
+        "RemediationPlan": {
+          "type": "cds.Integer"
+        },
+        "Results": {
+          "type": "cds.Integer"
+        },
+        "sac": {
+          "type": "cds.Integer"
+        },
+        "Number": {
+          "type": "cds.Integer"
+        },
+        "NoOfHrs": {
+          "type": "cds.Integer"
+        },
+        "NoOfEmployees": {
+          "type": "cds.Integer"
+        },
+        "Covered_OHS": {
+          "type": "cds.Integer"
+        },
+        "Covered_IAudit": {
+          "type": "cds.Integer"
+        },
+        "Certified_OHS": {
+          "type": "cds.Integer"
+        },
+        "Fatalities": {
+          "type": "cds.Integer"
+        },
+        "High_Consequence": {
+          "type": "cds.Integer"
+        },
+        "Recordable": {
+          "type": "cds.Integer"
+        },
+        "HrsWorked": {
+          "type": "cds.Integer"
+        },
+        "Emp_Entitled_leave": {
+          "type": "cds.Integer"
+        },
+        "Emp_Took_Leave": {
+          "type": "cds.Integer"
+        },
+        "Emp_Returned_To_Work": {
+          "type": "cds.Integer"
+        },
+        "Emp_Still_Employed": {
+          "type": "cds.Integer"
+        },
+        "FiscalType": {
+          "type": "cds.Boolean"
+        },
+        "YearA": {
+          "type": "cds.String",
+          "length": 9
+        },
+        "StartDate": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "EndDate": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "fiscal": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "IsTotalRequired": {
+          "type": "cds.Boolean"
+        },
+        "total": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "app.interactions.Standards_Module": {
+      "kind": "entity",
+      "elements": {
+        "id": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "HierarchyLevel": {
+          "type": "cds.String"
+        },
+        "ParentNodeID": {
+          "type": "cds.String"
+        },
+        "Description": {
+          "type": "cds.String"
+        },
+        "DrillState": {
+          "type": "cds.String"
+        },
+        "toStandards_Module": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "app.interactions.Standards_Module",
+          "on": [
+            {
+              "ref": [
+                "toStandards_Module",
+                "id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "ParentNodeID"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "app.interactions.Measure_Module": {
+      "kind": "entity",
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "InputMeasureType": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "InputUom": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "OutputMeasureType": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "OutputUoM": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ConverstionFactor": {
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Operation": {
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "app.interactions.Supplier": {
+      "kind": "entity",
+      "elements": {
+        "SupplierID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "SupplierName": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "SupplierAddress": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "SupplierContactPoint": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "SupplierContactNumber": {
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Supplier_Category": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "KPI_List": {
+          "type": "cds.String"
+        },
+        "CompanySPOC": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Status": {
+          "type": "cds.String"
+        },
+        "RelationshipStartDate": {
+          "type": "cds.Date"
+        },
+        "RelationshipEndDate": {
+          "type": "cds.Date"
+        },
+        "Industry": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "app.interactions.SurveyQuestionnaire": {
+      "kind": "entity",
+      "elements": {
+        "SurveyID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ReportingYear": {
+          "type": "cds.String"
+        },
+        "Section": {
+          "type": "cds.String"
+        },
+        "QuestionID": {
+          "type": "cds.String"
+        },
+        "QuestionText": {
+          "type": "cds.String"
+        },
+        "KPI_Mapping": {
+          "type": "cds.String"
+        },
+        "Industry": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "app.interactions.SupplierSurvey": {
+      "kind": "entity",
+      "elements": {
+        "SurveyID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "SupplierID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ReportingYear": {
+          "type": "cds.String"
+        },
+        "Section": {
+          "type": "cds.String"
+        },
+        "SurveyResponse": {
+          "type": "cds.String"
+        },
+        "SurveyResponseValue": {
+          "type": "cds.Decimal"
+        },
+        "Fvalue": {
+          "type": "cds.Decimal"
+        },
+        "FValue1": {
+          "type": "cds.Decimal"
+        },
+        "EmissionLogic": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "EnergyLogic": {
+          "type": "cds.String"
+        },
+        "Ratings": {
+          "type": "cds.Decimal"
+        },
+        "Remarks": {
+          "type": "cds.String"
+        },
+        "Industry": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "app.interactions.LocationKPI": {
+      "kind": "entity",
+      "elements": {
+        "LocKPIId": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "LocKpiName": {
+          "type": "cds.String"
+        },
+        "LocId": {
+          "type": "cds.Integer"
+        },
+        "BaselineWaterStress": {
+          "type": "cds.Integer"
+        },
+        "FacilityType": {
+          "type": "cds.Integer"
+        },
+        "ProAreaName": {
+          "type": "cds.String"
+        },
+        "ProAreaDesgn": {
+          "type": "cds.Integer"
+        },
+        "ProAreaDist": {
+          "type": "cds.Integer"
+        },
+        "ReportingYear": {
+          "type": "cds.Date"
+        }
+      }
+    },
+    "app.interactions.Measure_Validation": {
+      "kind": "entity",
+      "elements": {
+        "MeasureType": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "InputUom": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "OutputUoM": {
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "app.interactions.Prefix_Types": {
+      "kind": "entity",
+      "elements": {
+        "prefix": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "app.interactions.Prefix_Values": {
+      "kind": "entity",
+      "elements": {
+        "prefix": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "value": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "app.interactions.MediaFile": {
+      "kind": "entity",
+      "includes": [
+        "managed"
+      ],
+      "elements": {
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@UI.HiddenFilter": true,
+          "@Core.Immutable": true,
+          "@title": "{i18n>CreatedAt}",
+          "@readonly": true,
+          "type": "cds.Timestamp"
+        },
+        "createdBy": {
+          "@cds.on.insert": {
+            "=": "$user"
+          },
+          "@UI.HiddenFilter": true,
+          "@Core.Immutable": true,
+          "@title": "{i18n>CreatedBy}",
+          "@readonly": true,
+          "@description": "{i18n>UserID.Description}",
+          "type": "User",
+          "length": 255
+        },
+        "modifiedAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "@UI.HiddenFilter": true,
+          "@title": "{i18n>ChangedAt}",
+          "@readonly": true,
+          "type": "cds.Timestamp"
+        },
+        "modifiedBy": {
+          "@cds.on.insert": {
+            "=": "$user"
+          },
+          "@cds.on.update": {
+            "=": "$user"
+          },
+          "@UI.HiddenFilter": true,
+          "@title": "{i18n>ChangedBy}",
+          "@readonly": true,
+          "@description": "{i18n>UserID.Description}",
+          "type": "User",
+          "length": 255
+        },
+        "id": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "content": {
+          "@Core.MediaType": {
+            "=": "mediaType"
+          },
+          "type": "cds.LargeBinary"
+        },
+        "mediaType": {
+          "@Core.IsMediaType": true,
+          "type": "cds.String"
+        },
+        "fileName": {
+          "type": "cds.String"
+        },
+        "url": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "CatalogService": {
+      "@source": "interaction_srv.cds",
+      "kind": "service",
+      "@path": "/catalog",
+      "@requires": "authenticated-user"
+    },
+    "CatalogService.Environment_Report": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Environment_Report"
+          ]
+        }
+      },
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "Year": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25
+        },
+        "Month": {
+          "key": true,
+          "type": "cds.String",
+          "length": 14
+        },
+        "Location": {
+          "key": true,
+          "type": "cds.String",
+          "length": 120
+        },
+        "Type": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "SubType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Sno": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "url": {
+          "type": "cds.String"
+        },
+        "Value": {
+          "type": "cds.Decimal"
+        },
+        "Unit": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "IUnit": {
+          "type": "cds.String",
+          "length": 8
+        },
+        "IValue": {
+          "type": "cds.Decimal"
+        },
+        "Cost": {
+          "type": "cds.Decimal"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Quality": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "Comment": {
+          "type": "app.interactions.LText",
+          "length": 1024
+        },
+        "FiscalType": {
+          "type": "cds.Boolean"
+        },
+        "YearA": {
+          "type": "cds.String",
+          "length": 9
+        },
+        "StartDate": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "EndDate": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "fiscal": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "isValidationRequired": {
+          "type": "cds.Boolean"
+        },
+        "Owner": {
+          "type": "cds.String"
+        },
+        "Approver": {
+          "type": "cds.String"
+        },
+        "Division": {
+          "type": "cds.String"
+        },
+        "Value2": {
+          "type": "cds.Decimal"
+        },
+        "Unit2": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "Distance": {
+          "type": "cds.Decimal"
+        },
+        "Weight": {
+          "type": "cds.Decimal"
+        },
+        "Scope": {
+          "type": "cds.String"
+        },
+        "Associates": {
+          "type": "cds.Integer"
+        },
+        "Date": {
+          "type": "cds.Date"
+        },
+        "Logic": {
+          "type": "cds.String",
+          "length": 15
+        },
+        "Measure": {
+          "type": "cds.String",
+          "length": 70
+        },
+        "Standard1": {
+          "type": "cds.String"
+        },
+        "LogicE": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "GRIStd": {
+          "type": "cds.String"
+        },
+        "SDG": {
+          "type": "cds.String",
+          "length": 500
+        },
+        "Class": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "RenNon": {
+          "type": "cds.String"
+        },
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        },
+        "modifiedAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        },
+        "FValue": {
+          "type": "cds.Decimal"
+        },
+        "FValue1": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "CatalogService.PeopleImperative": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.PeopleImperative"
+          ]
+        }
+      },
+      "elements": {
+        "Type": {
+          "type": "cds.String"
+        },
+        "SubType": {
+          "type": "cds.String"
+        },
+        "Category": {
+          "type": "cds.String"
+        },
+        "Gender": {
+          "type": "cds.String"
+        },
+        "Upto30yrs": {
+          "type": "cds.Integer"
+        },
+        "Upto50yrs": {
+          "type": "cds.Integer"
+        },
+        "Morethan50Yrs": {
+          "type": "cds.Integer"
+        },
+        "Total": {
+          "type": "cds.Integer"
+        },
+        "Division": {
+          "type": "cds.String"
+        },
+        "Location": {
+          "type": "cds.String"
+        },
+        "Year": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "CatalogService.Governance_Report": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Governance_Report"
+          ]
+        }
+      },
+      "elements": {
+        "Type": {
+          "type": "cds.String"
+        },
+        "SubType": {
+          "type": "cds.String"
+        },
+        "Category": {
+          "type": "cds.String"
+        },
+        "Value": {
+          "type": "cds.Decimal"
+        },
+        "Unit": {
+          "type": "cds.String"
+        },
+        "Quality": {
+          "type": "cds.String"
+        },
+        "Comment": {
+          "type": "cds.String"
+        },
+        "Textanswer": {
+          "type": "cds.String"
+        },
+        "Division": {
+          "type": "cds.String"
+        },
+        "Location": {
+          "type": "cds.String"
+        },
+        "Year": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "CatalogService.EmissionFactors": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.EmissionFactors"
+          ]
+        }
+      },
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Type": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "SubType": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Standard": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Shortlong": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "class": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "EmissionFactor": {
+          "type": "cds.Decimal"
+        },
+        "UoM": {
+          "type": "cds.String"
+        },
+        "Deno": {
+          "type": "cds.String"
+        },
+        "Nume": {
+          "type": "cds.String"
+        },
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        },
+        "modifiedAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        }
+      }
+    },
+    "CatalogService.UOM": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.UOM"
+          ]
+        }
+      },
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "Measure": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Unit": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Abbreviation": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "CatalogService.UoMConversions": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.UoMConversions"
+          ]
+        }
+      },
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "Measure": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "UserInputUnit": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ExpectedOutputUnit": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ConverstionFactor": {
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Operation": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "KPI": {
+          "type": "cds.String",
+          "length": 70
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 70
+        },
+        "Subtype": {
+          "type": "cds.String",
+          "length": 70
+        }
+      }
+    },
+    "CatalogService.Supplier": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Supplier"
+          ]
+        }
+      },
+      "elements": {
+        "SupplierID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "SupplierName": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "SupplierAddress": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "SupplierContactPoint": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "SupplierContactNumber": {
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Supplier_Category": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "KPI_List": {
+          "type": "cds.String"
+        },
+        "CompanySPOC": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Status": {
+          "type": "cds.String"
+        },
+        "RelationshipStartDate": {
+          "type": "cds.Date"
+        },
+        "RelationshipEndDate": {
+          "type": "cds.Date"
+        },
+        "Industry": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "CatalogService.LocationKPI": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.LocationKPI"
+          ]
+        }
+      },
+      "elements": {
+        "LocKPIId": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "LocKpiName": {
+          "type": "cds.String"
+        },
+        "LocId": {
+          "type": "cds.Integer"
+        },
+        "BaselineWaterStress": {
+          "type": "cds.Integer"
+        },
+        "FacilityType": {
+          "type": "cds.Integer"
+        },
+        "ProAreaName": {
+          "type": "cds.String"
+        },
+        "ProAreaDesgn": {
+          "type": "cds.Integer"
+        },
+        "ProAreaDist": {
+          "type": "cds.Integer"
+        },
+        "ReportingYear": {
+          "type": "cds.Date"
+        }
+      }
+    },
+    "CatalogService.SupplierSurvey": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.SupplierSurvey"
+          ]
+        }
+      },
+      "elements": {
+        "SurveyID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "SupplierID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ReportingYear": {
+          "type": "cds.String"
+        },
+        "Section": {
+          "type": "cds.String"
+        },
+        "SurveyResponse": {
+          "type": "cds.String"
+        },
+        "SurveyResponseValue": {
+          "type": "cds.Decimal"
+        },
+        "Fvalue": {
+          "type": "cds.Decimal"
+        },
+        "FValue1": {
+          "type": "cds.Decimal"
+        },
+        "EmissionLogic": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "EnergyLogic": {
+          "type": "cds.String"
+        },
+        "Ratings": {
+          "type": "cds.Decimal"
+        },
+        "Remarks": {
+          "type": "cds.String"
+        },
+        "Industry": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "CatalogService.SurveyQuestionnaire": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.SurveyQuestionnaire"
+          ]
+        }
+      },
+      "elements": {
+        "SurveyID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ReportingYear": {
+          "type": "cds.String"
+        },
+        "Section": {
+          "type": "cds.String"
+        },
+        "QuestionID": {
+          "type": "cds.String"
+        },
+        "QuestionText": {
+          "type": "cds.String"
+        },
+        "KPI_Mapping": {
+          "type": "cds.String"
+        },
+        "Industry": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "CatalogService.Division": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "DivAdmin",
+          "where": "Division = $user.Division",
+          "_where": "[{\"ref\":[\"Division\"]},\"=\",{\"ref\":[\"$user\",\"Division\"]}]"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "LocAdmin",
+          "where": "Division = $user.Division",
+          "_where": "[{\"ref\":[\"Division\"]},\"=\",{\"ref\":[\"$user\",\"Division\"]}]"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "TypeAdmin",
+          "where": "Division = $user.Division",
+          "_where": "[{\"ref\":[\"Division\"]},\"=\",{\"ref\":[\"$user\",\"Division\"]}]"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Division"
+          ]
+        }
+      },
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "Division": {
+          "key": true,
+          "type": "cds.String"
+        }
+      }
+    },
+    "CatalogService.Location": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "DivAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "LocViewers",
+          "where": "Location = $user.Location",
+          "_where": "[{\"ref\":[\"Location\"]},\"=\",{\"ref\":[\"$user\",\"Location\"]}]"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "TypeAdmin",
+          "where": "Location = $user.Location",
+          "_where": "[{\"ref\":[\"Location\"]},\"=\",{\"ref\":[\"$user\",\"Location\"]}]"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Location"
+          ]
+        }
+      },
+      "elements": {
+        "Location": {
+          "type": "cds.String"
+        },
+        "Industry": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "CatalogService.EnergyCnversions": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.EnergyCnversions"
+          ]
+        }
+      },
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String",
+          "length": 70
+        },
+        "Type": {
+          "key": true,
+          "type": "cds.String",
+          "length": 70
+        },
+        "Subtype": {
+          "key": true,
+          "type": "cds.String",
+          "length": 70
+        },
+        "UserInputUnit": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ExpectedOutputUnit": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ConverstionFactor": {
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Operation": {
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "CatalogService.KPIList": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.KPIList"
+          ]
+        }
+      },
+      "elements": {
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@UI.HiddenFilter": true,
+          "@Core.Immutable": true,
+          "@title": "{i18n>CreatedAt}",
+          "@readonly": true,
+          "type": "cds.Timestamp"
+        },
+        "createdBy": {
+          "@cds.on.insert": {
+            "=": "$user"
+          },
+          "@UI.HiddenFilter": true,
+          "@Core.Immutable": true,
+          "@title": "{i18n>CreatedBy}",
+          "@readonly": true,
+          "@description": "{i18n>UserID.Description}",
+          "type": "User",
+          "length": 255
+        },
+        "modifiedAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "@UI.HiddenFilter": true,
+          "@title": "{i18n>ChangedAt}",
+          "@readonly": true,
+          "type": "cds.Timestamp"
+        },
+        "modifiedBy": {
+          "@cds.on.insert": {
+            "=": "$user"
+          },
+          "@cds.on.update": {
+            "=": "$user"
+          },
+          "@UI.HiddenFilter": true,
+          "@title": "{i18n>ChangedBy}",
+          "@readonly": true,
+          "@description": "{i18n>UserID.Description}",
+          "type": "User",
+          "length": 255
+        },
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "Type": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "SubType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "EnergyUse": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "Supplier": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "BiogenicEmissions": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "Template": {
+          "type": "cds.String"
+        },
+        "Measure": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "EFStandard": {
+          "type": "cds.String"
+        },
+        "EmissionLogic": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Scope": {
+          "type": "cds.String"
+        },
+        "ReportingStandard": {
+          "type": "cds.String"
+        },
+        "EnergyLogic": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "GRIStd": {
+          "type": "cds.String"
+        },
+        "SDG": {
+          "type": "cds.String"
+        },
+        "RenNon": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "CatalogService.Constants": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Constants"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Value": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "CatalogService.Year_Module": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "LocAdmin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "DivAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "TypeAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "SustainabilityViewer"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Year_Module"
+          ]
+        }
+      },
+      "elements": {
+        "Industry": {
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "YearL": {
+          "key": true,
+          "type": "cds.String",
+          "length": 4
+        },
+        "fiscal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25
+        },
+        "YearR": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "YearA": {
+          "type": "cds.String",
+          "length": 9
+        },
+        "StartDate": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "EndDate": {
+          "type": "cds.String",
+          "length": 25
+        }
+      }
+    },
+    "CatalogService.Emission_Module": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "LocAdmin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "DivAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "TypeAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "SustainabilityViewer"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Emission_Module"
+          ]
+        }
+      },
+      "elements": {
+        "id": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "YearL": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "scope": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "Level1": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Level2": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Level3": {
+          "type": "cds.String",
+          "length": 500
+        },
+        "Level4": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ColumnText": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "UomSimple": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "Uom": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "GHG": {
+          "key": true,
+          "type": "cds.String",
+          "length": 30
+        },
+        "LookUp": {
+          "key": true,
+          "type": "cds.String",
+          "length": 500
+        },
+        "GHGConversionFactor2021": {
+          "type": "cds.String",
+          "length": 25
+        }
+      }
+    },
+    "CatalogService.Constants_Telecom": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "LocAdmin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "DivAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "TypeAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "SustainabilityViewer"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Constants_Telecom"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Value": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "CatalogService.Standards_Module": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "LocAdmin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "DivAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "TypeAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "SustainabilityViewer"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Standards_Module"
+          ]
+        }
+      },
+      "elements": {
+        "id": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "HierarchyLevel": {
+          "type": "cds.String"
+        },
+        "ParentNodeID": {
+          "type": "cds.String"
+        },
+        "Description": {
+          "type": "cds.String"
+        },
+        "DrillState": {
+          "type": "cds.String"
+        },
+        "toStandards_Module": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "CatalogService.Standards_Module",
+          "on": [
+            {
+              "ref": [
+                "toStandards_Module",
+                "id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "ParentNodeID"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "CatalogService.Measure_Module": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "LocAdmin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "DivAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "TypeAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "SustainabilityViewer"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Measure_Module"
+          ]
+        }
+      },
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "InputMeasureType": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "InputUom": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "OutputMeasureType": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "OutputUoM": {
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ConverstionFactor": {
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Operation": {
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "CatalogService.Measure_Validation": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "LocAdmin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "DivAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "TypeAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "SustainabilityViewer"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Measure_Validation"
+          ]
+        }
+      },
+      "elements": {
+        "MeasureType": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "InputUom": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "OutputUoM": {
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "CatalogService.Prefix_Types": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "LocAdmin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "DivAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "TypeAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "SustainabilityViewer"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Prefix_Types"
+          ]
+        }
+      },
+      "elements": {
+        "prefix": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "CatalogService.Prefix_Values": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "LocAdmin"
+        },
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "DivAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "TypeAdmin"
+        },
+        {
+          "grant": [
+            "READ"
+          ],
+          "to": "SustainabilityViewer"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Prefix_Values"
+          ]
+        }
+      },
+      "elements": {
+        "prefix": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "value": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "CatalogService.Temp": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.Temp"
+          ]
+        }
+      },
+      "elements": {
+        "Identifier": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Lower": {
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "Upper": {
+          "type": "cds.Integer",
+          "notNull": true
+        }
+      }
+    },
+    "CatalogService.IndustryList": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.IndustryList"
+          ]
+        }
+      },
+      "elements": {
+        "Industry": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25,
+          "notNull": true
+        },
+        "IndustryDesc": {
+          "type": "cds.String"
+        },
+        "TransactionTable": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "KPIListTable": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "SocialTable": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "UOM_Telecom": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "UoMConversions_Telecom": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "EmissionFactors_Telecom": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "ENergyConversions_Telecom": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Measure_Telecom": {
+          "type": "cds.String",
+          "length": 50
+        }
+      }
+    },
+    "CatalogService.KPIList_Social_Ports": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.KPIList_Social_Ports"
+          ]
+        }
+      },
+      "elements": {
+        "Type": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "SubType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Prefix": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Template": {
+          "type": "cds.String"
+        },
+        "GRIStd": {
+          "type": "cds.String"
+        },
+        "SDG": {
+          "type": "cds.String"
+        },
+        "Logic": {
+          "type": "cds.String"
+        },
+        "InfoType": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "CatalogService.SocialTableA": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.SocialTableA"
+          ]
+        }
+      },
+      "elements": {
+        "Year": {
+          "key": true,
+          "type": "cds.String",
+          "length": 25
+        },
+        "Location": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Type": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "SubType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "KPI": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Division": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Prefix": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Identifier": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "Template": {
+          "type": "cds.String"
+        },
+        "Logic": {
+          "type": "cds.String"
+        },
+        "ltext": {
+          "type": "cds.String"
+        },
+        "FUpto30yrs": {
+          "type": "cds.Integer"
+        },
+        "FUpto50yrs": {
+          "type": "cds.Integer"
+        },
+        "FMorethan50Yrs": {
+          "type": "cds.Integer"
+        },
+        "MUpto30yrs": {
+          "type": "cds.Integer"
+        },
+        "MUpto50yrs": {
+          "type": "cds.Integer"
+        },
+        "MMorethan50Yrs": {
+          "type": "cds.Integer"
+        },
+        "NUpto30yrs": {
+          "type": "cds.Integer"
+        },
+        "NUpto50yrs": {
+          "type": "cds.Integer"
+        },
+        "NMorethan50Yrs": {
+          "type": "cds.Integer"
+        },
+        "Female": {
+          "type": "cds.Integer"
+        },
+        "Male": {
+          "type": "cds.Integer"
+        },
+        "Neutral": {
+          "type": "cds.Integer"
+        },
+        "Response": {
+          "type": "cds.String"
+        },
+        "OperationalChge": {
+          "type": "cds.Integer"
+        },
+        "NoOfWeeks": {
+          "type": "cds.Integer"
+        },
+        "NoOfIncidents": {
+          "type": "cds.Integer"
+        },
+        "ReviewedBy": {
+          "type": "cds.Integer"
+        },
+        "RemediationPlan": {
+          "type": "cds.Integer"
+        },
+        "Results": {
+          "type": "cds.Integer"
+        },
+        "sac": {
+          "type": "cds.Integer"
+        },
+        "Number": {
+          "type": "cds.Integer"
+        },
+        "NoOfHrs": {
+          "type": "cds.Integer"
+        },
+        "NoOfEmployees": {
+          "type": "cds.Integer"
+        },
+        "Covered_OHS": {
+          "type": "cds.Integer"
+        },
+        "Covered_IAudit": {
+          "type": "cds.Integer"
+        },
+        "Certified_OHS": {
+          "type": "cds.Integer"
+        },
+        "Fatalities": {
+          "type": "cds.Integer"
+        },
+        "High_Consequence": {
+          "type": "cds.Integer"
+        },
+        "Recordable": {
+          "type": "cds.Integer"
+        },
+        "HrsWorked": {
+          "type": "cds.Integer"
+        },
+        "Emp_Entitled_leave": {
+          "type": "cds.Integer"
+        },
+        "Emp_Took_Leave": {
+          "type": "cds.Integer"
+        },
+        "Emp_Returned_To_Work": {
+          "type": "cds.Integer"
+        },
+        "Emp_Still_Employed": {
+          "type": "cds.Integer"
+        },
+        "FiscalType": {
+          "type": "cds.Boolean"
+        },
+        "YearA": {
+          "type": "cds.String",
+          "length": 9
+        },
+        "StartDate": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "EndDate": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "fiscal": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "IsTotalRequired": {
+          "type": "cds.Boolean"
+        },
+        "total": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "CatalogService.MediaFile": {
+      "kind": "entity",
+      "@restrict": [
+        {
+          "grant": [
+            "WRITE",
+            "READ"
+          ],
+          "to": "Admin"
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "app.interactions.MediaFile"
+          ]
+        }
+      },
+      "elements": {
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@UI.HiddenFilter": true,
+          "@Core.Immutable": true,
+          "@title": "{i18n>CreatedAt}",
+          "@readonly": true,
+          "type": "cds.Timestamp"
+        },
+        "createdBy": {
+          "@cds.on.insert": {
+            "=": "$user"
+          },
+          "@UI.HiddenFilter": true,
+          "@Core.Immutable": true,
+          "@title": "{i18n>CreatedBy}",
+          "@readonly": true,
+          "@description": "{i18n>UserID.Description}",
+          "type": "User",
+          "length": 255
+        },
+        "modifiedAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "@UI.HiddenFilter": true,
+          "@title": "{i18n>ChangedAt}",
+          "@readonly": true,
+          "type": "cds.Timestamp"
+        },
+        "modifiedBy": {
+          "@cds.on.insert": {
+            "=": "$user"
+          },
+          "@cds.on.update": {
+            "=": "$user"
+          },
+          "@UI.HiddenFilter": true,
+          "@title": "{i18n>ChangedBy}",
+          "@readonly": true,
+          "@description": "{i18n>UserID.Description}",
+          "type": "User",
+          "length": 255
+        },
+        "id": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "content": {
+          "@Core.MediaType": {
+            "=": "mediaType"
+          },
+          "type": "cds.LargeBinary"
+        },
+        "mediaType": {
+          "@Core.IsMediaType": true,
+          "type": "cds.String"
+        },
+        "fileName": {
+          "type": "cds.String"
+        },
+        "url": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "Language": {
+      "kind": "type",
+      "@title": "{i18n>Language}",
+      "@description": "{i18n>LanguageCode.Description}",
+      "type": "cds.Association",
+      "target": "sap.common.Languages",
+      "keys": [
+        {
+          "ref": [
+            "code"
+          ]
+        }
+      ]
+    },
+    "Currency": {
+      "kind": "type",
+      "@title": "{i18n>Currency}",
+      "@description": "{i18n>CurrencyCode.Description}",
+      "type": "cds.Association",
+      "target": "sap.common.Currencies",
+      "keys": [
+        {
+          "ref": [
+            "code"
+          ]
+        }
+      ]
+    },
+    "Country": {
+      "kind": "type",
+      "@title": "{i18n>Country}",
+      "@description": "{i18n>CountryCode.Description}",
+      "type": "cds.Association",
+      "target": "sap.common.Countries",
+      "keys": [
+        {
+          "ref": [
+            "code"
+          ]
+        }
+      ]
+    },
+    "sap.common": {
+      "kind": "context"
+    },
+    "sap.common.Locale": {
+      "kind": "type",
+      "@title": "{i18n>LanguageCode}",
+      "type": "cds.String",
+      "length": 14
+    },
+    "sap.common.Languages": {
+      "kind": "entity",
+      "@cds.autoexpose": true,
+      "@cds.persistence.skip": "if-unused",
+      "@UI.Identification": [
+        {
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.odata.valuelist": true,
+      "includes": [
+        "sap.common.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "@title": "{i18n>Name}",
+          "localized": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "descr": {
+          "@title": "{i18n>Description}",
+          "localized": true,
+          "type": "cds.String",
+          "length": 1000
+        },
+        "code": {
+          "@Common.Text": {
+            "=": "name"
+          },
+          "@title": "{i18n>LanguageCode}",
+          "key": true,
+          "type": "sap.common.Locale",
+          "length": 14
+        },
+        "texts": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "sap.common.Languages.texts",
+          "on": [
+            {
+              "ref": [
+                "texts",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "code"
+              ]
+            }
+          ]
+        },
+        "localized": {
+          "type": "cds.Association",
+          "target": "sap.common.Languages.texts",
+          "on": [
+            {
+              "ref": [
+                "localized",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "code"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "localized",
+                "locale"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$user",
+                "locale"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "sap.common.Countries": {
+      "kind": "entity",
+      "@cds.autoexpose": true,
+      "@cds.persistence.skip": "if-unused",
+      "@UI.Identification": [
+        {
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.odata.valuelist": true,
+      "includes": [
+        "sap.common.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "@title": "{i18n>Name}",
+          "localized": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "descr": {
+          "@title": "{i18n>Description}",
+          "localized": true,
+          "type": "cds.String",
+          "length": 1000
+        },
+        "code": {
+          "@title": "{i18n>CountryCode}",
+          "@Common.Text": {
+            "=": "name"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "texts": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "sap.common.Countries.texts",
+          "on": [
+            {
+              "ref": [
+                "texts",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "code"
+              ]
+            }
+          ]
+        },
+        "localized": {
+          "type": "cds.Association",
+          "target": "sap.common.Countries.texts",
+          "on": [
+            {
+              "ref": [
+                "localized",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "code"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "localized",
+                "locale"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$user",
+                "locale"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "sap.common.Currencies": {
+      "kind": "entity",
+      "@cds.autoexpose": true,
+      "@cds.persistence.skip": "if-unused",
+      "@UI.Identification": [
+        {
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.odata.valuelist": true,
+      "includes": [
+        "sap.common.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "@title": "{i18n>Name}",
+          "localized": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "descr": {
+          "@title": "{i18n>Description}",
+          "localized": true,
+          "type": "cds.String",
+          "length": 1000
+        },
+        "code": {
+          "@title": "{i18n>CurrencyCode}",
+          "@Common.Text": {
+            "=": "name"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "symbol": {
+          "@title": "{i18n>CurrencySymbol}",
+          "type": "cds.String",
+          "length": 5
+        },
+        "minorUnit": {
+          "@title": "{i18n>CurrencyMinorUnit}",
+          "type": "cds.Int16"
+        },
+        "texts": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "sap.common.Currencies.texts",
+          "on": [
+            {
+              "ref": [
+                "texts",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "code"
+              ]
+            }
+          ]
+        },
+        "localized": {
+          "type": "cds.Association",
+          "target": "sap.common.Currencies.texts",
+          "on": [
+            {
+              "ref": [
+                "localized",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "code"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "localized",
+                "locale"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$user",
+                "locale"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "sap.common.CodeList": {
+      "kind": "aspect",
+      "@cds.autoexpose": true,
+      "@cds.persistence.skip": "if-unused",
+      "@UI.Identification": [
+        {
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.odata.valuelist": true,
+      "elements": {
+        "name": {
+          "@title": "{i18n>Name}",
+          "localized": true,
+          "type": "cds.String",
+          "length": 255
+        },
+        "descr": {
+          "@title": "{i18n>Description}",
+          "localized": true,
+          "type": "cds.String",
+          "length": 1000
+        }
+      }
+    },
+    "sap.common.TextsAspect": {
+      "kind": "aspect",
+      "elements": {
+        "locale": {
+          "@title": "{i18n>LanguageCode}",
+          "key": true,
+          "type": "sap.common.Locale",
+          "length": 14
+        }
+      }
+    },
+    "cuid": {
+      "kind": "aspect",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.UUID"
+        }
+      }
+    },
+    "managed": {
+      "kind": "aspect",
+      "elements": {
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@UI.HiddenFilter": true,
+          "@Core.Immutable": true,
+          "@title": "{i18n>CreatedAt}",
+          "@readonly": true,
+          "type": "cds.Timestamp"
+        },
+        "createdBy": {
+          "@cds.on.insert": {
+            "=": "$user"
+          },
+          "@UI.HiddenFilter": true,
+          "@Core.Immutable": true,
+          "@title": "{i18n>CreatedBy}",
+          "@readonly": true,
+          "@description": "{i18n>UserID.Description}",
+          "type": "User",
+          "length": 255
+        },
+        "modifiedAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "@UI.HiddenFilter": true,
+          "@title": "{i18n>ChangedAt}",
+          "@readonly": true,
+          "type": "cds.Timestamp"
+        },
+        "modifiedBy": {
+          "@cds.on.insert": {
+            "=": "$user"
+          },
+          "@cds.on.update": {
+            "=": "$user"
+          },
+          "@UI.HiddenFilter": true,
+          "@title": "{i18n>ChangedBy}",
+          "@readonly": true,
+          "@description": "{i18n>UserID.Description}",
+          "type": "User",
+          "length": 255
+        }
+      }
+    },
+    "temporal": {
+      "kind": "aspect",
+      "elements": {
+        "validFrom": {
+          "@cds.valid.from": true,
+          "type": "cds.Timestamp"
+        },
+        "validTo": {
+          "@cds.valid.to": true,
+          "type": "cds.Timestamp"
+        }
+      }
+    },
+    "User": {
+      "kind": "type",
+      "@title": "{i18n>UserID}",
+      "@description": "{i18n>UserID.Description}",
+      "type": "cds.String",
+      "length": 255
+    },
+    "extensible": {
+      "kind": "aspect",
+      "elements": {
+        "extensions__": {
+          "@cds.api.ignore": true,
+          "type": "cds.String"
+        }
+      }
+    },
+    "sap.common.Languages.texts": {
+      "kind": "entity",
+      "@odata.draft.enabled": false,
+      "includes": [
+        "sap.common.TextsAspect"
+      ],
+      "elements": {
+        "locale": {
+          "@title": "{i18n>LanguageCode}",
+          "key": true,
+          "type": "sap.common.Locale",
+          "length": 14
+        },
+        "name": {
+          "@title": "{i18n>Name}",
+          "localized": null,
+          "type": "cds.String",
+          "length": 255
+        },
+        "descr": {
+          "@title": "{i18n>Description}",
+          "localized": null,
+          "type": "cds.String",
+          "length": 1000
+        },
+        "code": {
+          "@odata.containment.ignore": true,
+          "@Common.Text": {
+            "=": "name"
+          },
+          "@title": "{i18n>LanguageCode}",
+          "key": true,
+          "type": "sap.common.Locale",
+          "length": 14
+        }
+      }
+    },
+    "sap.common.Countries.texts": {
+      "kind": "entity",
+      "@odata.draft.enabled": false,
+      "includes": [
+        "sap.common.TextsAspect"
+      ],
+      "elements": {
+        "locale": {
+          "@title": "{i18n>LanguageCode}",
+          "key": true,
+          "type": "sap.common.Locale",
+          "length": 14
+        },
+        "name": {
+          "@title": "{i18n>Name}",
+          "localized": null,
+          "type": "cds.String",
+          "length": 255
+        },
+        "descr": {
+          "@title": "{i18n>Description}",
+          "localized": null,
+          "type": "cds.String",
+          "length": 1000
+        },
+        "code": {
+          "@odata.containment.ignore": true,
+          "@title": "{i18n>CountryCode}",
+          "@Common.Text": {
+            "=": "name"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        }
+      }
+    },
+    "sap.common.Currencies.texts": {
+      "kind": "entity",
+      "@odata.draft.enabled": false,
+      "includes": [
+        "sap.common.TextsAspect"
+      ],
+      "elements": {
+        "locale": {
+          "@title": "{i18n>LanguageCode}",
+          "key": true,
+          "type": "sap.common.Locale",
+          "length": 14
+        },
+        "name": {
+          "@title": "{i18n>Name}",
+          "localized": null,
+          "type": "cds.String",
+          "length": 255
+        },
+        "descr": {
+          "@title": "{i18n>Description}",
+          "localized": null,
+          "type": "cds.String",
+          "length": 1000
+        },
+        "code": {
+          "@odata.containment.ignore": true,
+          "@title": "{i18n>CurrencyCode}",
+          "@Common.Text": {
+            "=": "name"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v3.9.6",
+    "flavor": "inferred"
+  },
+  "$version": "2.0"
+}

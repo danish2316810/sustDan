@@ -1,0 +1,6 @@
+COLUMN TABLE app_interactions_Constants_Telecom (
+  ID NVARCHAR(5000) NOT NULL,
+  Value NVARCHAR(5000) NOT NULL,
+  Industry NVARCHAR(5000) NOT NULL,
+  PRIMARY KEY(ID, Value, Industry)
+)

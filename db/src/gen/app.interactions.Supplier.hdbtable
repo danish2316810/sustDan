@@ -1,0 +1,15 @@
+COLUMN TABLE app_interactions_Supplier (
+  SupplierID INTEGER NOT NULL,
+  SupplierName NVARCHAR(5000) NOT NULL,
+  SupplierAddress NVARCHAR(5000) NOT NULL,
+  SupplierContactPoint NVARCHAR(5000) NOT NULL,
+  SupplierContactNumber DECIMAL NOT NULL,
+  Supplier_Category NVARCHAR(20),
+  KPI_List NVARCHAR(5000),
+  CompanySPOC NVARCHAR(50),
+  Status NVARCHAR(5000),
+  RelationshipStartDate DATE,
+  RelationshipEndDate DATE,
+  Industry NVARCHAR(50),
+  PRIMARY KEY(SupplierID)
+)

@@ -1,0 +1,140 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified" xmlns:uxap="sap.uxap"
+    xmlns:u="sap.ui.unified">
+    <!--  <ScrollContainer
+		height="80%"
+		width="100%"
+		vertical="true"
+		focusable="true"> -->
+    <Table id="EnvTable" alternateRowColors="true" growing="true"  width="95%"  sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+            items="{path: 'EnvModel>/results'}" mode="MultiSelect">
+            <headerToolbar></headerToolbar>
+            <infoToolbar>
+                <OverflowToolbar>
+                    
+                    <ToolbarSpacer/>         
+                     <!-- <Button text="Connect"  icon="sap-icon://connected"  tooltip = "Fetch Data From Local System"
+                      class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem"/>
+                        <u:FileUploader  id="fileUploader" text="Upload" name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+                                                        sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+                                                        fileAllowed="handleUploadPress" icon="sap-icon://attachment" uploadOnChange="false"
+                                                        class="sapUiTinyMarginBegin"/>        -->        
+                     <!--<Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>-->
+                     <Button icon="sap-icon://download" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                    <Button	icon="sap-icon://add" press="OnPressAddNewEntry" tooltip = "Add New Entry"/>
+                <!--    <Button	icon="sap-icon://less" press="" tooltip = "Remove Selected Entry"/>-->
+                </OverflowToolbar>
+            </infoToolbar>
+            <columns>
+                <Column id="col1" >
+                    <Text text="Month" ></Text>
+                </Column>
+                <Column id="col2" hAlign="Center" >
+                    <Text text="Value" id="value"></Text>
+                </Column>
+                <Column id="col3" hAlign="Center" >
+                    <Text text="Unit" id="unit"></Text>
+                </Column>
+                <Column id="col4" hAlign="Center" >
+                    <Text text="Costs" id="costs"></Text>
+                </Column>
+                <Column id="col5" hAlign="Center"  demandPopin="true">
+                    <Text text="Currency" ></Text>
+                </Column>
+                <Column id="col6" demandPopin="true">
+                    <Text text="Quality" id="quality"></Text>
+                </Column>
+                <Column hAlign="Center" >
+                    <Text text="Attachment" ></Text>
+                </Column>
+                <Column id="col7" hAlign="Center" width="6em" >
+                    <Text text="Comment" id="comment"></Text>
+                </Column>
+                <Column hAlign="Center" width="7em">
+                    <Text text="Owner" ></Text>
+                </Column>
+                <Column hAlign="Center" width="7em" >
+                    <Text text="Approver" ></Text>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        
+                         <!-- <Input value="{EnvModel>Month}" visible="{EnvModel>isExistingRow}" editable="{EnvModel>isNewRow}"/>
+                            <Input value="{EnvModel>Month}" visible="{EnvModel>isNewRow}" editable="true"/>-->
+                            <!-- <Input value="{EnvModel>Month}" placeholder="Value"/>-->
+                            <HBox>
+                             <Text text= "{EnvModel>Month}" visible="{EnvModel>isExistingRow}" editable="false" id="MonthMdl"/>
+                            <!--<ComboBox xmlns="sap.m" id="month" selectionChange="onChangeMonth"
+                                    items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'Month' } ] }"  
+                                    selectedKey="{EnvModel>Month}" editable="true" visible="{EnvModel>isNewRow}">                                                
+                                <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                    text="{ConstantsModel>Value}"/>                                        
+                            </ComboBox> -->
+
+                            <ComboBox xmlns="sap.m" id="month" selectionChange="onChangeMonth" selectedKey="{EnvModel>Month}"
+                            editable="true" visible="{EnvModel>isNewRow}" />
+
+                        </HBox>
+                       
+                        <Input value="{EnvModel>Value}" placeholder="Value"/>
+                        <HBox>
+                            <Input value="{EnvModel>Unit}" visible="{parts: [{path: 'EnvModel>isNewRow'}, {path: 'EnvModel>isEditableRow'}, {path: 'EnvModel>isExistingRow'}],
+                                                    formatter: '.formatDisplayField'}" editable="false"/>
+                            <ComboBox xmlns="sap.m" id="cbUnitTable1" selectionChange="onChangeUnit"
+                                items  ="{ path : 'UOMListModel>/results' ,templateShareable:true}" 
+                                    selectedKey="{EnvModel>Unit}" editable="true" 
+                                    visible="{parts: [{path: 'EnvModel>isNewRow'}, {path: 'EnvModel>isEditableRow'}, {path: 'EnvModel>isExistingRow'}],
+                                                    formatter: '.formatEditField'}">
+                                    <core:Item xmlns:core="sap.ui.core" key="{UOMListModel>Abbreviation}" text="{UOMListModel>Abbreviation}"/>
+                                
+                            </ComboBox>
+                        </HBox>
+                        <Input value="{EnvModel>Cost}" placeholder=""/>
+                        <!--<Input value="{EnvModel>Currency}" placeholder=""/>-->
+                        <HBox>
+                            <Input value="{EnvModel>Currency}" visible="{EnvModel>isExistingRow}" editable="{EnvModel>isNewRow}"/>
+                            <ComboBox xmlns="sap.m" id="currency" selectionChange="onChangeCurrency"
+                                    items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'Currency' } ] }"  
+                                    selectedKey="{EnvModel>Currency}" editable="true" visible="{EnvModel>isNewRow}">                                                
+                                <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                    text="{ConstantsModel>Value}"/>                                        
+                            </ComboBox> 
+                        </HBox>
+                        <!--<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+                            <items>
+                                <core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+                            </items>
+                        </ComboBox>-->
+                        <Switch id ="" type="AcceptReject" state="{ path:'EnvModel>Quality', formatter: '.formatQuality'}">                        
+                            <layoutData>
+                                <FlexItemData growFactor="1"/>
+                            </layoutData>
+                        </Switch>
+                        <!--Attachment-->
+                        <!--<u:FileUploader id="fileUpload1" tooltip="Upload your file to DB" change=""
+                                buttonOnly="true" sendXHR="true" iconOnly="true" icon="sap-icon://attachment" class="sapUiTinyMarginBegin"
+                                /> -->
+                        <HBox>                        
+                          <Button icon="sap-icon://download" tooltip="Download" class="sapUiTinyMarginBegin" 
+                            press="handleDownloadFile" visible="{EnvModel>isExistingRow}"/>
+
+                            <u:FileUploader id="fileUpload1" tooltip="Upload your file to DB" change="onFileChange"
+                                buttonOnly="true" sendXHR="true" iconOnly="true" icon="sap-icon://attachment" class="sapUiTinyMarginBegin"
+                                visible="{EnvModel>isNewRow}"/>                            
+                        </HBox>
+                        <!--Attachment-->
+
+                        <Input value="{EnvModel>Comment}" placeholder="Comment"/>																	
+                        <Text text="{EnvModel>Owner}" />
+                        <Text text="{EnvModel>Approver}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <!--</ScrollContainer>-->
+</core:FragmentDefinition>  

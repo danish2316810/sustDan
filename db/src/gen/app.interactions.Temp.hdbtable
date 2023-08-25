@@ -1,0 +1,6 @@
+COLUMN TABLE app_interactions_Temp (
+  Identifier NVARCHAR(5000) NOT NULL,
+  "LOWER" INTEGER NOT NULL,
+  "UPPER" INTEGER NOT NULL,
+  PRIMARY KEY(Identifier)
+)

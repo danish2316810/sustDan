@@ -1,0 +1,10 @@
+VIEW CatalogService_Standards_Module AS SELECT
+  Standards_Module_0.id,
+  Standards_Module_0.HierarchyLevel,
+  Standards_Module_0.ParentNodeID,
+  Standards_Module_0.Description,
+  Standards_Module_0.DrillState
+FROM app_interactions_Standards_Module AS Standards_Module_0
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN CatalogService_Standards_Module AS toStandards_Module ON (toStandards_Module.id = ParentNodeID)
+)

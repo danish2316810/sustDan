@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" >
+    <Dialog id="simpleDialog" title="Connect To Local System">
+        <VBox>
+            <HBox class="sapUiSmallMargin">
+                <Label text = "Enter System Details" class="sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+                <Input value = "" showValueHelp="true"/>
+            </HBox>
+        </VBox>
+        <beginButton>
+            <Button press=".onOkDialog" text="OK"></Button>
+        </beginButton>
+        <endButton>
+            <Button press=".onCloseDialog" text="Close"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

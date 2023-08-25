@@ -1,0 +1,41 @@
+{
+    "name": "TrackingSustainability",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/audit-logging": "^5.0.0",
+        "@sap/cds": "^5.9.8",
+        "@sap/cds-compiler": "^3",
+        "@sap/cds-odata-v2-adapter-proxy": "^1.8.14",
+        "@sap/hana-client": "^2.6.61",
+        "@sap/xsenv": "^3.1.0",
+        "@sap/xssec": "^3.2.0",
+        "express": "^4",
+        "passport": "^0.4.1"
+    },
+    "scripts": {
+        "start": "npx cds serve gen/srv/csn.json",
+        "build": "cds build/all --clean;cp gen/srv/srv/csn.json srv/gen/;cp -r gen/db/src/gen db/src"
+    },
+    "engines": {
+        "node": "16.19.1"
+    },
+    "cds": {
+        "build": {
+            "target": "."
+        },
+        "hana": {
+            "deploy-format": "hdbtable"
+        },
+        "requires": {
+            "db": {
+                "kind": "hana"
+            },
+            "uaa": {
+                "kind": "xsuaa"
+            }
+        }
+    }
+}

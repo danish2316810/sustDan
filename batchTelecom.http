@@ -1,0 +1,146 @@
+POST /catalog/$batch HTTP/1.1
+Host: localhost:4004
+Content-Type: application/json
+Content-Length: 1721
+
+{
+    "requests": [
+     
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r2",
+            "method": "POST",
+            "url": "/Environment_Report_Telecom",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+       "Year": "2021-2022",
+  "Month": "April",
+  "Location": "Maharashtra",
+  "Type": "NETWORK TRAFFIC",
+  "SubType": "Voice & Data Traffic",
+  "KPI": "4G Data Traffic",
+  "Value": 256,
+  "Unit": "GB",
+  "Cost": 0,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Owner": "",
+  "Approver": "",
+  "Division": "Bharti Airtel Limited",
+  "Sno": 0,
+  "Date": null,
+  "Value2": null,
+  "Distance": null,
+  "Weight": null,
+  "Scope": "",
+  "Associates": null,
+  "Logic": "LogicT",
+  "Measure": "Data",
+  "GRIStd": "305-1",
+  "SDG": "SDG 13: Climate Action",
+  "RenNon": "",
+  "FValue": 0,
+  "FValue1": 0
+ }
+        }
+    ]
+}
+
+###
+POST /catalog/$batch HTTP/1.1
+Host: localhost:4004
+Content-Type: application/json
+Content-Length: 1721
+
+{
+    "requests": [
+     
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r2",
+            "method": "POST",
+            "url": "/Environment_Report_Telecom",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+      "Year": "2021-2022",
+  "Month": "April",
+  "Location": "Maharashtra",
+  "Type": "NETWORK TRAFFIC",
+  "SubType": "Voice & Data Traffic",
+  "KPI": "4G Data Traffic",
+  "Value": 256,
+  "Unit": "GB",
+  "Cost": 0,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Owner": "",
+  "Approver": "",
+  "Division": "Bharti Airtel Limited",
+  "Sno": 0,
+  "Date": null,
+  "Value2": null,
+  "Distance": null,
+  "Weight": null,
+  "Scope": "",
+  "Associates": null,
+  "Logic": "LogicT",
+  "Measure": "Data",
+  "GRIStd": "305-1",
+  "SDG": "SDG 13: Climate Action",
+  "RenNon": "",
+  "FValue": 0,
+  "FValue1": 0
+ }
+        },
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r3",
+            "method": "POST",
+            "url": "/Environment_Report_Telecom",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+             "Year": "2021-2022",
+  "Month": "May",
+  "Location": "Maharashtra",
+  "Type": "NETWORK TRAFFIC",
+  "SubType": "Voice & Data Traffic",
+  "KPI": "4G Data Traffic",
+  "Value": 367,
+  "Unit": "GB",
+  "Cost": 0,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Owner": "",
+  "Approver": "",
+  "Division": "Bharti Airtel Limited",
+  "Sno": 0,
+  "Date": null,
+  "Value2": null,
+  "Distance": null,d
+  "Weight": null,
+  "Scope": "",
+  "Associates": null,
+  "Logic": "LogicT",
+  "Measure": "Data",
+  "GRIStd": "305-1",
+  "SDG": "SDG 13: Climate Action",
+  "RenNon": "",
+  "FValue": 0,
+  "FValue1": 0
+ }
+
+        }
+    ]
+}

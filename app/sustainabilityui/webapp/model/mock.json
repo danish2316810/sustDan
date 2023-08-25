@@ -1,0 +1,1169 @@
+{
+    "DirectEnergy" : [{ "Month" : "April",
+                        "Value" : "830",
+                        "Unit"  : "KG",
+                        "Cost"  : "7470",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "May",
+                        "Value" : "860",
+                        "Unit"  : "KG",
+                        "Cost"  : "7740",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "June",
+                        "Value" : "890",
+                        "Unit"  : "KG",
+                        "Cost"  : "8010",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "July",
+                        "Value" : "920",
+                        "Unit"  : "KG",
+                        "Cost"  : "8280",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "August",
+                        "Value" : "950",
+                        "Unit"  : "KG",
+                        "Cost"  : "8550",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "September",
+                        "Value" : "980",
+                        "Unit"  : "KG",
+                        "Cost"  : "8820",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "October",
+                        "Value" : "1010",
+                        "Unit"  : "KG",
+                        "Cost"  : "9090",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "November",
+                        "Value" : "1040",
+                        "Unit"  : "KG",
+                        "Cost"  : "9360",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "December",
+                        "Value" : "1070",
+                        "Unit"  : "KG",
+                        "Cost"  : "9630",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "January",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    },
+                    { "Month" : "Feburary",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    },
+                    { "Month" : "March",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    }
+                    ],
+    "InDirectEnergy" : [{ "Month" : "April",
+                        "Value" : "143640",
+                        "Unit"  : "kWh",
+                        "Cost"  : "886104",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "May",
+                        "Value" : "315622",
+                        "Unit"  : "kWh",
+                        "Cost"  : "934765",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "June",
+                        "Value" : "418861",
+                        "Unit"  : "kWh",
+                        "Cost"  : "1055000",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "July",
+                        "Value" : "2934150",
+                        "Unit"  : "kWh",
+                        "Cost"  : "3590000",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "August",
+                        "Value" : "2929750",
+                        "Unit"  : "kWh",
+                        "Cost"  : "3598000",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "September",
+                        "Value" : "641000",
+                        "Unit"  : "kWh",
+                        "Cost"  : "751890",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "October",
+                        "Value" : "1781192",
+                        "Unit"  : "kWh",
+                        "Cost"  : "265000",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "November",
+                        "Value" : "63000",
+                        "Unit"  : "kWh",
+                        "Cost"  : "72777",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "December",
+                        "Value" : "2035700",
+                        "Unit"  : "kWh",
+                        "Cost"  : "3212999",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "January",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    },
+                    { "Month" : "Feburary",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    },
+                    { "Month" : "March",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    }
+                    ],
+    "Water" : [{ "Month" : "April",
+                        "Value" : "5970",
+                        "Unit"  : "m3",
+                        "Cost"  : "308748",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "May",
+                        "Value" : "5928",
+                        "Unit"  : "m3",
+                        "Cost"  : "307184",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "June",
+                        "Value" : "1680",
+                        "Unit"  : "m3",
+                        "Cost"  : "216513",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "July",
+                        "Value" : "3671",
+                        "Unit"  : "m3",
+                        "Cost"  : "259320",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "August",
+                        "Value" : "3614",
+                        "Unit"  : "m3",
+                        "Cost"  : "129729",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "September",
+                        "Value" : "1680",
+                        "Unit"  : "m3",
+                        "Cost"  : "216515",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "October",
+                        "Value" : "8310",
+                        "Unit"  : "m3",
+                        "Cost"  : "360705",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "November",
+                        "Value" : "4519",
+                        "Unit"  : "m3",
+                        "Cost"  : "277551",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "December",
+                        "Value" : "5190",
+                        "Unit"  : "m3",
+                        "Cost"  : "299217",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "January",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    },
+                    { "Month" : "Feburary",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    },
+                    { "Month" : "March",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    }
+                    ],
+    
+    "Emission" : [{ "Month" : "April",
+                        "Value" : "1021",
+                        "Unit"  : "KG",
+                        "Cost"  : "8450",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "May",
+                        "Value" : "7865",
+                        "Unit"  : "KG",
+                        "Cost"  : "50876",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "June",
+                        "Value" : "5944",
+                        "Unit"  : "KG",
+                        "Cost"  : "308735",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "July",
+                        "Value" : "2335",
+                        "Unit"  : "KG",
+                        "Cost"  : "16500",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "August",
+                        "Value" : "6473",
+                        "Unit"  : "KG",
+                        "Cost"  : "32000",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "September",
+                        "Value" : "1560",
+                        "Unit"  : "KG",
+                        "Cost"  : "9680",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "October",
+                        "Value" : "1480",
+                        "Unit"  : "KG",
+                        "Cost"  : "8900",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "November",
+                        "Value" : "2990",
+                        "Unit"  : "KG",
+                        "Cost"  : "17000",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "December",
+                        "Value" : "6212",
+                        "Unit"  : "KG",
+                        "Cost"  : "31000",
+                        "Currency" : "INR",
+                        "Quality" : "OK",
+                        "Comment" : "NA",
+                        "Icon" : "sap-icon://vds-file"
+                    },
+                    { "Month" : "January",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    },
+                    { "Month" : "Feburary",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    },
+                    { "Month" : "March",
+                        "Value" : "",
+                        "Unit"  : "",
+                        "Cost"  : "",
+                        "Currency" : "",
+                        "Quality" : "",
+                        "Comment" : "",
+                        "Icon" : "sap-icon://upload"
+                    }
+                    ],
+
+
+    "Division": [
+        {
+            "key": "My Port",
+            "text": "My Port"
+        },
+        {
+            "key": "ACME Industries",
+            "text": "ACME Industries"
+        },
+        {
+            "key": "1",
+            "text": "Auto Division"
+        },
+        {
+            "key": "2",
+            "text": "Farm Division"
+        },
+        {
+            "key": "3",
+            "text": "Swaraj Foundry"
+        },
+        {
+            "key": "4",
+            "text": "Nashik Plant"
+        },
+        {
+            "key": "5",
+            "text": "Tech Mahindra"
+        }
+    ],
+    "Location": 
+        [{
+            "key": "All Locations",
+            "text": "All Locations"
+        },
+        {
+            "key": "TERMINAL1",
+            "text": "TERMINAL1"
+        },
+        {
+            "key": "Bangalore - RMZ",
+            "text": "Bangalore - RMZ"
+        },
+        {
+            "key": "Bangalore - TMEC",
+            "text": "Bangalore - TMEC"
+        },
+        {
+            "key": "Bangalore - TMTP (ITPL)",
+            "text": "Bangalore - TMTP (ITPL)"
+        },
+        {
+            "key": "Bhubaneshwar - TMBC",
+            "text": "Bhubaneshwar - TMBC"
+        },
+        {
+            "key": "Chandigarh (TechM)",
+            "text": "Chandigarh (TechM)"
+        },{
+            "key": "Chennai - TMTP",
+            "text": "Chennai - TMTP"
+        },{
+            "key": "Chennai - TMCC",
+            "text": "Chennai - TMCC"
+        },
+        {
+            "key": "Gandhinagar (TechM)",
+            "text": "Gandhinagar (TechM)"
+        },
+        {
+            "key": "Hyderabad - Ohri Towers",
+            "text": "Hyderabad - Ohri Towers"
+        },
+        {
+            "key": "Hyderabad - TMIC",
+            "text": "Hyderabad - TMIC"
+        },
+        {
+            "key": "Hyderabad - TMIC SEZ",
+            "text": "Hyderabad - TMIC SEZ"
+        },
+        {
+            "key": "Hyderabad - TMLW",
+            "text": "Hyderabad - TMLW"
+        },
+        {
+            "key": "Hyderabad - TMTC",
+            "text": "Hyderabad - TMTC"
+        },
+        {
+            "key": "Hyderabad - TMTC-SEZ",
+            "text": "Hyderabad - TMTC-SEZ"
+        },
+        {
+            "key": "Ecospace Kolkata",
+            "text": "Ecospace Kolkata"
+        },
+        {
+            "key": "Kolkata - DLFII  SEZ",
+            "text": "Kolkata - DLFII  SEZ"
+        },
+        {
+            "key": "Kolkata - Srijan Tech Park",
+            "text": "Kolkata - Srijan Tech Park"
+        },
+        {
+            "key": "Mumbai - Chandivalli",
+            "text": "Mumbai - Chandivalli"
+        },
+        {
+            "key": "Nagpur (TechM)",
+            "text": "Nagpur (TechM)"
+        },
+        {
+            "key": "Noida - A6",
+            "text": "Noida - A6"
+        },
+        {
+            "key": "Noida - A7",
+            "text": "Noida - A7"
+        },
+        {
+            "key": "Noida - 8 & 8A",
+            "text": "Noida - 8 & 8A"
+        },
+        {
+            "key": "Noida - A20",
+            "text": "Noida - A20"
+        },
+        {
+            "key": "Noida H33",
+            "text": "Noida H33"
+        },
+        {
+            "key": "Noida - NSEZ",
+            "text": "Noida - NSEZ"
+        },
+        {
+            "key": "Noida 131&133",
+            "text": "Noida 131&133"
+        },
+        {
+            "key": "Noida - B1B2C1",
+            "text": "Noida - B1B2C1"
+        },
+        {
+            "key": "Noida - G15G16",
+            "text": "Noida - G15G16"
+        },
+        {
+            "key": "Pune - ETZ",
+            "text": "Pune - ETZ"
+        },
+        {
+            "key": "Pune - Hinjewadi",
+            "text": "Pune - Hinjewadi"
+        },
+        {
+            "key": "Pune - Sharda Centre",
+            "text": "Pune - Sharda Centre"
+        },
+        {
+            "key": "Pune - Commerzone",
+            "text": "Pune - Commerzone"
+        },
+        {
+            "key": "Pune - Gigaspace",
+            "text": "Pune - Gigaspace"
+        },
+        {
+            "key": "Pune - TechM Chinchwad",
+            "text": "Pune - TechM Chinchwad"
+        },
+        {
+            "key": "Vizag - TMVC",
+            "text": "Vizag - TMVC"
+        },
+        {
+            "key": "Nashville",
+            "text": "Nashville"
+        },
+        {
+            "key": "Melbourne",
+            "text": "Melbourne"
+        }
+        ],
+        
+        "Year": [{
+            "key": "2020",
+            "value": "2020"
+        },
+        {
+            "key": "2021",
+            "value": "2021"
+        },
+        {
+            "key": "2022",
+            "value": "2022"
+        },
+            {
+            "key": "2017-2018",
+            "value": "2017 - 2018"
+        },
+        {
+            "key": "2018-2019",
+            "value": "2018 - 2019"
+        },
+        {
+            "key": "2019-2020",
+            "value": "2019 - 2020"
+        },
+        {
+            "key": "2020-2021",
+            "value": "2020 - 2021"
+        },
+        {
+            "key": "2021-2022",
+            "value": "2021 - 2022"
+        },
+        {
+            "key": "2022-2023",
+            "value": "2022 - 2023"
+        }],
+    "UnitCB": [{
+            "key": "gl",
+            "value": "gl"
+        },
+        {
+            "key": "2",
+            "value": "kJ"
+        },
+        {
+            "key": "3",
+            "value": "cal"
+        },
+        {
+            "key": "4",
+            "value": "mg"
+        },{
+            "key": "5",
+            "value": "g"
+        },{
+            "key": "6",
+            "value": "kt"
+        },{
+            "key": "kl",
+            "value": "kl"
+        },
+        {
+            "key": "MT",
+            "value": "MT"
+        },
+        {
+            "key": "kWh",
+            "value": "kWh"
+        }],
+    "InDirectUnitCB": [{
+            "key": "kWh",
+            "value": "kWh"
+        },
+        {
+            "key": "2",
+            "value": "kJ"
+        },
+        {
+            "key": "3",
+            "value": "cal"
+        },
+        {
+            "key": "4",
+            "value": "MJ"
+        },{
+            "key": "5",
+            "value": "MWh"
+        },{
+            "key": "6",
+            "value": "Gj"
+        }],
+    "CurrencyCB": [{
+            "key": "USD",
+            "value": "USD"
+        },
+        {
+            "key": "2",
+            "value": "Crore INR"
+        },
+        {
+            "key": "3",
+            "value": "Lakh INR"
+        },
+        {
+            "key": "4",
+            "value": "EUR"
+        },{
+            "key": "INR",
+            "value": "INR"
+        },{
+            "key": "AUD",
+            "value": "AUD"
+        },{
+            "key": "6",
+            "value": "Million USD"
+        }],
+"WaterUnit": [{
+            "key": "m3",
+            "value": "m3"
+        },
+        {
+            "key": "2",
+            "value": "ft3"
+        },
+        {
+            "key": "3",
+            "value": "kl"
+        },
+        {
+            "key": "4",
+            "value": "l"
+        },
+        {
+            "key": "gl",
+            "value": "gl"
+        }],
+"EmissionUnit": [{
+            "key": "kg",
+            "value": "kg"
+        },
+        {
+            "key": "2",
+            "value": "g"
+        },
+        {
+            "key": "3",
+            "value": "kt"
+        },
+        {
+            "key": "4",
+            "value": "mg"
+        },
+        {
+            "key": "gl",
+            "value": "gl"
+        },
+        {
+            "key": "ml",
+            "value": "ml"
+        },
+        {
+            "key": "lb",
+            "value": "lb"
+        }],
+"DEOptions": [{
+            "key": "HSD",
+            "value": "HSD",     
+            "EF":"2.68787",
+            "Unit":"MTCO2e/kl"
+        },        
+        {
+            "key": "LPG",
+            "value": "LPG",
+            "EF":"2.93881",
+            "Unit":"MTCO2e/tonne"
+        },
+        {
+            "key": "Refrigerant (R22)",
+            "value": "Refrigerant (R22)",
+            "EF":"1810",
+            "Unit":"kgco2e/kg"
+        },
+        {
+            "key": "Refrigerant (R410A)",
+            "value": "Refrigerant (R410A)",
+            "EF":"2088",
+            "Unit":"kgco2e/kg"
+        },
+        {
+            "key": "Refrigerant (R407A)",
+            "value": "Refrigerant (R407A)",
+            "EF":"2107",
+            "Unit":"kgco2e/kg"
+        },
+        {
+            "key": "Refrigerant (R134)",
+            "value": "Refrigerant (R134)",
+            "EF":"1100",
+            "Unit":"kgco2e/kg"
+        },
+        {
+            "key": "Refrigerant (R32)",
+            "value": "Refrigerant (R32)",
+            "EF":"675",
+            "Unit":"kgco2e/kg"
+        },
+        {
+            "key": "Solar (Self-generated)",
+            "value": "Solar (Self-generated)",
+            "EF":"",
+            "Unit":""
+        }],
+"IDEOptions": [{
+            "key": "Grid Electricity (Non-RE)",
+            "value": "Grid Electricity (Non-RE)",
+            "EF":"0.00083",
+            "Unit":"MTCO2e/kWh"
+        },
+        {
+            "key": "Solar PPA",
+            "value": "Solar PPA",
+            "EF":"",
+            "Unit":""         
+        }
+        ],
+"MiningIDEOptions": [{
+            "key": "Grid Electricity (Non-RE)",
+            "value": "Grid Electricity (Non-RE)",
+            "EF":"",
+            "Unit":""
+        }        
+        ],
+"MiningDEOptions": [{
+            "key": "Diesel - Stationery",
+            "value": "Diesel - Stationery",
+            "EF":"",
+            "Unit":""
+        },
+        {
+            "key": "Diesel - Mobile",
+            "value": "Diesel - Mobile",
+            "EF":"",
+            "Unit":""         
+        },
+        {
+            "key": "Coal - Coking",
+            "value": "Coal - Coking",
+            "EF":"",
+            "Unit":""         
+        },
+        {
+            "key": "Coal - Industrial",
+            "value": "Coal - Industrial",
+            "EF":"",
+            "Unit":""         
+        }
+        ],
+"WaterOptions": [
+        {
+            "key": "Bottled Water",
+            "value": "Bottled Water",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Ground Water",
+            "value": "Ground Water",
+            "EF":"",
+            "Unit":"" 
+        },        
+        {
+            "key": "Water Utilities",
+            "value": "Water Utilities",
+            "EF":"",
+            "Unit":"" 
+        }],
+"WaterDischrgeCB": [{
+            "key": "Ground water",
+            "value": "Ground Water",
+            "EF":"",
+            "Unit":""           
+        },
+        {
+            "key": "Muncipal sewage (CETP)",
+            "value": "Municipal Sewage (CETP)",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Surface water",
+            "value": "Surface Water",
+            "EF":"",
+            "Unit":"" 
+        }],
+"WasteOptions": [
+        {
+            "key": "Battery",
+            "value": "Battery",
+            "EF":"0.021317",
+            "Unit": "MTCO2e/tonne"
+        },
+        {
+            "key": "Cardboard",
+            "value": "Cardboard",
+            "EF":"0.021317",
+            "Unit": "MTCO2e/tonne"
+        },
+        {
+            "key": "Scrap Books",
+            "value": "Scrap Books",
+            "EF":"0.021317",
+            "Unit": "MTCO2e/tonne"
+        },
+        {
+            "key": "Plastic Scrap",
+            "value": "Plastic Scrap",
+            "EF":"0.021317",
+            "Unit": "MTCO2e/tonne"
+        },        
+        {
+            "key": "Garbage",
+            "value": "Garbage",
+            "EF":"0.587377",
+            "Unit": "MTCO2e/tonne"
+        },
+        {
+            "key": "Coolant",
+            "value": "Coolant",
+            "EF":"0.021317",
+            "Unit": "MTCO2e/tonne"
+        },     
+        {
+            "key": "Filter",
+            "value": "Filter",
+            "EF":"0.021317",
+            "Unit": "MTCO2e/tonne"
+        },    
+        {
+            "key": "Oil Waste",
+            "value": "Oil Waste",
+            "EF":"0.0213538",
+            "Unit": "MTCO2e/tonne"
+        },
+        {
+            "key": "Food Waste",
+            "value": "Food Waste",
+            "EF":"0.010204",
+            "Unit": "MTCO2e/tonne"    
+        },{
+            "key": "E-Waste",
+            "value": "E-Waste",
+            "EF":"0.021317",
+            "Unit": "MTCO2e/tonne"    
+        }],
+        
+        "Departments": [{
+            "ID": "1",
+            "Name": "Oil and Gas",
+            "Employees": [
+                {
+                    "ID": "12345",
+                    "LastName": "Tom"
+                },
+                {
+                    "ID": "678",
+                    "LastName": "Jerry"
+                }
+            ]
+        },
+        {
+            "ID": "2",
+            "Name": "Gasoline",
+            "Employees": [
+                {
+                    "ID": "21",
+                    "LastName": "Donald"
+                },
+                {
+                    "ID": "22",
+                    "LastName": "Duck"
+                }
+            ]
+        }],
+"CommuteOptions": [{
+            "key": "Car",
+            "value": "Car",
+            "EF":"",
+            "Unit":""           
+        },
+        {
+            "key": "Shuttle Bus",
+            "value": "Shuttle Bus",
+            "EF":"",
+            "Unit":"" 
+        }],
+"PersonalOptions": [{
+            "key": "Bike (Electric)",
+            "value": "Bike (Electric)",
+            "EF":"",
+            "Unit":""           
+        },
+        {
+            "key": "Bike (Petrol)",
+            "value": "Bike (Petrol)",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Bicycle",
+            "value": "Bicycle",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Car (Diesel)",
+            "value": "Car (Diesel)",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Car (Petrol)",
+            "value": "Car (Petrol)",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Carpool",
+            "value": "Carpool",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Public Bus",
+            "value": "Public Bus",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Train",
+            "value": "Train",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Taxi",
+            "value": "Taxi",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Walk",
+            "value": "Walk",
+            "EF":"",
+            "Unit":"" 
+        }],
+"BusinessTravelOptions": [{
+            "key": "Domestic (Business)",
+            "value": "Domestic (Business)",
+            "EF":"",
+            "Unit":""           
+        },
+        {
+            "key": "Domestic (Economy)",
+            "value": "Domestic (Economy)",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Domestic (Premium Economy)",
+            "value": "Domestic (Premium Economy)",
+            "EF":"",
+            "Unit":""           
+        },
+        {
+            "key": "International (Business)",
+            "value": "International (Business)",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "International (Economy)",
+            "value": "International (Economy)",
+            "EF":"",
+            "Unit":""           
+        },
+        {
+            "key": "International (Premium Economy)",
+            "value": "International (Premium Economy)",
+            "EF":"",
+            "Unit":"" 
+        }],
+    "UpstreamOptions": [{
+            "key": "Air",
+            "value": "Air",
+            "EF":"",
+            "Unit":""           
+        },
+        {
+            "key": "Road",
+            "value": "Road",
+            "EF":"",
+            "Unit":"" 
+        },
+        {
+            "key": "Sea",
+            "value": "Sea",
+            "EF":"",
+            "Unit":"" 
+        }],
+    "RemoteOptions": [{
+            "key": "Desktop",
+            "value": "Desktop",
+            "EF":"",
+            "Unit":""           
+        },
+        {
+            "key": "Laptop",
+            "value": "Laptop",
+            "EF":"",
+            "Unit":"" 
+        }],
+"CommuteUnit": [{
+            "key": "mi",
+            "value": "mi"
+        },
+        {
+            "key": "km",
+            "value": "km"
+        },
+        {
+            "key": "ft",
+            "value": "ft"
+        }],
+"Operation": [{
+            "key": "*",
+            "value": "*"
+        },
+        {
+            "key": "/",
+            "value": "/"
+        }]                
+}

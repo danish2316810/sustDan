@@ -1,0 +1,3 @@
+VIEW CatalogService_Prefix_Types AS SELECT
+  Prefix_Types_0.prefix
+FROM app_interactions_Prefix_Types AS Prefix_Types_0

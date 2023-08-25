@@ -1,0 +1,711 @@
+<mvc:View
+    controllerName="com.techm.sustainabilityui.controller.HumanResource"
+   xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:layout="sap.ui.layout" xmlns:uxap="sap.uxap" xmlns:f="sap.ui.layout.form"
+>   
+    <Page >                   
+        <customHeader >
+        <Bar class="headerBar">
+            <contentLeft>						
+                <Button icon="sap-icon://nav-back" press="onPressBack" class="sapUiSmallMarginEnd myBackBtn"/>	
+                <Image src="./images/techM.png" class="sapUiSmallMarginEnd" />
+               <!-- <Image src="./images/sap.png" />-->
+            </contentLeft>
+            <contentMiddle >
+                <!--<Title level="H1" text="i.Sustain - TechM SAP Sustainability Solution" class="titleAlign" >
+                <layoutData>
+                        <OverflowToolbarLayoutData priority="Low" />
+                    </layoutData>
+                </Title>-->
+                <HBox>
+                    <Image src="./images/iSustainLogo_01.png" class="titleAlign sapUiTinyMarginTop "/>
+                    <Title level="H6" text="TechM Sustainability Reporting Framework" class="sapUiSmallMarginTop sapUiTinyMarginBegin fntBold" ></Title>
+                    <Image src="./images/btp.jpg" class="sapUiSmallMarginTop sapUiTinyMarginBegin"/>
+                </HBox>
+            </contentMiddle>
+            <contentRight>
+                    <Image src="./images/hravatar.png" densityAware="false"></Image>
+                <Text text="Welcome, Sophie Liam!" class = "userName" />
+                <Button icon="sap-icon://arrow-down" class = "myBackBtn" />						
+            </contentRight>
+        </Bar>
+        </customHeader>
+        <content >
+        
+                <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.SearchBar" type="XML"/>                
+
+                <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.SocialTableA" type="XML" class="sapUiLargeMargin"/> 
+                
+                <uxap:ObjectPageLayout useIconTabBar="true" showFooter="true" showAnchorBar="true" 
+                    subSectionLayout="TitleOnTop" upperCaseAnchorBar="false" id="object1" class= "filterBorder_hr">
+					<uxap:headerContent>
+					</uxap:headerContent>
+					<uxap:sections>
+						<uxap:ObjectPageSection showTitle="true" title="People Imperative" titleUppercase="false" visible="true">
+							<uxap:subSections>
+								<uxap:ObjectPageSubSection title="Total Employees">
+									<uxap:blocks>
+										<VBox>
+											<OverflowToolbar>
+												<content>
+													<Label text="Type:"/>
+													<ComboBox id="empType" placeholder="Select Employee Type" change="onEmpSelectionChange" selectedKey="Permanent">
+														<items>
+															<core:Item text="Permanent Employees" key="Permanent"/>
+															<core:Item text="Temporary Employees" key="Temporary"/>
+														</items>
+													</ComboBox>
+												</content>
+											</OverflowToolbar>
+											<HBox>
+												<Table id="table1" width="105%" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'TotalEmployees'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Permanent'
+                                                                        },
+                                                                        {path: 'Gender',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Female'
+                                                                        }
+                                                                    ]}">
+													<headerToolbar></headerToolbar>
+													<infoToolbar>
+														<OverflowToolbar>
+															<ToolbarSpacer/>
+															<Label text="Female"/>
+															<ToolbarSpacer/>
+														</OverflowToolbar>
+													</infoToolbar>
+													<columns>
+														<Column width="7rem">
+															<Text text="Category"/>
+														</Column>
+														<Column >
+															<Text text="18-30 yrs"/>
+														</Column>
+														<Column demandPopin="true">
+															<Text text="31-50 yrs"/>
+														</Column>
+														<Column demandPopin="true">
+															<Text text=">50 yrs" />
+															</Column>
+															<!--<Column demandPopin="true">
+																<Text text="Total"/>
+															</Column>-->
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<Text text="{Category}"/>
+																	<Input value="{Upto30yrs}"/>
+																	<Input value="{Upto50yrs}"/>
+																	<Input value="{Morethan50Yrs}"/>
+																	<!--<Input value="{Total}"/>-->
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+													<Table id="table2" width="95%" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'TotalEmployees'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Permanent'
+                                                                        },
+                                                                        {path: 'Gender',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Male'
+                                                                        }
+                                                                    ]}" class="sapUiMediumMarginBegin">
+														<infoToolbar>
+															<OverflowToolbar>
+																<ToolbarSpacer/>
+																<Label text="Male"/>
+																<ToolbarSpacer/>
+															</OverflowToolbar>
+														</infoToolbar>
+														<columns>
+															<!--	<Column width="12em">
+												<Text text="Category"/>
+											</Column>-->
+															<Column >
+																<Text text="18-30 yrs"/>
+															</Column>
+															<Column minScreenWidth="Tablet" demandPopin="true">
+																<Text text="31-50 yrs"/>
+															</Column>
+															<Column minScreenWidth="Desktop" demandPopin="true">
+																<Text text=">50 yrs" />
+																</Column>
+																<!--<Column minScreenWidth="Desktop" demandPopin="true">
+																	<Text text="Total"/>
+																</Column>-->
+															</columns>
+															<items>
+																<ColumnListItem >
+																	<cells>
+																		<!--		<Text text="{category}"/>-->
+																		<Input value="{Upto30yrs}"/>
+																		<Input value="{Upto50yrs}"/>
+																		<Input value="{Morethan50Yrs}"/>
+																		<!--<Input value="{Total}"/>-->
+																	</cells>
+																</ColumnListItem>
+															</items>
+														</Table>
+														<!--<VBox alignItems="Center" justifyContent="Center">
+                                                            <Title level="H1" text="[401-1] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+															<Image src="./images/HR.jpg" class="sapUiMediumMarginBegin"/>
+														</VBox>-->
+                                                        <Table id="tableNeutral" width="95%" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'TotalEmployees'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Permanent'
+                                                                        },
+                                                                        {path: 'Gender',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Male'
+                                                                        }
+                                                                    ]}" class="sapUiMediumMarginBegin">
+														<infoToolbar>
+															<OverflowToolbar>
+																<ToolbarSpacer/>
+																<Label text="Neutral"/>
+																<ToolbarSpacer/>
+															</OverflowToolbar>
+														</infoToolbar>
+														<columns>
+															<!--	<Column width="12em">
+												<Text text="Category"/>
+											</Column>-->
+															<Column >
+																<Text text="18-30 yrs"/>
+															</Column>
+															<Column minScreenWidth="Tablet" demandPopin="true">
+																<Text text="31-50 yrs"/>
+															</Column>
+															<Column minScreenWidth="Desktop" demandPopin="true">
+																<Text text=">50 yrs" />
+																</Column>
+																<!--<Column minScreenWidth="Desktop" demandPopin="true">
+																	<Text text="Total"/>
+																</Column>-->
+															</columns>
+															<items>
+																<ColumnListItem >
+																	<cells>
+																		<!--		<Text text="{category}"/>-->
+																		<Input value="{Upto30yrs}"/>
+																		<Input value="{Upto50yrs}"/>
+																		<Input value="{Morethan50Yrs}"/>
+																		<!--<Input value="{Total}"/>-->
+																	</cells>
+																</ColumnListItem>
+															</items>
+														</Table>
+													</HBox>
+												</VBox>
+											</uxap:blocks>
+										</uxap:ObjectPageSubSection>
+										<uxap:ObjectPageSubSection title="New Hire">
+											<uxap:blocks>
+												<HBox>
+													<Table id = "table3" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'NewHire'},
+                                                                        
+                                                                        {path: 'Gender',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Female'
+                                                                        }
+                                                                    ]}">
+														<headerToolbar></headerToolbar>
+														<infoToolbar>
+															<OverflowToolbar>
+																<ToolbarSpacer/>
+																<Label text="Female"/>
+																<ToolbarSpacer/>
+															</OverflowToolbar>
+														</infoToolbar>
+														<columns>
+															<Column >
+																<Text text="Category"/>
+															</Column>
+															<Column >
+																<Text text="18-30 years"/>
+															</Column>
+															<Column minScreenWidth="Tablet" demandPopin="true">
+																<Text text="31-50 yrs"/>
+															</Column>
+															<Column minScreenWidth="Desktop" demandPopin="true">
+																<Text text=">50 yrs" />
+																</Column>
+																<Column minScreenWidth="Desktop" demandPopin="true">
+																	<Text text="Total"/>
+																</Column>
+															</columns>
+															<items>
+																<ColumnListItem >
+																	<cells>
+																		<Text text="{Category}"/>
+																		<Input value="{Upto30yrs}"/>
+																		<Input value="{Upto50yrs}"/>
+																		<Input value="{Morethan50Yrs}"/>
+																		<Input value="{Total}"/>
+																	</cells>
+																</ColumnListItem>
+															</items>
+														</Table>
+														<Table id="table4" items="{path: '/results',
+                                                            filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'NewHire'},
+                                                                        
+                                                                        {path: 'Gender',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Male'
+                                                                        }
+                                                                    ]}" class="sapUiSmallMarginBegin">
+															<infoToolbar>
+																<OverflowToolbar>
+																	<ToolbarSpacer/>
+																	<Label text="Male"/>
+																	<ToolbarSpacer/>
+																</OverflowToolbar>
+															</infoToolbar>
+															<columns>
+																<!--	<Column width="12em">
+												<Text text="Category"/>
+											</Column>-->
+																<Column >
+																	<Text text="18-30 yrs"/>
+																</Column>
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="31-50 yrs"/>
+																</Column>
+																<Column minScreenWidth="Desktop" demandPopin="true">
+																	<Text text=">50 yrs" />
+																	</Column>
+																	<Column minScreenWidth="Desktop" demandPopin="true">
+																		<Text text="Total"/>
+																	</Column>
+																</columns>
+																<items>
+																	<ColumnListItem >
+																		<cells>
+																			<!--		<Text text="{category}"/>-->
+																			<Input value="{Upto30yrs}"/>
+																			<Input value="{Upto50yrs}"/>
+																			<Input value="{Morethan50Yrs}"/>
+																			<Input value="{Total}"/>
+																		</cells>
+																	</ColumnListItem>
+																</items>
+															</Table>
+															<VBox alignItems="Center" justifyContent="Center">
+                                                                <Title level="H1" text="[401-1] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+																<Image src="./images/HR.jpg" class="sapUiMediumMarginBegin"/>
+															</VBox>
+														</HBox>
+													</uxap:blocks>
+												</uxap:ObjectPageSubSection>
+											</uxap:subSections>
+										</uxap:ObjectPageSection>
+										<uxap:ObjectPageSection showTitle="true" title="Healthy and Safety" titleUppercase="false" visible="true">
+											<uxap:subSections>
+												<uxap:ObjectPageSubSection title="Type and rate of Injury">
+													<VBox>
+														<HBox>
+														<Table id="table7" items="{path: '/results',
+                                                                filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Rate of Injury'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Total hours worked'
+                                                                        },
+                                                                        {path: 'Month',
+                                                                        operator: 'EQ',
+                                                                        value1: 'March'
+                                                                        }
+                                                                    ]}" class="sapUiSmallMarginBegin">
+															<headerToolbar>
+																<OverflowToolbar>
+																	<Title text="Total hours worked"/>
+																	<ToolbarSpacer/>                                                                   
+
+                                                                    <ComboBox selectedKey="March" items="{month>/CountriesCollection}" change="onMonthSelectionChange" id="month">
+																		<core:Item key="{month>key}" text="{month>text}"/>
+																	</ComboBox>
+
+																</OverflowToolbar>
+															</headerToolbar>
+															<columns>
+																<Column width="21em">
+																	<Text text="Category"/>
+																</Column>
+																<!--	<Column width="12em">
+																	<Text text="Month"/>
+																</Column>-->
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="Details"/>
+																</Column>
+																<Column minScreenWidth="Desktop" demandPopin="true">
+																	<Text text="Value"/>
+																</Column>
+																<Column minScreenWidth="Desktop" demandPopin="true">
+																	<Text text="Unit(hr.)"/>
+																</Column>
+															</columns>
+															<items>
+																<ColumnListItem >
+																	<cells>
+																		<Text text="{Category}"/>
+																		<!--	<Input value="{month}"/>-->
+																		<Input value="{Details}"/>
+																		<Input value="{Value}"/>
+																		<Input value="{Unit}"/>
+																	</cells>
+																</ColumnListItem>
+															</items>
+														</Table>
+															<VBox alignItems="Center" justifyContent="Center">
+																<Image src="./images/HealthyEnv.jpg" class="sapUiMediumMarginBegin"/>
+															</VBox>
+														</HBox>
+														<HBox>
+														<Table id="table8" items="{path: '/results',
+                                                                filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Rate of Injury'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Total accidents reported'
+                                                                        },
+                                                                        {path: 'Month',
+                                                                        operator: 'EQ',
+                                                                        value1: 'March'
+                                                                        }
+                                                                    ]}" class="sapUiSmallMarginBegin sapUiMediumMarginTop">
+															<headerToolbar>
+																<OverflowToolbar>
+																	<Title text="Total Accidents Reported"/>
+																	<ToolbarSpacer/>
+																	<ComboBox selectedKey="March" items="{month>/CountriesCollection}" change="onMonthChange_Accidents" id="mnth_acdts">
+																		<core:Item key="{month>key}" text="{month>text}"/>
+																	</ComboBox>
+                                                                    
+																</OverflowToolbar>
+															</headerToolbar>
+															<columns>
+																<Column width="21em">
+																	<Text text="Category"/>
+																</Column>
+															<!--	<Column width="12em">
+																	<Text text="Month"/>
+																</Column>-->
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="Details"/>
+																</Column>
+																<Column minScreenWidth="Desktop" demandPopin="true">
+																	<Text text="Value"/>
+																</Column>
+																<Column minScreenWidth="Desktop" demandPopin="true">
+																	<Text text="Unit(hr.)"/>
+																</Column>
+															</columns>
+															<items>
+																<ColumnListItem >
+																	<cells>
+																		<Text text="{Category}"/>
+																	<!--	<Input value="{month}"/>-->
+																		<Input value="{Details}"/>
+																		<Input value="{Value}"/>
+																		<Input value="{Unit}"/>
+																	</cells>
+																</ColumnListItem>
+															</items>
+														</Table>
+															<VBox alignItems="Center" justifyContent="Center">
+																<Image src="./images/HealthyEnv.jpg" class="sapUiMediumMarginBegin"/>
+															</VBox>
+														</HBox>
+														<HBox>
+														<Table id= "table9" items="{path: '/results',
+                                                                filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Rate of Injury'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Total lost days reported'
+                                                                        },
+                                                                        {path: 'Month',
+                                                                        operator: 'EQ',
+                                                                        value1: 'March'
+                                                                        }
+                                                                    ]}" class="sapUiSmallMarginBegin sapUiMediumMarginTop">
+															<headerToolbar>
+																<OverflowToolbar>
+																	<Title text="Total Lost Days Reported"/>
+																	<ToolbarSpacer/>
+																	<ComboBox selectedKey="March" items="{month>/CountriesCollection}" change="onMonthChange_LstDays" id="mnth_lstDays">
+																		<core:Item key="{month>key}" text="{month>text}"/>
+																	</ComboBox>
+																</OverflowToolbar>
+															</headerToolbar>
+															<columns>
+																<Column width="21em">
+																	<Text text="Category"/>
+																</Column>
+																<!--	<Column width="12em">
+																	<Text text="Month"/>
+																</Column>-->
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="Details"/>
+																</Column>
+																<Column minScreenWidth="Desktop" demandPopin="true">
+																	<Text text="Value"/>
+																</Column>
+																<Column minScreenWidth="Desktop" demandPopin="true">
+																	<Text text="Unit(hr.)"/>
+																</Column>
+															</columns>
+															<items>
+																<ColumnListItem >
+																	<cells>
+																		<Text text="{Category}"/>
+																		<!--	<Input value="{month}"/>-->
+																		<Input value="{Details}"/>
+																		<Input value="{Value}"/>
+																		<Input value="{Unit}"/>
+																	</cells>
+																</ColumnListItem>
+															</items>
+														</Table>
+															<VBox alignItems="Center" justifyContent="Center">
+																<Image src="./images/HealthyEnv.jpg" class="sapUiMediumMarginBegin "/>
+															</VBox>
+														</HBox>
+														<HBox>
+														<Table id="table10" items="{path: '/results',
+                                                                filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Rate of Injury'},
+
+                                                                        {path: 'SubType',
+                                                                        operator: 'EQ',
+                                                                        value1: 'Total fatalities reported'
+                                                                        },
+                                                                        {path: 'Month',
+                                                                        operator: 'EQ',
+                                                                        value1: 'February'
+                                                                        }
+                                                                    ]}" class="sapUiSmallMarginBegin sapUiMediumMarginTop">
+															<infoToolbar>
+																<OverflowToolbar>
+																	<ToolbarSpacer/>
+																	<Label text="Total Fatalities Reported"/>
+																	<ToolbarSpacer/>
+																</OverflowToolbar>
+															</infoToolbar>
+															<columns>
+																<Column width="21em">
+																	<Text text="Category"/>
+																</Column>
+																<!--	<Column width="12em">
+																	<Text text="Month"/>
+																</Column>-->
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="Details"/>
+																</Column>
+																<Column minScreenWidth="Desktop" demandPopin="true" >
+																	<Text text="Value"/>
+																</Column>
+																<Column minScreenWidth="Desktop" demandPopin="true" >
+																	<Text text="Unit(hr.)"/>
+																</Column>
+															</columns>
+															<items>
+																<ColumnListItem >
+																	<cells>
+																		<Text text="{Category}"/>
+																		<!--	<Input value="{month}"/>-->
+																		<Input value="{Details}"/>
+																		<Input value="{Value}"/>
+																		<Input value="{Unit}"/>
+																	</cells>
+																</ColumnListItem>
+															</items>
+														</Table>
+															<VBox alignItems="Center" justifyContent="Center">
+																<Image src="./images/HealthyEnv.jpg" class="sapUiMediumMarginBegin"/>
+															</VBox>
+														</HBox>
+													</VBox>
+												</uxap:ObjectPageSubSection>
+												<uxap:ObjectPageSubSection title="Negative impacts in supply chain for the labor practices">
+												<HBox>
+														
+													<Table id="table6" items="{path: '/results',
+                                                                filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'NegativeImpactsInSC'}                                                                       
+                                                                    ]}" class="sapUiSmallMarginBegin sapUiMediumMarginTop">
+														<infoToolbar>
+															<OverflowToolbar>
+																<ToolbarSpacer/>
+																<Label text="The organization reports the following [414-2]"/>
+																<ToolbarSpacer/>
+															</OverflowToolbar>
+														</infoToolbar>
+														<columns>
+															<Column width="21em">
+																<Text text="Category"/>
+															</Column>
+															<Column minScreenWidth="Tablet" demandPopin="true">
+																<Text text="Details"/>
+															</Column>
+															<Column minScreenWidth="Desktop" demandPopin="true">
+																<Text text="Value"/>
+															</Column>
+															<Column minScreenWidth="Desktop" demandPopin="true">
+																<Text text="Unit"/>
+															</Column>
+															<Column width="12em">
+																<Text text="Quality"/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<Text text="{Category}"/>
+																	<Input value="{Details}"/>
+																	<Input value="{Value}"/>
+																	<Input value="{Unit}"/>
+																	<!--<Input value="{Quality}"/>-->
+                                                                    <Switch type="AcceptReject" state="true">
+                                                                        <layoutData>
+                                                                            <FlexItemData growFactor="1" />
+                                                                        </layoutData>
+                                                                    </Switch>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+													<VBox alignItems="Center" justifyContent="Center">
+																<Image src="./images/HealthyEnv.jpg" class="sapUiMediumMarginBegin"/>
+															</VBox>
+												</HBox>
+												</uxap:ObjectPageSubSection>
+												<uxap:ObjectPageSubSection title="Security personnel trained in human rights policies or procedure">
+												<HBox>
+												
+													<Table id="table5" items="{path: '/results',
+                                                                filters: [
+                                                                        {
+                                                                        path: 'Type',
+                                                                        operator: 'EQ',
+                                                                        value1: 'SecurityTrained'}                                                                       
+                                                                    ]}" class="sapUiSmallMarginBegin sapUiMediumMarginTop">
+														<infoToolbar>
+															<OverflowToolbar>
+																<ToolbarSpacer/>
+																<Label text="Security personnel trained in human rights policies or procedure"/>
+																<ToolbarSpacer/>
+															</OverflowToolbar>
+														</infoToolbar>
+														<columns>
+															<Column width="21em">
+																<Text text="Category"/>
+															</Column>
+															<Column minScreenWidth="Tablet" demandPopin="true">
+																<Text text="Details"/>
+															</Column>
+															<Column minScreenWidth="Desktop" demandPopin="true">
+																<Text text="Value"/>
+															</Column>
+															<Column minScreenWidth="Desktop" demandPopin="true">
+																<Text text="Unit"/>
+															</Column>
+															<Column width="12em">
+																<Text text="Quality"/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<Text text="{Category}"/>
+																	<Input value="{Details}"/>
+																	<Input value="{Value}"/>
+																	<Input value="{Unit}"/>
+																	<!--<Input value="{Quality}"/>-->
+                                                                    <Switch type="AcceptReject" state="true">
+                                                                        <layoutData>
+                                                                            <FlexItemData growFactor="1" />
+                                                                        </layoutData>
+                                                                    </Switch>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+														<VBox alignItems="Center" justifyContent="Center">
+																<Image src="./images/HealthyEnv.jpg" class="sapUiMediumMarginBegin"/>
+															</VBox>
+												</HBox>
+												</uxap:ObjectPageSubSection>
+											</uxap:subSections>
+										</uxap:ObjectPageSection>
+									</uxap:sections>
+									<uxap:footer></uxap:footer>
+								</uxap:ObjectPageLayout>
+							</content>
+							<footer>
+								<Toolbar>
+                                    <ToolbarSpacer/>
+                                    <Button type="Accept" text="Connect With HRMS System"  icon="sap-icon://citizen-connect" width = "220px" press="handleEditBtn" id = "btn4"/>
+                                    <Button type="Accept" text="Edit"  icon="sap-icon://edit" width = "90px" press="handleEditBtn" id = "btn1"/>
+                                    <Button type="Accept" text="Reset" icon="sap-icon://reset" width = "90px" press="callODataService" id = "btn2"/>
+                                    <Button type="Accept" text="Submit For Approval" press="onPressSubmit" icon="sap-icon://accept" id = "btn3"/>
+                                </Toolbar>
+							</footer>
+						</Page>
+
+</mvc:View>

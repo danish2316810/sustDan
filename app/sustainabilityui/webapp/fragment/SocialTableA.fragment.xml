@@ -1,0 +1,200 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified" xmlns:uxap="sap.uxap"
+    xmlns:u="sap.ui.unified">
+    
+    <Table id="SocialTableA" alternateRowColors="true" growing="true"  width="90%"  sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+            items="{path: 'SocialModel>/results'}" mode="MultiSelect">
+            <headerToolbar></headerToolbar>
+            <infoToolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer/> 
+                    <Label id="Header_SocialTableA" text="SocialTableA" />
+                      <ToolbarSpacer />
+                    <Button	icon="sap-icon://add" press="OnPressAddNewEntry" tooltip = "Add New Entry"/>              
+                </OverflowToolbar>
+            </infoToolbar>
+            <columns>
+                <Column >
+                <!--
+                    <Text id="ColHeaderSocialTableA" text="Governance Body" ></Text>
+                    -->
+                    <Text id="ColHeaderSocialTableA" text="" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="Female &#10; &lt; 30 years" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="Female &#10;(30 - 50) years"></Text>
+                </Column>
+                <Column hAlign="Center" >
+                    <Text text="Female &#10; &gt; 50 years"></Text>
+                </Column>
+                <Column  hAlign="Center"  demandPopin="true">
+                    <Text text="Male &#10; &lt; 30 years" ></Text>
+                </Column>
+                <Column  hAlign="Center"  demandPopin="true">
+                    <Text text="Male &#10;(30 - 50) years" ></Text>
+                </Column>
+                <Column  hAlign="Center"  >
+                    <Text text="Male &#10; &gt; 50 years" ></Text>
+                </Column>
+                <Column hAlign="Center" >
+                    <Text text="Neutral &#10; &lt; 30 years" ></Text>
+                </Column>
+                <Column hAlign="Center" >
+                    <Text text="Neutral &#10;(30 - 50) years" ></Text>
+                </Column>
+                <Column hAlign="Center" >
+                    <Text text="Neutral &#10; &gt; 50 years" ></Text>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                      <!--  
+                        <Input value="{SocialModel>Identifier}" width="8em" />
+                        <Input value="{SocialModel>FUpto30yrs}"  width="6em" type="Number" tooltip="Only digits"/>
+                        <Input value="{SocialModel>FUpto50yrs}" width="6em"  type="Number" tooltip="Only digits"/>
+                        <Input value="{SocialModel>FMorethan50Yrs}" width="6em" type="Number" tooltip="Only digits"/>
+
+                        <Input value="{SocialModel>MUpto30yrs}" width="6em" type="Number" tooltip="Only digits"/>
+                        <Input value="{SocialModel>MUpto50yrs}" width="6em" type="Number" tooltip="Only digits"/>
+                        <Input value="{SocialModel>MMorethan50Yrs}" width="6em" type="Number" tooltip="Only digits"/>
+                        <Input value="{SocialModel>NUpto30yrs}" width="6em" type="Number" tooltip="Only digits"/>
+                        <Input value="{SocialModel>NUpto50yrs}" width="6em" type="Number" tooltip="Only digits"/>
+                        <Input value="{SocialModel>NMorethan50Yrs}" width="6em" type="Number" tooltip="Only digits"/>
+                        -->
+                        <HBox>
+                            <Text text="{SocialModel>Identifier}" width="8em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatPKeyField'}" editable="false" />
+                            <!--<Input value="{SocialModel>Identifier}" width="8em" visible="{SocialModel>isNewRow}" />-->
+                            <ComboBox
+                                    xmlns="sap.m"
+                                    id="cbPrevfixVal"
+                                    selectionChange=""
+                                    items="{ path : 'PrefixValuesModel>/results' , templateShareable:false}"
+                                    selectedKey="{SocialModel>Identifier}"
+                                    editable="true"
+                                    visible="{SocialModel>isNewRow}"
+                                >
+                                    <core:Item xmlns:core="sap.ui.core" key="{PrefixValuesModel>value}" text="{PrefixValuesModel>value}" />
+                                </ComboBox>
+                        </HBox>
+                        <HBox>
+                            <Text text="{SocialModel>FUpto30yrs}" width="6em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+                            <Input
+                                value="{SocialModel>FUpto30yrs}"
+                                width="6em"
+                                type="Number"
+                                tooltip="Only digits"
+                                editable="true"
+                                visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}"/>
+                        </HBox>
+                        <HBox>
+                            <Text text="{SocialModel>FUpto50yrs}" width="6em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+                            <Input
+                                value="{SocialModel>FUpto50yrs}"
+                                width="6em"
+                                type="Number"
+                                tooltip="Only digits"
+                                editable="true"
+                                visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}"/>
+                        </HBox>
+                        <HBox>
+                            <Text text="{SocialModel>FMorethan50Yrs}" width="6em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+                            <Input
+                                value="{SocialModel>FMorethan50Yrs}"
+                                width="6em"
+                                type="Number"
+                                tooltip="Only digits"
+                                editable="true"
+                                visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}"  />
+                        </HBox>
+
+                        <HBox>
+                            <Text text="{SocialModel>MUpto30yrs}" width="6em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+                            <Input
+                                value="{SocialModel>MUpto30yrs}"
+                                width="6em"
+                                type="Number"
+                                tooltip="Only digits"
+                                editable="true"
+                                visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}"  />
+                        </HBox>
+                        <HBox>
+                            <Text text="{SocialModel>MUpto50yrs}" width="6em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+                            <Input
+                                value="{SocialModel>MUpto50yrs}"
+                                width="6em"
+                                type="Number"
+                                tooltip="Only digits"
+                                editable="true"
+                                visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}"  />
+                        </HBox>
+                        <HBox>
+                            <Text text="{SocialModel>MMorethan50Yrs}" width="6em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+                            <Input
+                                value="{SocialModel>MMorethan50Yrs}"
+                                width="6em"
+                                type="Number"
+                                tooltip="Only digits"
+                                editable="true"
+                                visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}"  />
+                        </HBox>
+                        <HBox>
+                            <Text text="{SocialModel>NUpto30yrs}" width="6em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+                            <Input
+                                value="{SocialModel>NUpto30yrs}"
+                                width="6em"
+                                type="Number"
+                                tooltip="Only digits"
+                                editable="true"
+                                visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}"  />
+                        </HBox>
+                        <HBox>
+                            <Text text="{SocialModel>NUpto50yrs}" width="6em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+                            <Input
+                                value="{SocialModel>NUpto50yrs}"
+                                width="6em"
+                                type="Number"
+                                tooltip="Only digits"
+                                editable="true"
+                                visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}"  />
+                        </HBox>
+                        <HBox>
+                            <Text text="{SocialModel>NMorethan50Yrs}" width="6em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+                            <Input
+                                value="{SocialModel>NMorethan50Yrs}"
+                                width="6em"
+                                type="Number"
+                                tooltip="Only digits"
+                                editable="true"
+                                visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}"  />
+                        </HBox>
+
+
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+       
+</core:FragmentDefinition>

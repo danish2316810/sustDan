@@ -1,0 +1,4 @@
+COLUMN TABLE app_interactions_Location (
+  Location NVARCHAR(5000),
+  Industry NVARCHAR(5000)
+)

@@ -1,0 +1,11 @@
+VIEW CatalogService_MediaFile AS SELECT
+  MediaFile_0.createdAt,
+  MediaFile_0.createdBy,
+  MediaFile_0.modifiedAt,
+  MediaFile_0.modifiedBy,
+  MediaFile_0.id,
+  MediaFile_0.content,
+  MediaFile_0.mediaType,
+  MediaFile_0.fileName,
+  MediaFile_0.url
+FROM app_interactions_MediaFile AS MediaFile_0

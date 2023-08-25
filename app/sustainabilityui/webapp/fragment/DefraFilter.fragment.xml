@@ -1,0 +1,69 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirm">
+		<filterItems>
+			<!--<ViewSettingsFilterItem
+				text="Scope"
+				key="Scope"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Scope 1" key="Scope___BT___Scope 1___Scope 1" />
+					<ViewSettingsItem text="Scope 2" key="Scope___BT___Scope 2___Scope 2" />
+					<ViewSettingsItem text="Scope 3" key="Scope___BT___Scope 3___Scope 3" />
+					<ViewSettingsItem text="Outside of Scopes" key="Scope___BT___Outside of Scopes___Outside of Scopes" />
+				</items>
+			</ViewSettingsFilterItem>-->
+			<ViewSettingsFilterItem
+				text="{defraModel>/results/scope}"
+				key="{defraModel>/results/scope}"
+				multiSelect="false" items="{defraModel>/results}" id="df1">
+					<items>
+						<ViewSettingsItem id="V1"  key="{defraModel>scope}" text="{defraModel>scope}"/>
+					</items>
+			</ViewSettingsFilterItem>
+			
+			<ViewSettingsFilterItem
+				text="Level 1"
+				key="Level1"
+				multiSelect="false" >
+					<items>
+					<ViewSettingsItem text="Fuels" key="Level1___BT___Fuels___Fuels" />
+					<ViewSettingsItem text="Delivery vehicles" key="Level1___BT___Delivery vehicles___Delivery vehicles" />
+					<ViewSettingsItem text="Passenger vehicles" key="Level1___BT___Passenger vehicles___Passenger vehicles" />
+					<ViewSettingsItem text="Refrigerant" key="Level1___BT___Refrigerant___Refrigerant" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Level 2"
+				key="Level2"
+				multiSelect="false">
+					<items>
+					<ViewSettingsItem text="Liquid fuels" key="Level2___BT___Liquid fuels___Liquid fuels" />
+					<ViewSettingsItem text="Gaseous fuels" key="Level2___BT___Gaseous fuels___Gaseous fuels" />
+					<ViewSettingsItem text="Kyoto protocol - standard" key="Level2___BT___Kyoto protocol - standard___Kyoto protocol - standard" />
+					<ViewSettingsItem text="Cars (by market segment)" key="Level2___BT___Cars (by market segment)___Cars (by market segment)" />
+					<ViewSettingsItem text="Vans" key="Level2___BT___Vans___Vans" />
+					<ViewSettingsItem text="HGV (all diesel)" key="Level2___BT___HGV (all diesel)___HGV (all diesel)" />
+					<ViewSettingsItem text="Cars (by market segment)" key="Level2___BT___Cars (by market segment)___Cars (by market segment)" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Level 3"
+				key="Level3"
+				multiSelect="false">
+					<items>
+					<ViewSettingsItem text="Butane" key="Level3___BT___Butane___Butane" />
+					<ViewSettingsItem text="CNG" key="Level3___BT___CNG___CNG" />
+					<ViewSettingsItem text="LPG" key="Level3___BT___LPG___LPG" />
+					<ViewSettingsItem text="LNG" key="Level3___BT___LNG___LNG" />
+					<ViewSettingsItem text="Aviation spirit" key="Level3___BT___Aviation spirit___Aviation spirit" />
+					<ViewSettingsItem text="Lubricants" key="Level3___BT___Lubricants___Lubricants" />
+					<ViewSettingsItem text="Class I (up to 1.305 tonnes)" key="Level3___BT___Class I (up to 1.305 tonnes)___Class I (up to 1.305 tonnes)" />
+					<ViewSettingsItem text="Rigid (>3.5 - 7.5 tonnes)" key="Level3___BT___Rigid (>3.5 - 7.5 tonnes)___Rigid (>3.5 - 7.5 tonnes)" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

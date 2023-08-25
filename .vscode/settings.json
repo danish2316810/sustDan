@@ -1,0 +1,11 @@
+{
+  "files.exclude": {
+    "**/.gitignore": true,
+    "**/.git": true,
+    "**/.vscode": true
+},
+"SAP HANA Database Artifacts.lastSelectedTargetPath": "/home/user/projects/TrackSustainability/db/src",
+"git.ignoreLimitWarning": true,
+"SAP HANA Project Explorer.bind.confirm existing service": false,
+"SAP HANA Project Explorer.bind.confirm automatic undeployment": false
+}

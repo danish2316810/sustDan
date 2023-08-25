@@ -1,0 +1,242 @@
+###
+ POST http://localhost:4004/catalog/$batch' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "requests": [
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r1",
+            "method": "POST",
+            "url": "/Environment_Report",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+      "Year": "2026",
+  "Month": "April",
+  "Location": "Bangalore - TMEC",
+  "Type": "WASTE",
+  "SubType": "Plastic Scrap",
+  "KPI": "Plastic Scrap",
+  "Value": 0,
+  "Unit": "kg",
+  "Cost": 0,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Owner": "Henry Lucas",
+  "Approver": "John Doe",
+  "Division": "ACME Industries",
+  "Value2": null,
+  "Unit2": null,
+  "Distance": null,
+  "Weight": null,
+  "Scope": "Scope 3",
+  "Associates": null,
+  "Sno": null,
+  "Date": null,
+  "FValue": 0
+ }
+        },
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r2",
+            "method": "POST",
+            "url": "/Environment_Report",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+     "Year": "2020",
+  "Month": "January",
+  "Value": 2.30455,
+  "Unit": "gl",
+  "Cost": 2297,
+  "Currency": "USD",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Type": "Direct Energy",
+  "SubType": "HSD",
+  "Owner": "Henry Lucas",
+  "Approver": "John Doe",
+  "Division": "ACME Industries",
+  "Location": "Nashville",
+  "Value2": null,
+  "Unit2": null,
+  "Distance": null,
+  "Weight": null,
+  "Associates": null,
+  "Sno": null,
+  "Date": null,
+"FValue": null
+ }
+        }
+      ]
+
+     }'
+
+###
+POST http://localhost:4004/catalog/$batch HTTP/1.1
+Host: host
+OData-Version: 4.0
+Content-Type: multipart/mixed; boundary=batch_36522ad7-fc75-4b56-8c71-56071383e77b
+
+Content-Length: ###
+
+ 
+
+
+--batch_36522ad7-fc75-4b56-8c71-56071383e77b
+Content-Type: multipart/mixed; boundary=changeset_77162fcd-b8da-41ac-a9f8-9357efbbd
+
+
+--changeset_77162fcd-b8da-41ac-a9f8-9357efbbd
+Content-Type: application/http
+Content-ID: 1
+
+POST /catalog/Environment_Report HTTP/1.1
+Host: host
+Content-Type: application/json
+Content-Length: ###
+
+ {"Year":"2020","Month":"February","Location":"Bangalore - TMEC","Type":"ENERGY","SubType":"Direct Energy","KPI":"HSD","Value":4.4,"Unit":"kL","Cost":0,"Currency":"INR","Quality":"OK","Comment":"NA","Owner":"","Approver":"","Division":"ACME Industries","Sno":0,"Date":null,"Value2":null,"Distance":null,"Weight":null,"Scope":"","Associates":null,"Logic":"Logic 1","Measure":"Volume","GRIStd":"305-1","SDG":"SDG 13: Climate Action","RenNon":null,"FValue":0,"FValue1":0},
+ POST /catalog/Environment_Report HTTP/1.1
+Host: host
+Content-Type: application/json
+Content-Length: ###
+
+ {"Year":"2020","Month":"March","Location":"Bangalore - TMEC","Type":"ENERGY","SubType":"Direct Energy","KPI":"HSD","Value":10.5,"Unit":"kL","Cost":0,"Currency":"INR","Quality":"OK","Comment":"NA","Owner":"","Approver":"","Division":"ACME Industries","Sno":0,"Date":null,"Value2":null,"Distance":null,"Weight":null,"Scope":"","Associates":null,"Logic":"Logic 1","Measure":"Volume","GRIStd":"305-1","SDG":"SDG 13: Climate Action","RenNon":null,"FValue":0,"FValue1":0}
+
+
+--changeset_77162fcd-b8da-41ac-a9f8-9357efbbd--
+
+--batch_36522ad7-fc75-4b56-8c71-56071383e77b--
+
+###
+POST http://localhost:4004/catalog/$batch HTTP/1.1
+--batch_ca72-ded8-f30f
+Content-Type: multipart/mixed; boundary=changeset_d09c-c155-c9e3
+
+
+--changeset_d09c-c155-c9e3
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+
+POST /catalog/Environment_Report HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Content-Length: 1000
+
+
+{"Year":"2020","Month":"March","Location":"Bangalore - TMEC","Type":"ENERGY","SubType":"Direct Energy","KPI":"HSD","Value":10.5,"Unit":"kL","Cost":0,"Currency":"INR","Quality":"OK","Comment":"NA","Owner":"","Approver":"","Division":"ACME Industries","Sno":0,"Date":null,"Value2":null,"Distance":null,"Weight":null,"Scope":"","Associates":null,"Logic":"Logic 1","Measure":"Volume","GRIStd":"305-1","SDG":"SDG 13: Climate Action","RenNon":null,"FValue":0,"FValue1":0}
+
+--changeset_d09c-c155-c9e3--
+
+
+--batch_ca72-ded8-f30f--
+
+###
+POST /catalog/$batch HTTP/1.1
+Host: localhost
+Content-Type: application/json
+
+
+--batch_36522ad7-fc75-4b56-8c71-56071383e77b
+Content-Type: multipart/mixed; boundary=changeset_77162fcd-b8da-41ac-a9f8-9357efbbd621
+
+--changeset_77162fcd-b8da-41ac-a9f8-9357efbbd621
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+POST /catalog/Sustainability_Report HTTP/1.1
+Content-Type: application/json
+
+{"Year":"2001","Month":"02","Value":"21"}
+
+--changeset_77162fcd-b8da-41ac-a9f8-9357efbbd621--
+
+--batch_36522ad7-fc75-4b56-8c71-56071383e77b--
+
+###
+POST http://localhost:4004/catalog/$batch
+{
+    "requests": [
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r1",
+            "method": "POST",
+            "url": "/Environment_Report",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+
+            
+            "body": {
+      "Year": "2026",
+  "Month": "April",
+  "Location": "Bangalore - TMEC",
+  "Type": "WASTE",
+  "SubType": "Plastic Scrap",
+  "KPI": "Plastic Scrap",
+  "Value": 0,
+  "Unit": "kg",
+  "Cost": 0,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Owner": "Henry Lucas",
+  "Approver": "John Doe",
+  "Division": "ACME Industries",
+  "Value2": null,
+  "Unit2": null,
+  "Distance": null,
+  "Weight": null,
+  "Scope": "Scope 3",
+  "Associates": null,
+  "Sno": null,
+  "Date": null,
+  "FValue": 0
+ }
+        },
+        {
+            "atomicityGroup": "g1",
+            "id": "g1-r2",
+            "method": "POST",
+            "url": "/Environment_Report",
+            "headers": {
+                "content-type": "application/json; odata.metadata=minimal; odata.streaming=true",
+                "odata-version": "4.0"
+            },
+            "body": {
+      "Year": "2027",
+  "Month": "April",
+  "Location": "Bangalore - TMEC",
+  "Type": "WASTE",
+  "SubType": "Plastic Scrap",
+  "KPI": "Plastic Scrap",
+  "Value": 0,
+  "Unit": "kg",
+  "Cost": 0,
+  "Currency": "INR",
+  "Quality": "OK",
+  "Comment": "NA",
+  "Owner": "Henry Lucas",
+  "Approver": "John Doe",
+  "Division": "ACME Industries",
+  "Value2": null,
+  "Unit2": null,
+  "Distance": null,
+  "Weight": null,
+  "Scope": "Scope 3",
+  "Associates": null,
+  "Sno": null,
+  "Date": null,
+  "FValue": 0
+ }
+        }
+    ]
+}

@@ -1,0 +1,293 @@
+<!--Working Global search with json-->
+<!--<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		id="myDialog"
+		noDataText="No Emission Factors Found"
+		title="Emission Factors"
+		search=".handleSearch"
+		confirm=".handleClose"
+		cancel=".handleClose"
+		multiSelect="false"
+		items="{/Order}"
+		>		
+		<ColumnListItem vAlign="Middle">
+			<cells>
+				<Text text="{Scope}"/>
+                <Text text="{Level1}"/>
+                <Text text="{Level2}"/>
+                <Text text="{Level3}"/>
+                <Text text="{Level4}"/>
+                <Text text="{ColumnText}"/>
+                <Text text="{UOM}"/>
+                <Text text="{GHG}"/>
+                <Text text="{ConvFactor}"/>                
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column >
+				<header>
+					<Text text="Scope" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="Level 1" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Level 2" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Level 3" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="Level 4" />
+				</header>
+			</Column>
+            <Column >
+				<header>
+					<Text text="Column Text" />
+				</header>
+			</Column>           
+            <Column >
+				<header>
+					<Text text="UOM" />
+				</header>
+			</Column>
+            <Column >
+				<header>
+					<Text text="GHG" />
+				</header>
+			</Column>           
+            <Column >
+				<header>
+					<Text text="GHG Conversion Factor 2021" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>-->
+
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		id="myDialog"
+		noDataText="No Emission Factors Found"
+		title="Emission Factors"
+		search=".handleSearch"
+		confirm=".handleClose"
+		cancel=".handleClose"
+		multiSelect="false"
+		items="{defraModel>/results}"
+		>		
+		<ColumnListItem vAlign="Middle">
+			<cells>
+				<Text text="{defraModel>scope}"/>
+				<Text text="{defraModel>Level1}"/>
+				<Text text="{defraModel>Level2}"/>
+				<Text text="{defraModel>Level3}"/>
+				<Text text="{defraModel>Level4}"/>
+				<Text text="{defraModel>ColumnText}"/>
+				<Text text="{defraModel>UomSimple}"/>
+				<Text text="{defraModel>Uom}"/>
+				<Text text="{defraModel>GHG}"/>
+				<Text text="{defraModel>LookUp}"/>
+				<Text text="{defraModel>GHGConversionFactor2021}"/>               
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column >
+				<header>
+					<Text text="Scope" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="Level 1" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Level 2" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Level 3" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="Level 4" />
+				</header>
+			</Column>
+            <Column >
+				<header>
+					<Text text="Column Text" />
+				</header>
+			</Column>           
+            <Column >
+				<header>
+					<Text text="UOM (Simple)" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="UOM" />
+				</header>
+			</Column>
+            <Column >
+				<header>
+					<Text text="GHG" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="Lookup" />
+				</header>
+			</Column>           
+            <Column >
+				<header>
+					<Text text="GHG Conversion Factor 2021" />
+				</header>
+			</Column>	
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>
+
+<!--<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog		
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+		 <Table id="myDialog" items="{defraModel>/results}" alternateRowColors="true"
+                                width="95%"    
+                                sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" mode="SingleSelectMaster"   inset="false" selectionChange="onSelectDefraValues">
+                    	<headerToolbar>
+					<OverflowToolbar>
+						<Title text="Emission Factors - DEFRA" level="H2"/>
+						<ToolbarSpacer/>
+						
+						<Button
+							tooltip="Filter"
+							icon="sap-icon://filter"
+							press="handleFilterButtonPressed"/>
+						
+						
+					</OverflowToolbar>
+				</headerToolbar>
+                    <infoToolbar>
+                        <OverflowToolbar id="vsdFilterBar" visible="false">
+                            <ToolbarSpacer/>
+                            <Label text="Standard Emission Factor Values"/>
+                            <ToolbarSpacer/>
+                            <Button	icon="sap-icon://filter" press="handleFilterButtonPressed" tooltip = "Add New Entry"/> 
+							<Text id="vsdFilterLabel" />
+						</OverflowToolbar>
+				
+                    </infoToolbar>
+                    <columns>                        
+                        <Column >
+				<header>
+					<Text text="Scope" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="Level 1" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Level 2" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Level 3" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="Level 4" />
+				</header>
+			</Column>
+            <Column >
+				<header>
+					<Text text="Column Text" />
+				</header>
+			</Column>           
+            <Column >
+				<header>
+					<Text text="UOM (Simple)" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="UOM" />
+				</header>
+			</Column>
+            <Column >
+				<header>
+					<Text text="GHG" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="Lookup" />
+				</header>
+			</Column>           
+            <Column >
+				<header>
+					<Text text="GHG Conversion Factor 2021" />
+				</header>
+			</Column>					
+                        </columns>
+                        <items>
+                            <ColumnListItem >
+                                <cells> 
+									<Text text="{defraModel>scope}"/>
+									<Text text="{defraModel>Level1}"/>
+									<Text text="{defraModel>Level2}"/>
+									<Text text="{defraModel>Level3}"/>
+									<Text text="{defraModel>Level4}"/>
+									<Text text="{defraModel>ColumnText}"/>
+									<Text text="{defraModel>UomSimple}"/>
+									<Text text="{defraModel>Uom}"/>
+									<Text text="{defraModel>GHG}"/>
+									<Text text="{defraModel>LookUp}"/>
+									<Text text="{defraModel>GHGConversionFactor2021}"/>    
+								</cells>                               
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+	
+	</Dialog>
+</core:FragmentDefinition>-->
+
+<!--<core:FragmentDefinition xmlns="sap.m" 
+xmlns:core="sap.ui.core"
+>
+	<Dialog		
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core"
+		
+		xmlns:smarttable="sap.ui.comp.smarttable">
+
+		<smarttable:SmartTable id="smartTable" smartFilterId="smartFilterBar" entitySet="Emission_Module_telecom" enableAutoBinding="true"
+		 initiallyVisibleFields="{defraModel>scope}" tableType="ResponsiveTable" >
+		  <Table id="myDialog" >
+		  </Table>
+		  </smarttable:SmartTable>
+
+			
+	
+	</Dialog>
+</core:FragmentDefinition>-->

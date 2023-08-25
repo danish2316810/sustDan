@@ -1,0 +1,179 @@
+###
+POST   http://localhost:4004/catalog/Environment_Report2
+Content-Type: application/json
+
+  {
+    "Year": "2020",
+    "Sno": 1,
+    "Location": "Bangalore - TMEC",
+    "Type": "BUSINESS TRAVEL",
+    "SubType": "Air",
+    "KPI": "Domestic",
+    "Date": "2022-08-04",
+    "Value": 250,
+    "Unit": "km",
+    "Cost": 123,
+    "Currency": "EUR",
+    "Class": "Economy",
+    "Quality": "OK",
+    "Attachment": null,
+    "Comment": "NA",
+    "Owner": "",
+    "Approver": "",
+    "Division": "ACME Industries",
+    "FValue": 0
+  }
+
+###
+POST   http://localhost:4004/catalog/Environment_Report
+Content-Type: application/json
+
+  {
+"Year": "2020",
+"Month": "June",
+    "Location": "Bangalore - TMEC",
+    "Type": "BUSINESS TRAVEL",
+    "SubType": "Air",
+    "KPI": "Domestic",
+    "Sno": 13,
+"Value": 200,
+"Unit": "mi",
+"Cost": 0,
+"Currency": "INR",
+"Quality": "OK",
+"Comment": "NA",
+"Owner": "Henry Lucas",
+"Approver": "John Doe",
+"Division": "ACME Industries",
+"Value2": null,
+"Unit2": null,
+"Distance": null,
+"Weight": null,
+"Scope": "Scope 3",
+"Associates": null,
+"Date": null,
+"Logic": "Logic2",
+"Measure": null,
+"GRIStd": null,
+"SDG": null,
+"Class": "Economy",
+"RenNon": null,
+"FValue": 0,
+"FValue1": null
+  }
+
+###
+PATCH  http://localhost:4004/catalog/Environment_Report(Year='2020',Month='April',Location='Bangalore - TMEC',Type='BUSINESS TRAVEL',SubType='Air',KPI='Domestic')
+Content-Type: application/json
+
+{
+  
+  "Value": "700",
+  "Unit": "mi"
+
+  
+  
+}
+
+###
+POST   http://localhost:4004/catalog/Environment_Report
+Content-Type: application/json
+
+  {
+
+"Year": "2022",
+"Month": "May",
+"Location": "Bangalore - TMEC",
+"Type": "ENERGY",
+"SubType": "Direct Energy",
+"KPI": "HSD",
+"Sno": 1,
+"Value": 2000,
+"Unit": "L",
+"Cost": 0,
+"Currency": "INR",
+"Quality": "OK",
+"Comment": "NA",
+"Owner": "Henry Lucas",
+"Approver": "John Doe",
+"Division": "ACME Industries",
+"Value2": null,
+"Unit2": null,
+"Distance": null,
+"Weight": null,
+"Scope": "Scope 1",
+"Associates": null,
+
+"Date": null,
+"Logic": "Logic1",
+"Measure": null,
+"GRIStd": null,
+"SDG": null,
+"Class": null,
+"RenNon": null,
+"FValue": null,
+"FValue1": null
+  }
+
+###
+PATCH  http://localhost:4004/catalog/Environment_Report(Year='2022',Month='March',Location='Bangalore - TMEC',Type='ENERGY',SubType='Direct Energy',KPI='HSD',Sno=1)
+Content-Type: application/json
+
+{
+  
+  "Value": "700",
+  "Unit": "L"
+
+  
+  
+}
+
+###
+
+POST   http://localhost:4004/catalog/Environment_EUI_Ports
+Content-Type: application/json
+
+{
+"Year": "2020",
+"Month": "April",
+"Location": "Bangalore - TMEC",
+"Type": "BUSINESS TRAVEL",
+"SubType": "Air",
+"KPI": "International",
+"Site": "Pune001",
+"ValueE": 600,
+"Unit": "mi",
+"Cost": 0,
+"Currency": "INR",
+"ValueA": 600,
+"Unit2": "mi",
+"Quality": "OK",
+"Comment": "NA",
+"Attachment": "NA",
+"Owner": "Henry Lucas",
+"Approver": "John Doe"
+
+}
+
+###
+
+POST   http://localhost:4004/catalog/Environment_RTG_Ports
+Content-Type: application/json
+
+{
+"Year": "2020",
+"Month": "April",
+"Location": "Bangalore - TMEC",
+"Type": "BUSINESS TRAVEL",
+"SubType": "Air",
+"KPI": "International",
+"Value": 600,
+"Cost": 0,
+"Currency": "INR",
+"Quality": "OK",
+"Attachment": "NA",
+"Comment": "NA",
+"Owner": "Henry Lucas",
+"Approver": "John Doe"
+
+}

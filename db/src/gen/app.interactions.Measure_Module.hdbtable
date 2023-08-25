@@ -1,0 +1,10 @@
+COLUMN TABLE app_interactions_Measure_Module (
+  Industry NVARCHAR(25) NOT NULL,
+  InputMeasureType NVARCHAR(5000) NOT NULL,
+  InputUom NVARCHAR(5000) NOT NULL,
+  OutputMeasureType NVARCHAR(5000) NOT NULL,
+  OutputUoM NVARCHAR(5000) NOT NULL,
+  ConverstionFactor DECIMAL NOT NULL,
+  Operation NVARCHAR(5000) NOT NULL,
+  PRIMARY KEY(Industry, InputMeasureType)
+)

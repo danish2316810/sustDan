@@ -1,0 +1,9 @@
+VIEW CatalogService_Measure_Module AS SELECT
+  Measure_Module_0.Industry,
+  Measure_Module_0.InputMeasureType,
+  Measure_Module_0.InputUom,
+  Measure_Module_0.OutputMeasureType,
+  Measure_Module_0.OutputUoM,
+  Measure_Module_0.ConverstionFactor,
+  Measure_Module_0.Operation
+FROM app_interactions_Measure_Module AS Measure_Module_0

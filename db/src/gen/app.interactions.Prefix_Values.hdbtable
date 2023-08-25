@@ -1,0 +1,5 @@
+COLUMN TABLE app_interactions_Prefix_Values (
+  prefix NVARCHAR(5000) NOT NULL,
+  value NVARCHAR(5000) NOT NULL,
+  PRIMARY KEY(prefix, value)
+)

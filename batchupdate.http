@@ -1,0 +1,22 @@
+--batch_09ae-f3e5-53ec
+Content-Type: multipart/mixed; boundary=changeset_3a6d-8124-516d
+
+--changeset_3a6d-8124-516d
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+MERGE Environment_Report_Telecom(Sno=0,Year='FY%202021-22',Month='May',Location='Assam%20&%20NE',Type='NETWORK%20TRAFFIC',SubType='Voice%20&%20Data%20Traffic',KPI='3G%20Data%20Traffic') HTTP/1.1
+sap-contextid-accept: header
+Accept: application/json
+Accept-Language: en-GB
+DataServiceVersion: 2.0
+MaxDataServiceVersion: 2.0
+X-Requested-With: XMLHttpRequest
+Content-Type: application/json
+Content-ID: id-1677653822708-553
+Content-Length: 25
+
+{"Value":210,"Unit":"GB"}
+--changeset_3a6d-8124-516d--
+
+--batch_09ae-f3e5-53ec--

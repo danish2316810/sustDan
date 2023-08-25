@@ -1,0 +1,6 @@
+COLUMN TABLE app_interactions_Measure_Validation (
+  MeasureType NVARCHAR(5000) NOT NULL,
+  InputUom NVARCHAR(5000) NOT NULL,
+  OutputUoM NVARCHAR(5000) NOT NULL,
+  PRIMARY KEY(MeasureType, InputUom)
+)

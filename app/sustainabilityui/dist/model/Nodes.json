@@ -1,0 +1,626 @@
+[
+  {
+    "id": 1,
+    "HierarchyLevel": 0,
+    "Description": "Universal Standards",
+    "ParentNodeID": null,
+    "DrillState": "expanded"
+  },
+  {
+    "id": 2,
+    "HierarchyLevel": 0,
+    "Description": "Sector Starndards",
+    "ParentNodeID": null,
+    "DrillState": "expanded"
+  },
+  {
+    "id": 3,
+    "HierarchyLevel": 0,
+    "Description": "Topic Standards Data",
+    "ParentNodeID": null,
+    "DrillState": "expanded"
+  },
+  {
+    "id": 4,
+    "HierarchyLevel": 1,
+    "Description": "GRI 1: Foundation",
+    "ParentNodeID": 1,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 5,
+    "HierarchyLevel": 1,
+    "Description": "GRI 2: General Disclosures",
+    "ParentNodeID": 1,
+    "DrillState": "expanded"
+  },
+  {
+    "id": 6,
+    "HierarchyLevel": 1,
+    "Description": "GRI 3: Material Topics",
+    "ParentNodeID": 1,
+    "DrillState": "expanded"
+  },
+  {
+    "id": 7,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-1: Organizational details",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  
+  
+  
+  
+  {
+    "id": 8,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-2: Entities included in the organization�s sustainability reporting",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 9,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-3: Reporting period, frequency and contact point",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 10,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-4: Restatements of information",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 11,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-5: External assurance",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 12,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-6: Activities, value chain and other business relationship",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 13,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-7: Employees",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 14,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-8: Workers who are not employees",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 15,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-9: Governance structure and composition",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 16,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-10: Nomination and selection of the highest governance body",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 17,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-11: Chair of the highest governance body",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 18,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-12: Role of the highest governance body in overseeing the management of impacts",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 19,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-13: Delegation of responsibility for managing impacts",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 20,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-14: Role of the highest governance body in sustainability reporting",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 21,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-15: Conflicts of interest",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 22,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-16: Communication of critical concerns",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 23,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-17: Collective knowledge of the highest governance body",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 24,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-18: Evaluation of the performance of the highest governance body",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 25,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-19: Remuneration policies",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 26,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-20: Process to determine remuneration",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 27,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-21: Annual total compensation ratio",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 28,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-22: Statement on sustainable development strategy",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 29,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-23: Policy commitments",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 30,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-24: Embedding policy commitments",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 31,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-25: Processes to remediate negative impacts",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 32,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-26: Mechanisms for seeking advice and raising concerns",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 33,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-27: Compliance with laws and regulations",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 34,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-28: Membership associations",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 35,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-29: Approach to stakeholder engagement",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 36,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 2-30: Collective bargaining agreements",
+    "ParentNodeID": 5,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 37,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 3-1: Process to determine material topics",
+    "ParentNodeID": 6,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 38,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 3-2: List of material topics",
+    "ParentNodeID": 6,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 39,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 3-3: Management of material topics",
+    "ParentNodeID": 6,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 40,
+    "HierarchyLevel": 1,
+    "Description": "GRI 11: Oil and Gas Sector",
+    "ParentNodeID": 2,
+    "DrillState": "expanded"
+  },
+  {
+    "id": 41,
+    "HierarchyLevel": 1,
+    "Description": "GRI 12: Coal Sector",
+    "ParentNodeID": 2,
+    "DrillState": "expanded"
+  },
+  {
+    "id": 42,
+    "HierarchyLevel": 1,
+    "Description": "GRI 13: Agriculture, Aquaculture and Fishing Sectors",
+    "ParentNodeID": 2,
+    "DrillState": "expanded"
+  },
+  {
+    "id": 43,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.1: GHG emissions",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 44,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.2: Climate adaptation, resilience, and transition",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 45,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.3: Air emissions",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 46,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.4: Biodiversity",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 47,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.5:  Waste",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 48,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.6: Water and effluents",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 49,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.7: Closure and rehabilitation",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 50,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.8: Asset integrity and critical incident management",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 51,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.9: Occupational health and safety",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 52,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.10: Employment practices",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 53,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.11: Non-discrimination and equal opportunity",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 54,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.12: Forced labor and modern slavery",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 55,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.13: Freedom of association and collective bargaining",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 56,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.14: Economic impacts",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 57,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.15: Local communities",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 58,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.16: Land and resource rights",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 59,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.17: Rights of indigenous peoples",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 60,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.18: Conflict and security",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 61,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.19: Anti-competitive behavior",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 62,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.20: Anti-corruption",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 63,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.21: Payments to governments",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 64,
+    "HierarchyLevel": 2,
+    "Description": "Topic 11.22: Public policy",
+    "ParentNodeID": 40,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 65,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.1: GHG emissions",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 66,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.2: Climate adaptation, resilience, and transition",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 67,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.3 Closure and rehabilitation",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 68,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.3: Closure and rehabilitation",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 69,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.4: Air emissions",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 70,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.5: Biodiversity",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 71,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.6 Waste",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 72,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.7 Water and effluents",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 73,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.8 Economic impacts",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 74,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.9 Local communities",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 75,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.10 Land and resource rights",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 76,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.11 Rights of indigenous peoples",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 77,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.12 Conflict and security",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 78,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.13 Asset integrity and critical incident management",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 79,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.14 Occupational health and safety",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 80,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.15 Employment practices",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 81,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.16 Child labor",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 82,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.17 Forced labor and modern slavery",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 83,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.18 Freedom of association and collective bargaining",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 84,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.19 Non-discrimination and equal opportunity",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 85,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.20 Anti-corruption",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 86,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.21 Payments to governments",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 87,
+    "HierarchyLevel": 2,
+    "Description": "Topic 12.22 Public policy",
+    "ParentNodeID": 41,
+    "DrillState": "leaf"
+  },
+  {
+    "id": 88,
+    "HierarchyLevel": 2,
+    "Description": "Disclosure 3-1 Process to determine material topics",
+    "ParentNodeID": 42,
+    "DrillState": "leaf"
+  }
+ 
+  
+  
+   ]
+   

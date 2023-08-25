@@ -1,0 +1,4 @@
+COLUMN TABLE app_interactions_Prefix_Types (
+  prefix NVARCHAR(5000) NOT NULL,
+  PRIMARY KEY(prefix)
+)

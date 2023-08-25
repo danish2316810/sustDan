@@ -1,0 +1,141 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified">
+    <VBox height="600px">
+        <ScrollContainer height="80%" width="100%" vertical="true" focusable="true">
+            <Table width="auto" mode="MultiSelect" class="sapUiNoMarginTop sapUiSmallMarginBegin" id="energyConvTbl" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" alternateRowColors="true" inset="false" growing="true" items="{path: 'EnergyConvModel>/results'}">
+                <headerToolbar />
+                <infoToolbar>
+                    <OverflowToolbar>
+                        <ToolbarSpacer />
+                        <Label text="Energy Conversions List" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://add" press="OnPressAddNewEntry_Energy" tooltip="Add New Entry" />
+                        <Button	icon="sap-icon://less" press="" tooltip = "Remove Selected Entry" enabled="false"/>
+                    </OverflowToolbar>
+                </infoToolbar>
+                <columns>
+                    <Column width="7em">
+                        <Text text="KPI" />
+                    </Column>
+                    <Column width="8em">
+                        <Text text="Input Unit" />
+                    </Column>
+                    <Column width="10em">
+                        <Text text="Output Unit" />
+                    </Column>
+                    <Column width="9em">
+                        <Text text="Conversion Factor" />
+                    </Column>
+                    <Column width="7em">
+                        <Text text="Operation" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <!--<Text text="{EnergyConvModel>KPI}" />-->
+                            <!-- <Input value="{EnergyConvModel>KPI}"  editable="{EnergyConvModel>isNewRow}"/>-->
+                            <HBox>
+                               <!-- <Input value="{EnergyConvModel>KPI}" visible="{EnergyConvModel>isExistingRow}" editable="false" />-->
+                                <Text text="{EnergyConvModel>KPI}" 
+                                    visible="{parts: [{path: 'EnergyConvModel>isNewRow'}, 
+                                    {path: 'EnergyConvModel>isEditableRow'}, {path: 'EnergyConvModel>isExistingRow'}],
+                                                formatter: '.formatPKeyField'}" />
+
+                                <ComboBox xmlns="sap.m" id="KPI_Energy" change="onChangeKPI_EnergyConv" items="{ path : '/items' ,templateShareable:true}" selectedKey="{EnergyConvModel>KPI}" editable="true" 
+                                    visible="{EnergyConvModel>isNewRow}">
+                                    <core:Item xmlns:core="sap.ui.core" key="{EnergyModel>KPI}" text="{EnergyModel>KPI}" />
+                                </ComboBox>
+                            </HBox>
+
+                            <!--<Text text="{EnergyConvModel>UserInputUnit}" />
+                                        <Input value="{EnergyConvModel>UserInputUnit}" editable="{EnergyConvModel>isNewRow}"/>
+                                        -->
+                            <HBox>
+                                <!--<Input value="{EnergyConvModel>UserInputUnit}" visible="{EnergyConvModel>isExistingRow}" editable="false" />-->
+                                <Text text="{EnergyConvModel>UserInputUnit}" 
+                                    visible="{parts: [{path: 'EnergyConvModel>isNewRow'}, 
+                                    {path: 'EnergyConvModel>isEditableRow'}, {path: 'EnergyConvModel>isExistingRow'}],
+                                                formatter: '.formatPKeyField'}" />
+
+                                               <!--     <Select id="cbEnergyConvIP"  change="onChangeUOMConvUsrInput" 
+                                                    
+                                                    items="{ path : 'EnergyListModel>/results' , templateShareable:false
+                                    }" 
+                                        selectedKey="{EnergyConvModel>UserInputUnit}" editable="true" visible="{EnergyConvModel>isNewRow}">
+                                    <core:Item xmlns:core="sap.ui.core" key="{EnergyListModel>Abbreviation}" text="{EnergyListModel>Abbreviation}" />
+                                    </Select>-->
+                                   <!--<ComboBox id="cbEnergyConvIP" /> -->
+
+                                 <ComboBox xmlns="sap.m" id="cbEnergyConvIP"  selectionChange="onChangeUOMConvUsrInput" 
+                                    items="{ path : 'FilterEnergy>/results' , templateShareable:false
+                                    }" 
+                                        selectedKey="{EnergyConvModel>UserInputUnit}" editable="true" 
+                                        visible="{EnergyConvModel>isNewRow}">
+                                   <core:ListItem xmlns:core="sap.ui.core" key="{FilterEnergy>Abbreviation}" text="{FilterEnergy>Abbreviation}" />
+                                </ComboBox>
+                            </HBox>
+
+                            <!--<Text text="{EnergyConvModel>ExpectedOutputUnit}" />
+                                       <Input value="{EnergyConvModel>ExpectedOutputUnit}" editable="{EnergyConvModel>isNewRow}" />-->
+                            <HBox>
+                                <!--<Input value="{EnergyConvModel>ExpectedOutputUnit}" visible="{EnergyConvModel>isExistingRow}" editable="false" />-->
+
+                                <Text text="{EnergyConvModel>ExpectedOutputUnit}" 
+                                    visible="{parts: [{path: 'EnergyConvModel>isNewRow'}, {path: 'EnergyConvModel>isEditableRow'}, {path: 'EnergyConvModel>isExistingRow'}],
+                                                    formatter: '.formatDisplayField'}" />
+                                <ComboBox
+                                    xmlns="sap.m"
+                                    id="cbEnergyConvOP"                                    
+                                    selectionChange="onChangeUOMConvExpOutput"
+                                    items="{ path : 'EnergyListModel>/results' ,templateShareable:false ,
+                                                            filters: [ { path: 'Measure', operator: 'EQ', value1: 'Energy' } ]}"
+                                    selectedKey="{EnergyConvModel>ExpectedOutputUnit}"
+                                    editable="true"
+                                    visible="{parts: [{path: 'EnergyConvModel>isNewRow'}, {path: 'EnergyConvModel>isEditableRow'}, {path: 'EnergyConvModel>isExistingRow'}],
+                                                    formatter: '.formatEditField'}"
+                                >
+                                    <core:Item xmlns:core="sap.ui.core" key="{EnergyListModel>Abbreviation}" text="{EnergyListModel>Abbreviation}" />
+                                </ComboBox>
+
+                                
+                            </HBox>
+
+                            <!--<Text text="{EnergyConvModel>ConverstionFactor}" />-->
+                            <HBox>
+                                <Text text="{EnergyConvModel>ConverstionFactor}" 
+                                    visible="{parts: [{path: 'EnergyConvModel>isNewRow'}, {path: 'EnergyConvModel>isEditableRow'}, {path: 'EnergyConvModel>isExistingRow'}],
+                                                    formatter: '.formatDisplayField'}" />
+                                <Input value="{EnergyConvModel>ConverstionFactor}" editable="true" 
+                                visible="{parts: [{path: 'EnergyConvModel>isNewRow'}, {path: 'EnergyConvModel>isEditableRow'}, {path: 'EnergyConvModel>isExistingRow'}],
+                                                    formatter: '.formatEditField'}"/>
+                            </HBox>
+                            <!--<Text text="{EnergyConvModel>Operation}" />   -->
+                            <!--<Input value="{EnergyConvModel>Operation}" editable="{EnergyConvModel>isNewRow}" />-->
+
+                            <HBox>
+                                <!--<Input value="{EnergyConvModel>Operation}" visible="{EnergyConvModel>isExistingRow}" editable="false" />-->
+
+                                <Text text="{EnergyConvModel>Operation}" 
+                                    visible="{parts: [{path: 'EnergyConvModel>isNewRow'}, {path: 'EnergyConvModel>isEditableRow'}, {path: 'EnergyConvModel>isExistingRow'}],
+                                                    formatter: '.formatDisplayField'}" />
+                                <ComboBox
+                                    xmlns="sap.m"
+                                    id="OperationEnergy"
+                                    selectionChange=""
+                                    items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'Operation' } ] }"
+                                    selectedKey="{EnergyConvModel>Operation}"
+                                    editable="true"
+                                    visible="{parts: [{path: 'EnergyConvModel>isNewRow'}, {path: 'EnergyConvModel>isEditableRow'}, {path: 'EnergyConvModel>isExistingRow'}],
+                                                    formatter: '.formatEditField'}"
+                                >
+                                    <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                </ComboBox>
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </ScrollContainer>
+    </VBox>
+</core:FragmentDefinition>

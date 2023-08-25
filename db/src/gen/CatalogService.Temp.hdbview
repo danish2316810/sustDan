@@ -1,0 +1,5 @@
+VIEW CatalogService_Temp AS SELECT
+  Temp_0.Identifier,
+  Temp_0."LOWER",
+  Temp_0."UPPER"
+FROM app_interactions_Temp AS Temp_0

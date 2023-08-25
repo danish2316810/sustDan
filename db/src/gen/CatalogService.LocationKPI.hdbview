@@ -1,0 +1,11 @@
+VIEW CatalogService_LocationKPI AS SELECT
+  LocationKPI_0.LocKPIId,
+  LocationKPI_0.LocKpiName,
+  LocationKPI_0.LocId,
+  LocationKPI_0.BaselineWaterStress,
+  LocationKPI_0.FacilityType,
+  LocationKPI_0.ProAreaName,
+  LocationKPI_0.ProAreaDesgn,
+  LocationKPI_0.ProAreaDist,
+  LocationKPI_0.ReportingYear
+FROM app_interactions_LocationKPI AS LocationKPI_0

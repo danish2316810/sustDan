@@ -1,0 +1,112 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified" xmlns:uxap="sap.uxap"
+    xmlns:u="sap.ui.unified">
+  <!--<ScrollContainer
+		height="90%"
+		width="100%"
+		vertical="true"
+		focusable="true">-->
+    <Table id="EnvTable3" alternateRowColors="true" growing="true"  width="90%"  sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+            items="{path: 'EnvModel>/results'}" mode="MultiSelect">
+            <headerToolbar></headerToolbar>
+            <infoToolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer/> 
+                     <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                    <Button	icon="sap-icon://add" press="OnPressAddNewEntryEnvTable3" tooltip = "Add New Entry"/>                    
+                </OverflowToolbar>
+            </infoToolbar>
+            <columns>
+                <Column >
+                    <Text text="S/No" ></Text>
+                </Column>
+                <Column hAlign="Center" >
+                    <Text text="Date" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="Distance" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="Unit 1" ></Text>
+                </Column>
+                <Column hAlign="Center"  demandPopin="true">
+                    <Text text="Weight" ></Text>
+                </Column>
+                <Column demandPopin="true">
+                    <Text text="Unit 2" ></Text>
+                </Column>
+                <Column  hAlign="Center" width="6em" >
+                    <Text text="Cost" ></Text>
+                </Column>
+                <Column  hAlign="Center" width="6em" >
+                    <Text text="Currency" ></Text>
+                </Column>
+                <Column  hAlign="Center" width="6em" >
+                    <Text text="Mode of Transport" ></Text>
+                </Column>
+                <Column  hAlign="Center" width="6em" >
+                    <Text text="Quality" ></Text>
+                </Column>
+                <Column  hAlign="Center" width="6em" >
+                    <Text text="Comment" ></Text>
+                </Column>
+              <!--  <Column hAlign="Center" width="7em">
+                    <Text text="Owner" ></Text>
+                </Column>
+                <Column hAlign="Center" width="7em" >
+                    <Text text="Approver" ></Text>
+                </Column>-->
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                       <Text text="{EnvModel>Sno}" />                     
+                       <DatePicker value="{EnvModel>Date}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" />
+                       <Input value="{EnvModel>Distance}" />
+                       <!--<Input value="{EnvModel>Unit1}" />-->
+                       <HBox>
+                            <Input value="{EnvModel>Unit1}" visible="{EnvModel>isExistingRow}" editable="false"/>
+                            <ComboBox xmlns="sap.m" id="cbUnit1Table3" selectionChange="onChangeUnit"
+                                items  ="{ path : 'UOMListModel>/results' ,templateShareable:true}" 
+                                    selectedKey="{EnvModel>Unit1}" editable="true" visible="{EnvModel>isNewRow}">
+                                    <core:Item xmlns:core="sap.ui.core" key="{UOMListModel>Abbreviation}" text="{UOMListModel>Abbreviation}"/>                                
+                            </ComboBox>
+                        </HBox>
+                       <Input value="{EnvModel>Weight}" />
+                       <!--<Input value="{EnvModel>Unit2}" />-->
+                       <HBox>
+                            <Input value="{EnvModel>Unit2}" visible="{EnvModel>isExistingRow}" editable="false"/>
+                            <ComboBox xmlns="sap.m" id="cbUnit2Table3" selectionChange="onChangeUnit"
+                                items  ="{ path : 'UOMListModel>/results' ,templateShareable:true}" 
+                                    selectedKey="{EnvModel>Unit2}" editable="true" visible="{EnvModel>isNewRow}">
+                                    <core:Item xmlns:core="sap.ui.core" key="{UOMListModel>Abbreviation}" text="{UOMListModel>Abbreviation}"/>                                
+                            </ComboBox>
+                        </HBox>
+                       <Input value="{EnvModel>Cost}" />
+                       <!--<Input value="{EnvModel>Currency}" />-->
+                       <HBox>
+                            <Input value="{EnvModel>Currency}" visible="{EnvModel>isExistingRow}" editable="{EnvModel>isNewRow}"/>
+                            <ComboBox xmlns="sap.m" id="currency_Table3" selectionChange="onChangeCurrency"
+                                    items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'Currency' } ] }"  
+                                    selectedKey="{EnvModel>Currency}" editable="true" visible="{EnvModel>isNewRow}">                                                
+                                <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                    text="{ConstantsModel>Value}"/>                                        
+                            </ComboBox> 
+                        </HBox>
+                       <Input value="{EnvModel>Transport}" />                     
+                       <Switch type="AcceptReject" state="{ path:'EnvModel>Quality', formatter: '.formatQuality'}">                        
+                            <layoutData>
+                                <FlexItemData growFactor="1"/>
+                            </layoutData>
+                        </Switch>
+                       <Input value="{EnvModel>Comment}" />
+                       <!--<Input value="{EnvModel>Owner}" />
+                       <Input value="{EnvModel>Approver}" />-->
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <!--</ScrollContainer>-->
+</core:FragmentDefinition>

@@ -1,0 +1,4 @@
+VIEW CatalogService_Division AS SELECT
+  Division_0.Industry,
+  Division_0.Division
+FROM app_interactions_Division AS Division_0

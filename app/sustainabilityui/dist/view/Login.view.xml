@@ -1,0 +1,85 @@
+<mvc:View
+    controllerName="com.techm.sustainabilityui.controller.Login"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+>
+    <Page enableScrolling="false" >
+        <customHeader>
+            <Bar class="headerBar">
+                <contentLeft>                    
+                    <Image src="./images/JS1.png" class="sapUiSmallMarginEnd" />
+                </contentLeft>
+                <contentMiddle>
+                    <HBox>
+                        <Image src="./images/iSustainLogo_01.png" class="titleAlign sapUiTinyMarginTop" />
+                        <Title level="H6" text="TechM Sustainability Reporting Framework" class="sapUiSmallMarginTop sapUiTinyMarginBegin fntBold" />
+                        <Image src="./images/btp.jpg" class="sapUiSmallMarginTop sapUiTinyMarginBegin" />
+                    </HBox>
+                </contentMiddle>
+                <contentRight>      
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content >
+           
+          <!--  <FlexBox alignItems="Center" justifyContent="Center" >
+            
+                <items>                    
+                
+                    <VBox justifyContent="Start" alignItems="Center" alignContent="Center" class="myLoginVBox">
+                        <items>
+                            <ObjectIdentifier title="Welcome back!" class="sapUiSmallMarginBottom logincolor" titleActive="false"/>
+                            
+                            <Label text="Email" class="rightMargin"></Label>
+                            <Input id="userId" placeholder="Enter your email" width="16rem"/>
+                            <Label text="Password" class="sapUiTinyMarginTop rightMargin"></Label>
+                            <Input id="pwd" type="Password" placeholder="Enter Password" width="16rem"/>
+                            <HBox class="sapUiMediumMarginTop">
+                                <Button text="Log In" press="onLogin" type="Emphasized"  width="16rem"/>                                
+                            </HBox>
+                            <HBox class="sapUiSmallMarginTop">
+                                <Link text="Forgot Password?"/>
+                                <Link class="sapUiTinyMarginBegin" text="Help"/>
+                                <Link text="or login with SSO"/>
+                            </HBox>
+                        </items>
+                    </VBox>
+                </items>
+            </FlexBox>
+            
+           <FlexBox justifyContent="Center" alignItems="Center" >
+					
+                    <Image src="./images/Login6.jpg"  densityAware="false" />
+                    
+			</FlexBox>-->
+
+            	<Image src="./images/Login6.jpg" class="backgroundImgLogin"/>
+		
+			<FlexBox direction="Column" class="flexClass1">
+				<items>
+                    <ObjectIdentifier title="Welcome back!" class="sapUiTinyMarginBottom logincolor" titleActive="false"/>
+					<HBox class="userhbox">						
+						<Input id="userId" value="" placeholder="User" class="input"/>	
+					</HBox>
+					<HBox class="passhbox sapUiSmallMarginTop">						
+						<Input value="" type="Password" placeholder="Password" class="input" />						
+					</HBox>
+			
+					<Button text="Login" type="Emphasized" id="login" press="handleLogin" class="loginBtn" />
+					<Link text="Forgot your UserId or Password?" class="txtClass"/>
+				</items>
+			</FlexBox>
+			<FlexBox justifyContent="Start" alignItems="Center" height="100%">
+					<Image src="/webapp/resources/roche_brand.png"   densityAware="false"  ></Image>
+			</FlexBox>
+
+        </content>
+    </Page>
+</mvc:View>

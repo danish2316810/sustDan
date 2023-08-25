@@ -1,0 +1,16 @@
+COLUMN TABLE app_interactions_Emission_Module (
+  id INTEGER NOT NULL,
+  YearL NVARCHAR(4),
+  scope NVARCHAR(20),
+  Level1 NVARCHAR(50),
+  Level2 NVARCHAR(50),
+  Level3 NVARCHAR(500),
+  Level4 NVARCHAR(50),
+  ColumnText NVARCHAR(50),
+  UomSimple NVARCHAR(25),
+  Uom NVARCHAR(25),
+  GHG NVARCHAR(30) NOT NULL,
+  LookUp NVARCHAR(500) NOT NULL,
+  GHGConversionFactor2021 NVARCHAR(25),
+  PRIMARY KEY(id, GHG, LookUp)
+)

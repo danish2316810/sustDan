@@ -1,0 +1,11 @@
+VIEW CatalogService_UoMConversions AS SELECT
+  UoMConversions_0.Industry,
+  UoMConversions_0.Measure,
+  UoMConversions_0.UserInputUnit,
+  UoMConversions_0.ExpectedOutputUnit,
+  UoMConversions_0.ConverstionFactor,
+  UoMConversions_0.Operation,
+  UoMConversions_0.KPI,
+  UoMConversions_0.Type,
+  UoMConversions_0.Subtype
+FROM app_interactions_UoMConversions AS UoMConversions_0

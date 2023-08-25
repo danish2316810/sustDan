@@ -1,0 +1,23 @@
+VIEW CatalogService_KPIList AS SELECT
+  KPIList_0.createdAt,
+  KPIList_0.createdBy,
+  KPIList_0.modifiedAt,
+  KPIList_0.modifiedBy,
+  KPIList_0.Industry,
+  KPIList_0.KPI,
+  KPIList_0.Type,
+  KPIList_0.SubType,
+  KPIList_0.EnergyUse,
+  KPIList_0.Supplier,
+  KPIList_0.BiogenicEmissions,
+  KPIList_0.Template,
+  KPIList_0.Measure,
+  KPIList_0.EFStandard,
+  KPIList_0.EmissionLogic,
+  KPIList_0.Scope,
+  KPIList_0.ReportingStandard,
+  KPIList_0.EnergyLogic,
+  KPIList_0.GRIStd,
+  KPIList_0.SDG,
+  KPIList_0.RenNon
+FROM app_interactions_KPIList AS KPIList_0

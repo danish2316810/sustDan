@@ -1,0 +1,1270 @@
+<mvc:View
+    controllerName="com.techm.sustainabilityui.controller.TrackerForm"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:uxap="sap.uxap"
+    xmlns:u="sap.ui.unified">            
+    <Page>                   
+        <customHeader>
+        <Bar class="headerBar">
+            <contentLeft>						
+                <Button icon="sap-icon://nav-back" press="onPressBack"  class="sapUiSmallMarginEnd myBackBtn"/>	
+                <Image src="./images/techM.png" class="sapUiSmallMarginEnd" />              
+            </contentLeft>
+            <contentMiddle>               
+                <HBox>
+                    <Image src="./images/iSustainLogo_01.png" class="titleAlign sapUiTinyMarginTop"/>
+                    <Title level="H6" text="TechM Sustainability Reporting Framework" class="sapUiSmallMarginTop sapUiTinyMarginBegin fntBold" ></Title>
+                    <Image src="./images/btp.jpg" class="sapUiSmallMarginTop sapUiTinyMarginBegin"/>
+                </HBox>
+            </contentMiddle>
+            <contentRight>
+                 <Image src="./images/avatar2.png" densityAware="false"></Image>
+                <Text text="Welcome, Henry Lucas!" class = "userName" />
+                <Button icon="sap-icon://arrow-down"  class="myBackBtn" />						
+            </contentRight>
+        </Bar>
+    </customHeader>
+    <content >
+        <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.SearchBar" type="XML"/>                      
+     
+        <uxap:ObjectPageLayout useIconTabBar="true" showFooter="true" showAnchorBar="true" subSectionLayout="TitleOnTop" upperCaseAnchorBar="false" id="CS" class="filterBorder_hr">
+						<uxap:sections>
+							<uxap:ObjectPageSection showTitle="true" title="Energy" titleUppercase="false" visible="true">
+								<uxap:subSections>
+									<uxap:ObjectPageSubSection title="Direct Energy">
+										<uxap:blocks>										
+											<VBox>                                           
+											<Title wrapping="true" level="H5"
+												text="Direct energy is the energy produced and consumed by the organization within its own operations, projects and facilities. It may include energy from fuels, sunlight, wind, water, etc. for operating the equipment and vehicles, and for producing power and heat on-site. For fuels it can be measured in gigajoules."/>
+											
+                                            <HBox > 
+                                            <Label text="Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd"/>
+											<ComboBox xmlns="sap.m" items="{DEOptionsModel>/DEOptions}" id="deOptions" selectedKey="HSD" change="onSelectionOFDirectEnergy" 
+                                            class="sapUiLargeMarginEnd myTblObjAlign">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{DEOptionsModel>key}" text="{DEOptionsModel>value}"/>
+												</items>
+											</ComboBox>
+                                                <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem"/>
+                                                <!--<Button icon="sap-icon://attachment" text="Upload File" class="sapUiTinyMarginBegin"/>-->
+                                                <u:FileUploader  id="fileUploader" name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+																			sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+																			fileAllowed="handleUploadPress" icon="sap-icon://attachment" uploadOnChange="false"
+																			class="sapUiTinyMarginBegin"/>
+                                                                            
+                                                <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                                            
+                                            </HBox>
+											<HBox>
+												<HBox width="130%">
+													<Table id="directEnergy" alternateRowColors="true" growing="true" growingThreshold="6" 
+														items="{path: '/results'}">
+														<columns>
+															<Column id="col1">
+																<Text text="Month" id="month"></Text>
+															</Column>
+															<Column id="col2" hAlign="Center">
+																<Text text="Value" id="value"></Text>
+															</Column>
+															<Column id="col3" hAlign="Center" >
+																<Text text="Unit" id="unit"></Text>
+															</Column>
+															<Column id="col4" hAlign="Center" >
+																<Text text="Costs" id="costs"></Text>
+															</Column>
+															<Column id="col5" hAlign="Center"  demandPopin="true">
+																<Text text="Currency" id="currency"></Text>
+															</Column>
+															<Column id="col6" demandPopin="true">
+																<Text text="Quality" id="quality"></Text>
+															</Column>
+															<Column id="col7" hAlign="Center" width="8em" >
+																<Text text="Comment" id="comment"></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="8em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="8em" >
+																<Text text="Approver" ></Text>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem>
+																<cells>
+																	<ObjectIdentifier title="{Month}"/>
+																	<Input value="{Value}" placeholder="Value"/>
+																	<ComboBox xmlns="sap.m" items="{directUnit>/UnitCB}" selectedKey="{Unit}" id="directUnit">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{directUnit>key}" text="{directUnit>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Input value="{Cost}" placeholder=""/>
+																	<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>																	
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>												
+												<VBox alignItems="Center" justifyContent="Center">
+                                                <Title level="H1" text="[302] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/DirectEng.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                            </VBox>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+
+									<uxap:ObjectPageSubSection title="InDirect Energy">									
+										<uxap:blocks>
+											<VBox>											
+											<Title wrapping="true" level="H5"
+												text="Indirect energy is the energy produced outside the organization boundaries by the electricity suppliers, and consumed on the organization side. Indirect energy depends on the local electricity grids where the organization will operate. It is measured in gigajoules or megawatt hours."/>
+                                            <HBox >
+											<Label text="Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd"/>
+											<ComboBox xmlns="sap.m" items="{IDEOptionsModel>/IDEOptions}" id="ideOptions" selectedKey="Grid Electricity (Non-RE)" change="onSelectionOFInDirectEnergy" class="sapUiLargeMarginEnd myTblObjAlign">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{IDEOptionsModel>key}" text="{IDEOptionsModel>value}"/>
+												</items>
+											</ComboBox>
+                                            <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem"/>                                                
+                                                <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+																			sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+																			fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+																			class="sapUiTinyMarginBegin"/>
+                                                <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>                                             
+                                            </HBox>
+											<HBox>
+												<HBox width="130%">
+													<Table id="inDirectEnergyTbl" alternateRowColors="true"
+														items="{path: '/results'}"
+														growing="true" growingThreshold="6">
+														<columns>
+															<Column width="7em">
+																<Text text="Month"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Value"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Costs"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Currency"></Text>
+															</Column>
+															<Column >
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="7.5em">
+																<Text text="Comment"></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Approver" ></Text>
+															</Column>															
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Month}"/>
+																	<Input value="{Value}" placeholder="Value"/>
+																	<ComboBox xmlns="sap.m" items="{inDirectUnit>/InDirectUnitCB}" selectedKey="{Unit}" id="inDirectUnit">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{inDirectUnit>key}" text="{inDirectUnit>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Input value="{Cost}" placeholder=""/>
+																	<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>																	
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[302] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/DEnergy.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+											</VBox>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+
+                            
+
+							<uxap:ObjectPageSection showTitle="true" title="Water" titleUppercase="false" visible="true">
+								<uxap:subSections>
+                                    <!--Water Withdrawal-->
+                                    <uxap:ObjectPageSubSection title="Water Withdrawal">
+										<uxap:blocks>
+                                        <VBox>										
+											<Title wrapping="true" level="H5"
+												text="Water is at the core of sustainable development and is critical for socio-economic development, healthy ecosystems and survival of all living beings on earth. Water withdrawal refers to the water that is drawn from a surface water or groundwater source."/>
+                                            <HBox >                                                
+											<Label text="Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd"/>
+											<ComboBox xmlns="sap.m" items="{WaterOptionsModel>/WaterOptions}" id="waterOptions" selectedKey="Bottled Water"
+												change="onSelectionOfWaterWithdrawal" class="sapUiLargeMarginEnd myTblObjAlign">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{WaterOptionsModel>key}" text="{WaterOptionsModel>value}"/>
+												</items>
+											</ComboBox>
+                                            <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem"/>                                            
+                                            <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+																			sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+																			fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+																			class="sapUiTinyMarginBegin"/>
+                                            <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                                            </HBox>
+											<HBox>
+												<HBox width="120%">
+													<Table id="waterTbl" alternateRowColors="true"
+														items="{path: '/results'}"
+														growing="true" growingThreshold="6">
+														<columns>
+															<Column >
+																<Text text="Month"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Value"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Costs"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Currency"></Text>
+															</Column>
+															<Column >
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="7em">
+																<Text text="Comment"></Text>
+															</Column>															
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Approver" ></Text>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Month}"/>
+																	<Input value="{Value}" placeholder="Value"/>
+																	<ComboBox xmlns="sap.m" items="{waterUnit>/WaterUnit}" selectedKey="{Unit}" id="waterUnit">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{waterUnit>key}" text="{waterUnit>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Input value="{Cost}" placeholder=""/>
+																	<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>																	
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[303] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/Water.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                            </VBox>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+                                    <!--Water Recycled-->
+                                    <uxap:ObjectPageSubSection title="Water Recycled">
+										<uxap:blocks>
+                                        <VBox>										
+											<Title wrapping="true" level="H5"
+												text="Water is at the core of sustainable development and is critical for socio-economic development, healthy ecosystems and survival of all living beings on earth. Water recycled refers to treatment of waste water and reusing it."/>
+                                            <HBox>
+												<HBox width="120%">
+													<Table id="recycleTbl" alternateRowColors="true"
+														items="{path: '/results'}"
+														growing="true" growingThreshold="6">
+                                                         <headerToolbar>
+                                                            <OverflowToolbar>
+                                                                <content>                                                                    
+                                                                    <ToolbarSpacer />
+                                                                    <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem" />
+                                                                        <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true"  sendXHR="true"
+																			sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+																			fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+																			class="sapUiTinyMarginBegin"/>
+                                                                        <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                                                                </content>
+                                                            </OverflowToolbar>
+                                                        </headerToolbar>
+														<columns>
+															<Column >
+																<Text text="Month"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Value"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Costs"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Currency"></Text>
+															</Column>
+															<Column >
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="7em">
+																<Text text="Comment"></Text>
+															</Column>															
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Approver" ></Text>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Month}"/>
+																	<Input value="{Value}" placeholder="Value"/>
+																	<ComboBox xmlns="sap.m" items="{waterUnit>/WaterUnit}" selectedKey="{Unit}" id="waterRecycleUnit">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{waterUnit>key}" text="{waterUnit>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Input value="{Cost}" placeholder=""/>
+																	<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>																	
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>
+											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[303] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/Water.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                            </VBox>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+                                    <!--Water Discharged-->  
+                                    <uxap:ObjectPageSubSection title="Water Discharged">
+										<uxap:blocks>
+                                        <VBox>
+                                        <Title wrapping="true" level="H5"
+												text="Water is at the core of sustainable development and is critical for socio-economic development, healthy ecosystems and survival of all living beings on earth. Water discharged is measured as the quantity of water discharged to a water body or source over time."/>
+                                            <!--<HBox > 
+                                                <Label text="Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd"/>
+                                                <ComboBox xmlns="sap.m" items="{WaterDischargeModel>/WaterDischrgeCB}" id="waterDischargeOptions" selectedKey="Ground water"
+                                                    change="onSelectionOfWaterDischarge" class="sapUiLargeMarginEnd myTblObjAlign">
+                                                    <items>
+                                                        <core:Item xmlns:core="sap.ui.core" key="{WaterDischargeModel>key}" text="{WaterDischargeModel>value}"/>
+                                                    </items>
+                                                </ComboBox>
+                                                <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem"/>
+                                                
+                                                 <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload file to DMS" buttonOnly="true"  sendXHR="true"
+																			sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+																			fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+																			class="sapUiTinyMarginBegin"/>
+                                                <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>                                            
+                                            </HBox>-->
+											<HBox>
+												<HBox width="120%">
+													<Table id="waterTbl1" alternateRowColors="true"
+														items="{path: '/results'}"
+														growing="true" growingThreshold="6">
+                                                        <headerToolbar>
+                                                            <OverflowToolbar>
+                                                                <content>                                                                    
+                                                                    <ToolbarSpacer />
+                                                                    <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem" />
+                                                                     <!--<Button icon="sap-icon://attachment" text="Upload File" class="sapUiTinyMarginBegin"/>-->
+                                                                     <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+																			sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+																			fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+																			class="sapUiTinyMarginBegin"/>
+                                                                        <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                                                                </content>
+                                                            </OverflowToolbar>
+                                                        </headerToolbar>
+														<columns>
+															<Column >
+																<Text text="Month"></Text> 
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Value"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Costs"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Currency"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="7em">
+																<Text text="Comment"></Text>
+															</Column>
+															<!--<Column width="5em">
+																<Text text=""></Text>
+															</Column>-->
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Approver" ></Text>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Month}"/>
+																	<Input value="{Value}" placeholder="Value"/>
+																	<ComboBox xmlns="sap.m" items="{waterUnit>/WaterUnit}" selectedKey="{Unit}" id="waterUnit1">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{waterUnit>key}" text="{waterUnit>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Input value="{Cost}" placeholder=""/>
+																	<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Switch type="AcceptReject" state="true" class="tdAlignCenter">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>
+																	<!--<HBox class="tdAlignCenter">
+																		<core:Icon align="center" src="sap-icon://vds-file" press="handleDownloadPress_Water" visible="{path:'Value', formatter:'.myFormatter'}">
+																			<core:layoutData>
+																				<FlexItemData growFactor="1"/>
+																			</core:layoutData>
+																		</core:Icon>
+																		<u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload file to DMS" buttonOnly="true" iconOnly="true" sendXHR="true"
+																			sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+																			fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" uploadOnChange="false"
+																			visible="{path:'Value', formatter:'.myFormatter1'}"/>
+																	</HBox>-->
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>
+											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[303] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/Water.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                            </VBox>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+                                    	</uxap:subSections>
+							</uxap:ObjectPageSection>
+
+                            
+
+									<uxap:ObjectPageSection showTitle="true" title="Waste" titleUppercase="false" visible="true">
+                                        	<uxap:subSections>
+
+                                    <uxap:ObjectPageSubSection title="Waste">
+										
+										<uxap:blocks>
+                                        <VBox>
+											
+											<Title wrapping="true" level="H5"
+												text="Waste is a global concern. Effective management of waste and transitioning towards zero waste to landfill is becoming an imperative with the increasing pressure on availability of land and natural resources."/>
+                                            <HBox >
+											<Label text="Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd"/>
+											<ComboBox xmlns="sap.m" id="wasteOptions" items="{WasteOptionsModel>/WasteOptions}"  selectedKey="Battery" change="onSelectionOfWaste" class="sapUiLargeMarginEnd myTblObjAlign">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{WasteOptionsModel>key}" text="{WasteOptionsModel>value}"/>
+												</items>
+											</ComboBox>
+                                                <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem"/>
+                                                <!--<Button icon="sap-icon://attachment" text="Upload File" class="sapUiTinyMarginBegin"/>-->
+                                                <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+																			sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+																			fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+																			class="sapUiTinyMarginBegin"/>
+                                                
+                                                <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>                           
+                                            
+                                            </HBox>
+											<HBox>
+												<HBox width="120%">
+													<Table id="wasteTbl" alternateRowColors="true"
+														items="{path: '/results'}"
+														growing="true" growingThreshold="6">                                                        
+														<columns>
+															<Column >
+																<Text text="Month"></Text>
+															</Column>															
+															<Column hAlign="Center">
+																<Text text="Value"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+														    <Column hAlign="Center">
+																<Text text="Distance"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+															<Column >
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="8em">
+																<Text text="Comment"></Text>
+															</Column>
+															<!--<Column >
+																<Text text=""></Text>
+															</Column>-->
+                                                            <Column hAlign="Center" width="8em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="8em">
+																<Text text="Approver" ></Text>
+															</Column>
+                                                            
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Month}"/>																	
+																	<Input value="{Value}" placeholder="Value"/>
+																	<ComboBox xmlns="sap.m" items="{emissionUnit>/EmissionUnit}" selectedKey="{Unit}" id="emissionUnit2">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{emissionUnit>key}" text="{emissionUnit>value}"/>
+																		</items>
+																	</ComboBox>
+																    <Input value="{Value2}" />
+                                                                    <Input value="{Unit2}" />
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>
+																	<!--<HBox>
+																		<core:Icon src="sap-icon://vds-file" press="handleDownloadPress_Emission" visible="{path:'Value', formatter:'.myFormatter'}">
+																			<core:layoutData>
+																				<FlexItemData growFactor="1"/>
+																			</core:layoutData>
+																		</core:Icon>
+																		<u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload file to DMS" buttonOnly="true" iconOnly="true" sendXHR="true"
+																			sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+																			fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" uploadOnChange="false"
+																			visible="{path:'Value', formatter:'.myFormatter1'}"/>
+																	</HBox>-->
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+                                                                    
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>
+											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[306] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/Waste.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                           </VBox> 
+										</uxap:blocks>
+                                        </uxap:ObjectPageSubSection>
+
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+
+
+                            <!--new-->
+                            <uxap:ObjectPageSection showTitle="true" title="Materials" titleUppercase="false" visible="true">
+                                <uxap:subSections>
+									<uxap:ObjectPageSubSection title="Materials">										
+										<uxap:blocks>
+                                        <VBox>											
+											<Title wrapping="true" level="H5"
+												text="The inputs used to manufacture and package an organization’s products and services can be non-renewable materials, such as minerals, metals, oil, gas, or coal; or renewable materials, such as wood or water."/>
+											<HBox>
+												<HBox width="120%">
+													<Table id="materialTbl" alternateRowColors="true"
+														items="{path: '/results'}"
+														growing="true" growingThreshold="6">
+                                                        <headerToolbar>
+                                                            <OverflowToolbar>
+                                                                <content>     
+                                                                    <Title text="Paper Consumption" level="H2"/>                                                               
+                                                                    <ToolbarSpacer />
+                                                                     <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem"/>
+
+                                                                     <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+																			sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+																			fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+																			class="sapUiTinyMarginBegin"/>
+                                                                     <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                                                                </content>
+                                                            </OverflowToolbar>
+                                                        </headerToolbar>
+														<columns>
+															<Column >
+																<Text text="Month"></Text>
+															</Column>
+															<!--<Column hAlign="Center">
+																<Text text="Fuel"></Text>
+															</Column>-->
+															<Column hAlign="Center">
+																<Text text="Value"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+														
+															<Column >
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="8em">
+																<Text text="Comment"></Text>
+															</Column>															
+                                                            <Column hAlign="Center" width="11em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="11em">
+																<Text text="Approver" ></Text>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Month}"/>
+																	<!--<Text text=""/>-->
+																	<Input value="{Value}" placeholder="Value"/>
+																	<ComboBox xmlns="sap.m" items="{emissionUnit>/EmissionUnit}" selectedKey="{Unit}" id="materialUnit">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{emissionUnit>key}" text="{emissionUnit>value}"/>
+																		</items>
+																	</ComboBox>
+																
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>
+																	
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>
+											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[301] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/Material.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                           </VBox> 
+										</uxap:blocks>
+                                        </uxap:ObjectPageSubSection>                                            
+
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+
+                            
+                            <uxap:ObjectPageSection showTitle="true" title="Emissions" titleUppercase="false" visible="true">
+                                <uxap:subSections>
+                                    <!--Commute (Company Transport)-->
+									<uxap:ObjectPageSubSection title="Commute (Company Transport)">										
+										<uxap:blocks>
+                                            <VBox>										
+                                                <Title wrapping="true" level="H5"
+                                                    text="Water is at the core of sustainable development and is critical for socio-economic development, healthy ecosystems and survival of all living beings on earth. Water withdrawal refers to the water that is drawn from a surface water or groundwater source."/>
+                                                <HBox >                                                
+                                                <Label text="Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd"/>
+                                                <ComboBox xmlns="sap.m" items="{CommuteModel>/CommuteOptions}" id="commuteOptions" selectedKey="Car"
+                                                    change="onSelectionOfCommute" class="sapUiLargeMarginEnd myTblObjAlign">
+                                                    <items>
+                                                        <core:Item xmlns:core="sap.ui.core" key="{CommuteModel>key}" text="{CommuteModel>value}"/>
+                                                    </items>
+                                                </ComboBox>
+                                                <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem"/>                                            
+                                                <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+                                                                                sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+                                                                                fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+                                                                                class="sapUiTinyMarginBegin"/>
+                                                <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                                                </HBox>
+                                                <HBox>
+                                                    <HBox width="120%">
+                                                        <Table id="commuteTbl" alternateRowColors="true"
+                                                            items="{path: '/results', filters: [ { path: 'Type', operator: 'EQ', value1: 'Commute' }, 
+                                                                                                { path: 'SubType', operator: 'EQ', value1: 'Car' },
+                                                                                                { path: 'Year', operator: 'EQ', value1: '2020' } ]}"
+                                                            growing="true" growingThreshold="6">
+														<columns>
+															<Column >
+																<Text text="Month"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Distance"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Costs"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Currency"></Text>
+															</Column>
+															<Column >
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="7em">
+																<Text text="Comment"></Text>
+															</Column>															
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Approver" ></Text>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Month}"/>
+																	<Input value="{Distance}" placeholder="Distance"/>
+																	<ComboBox xmlns="sap.m" items="{unitModel>/CommuteUnit}" selectedKey="{Unit}" >
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{unitModel>key}" text="{unitModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Input value="{Cost}" placeholder=""/>
+																	<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>																	
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[303] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/Water.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                            </VBox>
+										</uxap:blocks>
+                                        </uxap:ObjectPageSubSection>   
+
+                                        <!--Personal Commute-->
+									<uxap:ObjectPageSubSection title="Personal Commute">										
+										<uxap:blocks>
+                                            <VBox>										
+                                                <Title wrapping="true" level="H5"
+                                                    text="Water is at the core of sustainable development and is critical for socio-economic development, healthy ecosystems and survival of all living beings on earth. Water withdrawal refers to the water that is drawn from a surface water or groundwater source."/>
+                                                <HBox >                                                
+                                                <Label text="Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd"/>
+                                                <ComboBox xmlns="sap.m" items="{PersonalCommuteModel>/PersonalOptions}" id="personalCommuteOptions" selectedKey="Bike (Electric)"
+                                                    change="onSelectionOfPersonalCommute" class="sapUiLargeMarginEnd myTblObjAlign">
+                                                    <items>
+                                                        <core:Item xmlns:core="sap.ui.core" key="{PersonalCommuteModel>key}" text="{PersonalCommuteModel>value}"/>
+                                                    </items>
+                                                </ComboBox>
+                                                <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem"/>                                            
+                                                <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+                                                                                sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+                                                                                fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+                                                                                class="sapUiTinyMarginBegin"/>
+                                                <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                                                </HBox>
+                                                <HBox>
+                                                    <HBox width="120%">
+                                                        <Table id="personalTbl" alternateRowColors="true"
+                                                            items="{path: '/results', filters: [ { path: 'Type', operator: 'EQ', value1: 'Personal Commute' }, 
+                                                                                                { path: 'SubType', operator: 'EQ', value1: 'Bike (Electric)' },
+                                                                                                { path: 'Year', operator: 'EQ', value1: '2020' } ]}"
+                                                            growing="true" growingThreshold="6">
+														<columns>
+															<Column >
+																<Text text="Month"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Distance"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+                                                            <Column hAlign="Center">
+																<Text text="Associates"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Cost"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Currency"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="6em">
+																<Text text="Comment"></Text>
+															</Column>															
+                                                            <Column hAlign="Center" width="7em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="6.5em">
+																<Text text="Approver" ></Text>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Month}"/>
+																	<Input value="{Distance}" placeholder="Value"/>																	
+                                                                    <ComboBox xmlns="sap.m" items="{unitModel>/CommuteUnit}" selectedKey="{Unit}" >
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{unitModel>key}" text="{unitModel>value}"/>
+																		</items>
+																	</ComboBox>
+                                                                    <Input value="{Associates}" placeholder="Value"/>																	
+																	<Input value="{Cost}" placeholder=""/>
+																	<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>																	
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[303] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/Water.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                            </VBox>
+										</uxap:blocks>
+                                        </uxap:ObjectPageSubSection>  
+
+                                        <!--Business Travel-->
+									<uxap:ObjectPageSubSection title="Business Travel">										
+										<uxap:blocks>
+                                            <VBox>										
+                                                <Title wrapping="true" level="H5"
+                                                    text="Water is at the core of sustainable development and is critical for socio-economic development, healthy ecosystems and survival of all living beings on earth. Water withdrawal refers to the water that is drawn from a surface water or groundwater source."/>
+                                                <HBox >                                                
+                                                <Label text="Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd"/>
+                                                <ComboBox xmlns="sap.m" items="{BusinessTravelModel>/BusinessTravelOptions}" id="businessTravelOptions" selectedKey="Domestic (Business)"
+                                                    change="onSelectionOfBusinessTravel" class="sapUiLargeMarginEnd myTblObjAlign">
+                                                    <items>
+                                                        <core:Item xmlns:core="sap.ui.core" key="{BusinessTravelModel>key}" text="{BusinessTravelModel>value}"/>
+                                                    </items>
+                                                </ComboBox>
+                                                <Button	icon="sap-icon://add" press="" tooltip = "Add New Entry" class="sapUiLargeMarginBegin"/>
+                                                <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiTinyMarginBegin" press="handleConnectToLocalSystem"/>                                            
+                                                <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+                                                                                sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+                                                                                fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+                                                                                class="sapUiTinyMarginBegin"/>
+                                                <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                                                </HBox>
+                                                <HBox>
+                                                    <HBox width="120%">
+                                                        <Table id="businessTbl" alternateRowColors="true"
+                                                            items="{path: '/results', filters: [ { path: 'Type', operator: 'EQ', value1: 'Business Travel' }, 
+                                                                                                { path: 'SubType', operator: 'EQ', value1: 'Domestic (Business)' },
+                                                                                                { path: 'Year', operator: 'EQ', value1: '2020' } ]}"
+                                                            growing="true" growingThreshold="6">
+														<columns>
+															<Column >
+																<Text text="S.No"></Text>
+															</Column>
+                                                            <Column >
+																<Text text="Date"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Distance"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Cost"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Currency"></Text>
+															</Column>
+															<Column >
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="7em">
+																<Text text="Comment"></Text>
+															</Column>															
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="7.5em">
+																<Text text="Approver" ></Text>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Sno}"/>
+                                                                    <Input value="{Date}" placeholder="Date"/>
+																	<Input value="{Distance}" placeholder="Distance"/>                                                                    
+																	<ComboBox xmlns="sap.m" items="{unitModel>/CommuteUnit}" selectedKey="{Unit}" >
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{unitModel>key}" text="{unitModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Input value="{Cost}" placeholder=""/>
+																	<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>																	
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[303] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/Water.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                            </VBox>
+										</uxap:blocks>
+                                        </uxap:ObjectPageSubSection>
+
+                                        <!--Upstream Transportation-->
+									<uxap:ObjectPageSubSection title="Upstream Transportation">										
+										<uxap:blocks>
+                                            <VBox>										
+                                                <Title wrapping="true" level="H5"
+                                                    text="Water is at the core of sustainable development and is critical for socio-economic development, healthy ecosystems and survival of all living beings on earth. Water withdrawal refers to the water that is drawn from a surface water or groundwater source."/>
+                                                <HBox >                                                
+                                                <Label text="Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd"/>
+                                                <ComboBox xmlns="sap.m" items="{UpstreamTransModel>/UpstreamOptions}" id="upstreamTravelOptions" selectedKey="Air"
+                                                    change="onSelectionOfUpstreamTrans" class="sapUiLargeMarginEnd myTblObjAlign">
+                                                    <items>
+                                                        <core:Item xmlns:core="sap.ui.core" key="{UpstreamTransModel>key}" text="{UpstreamTransModel>value}"/>
+                                                    </items>
+                                                </ComboBox>
+                                                <Button	icon="sap-icon://add" press="" tooltip = "Add New Entry" class="sapUiLargeMarginBegin"/>
+                                                <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiTinyMarginBegin" press="handleConnectToLocalSystem"/>                                            
+                                                <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+                                                                                sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+                                                                                fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+                                                                                class="sapUiTinyMarginBegin"/>
+                                                <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                                                </HBox>
+                                                <HBox>
+                                                    <HBox width="120%">
+                                                        <Table id="upstreamTbl" alternateRowColors="true"
+                                                            items="{path: '/results', filters: [ { path: 'Type', operator: 'EQ', value1: 'Upstream Transportation' }, 
+                                                                                                { path: 'SubType', operator: 'EQ', value1: 'Air' },
+                                                                                                { path: 'Year', operator: 'EQ', value1: '2020' } ]}"
+                                                            growing="true" growingThreshold="6">
+														<columns>
+															<Column >
+																<Text text="S.No"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Distance"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+                                                            <Column hAlign="Center">
+																<Text text="Weight"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Costs"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Currency"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="6em">
+																<Text text="Comment"></Text>
+															</Column>															
+                                                            <Column hAlign="Center" width="7em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="7em">
+																<Text text="Approver" ></Text>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Sno}"/>
+																	<Input value="{Distance}" placeholder="Distance"/>
+																	<ComboBox xmlns="sap.m" items="{unitModel>/CommuteUnit}" selectedKey="{Unit}" >
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{unitModel>key}" text="{unitModel>value}"/>
+																		</items>
+																	</ComboBox>
+                                                                    <Input value="{Weight}" placeholder="Weight"/>
+                                                                    <Input value="{Unit2}" placeholder="Unit2"/>
+																	<Input value="{Cost}" placeholder=""/>
+																	<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>																	
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[303] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/Water.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                            </VBox>
+										</uxap:blocks>
+                                        </uxap:ObjectPageSubSection>   
+
+                                        <!--Remote Working/ WFH-->
+									<uxap:ObjectPageSubSection title="Remote Working/WFH">										
+										<uxap:blocks>
+                                            <VBox>										
+                                                <Title wrapping="true" level="H5"
+                                                    text="Water is at the core of sustainable development and is critical for socio-economic development, healthy ecosystems and survival of all living beings on earth. Water withdrawal refers to the water that is drawn from a surface water or groundwater source."/>
+                                                <HBox >                                                
+                                                <Label text="Type" class="sapUiTinyMarginTop sapUiTinyMarginEnd"/>
+                                                <ComboBox xmlns="sap.m" items="{RemoteModel>/RemoteOptions}" id="wfhOptions" selectedKey="Desktop"
+                                                    change="onSelectionOfRemoteWorking" class="sapUiLargeMarginEnd myTblObjAlign">
+                                                    <items>
+                                                        <core:Item xmlns:core="sap.ui.core" key="{RemoteModel>key}" text="{RemoteModel>value}"/>
+                                                    </items>
+                                                </ComboBox>
+                                                <Button text="Connect To Local System"  icon="sap-icon://connected" width = "200px" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem"/>                                            
+                                                <u:FileUploader name="myFileUpload" fileType="pdf" tooltip="Upload File" buttonOnly="true" iconOnly="true" sendXHR="true"
+                                                                                sameFilenameAllowed="true" typeMissmatch="handleFileUploadValidation" fileSizeExceed="handleFileUploadValidation"
+                                                                                fileAllowed="handleFileUploadAllowed" icon="sap-icon://attachment" text="Upload File" uploadOnChange="false"
+                                                                                class="sapUiTinyMarginBegin"/>
+                                                <Button icon="sap-icon://excel-attachment" tooltip="Download Excel" class="sapUiTinyMarginBegin" press="handleDownloadExcel"/>
+                                                </HBox>
+                                                <HBox>
+                                                    <HBox width="120%">
+                                                        <Table id="wfhTbl" alternateRowColors="true"
+                                                            items="{path: '/results', filters: [ { path: 'Type', operator: 'EQ', value1: 'Remote Working' }, 
+                                                                                                { path: 'SubType', operator: 'EQ', value1: 'Desktop' },
+                                                                                                { path: 'Year', operator: 'EQ', value1: '2020' } ]}"
+                                                            growing="true" growingThreshold="6">
+														<columns>
+															<Column >
+																<Text text="Month"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Value"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Unit"></Text>
+															</Column>
+                                                            <Column hAlign="Center">
+																<Text text="Associates"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Costs"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Currency"></Text>
+															</Column>
+															<Column hAlign="Center">
+																<Text text="Quality"></Text>
+															</Column>
+															<Column hAlign="Center" width="6em">
+																<Text text="Comment"></Text>
+															</Column>															
+                                                            <Column hAlign="Center" width="7em">
+																<Text text="Owner" ></Text>
+															</Column>
+                                                            <Column hAlign="Center" width="6.5em">
+																<Text text="Approver" ></Text>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem >
+																<cells>
+																	<ObjectIdentifier title="{Month}"/>
+																	<Input value="{Distance}" placeholder="Value"/>
+																	<ComboBox xmlns="sap.m" items="{unitModel>/CommuteUnit}" selectedKey="{Unit}" >
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{unitModel>key}" text="{unitModel>value}"/>
+																		</items>
+																	</ComboBox>
+                                                                    <Input value="{Associates}" placeholder="Associates"/>
+																	<Input value="{Cost}" placeholder=""/>
+																	<ComboBox xmlns="sap.m" items="{viewModel>/CurrencyCB}" selectedKey="{Currency}">
+																		<items>
+																			<core:Item xmlns:core="sap.ui.core" key="{viewModel>key}" text="{viewModel>value}"/>
+																		</items>
+																	</ComboBox>
+																	<Switch type="AcceptReject" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"/>
+																		</layoutData>
+																	</Switch>
+																	<Input value="{Comment}" placeholder="Comment"/>																	
+                                                                    <Text text="{Owner}" />
+                                                                    <Text text="{Approver}" />
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</HBox>											
+												<VBox alignItems="Center" justifyContent="Center">
+                                                 <Title level="H1" text="[303] GRI Standards" class="fntBold sapUiSmallMarginBottom"/>
+													<Image src="./images/Water.jpg" class="sapUiMediumMarginBegin"/>
+												</VBox>
+											</HBox>
+                                            </VBox>
+										</uxap:blocks>
+                                        </uxap:ObjectPageSubSection>   
+
+
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+                            
+
+						</uxap:sections>
+                       	</uxap:ObjectPageLayout>
+                
+                    </content>
+                    <footer>
+                       <Toolbar>
+                        <ToolbarSpacer/>
+                        <Button type="Accept" text="Edit"  icon="sap-icon://edit" width = "90px" press="handleEditBtn" id = "btn1"/>
+                        <Button type="Accept" text="Reset" icon="sap-icon://reset" width = "90px" press="callODataService" id = "btn2"/>
+                        <Button type="Accept" text="Submit For Approval" press="onPressSubmit_V1" icon="sap-icon://accept" id = "btn3"/>
+                    </Toolbar>
+                </footer>
+                </Page>   
+   
+</mvc:View>
+ 
+

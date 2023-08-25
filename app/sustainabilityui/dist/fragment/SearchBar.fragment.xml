@@ -1,0 +1,107 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified">
+
+    <VBox class= "filterBorder">
+        <Label text="Search for specific Division, Location and Year to fetch emission data from various sources." class="sapUiSmallMarginBegin"/>				                
+        <FlexBox
+            height="70px"
+            alignItems="Center"
+            justifyContent="Start">
+            <VBox class="sapUiSmallMarginEnd sapUiSmallMarginBegin" >
+                <Label text="Division" />				                
+               <!-- <ComboBox xmlns="sap.m"  items="{divisionModel>/Division}" selectedKey="ACME Industries" id="box0"  class="filterdd">
+                    <items>                                      
+                        <core:Item xmlns:core="sap.ui.core" key="{divisionModel>key}" text="{divisionModel>text}"  />
+                    </items>    
+                </ComboBox> 
+                <ComboBox xmlns="sap.m"  items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Division' } ] }" 
+                                    selectedKey="ACME Industries" id="box0"  class="filterdd">
+                    <items>                                                              
+                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}"  />
+                    </items>    
+                </ComboBox>     -->
+                <!-- Working commented to add filter from controller
+                <ComboBox xmlns="sap.m" id="box0" 
+                        items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                filters: [ { path: 'ID', operator: 'EQ', value1: 'Division' } ] }"  
+                        selectedKey="ACME Industries" > -->
+               <!-- Working commented on 15 Dec to read values from different table
+                <ComboBox xmlns="sap.m" id="box0" 
+                        items="{ path : 'ConstantsModel>/results' ,templateShareable:false}"  
+                         selectedKey="Bharti Airtel Limited">                                                
+                    <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                        text="{ConstantsModel>Value}"/>                                        
+                </ComboBox>  --> 
+                
+                <ComboBox xmlns="sap.m" id="box0" 
+                        items="{ path : 'divisionModel>/results' ,templateShareable:false}"  
+                         selectedKey="Bharti Airtel Limited">                                                
+                    <core:Item xmlns:core="sap.ui.core" key="{divisionModel>Division}" 
+                                                        text="{divisionModel>Division}"/>                                        
+                </ComboBox>   
+                <Text text="" />                 
+            </VBox>                    
+            <VBox class="sapUiSmallMarginEnd sapUiSmallMarginBegin" >
+                <Label text="Circle" id="lblLocation"/>       
+               <!-- <ComboBox xmlns="sap.m"  items="{locationModel>/Location}" selectedKey="Bangalore - TMEC" id="box1"  class="filterdd">
+                    <items>                                      
+                        <core:Item xmlns:core="sap.ui.core" key="{locationModel>key}" text="{locationModel>text}"  />
+                    </items>    
+                </ComboBox>    -->
+                <!-- Working commented to add filter from controller
+                <ComboBox xmlns="sap.m"  items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Location' } ] }" 
+                                    selectedKey="Bangalore - TMEC" id="box1"  class="filterdd">
+                    <items>                                      
+                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}"  />
+                    </items>    
+                </ComboBox>     -->
+
+               <!-- Working commented on 15 Dec to read values from different table 
+                    <ComboBox xmlns="sap.m"  items="{ path : 'ConstantsModel>/results' ,templateShareable:false }" 
+                                     id="box1"  class="filterdd" selectedKey="Maharashtra">
+                    <items>                                      
+                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}"  />
+                    </items>    
+                </ComboBox>   -->  
+                 
+                <ComboBox xmlns="sap.m"  items="{ path : 'locationModel>/results' ,templateShareable:false }" 
+                                     id="box1"  class="filterdd" selectedKey="Maharashtra" >
+                    <items>                                      
+                        <core:Item xmlns:core="sap.ui.core" key="{locationModel>Location}" text="{locationModel>Location}"  />
+                    </items>    
+                </ComboBox>      
+                <Text text="" />
+            </VBox>
+            <VBox class="sapUiSmallMarginEnd sapUiSmallMarginBegin">
+                <Label text="Year" />                
+                <!--<ComboBox xmlns="sap.m"  items="{yearModel>/Year}" selectedKey="2020" id="box2"  class="filterdd" change="">
+                    <items>                                      
+                        <core:Item xmlns:core="sap.ui.core" key="{yearModel>key}" text="{yearModel>value}"  />
+                    </items>    
+                </ComboBox> -->
+                <!--<ComboBox xmlns="sap.m"  items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                    filters: [ { path: 'ID', operator: 'EQ', value1: 'Year' } ] }" 
+                                    selectedKey="2022-2023" id="box2"  class="filterdd" change="">
+                    <items>                                      
+                        <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}"  />
+                    </items>    
+                </ComboBox>-->
+                <ComboBox xmlns="sap.m"  items="{ path : 'yearModel>/results' ,templateShareable:false }" 
+                                     id="box2"  class="filterdd" selectedKey="FY 2022-23" selectionChange="onChangeYear">
+                    <items>                                      
+                        <core:Item xmlns:core="sap.ui.core" key="{yearModel>fiscal}" text="{yearModel>fiscal}"  />
+                    </items>    
+                </ComboBox>  
+                <Text text="" id="dateDisp"/>
+            </VBox>
+
+            <Button width = "90px" text="Search" press="onPressGo" icon="sap-icon://search" class="sapUiSmallMarginTop sapUiSmallMarginEnd sapUiSmallMarginBegin"></Button>
+            <Button width = "90px" text="Clear" icon="sap-icon://clear-all" class="sapUiSmallMarginTop sapUiSmallMarginEnd sapUiSmallMarginBegin"></Button>
+            <Button width = "120px" text="Dashboard" icon="sap-icon://bbyd-dashboard" class="sapUiSmallMarginTop sapUiSmallMarginBegin"></Button>
+            
+        </FlexBox>
+    </VBox>
+</core:FragmentDefinition>

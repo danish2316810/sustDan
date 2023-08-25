@@ -1,0 +1,4 @@
+VIEW CatalogService_Prefix_Values AS SELECT
+  Prefix_Values_0.prefix,
+  Prefix_Values_0.value
+FROM app_interactions_Prefix_Values AS Prefix_Values_0

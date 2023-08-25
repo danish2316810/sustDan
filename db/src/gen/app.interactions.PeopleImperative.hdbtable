@@ -1,0 +1,13 @@
+COLUMN TABLE app_interactions_PeopleImperative (
+  Type NVARCHAR(5000),
+  SubType NVARCHAR(5000),
+  Category NVARCHAR(5000),
+  Gender NVARCHAR(5000),
+  Upto30yrs INTEGER,
+  Upto50yrs INTEGER,
+  Morethan50Yrs INTEGER,
+  Total INTEGER,
+  Division NVARCHAR(5000),
+  Location NVARCHAR(5000),
+  "YEAR" NVARCHAR(5000)
+)

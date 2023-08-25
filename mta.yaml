@@ -1,0 +1,151 @@
+_schema-version: '3.1'
+ID: TrackSustainability
+description: A simple CAP project.
+version: 1.25.7
+modules:
+  - name: TrackSustainability-srv
+    type: nodejs
+    path: srv
+    requires:
+      - name: my-hdi
+      - name: uaa_TrackSustainability
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: '${default-url}'
+    parameters:
+      buildpack: nodejs_buildpack
+      stack: cflinuxfs4
+      host: '${appname}'
+    build-parameters:
+      ignore:
+        - .env
+        - ./node_modules
+  - name: TrackSustainability-db-deployer
+    type: hdb
+    path: db
+    requires:
+      - name: my-hdi
+    parameters:
+      buildpack: nodejs_buildpack
+      stack: cflinuxfs4
+    build-parameters:
+      ignore:
+        - .env
+        - ./node_modules
+  - name: tracksustainability-approuter
+    type: approuter.nodejs
+    path: tracksustainability-approuter
+    requires:
+      - name: TrackSustainability_html_repo_runtime
+      - name: uaa_TrackSustainability
+      - name: TrackSustainability-destination-service
+      - name: connectivity_service
+      - name: workflow_mta
+        group: destinations
+        properties:
+          forwardAuthToken: false
+          name: ui5
+          url: 'https://ui5.sap.com'
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+  - name: TrackSustainability_ui_deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: TrackSustainability_html_repo_host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - comtechmsustainabilityui.zip
+          name: comtechmsustainabilityui
+          target-path: resources/
+  - name: comtechmsustainabilityui
+    type: html5
+    path: app/sustainabilityui
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - 'npm run build:cf'
+      supported-platforms: []
+    requires:
+      - name: my-hdi
+      - name: uaa_TrackSustainability
+resources:
+  - name: my-hdi
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+      config: null
+      database_id: 5a9645ac-10ec-4b79-8e97-90c6f32c8a4e
+    properties:
+      hdi-service-name: '${service-name}'
+  - name: TrackSustainability_html_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+  - name: connectivity_service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
+  - name: workflow_mta
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: workflow
+      service-plan: standard
+  - name: uaa_TrackSustainability
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-name: TrackSustainability-xsuaa-service
+      service-plan: application
+  - name: TrackSustainability_html_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+  - name: TrackSustainability-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        HTML5Runtime_enabled: false
+        init_data:
+          instance:
+            destinations:
+              - Authentication: NoAuthentication
+                Name: ui5
+                ProxyType: Internet
+                Type: HTTP
+                URL: 'https://ui5.sap.com'
+              - Authentication: NoAuthentication
+                HTML5.DynamicDestination: true
+                HTML5.ForwardAuthToken: true
+                Name: tracksustainability-app-api
+                ProxyType: Internet
+                Type: HTTP
+                URL: 'https://${appname}.${default-domain}'
+            existing_destinations_policy: update
+        version: 1.0.0
+      service: destination
+      service-name: TrackSustainability-destination-service
+      service-plan: lite
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+  appname: TrackSustainability-80b20318-709e-4363-862c-fe7e1a232ff3
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm install --production
+        - npx -p @sap/cds-dk cds build --production

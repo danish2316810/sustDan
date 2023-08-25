@@ -1,0 +1,86 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified" xmlns:uxap="sap.uxap"
+    xmlns:u="sap.ui.unified">
+    
+<!--    <Table id="SocialTableL" alternateRowColors="true" growing="true"  width="90%"  sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+            items="{path: 'SocialModel>/results'}" mode="MultiSelect">
+            <headerToolbar></headerToolbar>
+            <infoToolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer/> 
+                   <Button	id="addBtnTableL" icon="sap-icon://add" press="OnPressAddNewEntry" tooltip = "Add New Entry"/>            
+                </OverflowToolbar>
+            </infoToolbar>
+            <columns>
+                <Column >
+                   <Text id="ColHeaderSocialTableL" text="Requirement" ></Text>
+                </Column>
+                <Column  hAlign="Center" >
+                    <Text text="Number" ></Text>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{SocialModel>Identifier}" width="40em" editable="false" />
+                        <HBox>
+                            <Text text="{SocialModel>Number}" width="10em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+                            <Input value="{SocialModel>Number}" width="10em" type="Number" tooltip="Only digits" editable="true" 
+                            visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}" />
+                        </HBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table> -->
+    
+   <Table id="SocialTableL" alternateRowColors="true" growing="true"  width="90%"  sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+            items="{path: 'SocialModel>/results'}" >
+         <headerToolbar></headerToolbar>           
+            <infoToolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer/> 
+                   <Button	id="addBtnTableL" icon="sap-icon://add" press="OnPressAddNewEntry" tooltip = "Add New Entry"/>            
+                </OverflowToolbar>
+            </infoToolbar>
+            <columns>
+                <Column >
+                   <Text id="ColHeaderSocialTableL" text="Description" ></Text>
+                </Column>               
+            </columns>
+            <items>
+                <ColumnListItem class="tblCellHht">
+                    <cells >                        
+                        <HBox>
+                            <TextArea value="{SocialModel>ltext}" width="520%" height="19em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatDisplayField'}" editable="false" />
+
+                            <TextArea value="{SocialModel>ltext}" width="520%" editable="true" height="10em"
+                            visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                    formatter: '.formatEditField'}"/>
+                            
+                        </HBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+        <!--<Table id="SocialTableL" alternateRowColors="true" growing="true"  width="90%"  sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+            items="" >         
+            <columns>
+                <Column >
+                   <Text id="ColHeaderSocialTableL" text="Description" ></Text>
+                </Column>               
+            </columns>
+            <items>
+                <ColumnListItem class="tblCellHht">
+                    <cells >  
+                        <TextArea value="" width="520%" editable="true" height="10em"  id="valSocialTableL"/>                         
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table> -->
+       
+</core:FragmentDefinition>

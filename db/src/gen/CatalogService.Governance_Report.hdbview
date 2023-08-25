@@ -1,0 +1,13 @@
+VIEW CatalogService_Governance_Report AS SELECT
+  Governance_Report_0.Type,
+  Governance_Report_0.SubType,
+  Governance_Report_0.Category,
+  Governance_Report_0.Value,
+  Governance_Report_0.Unit,
+  Governance_Report_0.Quality,
+  Governance_Report_0.Comment,
+  Governance_Report_0.Textanswer,
+  Governance_Report_0.Division,
+  Governance_Report_0.Location,
+  Governance_Report_0."YEAR"
+FROM app_interactions_Governance_Report AS Governance_Report_0

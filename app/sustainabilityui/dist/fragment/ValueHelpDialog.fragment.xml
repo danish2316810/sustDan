@@ -1,0 +1,58 @@
+<!--<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="valueHelpDialog"
+		title="Products"
+		items="{/ProductCollection}"
+		search="_handleValueHelpSearch"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose"
+		multiSelect="true">
+		<StandardListItem
+			icon=""
+			iconDensityAware="false"
+			iconInset="false"
+			title="{/recipient/name}"
+			description="{/recipient/name}" />
+	</SelectDialog>
+</core:FragmentDefinition>-->
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog		
+		title="SDG"
+		items="{/Product}"
+		search=".onValueHelpDialogSearch"
+		confirm=".onValueHelpDialogClose"
+		cancel=".onValueHelpDialogClose"
+		multiSelect="true">
+		<StandardListItem
+			icon="{SDGimgUrl}"
+			iconDensityAware="false"
+			iconInset="false"
+			title="{Name}" />
+			<!--<StandardListItem
+			icon="./documents/E-WEB-Goal-01.png"
+			iconDensityAware="false"
+			iconInset="false"
+			title="SDG 1 : No Poverty"
+			/>
+			<StandardListItem
+			icon="./documents/E-WEB-Goal-02.png"
+			iconDensityAware="false"
+			iconInset="false"
+			title="SDG 2 : Zero Hunger"
+			/>
+			<StandardListItem
+			icon="./documents/E-WEB-Goal-03.png"
+			iconDensityAware="false"
+			iconInset="false"
+			title="SDG 3 : Good Health and Well-being"
+			/>
+			<StandardListItem
+			icon="./documents/E-WEB-Goal-04.png"
+			iconDensityAware="false"
+			iconInset="false"
+			title="SDG 4 : Quality Education"
+			 />-->
+	</SelectDialog>
+</core:FragmentDefinition>

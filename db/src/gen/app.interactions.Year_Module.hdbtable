@@ -1,0 +1,10 @@
+COLUMN TABLE app_interactions_Year_Module (
+  Industry NVARCHAR(25) NOT NULL,
+  YearL NVARCHAR(4) NOT NULL,
+  fiscal NVARCHAR(25) NOT NULL,
+  YearR NVARCHAR(4),
+  YearA NVARCHAR(9),
+  StartDate NVARCHAR(25),
+  EndDate NVARCHAR(25),
+  PRIMARY KEY(YearL, fiscal)
+)

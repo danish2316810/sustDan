@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified">
+
+    <VBox class= "filterBorder">
+       
+        <FlexBox
+            height="300px"            
+            alignItems="Center"
+            justifyContent="Start"
+            >
+            <VBox id="v1">
+            <VBox class="sapUiSmallMarginEnd sapUiSmallMarginBegin" >
+                <Label text="Year" />			                
+               
+                <ComboBox xmlns="sap.m" id="box0" 
+                        items="" class="filterdd">                                                
+                    <core:Item xmlns:core="sap.ui.core" key="" 
+                                                        text=""/>                                        
+                </ComboBox>     
+                                   
+            </VBox>                    
+            <VBox class="sapUiSmallMarginEnd sapUiSmallMarginBegin" >
+                <Label text="Region Code" />       
+               
+                <ComboBox xmlns="sap.m"  items="" 
+                                    selectedKey="" id="box1"  class="filterdd">
+                    <items>                                      
+                        <core:Item xmlns:core="sap.ui.core" key="" text=""  />
+                    </items>    
+                </ComboBox>            
+            </VBox>
+            <VBox class="sapUiSmallMarginEnd sapUiSmallMarginBegin">
+                <Label text="Unit Code" />            
+                
+                <ComboBox xmlns="sap.m"  items="" 
+                                    selectedKey="" id="box2"  class="filterdd" change="">
+                    <items>                                      
+                        <core:Item xmlns:core="sap.ui.core" key="" text=""  />
+                    </items>    
+                </ComboBox>
+            </VBox>
+                <Button width = "90px" text="Search" press="" icon="sap-icon://search" class="sapUiSmallMarginTop sapUiSmallMarginEnd sapUiSmallMarginBegin"></Button>
+            </VBox>
+            <!--<Button width = "90px" text="Search" press="onPressGo" icon="sap-icon://search" class="sapUiSmallMarginTop sapUiSmallMarginEnd sapUiSmallMarginBegin"></Button>
+            <Button width = "90px" text="Clear" icon="sap-icon://clear-all" class="sapUiSmallMarginTop sapUiSmallMarginEnd sapUiSmallMarginBegin"></Button>
+            <Button width = "120px" text="Dashboard" icon="sap-icon://bbyd-dashboard" class="sapUiSmallMarginTop sapUiSmallMarginBegin"></Button>-->
+            
+        </FlexBox>
+    </VBox>
+</core:FragmentDefinition>

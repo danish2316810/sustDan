@@ -1,0 +1,134 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified">
+
+    <ScrollContainer
+        height="80%"
+        width="100%"
+        vertical="true"
+        focusable="true">
+
+        <Table id="EmissionFactorsUserTbl" items="{path: 'EmissionFactorsUserModel>/results'}" alternateRowColors="true"
+                                width="95%" mode="MultiSelect"   class="sapUiSmallMarginTop sapUiSmallMarginBegin"  
+                                sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"    inset="false">
+                    <headerToolbar></headerToolbar>
+                    <infoToolbar>
+                        <OverflowToolbar>
+                            <ToolbarSpacer/>
+                            <Label text="Standard Emission Factor Values"/>
+                            <ToolbarSpacer/>
+                            <Button	icon="sap-icon://add" press="OnPressAddNewEntry_EF" tooltip = "Add New Entry"/>
+                          <!--       <Button	icon="sap-icon://less" press="onDataExport" tooltip = "Remove Selected Entry"/>-->
+                          <Button icon="sap-icon://less" press="" tooltip="Remove Selected Entry" enabled="false"/>
+                        </OverflowToolbar>
+                    </infoToolbar>
+                    <columns>                        
+                        <Column >
+                            <Text text="KPI"/>
+                        </Column>	
+                        <Column visible="false">
+                            <Text text="Standard"/>
+                        </Column>
+                        <Column >
+                            <Text text="EF Value"/>
+                        </Column>			
+                        <Column >
+                            <Text text="EF Unit"/>
+                        </Column>                     	
+                       	<Column id="shortLongColn_user" visible="false">
+                            <Text text="ShortLong"/>
+                        </Column>
+                        <Column id="classColn_user" visible="false">
+                            <Text text="Class"/>
+                        </Column>							
+                        </columns>
+                        <items>
+                            <ColumnListItem >
+                                <cells> 
+                                    <HBox>
+                                        <Text text="{EmissionFactorsUserModel>KPI}" 
+                                                visible="{parts: [{path: 'EmissionFactorsUserModel>isNewRow'}, 
+                                                {path: 'EmissionFactorsUserModel>isEditableRow'}, {path: 'EmissionFactorsUserModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                        <ComboBox xmlns="sap.m" id="KPI_user" selectionChange="onChangeKPI"
+                                                 items="{ path : '/items' ,templateShareable:false}"  
+                                                 selectedKey="{EmissionFactorsUserModel>KPI}" editable="true" visible="{EmissionFactorsUserModel>isNewRow}">                                                
+                                            <core:Item xmlns:core="sap.ui.core" key="{KPIModel>KPI}" 
+                                                                                text="{KPIModel>KPI}"/>                                        
+                                        </ComboBox> 
+                                    </HBox>						
+                                </cells>
+                                <cells visible="false"> 
+                                    <HBox>
+                                        <Text text="{EmissionFactorsUserModel>Standard}" 
+                                                visible="{parts: [{path: 'EmissionFactorsUserModel>isNewRow'}, 
+                                                {path: 'EmissionFactorsUserModel>isEditableRow'}, {path: 'EmissionFactorsUserModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                        <ComboBox xmlns="sap.m" id="Standard_user" selectionChange="onChangeStdValue_EF"
+                                                items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                        filters: [ { path: 'ID', operator: 'EQ', value1: 'Standard' } ] }"  
+                                                selectedKey="{EmissionFactorsUserModel>Standard}" editable="true" visible="{EmissionFactorsUserModel>isNewRow}">                                                
+                                            <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                                text="{ConstantsModel>Value}"/>                                        
+                                        </ComboBox> 
+                                    </HBox>
+                                </cells>
+                                <cells>                                    
+                                    <HBox>
+                                        <Text text="{EmissionFactorsUserModel>EmissionFactor}" 
+                                                    visible="{parts: [{path: 'EmissionFactorsUserModel>isNewRow'}, 
+                                                    {path: 'EmissionFactorsUserModel>isEditableRow'}, {path: 'EmissionFactorsUserModel>isExistingRow'}],
+                                                                formatter: '.formatDisplayField'}" />                                                                
+                                        <Input value="{EmissionFactorsUserModel>EmissionFactor}" editable="true"
+                                                visible="{parts: [{path: 'EmissionFactorsUserModel>isNewRow'}, 
+                                                    {path: 'EmissionFactorsUserModel>isEditableRow'}, {path: 'EmissionFactorsUserModel>isExistingRow'}],
+                                                                formatter: '.formatEditField'}"/>	
+                                    </HBox>																
+                                </cells>
+                                <cells>                                    
+                                    <HBox>
+                                        <Text text="{EmissionFactorsUserModel>UoM}" 
+                                                    visible="{parts: [{path: 'EmissionFactorsUserModel>isNewRow'}, 
+                                                    {path: 'EmissionFactorsUserModel>isEditableRow'}, {path: 'EmissionFactorsUserModel>isExistingRow'}],
+                                                                formatter: '.formatDisplayField'}" />
+                                        <Input value="{EmissionFactorsUserModel>UoM}" editable="true"
+                                                visible="{parts: [{path: 'EmissionFactorsUserModel>isNewRow'}, 
+                                                    {path: 'EmissionFactorsUserModel>isEditableRow'}, {path: 'EmissionFactorsUserModel>isExistingRow'}],
+                                                                formatter: '.formatEditField'}"/>	
+                                    </HBox>																	
+                                </cells>
+                                <cells >                                     
+                                    <HBox visible="{ path:'EmissionFactorsUserModel>Type', formatter: '.formatEmissionFactor'}">
+                                        <Text text="{EmissionFactorsUserModel>Shortlong}" 
+                                                visible="{parts: [{path: 'EmissionFactorsUserModel>isNewRow'}, 
+                                                {path: 'EmissionFactorsUserModel>isEditableRow'}, {path: 'EmissionFactorsUserModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                        <ComboBox xmlns="sap.m" id="Shortlong_user" selectionChange=""
+                                                items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                        filters: [ { path: 'ID', operator: 'EQ', value1: 'SHORTLONG' } ] }"  
+                                                selectedKey="{EmissionFactorsUserModel>Shortlong}" editable="true" visible="{EmissionFactorsUserModel>isNewRow}">                                                
+                                            <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                                text="{ConstantsModel>Value}"/>                                        
+                                        </ComboBox> 
+                                    </HBox>
+                                </cells>
+                                <cells>                                     
+                                    <HBox visible="{ path:'EmissionFactorsUserModel>Type', formatter: '.formatEmissionFactor'}">
+                                        <Text text="{EmissionFactorsUserModel>class}" 
+                                                visible="{parts: [{path: 'EmissionFactorsUserModel>isNewRow'}, 
+                                                {path: 'EmissionFactorsUserModel>isEditableRow'}, {path: 'EmissionFactorsUserModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                        <ComboBox xmlns="sap.m" id="Class_user" selectionChange=""
+                                                items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                        filters: [ { path: 'ID', operator: 'EQ', value1: 'CLASS' } ] }"  
+                                                selectedKey="{EmissionFactorsUserModel>class}" editable="true" visible="{EmissionFactorsUserModel>isNewRow}">                                                
+                                            <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                                text="{ConstantsModel>Value}"/>                                        
+                                        </ComboBox> 
+                                    </HBox>
+                                </cells>                               
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+</ScrollContainer>
+</core:FragmentDefinition>

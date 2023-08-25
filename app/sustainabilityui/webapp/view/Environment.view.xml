@@ -1,0 +1,141 @@
+<mvc:View
+    controllerName="com.techm.sustainabilityui.controller.Environment"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+>
+    <Page enableScrolling="false">
+        <customHeader>
+            <Bar class="headerBar">
+                <contentLeft>
+                    <Button icon="sap-icon://nav-back" press="onPressBack" class="sapUiSmallMarginEnd myBackBtn" />
+                    <Image src="./images/JS1.png" class="sapUiSmallMarginEnd" />
+                </contentLeft>
+                <contentMiddle>
+                    <HBox>
+                        <Image src="./images/iSustainLogo_01.png" class="titleAlign sapUiTinyMarginTop" />
+                        <Title level="H6" text="TechM Sustainability Reporting Framework" class="sapUiSmallMarginTop sapUiTinyMarginBegin fntBold" />
+                        <Image src="./images/btp.jpg" class="sapUiSmallMarginTop sapUiTinyMarginBegin" />
+                    </HBox>
+                </contentMiddle>
+                <contentRight>
+                    <Image src="./images/avatar2.png" densityAware="false" />
+                    <Text text="Welcome, Henry Lucas!" class="userName" />
+                    <Button icon="sap-icon://arrow-down" class="myBackBtn" />
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>
+            <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.SearchBar" type="XML" />
+
+            <VBox class="filterBorder_hr">
+                <HBox>
+                    <RadioButtonGroup id="rbgKPITypes" select="onSelect_Radiobutton_KPIType" width="238px" buttons="{ path : 'KPITypeModel>/' }" class="sapUiLargeMargin">
+                        <RadioButton text="{KPITypeModel>}" />
+                    </RadioButtonGroup>
+                    <VBox>
+                        <HBox>
+                            <HBox class="sapUiLargeMarginTop">
+                                <Label text="SubType" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+                                <!--<ComboBox xmlns="sap.m" id="EF_Type1" 
+                            items="{ path : '/Countries1' 
+                                    filters: [ { path: 'Type', operator: 'EQ', value1: 'ENERGY' } ] }"  
+                            selectionChange="onChangeEF_Energy1" selectedKey="Direct Energy" class="sapUiLargeMarginEnd">        
+                        <core:Item xmlns:core="sap.ui.core" key="{SubType}" text="{SubType}"/>                                        
+                    </ComboBox>           
+                    <ComboBox xmlns="sap.m" id="EF_Type" 
+                            items="{ path : 'KPIModel>results' }"  
+                            selectionChange="onChangeEF_Energy1" selectedKey="Upstream Transportation">
+                
+                        <core:Item xmlns:core="sap.ui.core" key="{KPIModel>SubType}" 
+                                                            text="{KPIModel>SubType}"/>                                        
+                    </ComboBox>    -->
+
+                                <!--  <ComboBox xmlns="sap.m" id="KPISubType" selectionChange="onChangeEF_Energy1" selectedKey="Upstream Transportation">-->
+                                <ComboBox xmlns="sap.m" id="KPISubType" selectionChange="onChange_ComboBox_KPISubType" />
+                            </HBox>
+                            <HBox class="sapUiLargeMarginTop sapUiTinyMarginEnd">
+                                <Label text="" width="5em" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+
+                                <Label text="KPI" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+
+                                <!--<ComboBox xmlns="sap.m" id="KPI" 
+                            items="{ path : 'KPIListModel>results' , templateShareable:false,
+                                    filters: [ { path: 'Type', operator: 'EQ', value1: 'WASTE' },
+                                    { path: 'SubType', operator: 'EQ', value1: 'Battery' } ] }"  
+                            selectionChange="onChangeKPI" selectedKey="Air" >        
+                        <core:Item xmlns:core="sap.ui.core" key="{KPIListModel>KPI}" text="{KPIListModel>KPI}"/>                                        
+                    </ComboBox>   -->
+                                <ComboBox xmlns="sap.m" id="KPI" selectionChange="onChangeKPI" />
+                            </HBox>
+
+                            <!--<HBox class="sapUiLargeMarginTop sapUiTinyMarginEnd">
+                                <Label text="" width="5em" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+                                <Label text="Source" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+                                <ComboBox xmlns="sap.m" id="vendor" selectionChange="onChangeVendor" />
+                            </HBox>-->
+
+                        </HBox>
+                        <ScrollContainer height="65%" width="100%" vertical="true" focusable="true"><!--height =90-->
+                            <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.EnvTable" type="XML" class="sapUiTinyMargin" visible="true" />
+                            <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.EnvTable2" type="XML" class="sapUiTinyMargin" visible="false" />
+                            <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.EnvTable3" type="XML" class="sapUiTinyMargin" visible="false" />
+                            <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.EnvTable4" type="XML" class="sapUiTinyMargin" visible="false" />
+                            <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.EnvTable5" type="XML" class="sapUiTinyMargin" visible="false" />
+                            <core:Fragment fragmentName="com.techm.sustainabilityui.fragment.Table6" type="XML" class="sapUiTinyMargin" visible="false" />
+                        
+                            <!--new fragment-->
+                        </ScrollContainer>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </content>
+        <footer>
+            <Toolbar>
+                <Button text="Connect" icon="sap-icon://connected" tooltip="Fetch Data From Local System" class="sapUiLargeMarginBegin" press="handleConnectToLocalSystem" type="Emphasized" />
+
+                <u:FileUploader
+                    id="fileUploader"
+                    name="myFileUpload"
+                    fileType="pdf"
+                    tooltip="Upload File"
+                    buttonOnly="true"
+                    iconOnly="true"
+                    sendXHR="true"
+                    sameFilenameAllowed="true"
+                    typeMissmatch="handleFileUploadValidation"
+                    fileSizeExceed="handleFileUploadValidation"
+                    fileAllowed="handleUploadPress"
+                    icon="sap-icon://attachment"
+                    uploadOnChange="false"
+                    class="sapUiTinyMarginBegin"
+                />
+                <u:FileUploader id="FileUploaderId" sameFilenameAllowed="true" iconOnly="true" buttonOnly="true" fileType="XLSX,xlsx" 
+                icon="sap-icon://excel-attachment" iconFirst="true" style="Emphasized" multiple="true"
+                change="onExportExcelTemplate" />
+
+               <!-- onExportExcel
+                onExportExcelTemplate-->
+
+                <!-- <core:Icon src="sap-icon://excel-attachment"  press="onExportExcel" tooltip = "Upload Excel File" class="sapUiTinyMarginBegin">
+                <core:layoutData>
+                    <FlexItemData growFactor="1" />
+                </core:layoutData>
+            </core:Icon>-->
+
+                <ToolbarSpacer />
+                <Button type="Accept" text="Edit" icon="sap-icon://edit" width="90px" press="handleEditBtn" id="btn1" />
+                <Button type="Accept" text="Reset" icon="sap-icon://reset" width="90px" press="handleResetBtn" id="btn2" enabled="false" />
+                <Button type="Accept" text="Submit For Approval" press="onPressSubmit" icon="sap-icon://accept" id="btn3" />
+              <!--  <Button type="Accept" text="Submit For Approval" press="onPressDataUpload" icon="sap-icon://accept" id="btn3" />-->
+               <!-- <Button type="Accept" text="Submit For Approval" press="onPressTemplateUpload" icon="sap-icon://accept" id="btn3" />-->
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

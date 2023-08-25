@@ -1,0 +1,15 @@
+VIEW CatalogService_EmissionFactors AS SELECT
+  EmissionFactors_0.Industry,
+  EmissionFactors_0.KPI,
+  EmissionFactors_0.Type,
+  EmissionFactors_0.SubType,
+  EmissionFactors_0.Standard,
+  EmissionFactors_0.Shortlong,
+  EmissionFactors_0.class,
+  EmissionFactors_0.EmissionFactor,
+  EmissionFactors_0.UoM,
+  EmissionFactors_0.Deno,
+  EmissionFactors_0.Nume,
+  EmissionFactors_0.createdAt,
+  EmissionFactors_0.modifiedAt
+FROM app_interactions_EmissionFactors AS EmissionFactors_0

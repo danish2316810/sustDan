@@ -1,0 +1,57 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" >
+	<Dialog		
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core"
+        xmlns:t="sap.ui.table"
+        >
+		
+        <t:TreeTable id="GRIDialog" 
+         selectionMode="Single"
+        enableColumnReordering="false"
+       
+        rows="{
+            path : 'Nodes>/',
+            parameters : {
+                countMode: 'Inline',
+                treeAnnotationProperties : {
+                    hierarchyLevelFor : 'HierarchyLevel',
+                    hierarchyNodeFor : 'id',
+                    hierarchyParentNodeFor : 'ParentNodeID',
+                    hierarchyDrillStateFor : 'DrillState'
+                }
+            }
+        }"
+          ariaLabelledBy="title" rowSelectionChange="onRowSelectionChange" >
+           <!--{path:'cloth>/catalog/clothing/', parameters: {arrayNames:['categories']}}-->
+           <t:extension>
+                <OverflowToolbar style="Clear">
+                    <Title id="title" text="GRI Standards"/>
+                    <ToolbarSpacer/>
+                    <Button text="Collapse all" press="onCollapseAll"/>
+                    <Button text="Collapse selection" press="onCollapseSelection"/>
+                    <Button text="Expand first level" press="onExpandFirstLevel"/>
+                    <Button text="Expand selection" press="onExpandSelection"/>
+                    <Button text="OK" press="onPressOkGRI"/>
+                    <Button text="Cancel" press="onPressCancelGRI"/>
+                </OverflowToolbar>
+            </t:extension>
+           <t:columns>
+            <t:Column  hAlign="Center">
+                <Label text="GRI"/>
+                    <t:template>
+                        <!--<Text text="{cloth>name}" wrapping="false"/>-->
+                        <Text text="{Nodes>Description}" wrapping="false"/>
+                    </t:template>
+            </t:Column>
+            <!--<t:Column width="14rem" hAlign="Center">
+                <Label text="Price"/>
+                    <t:template>
+                        <Text text="{cloth>amount}" wrapping="false"/>
+                    </t:template>
+            </t:Column>   -->        
+            
+        </t:columns>
+    </t:TreeTable>
+
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,5 @@
+COLUMN TABLE app_interactions_Constants (
+  ID NVARCHAR(5000) NOT NULL,
+  Value NVARCHAR(5000) NOT NULL,
+  PRIMARY KEY(ID, Value)
+)

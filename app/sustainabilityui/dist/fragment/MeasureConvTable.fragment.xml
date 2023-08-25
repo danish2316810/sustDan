@@ -1,0 +1,133 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified">
+    <VBox height="600px">
+        <ScrollContainer height="90%" width="100%" vertical="true" focusable="true">
+            <Table
+                width="auto"
+                mode="MultiSelect"
+                class="sapUiNoMarginTop sapUiSmallMarginBegin"
+                alternateRowColors="true"
+                id="measureConvsTbl"
+                sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+                inset="false"                
+                items="{path: 'measureConvsModel>/results'}"
+            >            
+                <headerToolbar />
+                <infoToolbar>
+                    <OverflowToolbar>
+                        <ToolbarSpacer />
+                        <Label text="Measure Conversions List" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://add" press="OnPressAddNewEntry_Measure_Convs" tooltip="Add New Entry" />
+                        <Button	icon="sap-icon://less" press="" tooltip = "Remove Selected Entry" enabled="false"/>
+                    </OverflowToolbar>
+                </infoToolbar>
+                <columns>
+                    <Column width="8em">
+                        <Text text="Input UoM" />
+                    </Column>
+                    <Column width="10em">
+                        <Text text="Output Measure Type" />
+                    </Column>
+                    <Column width="10em">
+                        <Text text="Output UoM" />
+                    </Column>                    
+                    <Column width="9em">
+                        <Text text="Conversion Factor" />
+                    </Column>
+                    <Column width="7em">
+                        <Text text="Operation" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <HBox>
+                                <Text text="{measureConvsModel>InputUom}" visible="{parts: [{path: 'measureConvsModel>isNewRow'}, {path: 'measureConvsModel>isEditableRow'}, {path: 'measureConvsModel>isExistingRow'}],
+                                                formatter: '.formatPKeyField'}" />
+                                <ComboBox
+                                    xmlns="sap.m"
+                                    id="cbUOMConv_Measure"
+                                    selectionChange=""
+                                    items="{ path : 'UOMListModel>/results' , templateShareable:false,
+                                                            filters: [ { path: 'Measure', operator: 'EQ', value1: 'Data' } ] }"
+                                    selectedKey="{measureConvsModel>InputUom}"
+                                    editable="true"
+                                    visible="{measureConvsModel>isNewRow}"
+                                >
+                                    <core:Item xmlns:core="sap.ui.core" key="{UOMListModel>Abbreviation}" text="{UOMListModel>Abbreviation}" />
+                                </ComboBox>
+                            </HBox>
+                          
+                            <HBox>
+                                <Text text="{measureConvsModel>OutputMeasureType}" visible="{parts: [{path: 'measureConvsModel>isNewRow'}, {path: 'measureConvsModel>isEditableRow'}, {path: 'measureConvsModel>isExistingRow'}],
+                                                formatter: '.formatPKeyField'}" />
+                                <ComboBox
+                                    xmlns="sap.m"
+                                    id="cbUOMConv3_Measure"
+                                    selectionChange="onChangeMeasureOutput"     
+                                    items="{ path : 'generalModel>/results' ,templateShareable:false}"                               
+                                    selectedKey="{measureConvsModel>OutputMeasureType}"
+                                    editable="true"
+                                    visible="{measureConvsModel>isNewRow}"
+                                >
+                                    <core:Item xmlns:core="sap.ui.core" key="{generalModel>Value}" text="{generalModel>Value}" />
+                                </ComboBox>
+                                
+                            </HBox>
+
+                            <HBox>
+                                <Text text="{measureConvsModel>OutputUoM}" visible="{parts: [{path: 'measureConvsModel>isNewRow'}, {path: 'measureConvsModel>isEditableRow'}, {path: 'measureConvsModel>isExistingRow'}],
+                                                formatter: '.formatPKeyField'}" />
+                               <!-- <ComboBox
+                                    xmlns="sap.m"
+                                    id="cbUOMConv2_Measure"
+                                    selectionChange=""
+                                    items="{ path : 'UOMListModel1>/results' ,templateShareable:false}"
+                                    selectedKey="{measureConvsModel>OutputUoM}"
+                                    editable="true"
+                                    visible="{measureConvsModel>isNewRow}"
+                                >
+                                    <core:Item xmlns:core="sap.ui.core" key="{UOMListModel1>Abbreviation}" text="{UOMListModel1>Abbreviation}" />
+                                </ComboBox>-->
+
+                                <!--<ComboBox xmlns="sap.m" id="cbUOMConv2_Measure" selectionChange="" selectedKey="{measureConvsModel>OutputUoM}"
+                                editable="true" visible="{measureConvsModel>isNewRow}" />-->
+
+                                <ComboBox xmlns="sap.m" id="cbUOMConv2_Measure" items="{ path : '/MeasureList' ,templateShareable:false }" selectionChange="" selectedKey="{measureConvsModel>OutputUoM}" visible="{measureConvsModel>isNewRow}">
+                                            <core:Item xmlns:core="sap.ui.core" key="{Abbreviation}" text="{Abbreviation}" />
+                                        </ComboBox>
+                            </HBox>
+
+                            
+                            
+                            <HBox>
+                                <Text text="{measureConvsModel>ConverstionFactor}" visible="{parts: [{path: 'measureConvsModel>isNewRow'}, {path: 'measureConvsModel>isEditableRow'}, {path: 'measureConvsModel>isExistingRow'}],
+                                                    formatter: '.formatDisplayField'}" />
+                                <Input value="{measureConvsModel>ConverstionFactor}" visible="{parts: [{path: 'measureConvsModel>isNewRow'}, {path: 'measureConvsModel>isEditableRow'}, {path: 'measureConvsModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}" />
+                            </HBox>
+                            
+                            <HBox>
+                                <Text text="{measureConvsModel>Operation}" visible="{parts: [{path: 'measureConvsModel>isNewRow'}, {path: 'measureConvsModel>isEditableRow'}, {path: 'measureConvsModel>isExistingRow'}],
+                                                    formatter: '.formatDisplayField'}" />
+                                <ComboBox
+                                    xmlns="sap.m"
+                                    id="Operation_Measure"
+                                    selectionChange=""
+                                    items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'Operation' } ] }"
+                                    selectedKey="{measureConvsModel>Operation}"
+                                    editable="true"
+                                    visible="{parts: [{path: 'measureConvsModel>isNewRow'}, {path: 'measureConvsModel>isEditableRow'}, {path: 'measureConvsModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                >
+                                    <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                </ComboBox>
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </ScrollContainer>
+    </VBox>
+</core:FragmentDefinition>

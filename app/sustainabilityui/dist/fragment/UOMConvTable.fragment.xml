@@ -1,0 +1,139 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified">
+    <VBox height="600px">
+        <ScrollContainer height="90%" width="100%" vertical="true" focusable="true">
+            <Table
+                width="auto"
+                mode="MultiSelect"
+                class="sapUiNoMarginTop sapUiSmallMarginBegin"
+                alternateRowColors="true"
+                id="uomConVolTbl"
+                sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+                inset="false"
+                
+                items="{path: 'UOMConvModel>/results'}"
+            >
+            <!--items="{path: 'UOMConvModel>/results', filters: [ { path: 'Measure', operator: 'EQ', value1: 'Distance' } ]}-->
+                <headerToolbar />
+                <infoToolbar>
+                    <OverflowToolbar>
+                        <ToolbarSpacer />
+                        <Label text="UoM Conversions List" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://add" press="OnPressAddNewEntry_UOM_Convs_Volume" tooltip="Add New Entry" />
+                        <Button	icon="sap-icon://less" press="" tooltip = "Remove Selected Entry" enabled="false"/>
+                    </OverflowToolbar>
+                </infoToolbar>
+                <columns>
+                    <Column width="8em">
+                        <Text text="Input UoM" />
+                    </Column>
+                    <Column width="10em">
+                        <Text text="Output UoM" />
+                    </Column>
+                    <Column width="9em">
+                        <Text text="Conversion Factor" />
+                    </Column>
+                    <Column width="7em">
+                        <Text text="Operation" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <HBox>
+                                <!--<Input value="{UOMConvModel>UserInputUnit}" editable="false" visible="{UOMConvModel>isExistingRow}"/>
+                                            <ComboBox xmlns="sap.m" id="cbUOMConv" selectionChange="onChangeUOMConvUsrInput"
+                                                    items="{ path : 'UOMListModel>/results' , templateShareable:false,
+                                                            filters: [ { path: 'Measure', operator: 'EQ', value1: 'Volume' } ] }"  
+                                                    selectedKey="{UOMConvModel>UserInputUnit}" editable="true" visible="{UOMConvModel>isNewRow}">
+                                        
+                                                <core:Item xmlns:core="sap.ui.core" key="{UOMListModel>Abbreviation}" 
+                                                                                    text="{UOMListModel>Abbreviation}"/>                                        
+                                            </ComboBox>-->
+
+                                <Text text="{UOMConvModel>UserInputUnit}" visible="{parts: [{path: 'UOMConvModel>isNewRow'}, {path: 'UOMConvModel>isEditableRow'}, {path: 'UOMConvModel>isExistingRow'}],
+                                                formatter: '.formatPKeyField'}" />
+                                <ComboBox
+                                    xmlns="sap.m"
+                                    id="cbUOMConv"
+                                    selectionChange="onChangeUOMConvUsrInput"
+                                    items="{ path : 'UOMListModel>/results' , templateShareable:false,
+                                                            filters: [ { path: 'Measure', operator: 'EQ', value1: 'Data' } ] }"
+                                    selectedKey="{UOMConvModel>UserInputUnit}"
+                                    editable="true"
+                                    visible="{UOMConvModel>isNewRow}"
+                                >
+                                    <core:Item xmlns:core="sap.ui.core" key="{UOMListModel>Abbreviation}" text="{UOMListModel>Abbreviation}" />
+                                </ComboBox>
+                            </HBox>
+
+                            <HBox>
+                                <!-- <Input value="{UOMConvModel>ExpectedOutputUnit}" editable="false" visible="{UOMConvModel>isExistingRow}"/>
+                                            <ComboBox xmlns="sap.m" id="cbUOMConv2" selectionChange="onChangeUOMConvExpOutput"
+                                                    items="{ path : 'UOMListModel>/results' ,templateShareable:false, 
+                                                            filters: [ { path: 'Measure', operator: 'EQ', value1: 'Volume' } ] }"  
+                                                    selectedKey="{UOMConvModel>ExpectedOutputUnit}" editable="true" visible="{UOMConvModel>isNewRow}">
+                                        
+                                                <core:Item xmlns:core="sap.ui.core" key="{UOMListModel>Abbreviation}" 
+                                                                                    text="{UOMListModel>Abbreviation}"/>                                        
+                                            </ComboBox>-->
+
+                                <Text text="{UOMConvModel>ExpectedOutputUnit}" visible="{parts: [{path: 'UOMConvModel>isNewRow'}, {path: 'UOMConvModel>isEditableRow'}, {path: 'UOMConvModel>isExistingRow'}],
+                                                formatter: '.formatPKeyField'}" />
+                                <ComboBox
+                                    xmlns="sap.m"
+                                    id="cbUOMConv2"
+                                    selectionChange="onChangeUOMConvExpOutput"
+                                    items="{ path : 'UOMListModel>/results' ,templateShareable:false, 
+                                                            filters: [ { path: 'Measure', operator: 'EQ', value1: 'Data' } ] }"
+                                    selectedKey="{UOMConvModel>ExpectedOutputUnit}"
+                                    editable="true"
+                                    visible="{UOMConvModel>isNewRow}"
+                                >
+                                    <core:Item xmlns:core="sap.ui.core" key="{UOMListModel>Abbreviation}" text="{UOMListModel>Abbreviation}" />
+                                </ComboBox>
+                            </HBox>
+
+                            <!--<Input value="{UOMConvModel>ConverstionFactor}" editable="{UOMConvModel>isNewRow}"/>-->
+                            <HBox>
+                                <Text text="{UOMConvModel>ConverstionFactor}" visible="{parts: [{path: 'UOMConvModel>isNewRow'}, {path: 'UOMConvModel>isEditableRow'}, {path: 'UOMConvModel>isExistingRow'}],
+                                                    formatter: '.formatDisplayField'}" />
+                                <Input value="{UOMConvModel>ConverstionFactor}" visible="{parts: [{path: 'UOMConvModel>isNewRow'}, {path: 'UOMConvModel>isEditableRow'}, {path: 'UOMConvModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}" />
+                            </HBox>
+
+                            <!--<Input value="{UOMConvModel>Operation}" editable="{UOMConvModel>isNewRow}"/>-->
+                            <HBox>
+                                <!--<Input value="{UOMConvModel>Operation}" visible="{UOMConvModel>isExistingRow}" editable="false"/>
+                                            <ComboBox xmlns="sap.m" id="Operation" selectionChange=""
+                                                    items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'Operation' } ] }"  
+                                                    selectedKey="{UOMConvModel>Operation}" editable="true" visible="{UOMConvModel>isNewRow}">                                                
+                                                <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                                    text="{ConstantsModel>Value}"/>                                        
+                                            </ComboBox> -->
+
+                                <Text text="{UOMConvModel>Operation}" visible="{parts: [{path: 'UOMConvModel>isNewRow'}, {path: 'UOMConvModel>isEditableRow'}, {path: 'UOMConvModel>isExistingRow'}],
+                                                    formatter: '.formatDisplayField'}" />
+
+                                <ComboBox
+                                    xmlns="sap.m"
+                                    id="Operation"
+                                    selectionChange=""
+                                    items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                            filters: [ { path: 'ID', operator: 'EQ', value1: 'Operation' } ] }"
+                                    selectedKey="{UOMConvModel>Operation}"
+                                    editable="true"
+                                    visible="{parts: [{path: 'UOMConvModel>isNewRow'}, {path: 'UOMConvModel>isEditableRow'}, {path: 'UOMConvModel>isExistingRow'}],
+                                                            formatter: '.formatEditField'}"
+                                >
+                                    <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" text="{ConstantsModel>Value}" />
+                                </ComboBox>
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </ScrollContainer>
+    </VBox>
+</core:FragmentDefinition>

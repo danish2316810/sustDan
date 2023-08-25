@@ -1,0 +1,41 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+
+  "routes": [
+       
+    {
+          "source": "/catalog/(.*)",
+          "destination": "tracksustainability-app-api",
+          "csrfProtection": false,
+          "authenticationType": "xsuaa"
+      },
+      {
+        "authenticationType": "none",
+        "source": "^/DocExtractor/(.*)",
+        "target": "/$1",
+        "csrfProtection": false,
+        "destination": "DocExtractor"
+    },
+   
+    {
+      "source": "^/resources/(.*)$",
+      "target": "/resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^/test-resources/(.*)$",
+      "target": "/test-resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa",
+      "csrfProtection": false
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified">
+
+
+<ScrollContainer
+        height="80%"
+        width="100%"
+        vertical="true"
+        focusable="true">
+
+        <Table id="EmissionFactorsTbl" items="{path: 'EmissionFactorsModel>/results'}" alternateRowColors="true"
+                                width="95%" mode="MultiSelect"   class="sapUiSmallMarginTop sapUiSmallMarginBegin"  
+                                sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"    inset="false">
+                    <headerToolbar></headerToolbar>
+                    <infoToolbar>
+                        <OverflowToolbar>
+                            <ToolbarSpacer/>
+                            <Label text="Standard Emission Factor Values"/>
+                            <ToolbarSpacer/>
+                            <Button	icon="sap-icon://add" press="OnPressAddNewEntry_EF" tooltip = "Add New Entry"/>
+                          <!--       <Button	icon="sap-icon://less" press="onDataExport" tooltip = "Remove Selected Entry"/>-->
+                          <Button icon="sap-icon://less" press="" tooltip="Remove Selected Entry" enabled="false"/>
+                        </OverflowToolbar>
+                    </infoToolbar>
+                    <columns>                        
+                        <Column >
+                            <Text text="KPI"/>
+                        </Column>	
+                        <Column visible="false">
+                            <Text text="Standard"/>
+                        </Column>
+                        <Column >
+                            <Text text="E.F Value"/>
+                        </Column>			
+                        <Column >
+                            <Text text="EF Unit"/>
+                        </Column>                     	
+                       	<Column id="shortLongColn" visible="false">
+                            <Text text="ShortLong"/>
+                        </Column>
+                        <Column id="classColn" visible="false">
+                            <Text text="Class"/>
+                        </Column>							
+                        </columns>
+                        <items>
+                            <ColumnListItem >
+                                <cells> 
+
+                                <!--<Text text="{EmissionFactorsModel>KPI}" editable="false"  id="subType"/>		-->
+                                     <HBox>
+                                        <!--<Input value="{EmissionFactorsModel>KPI}" visible="{EmissionFactorsModel>isExistingRow}" editable="{EmissionFactorsModel>isNewRow}"/>-->
+
+                                        <Text text="{EmissionFactorsModel>KPI}" 
+                                                visible="{parts: [{path: 'EmissionFactorsModel>isNewRow'}, 
+                                                {path: 'EmissionFactorsModel>isEditableRow'}, {path: 'EmissionFactorsModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                        <ComboBox xmlns="sap.m" id="KPI" selectionChange="onChangeKPI"
+                                                 items="{ path : '/items' ,templateShareable:false}"  
+                                                 selectedKey="{EmissionFactorsModel>KPI}" editable="true" visible="{EmissionFactorsModel>isNewRow}">                                                
+                                            <core:Item xmlns:core="sap.ui.core" key="{KPIModel>KPI}" 
+                                                                                text="{KPIModel>KPI}"/>                                        
+                                        </ComboBox> 
+                                    </HBox>						
+                                </cells>
+                                <cells visible="false"> 
+                                    <!--<Input value="{EmissionFactorsModel>Standard}"/>-->
+                                    <HBox>
+                                        <!--<Input value="{EmissionFactorsModel>Standard}" visible="{EmissionFactorsModel>isExistingRow}" editable="{EmissionFactorsModel>isNewRow}"/>-->
+
+                                        <Text text="{EmissionFactorsModel>Standard}" 
+                                                visible="{parts: [{path: 'EmissionFactorsModel>isNewRow'}, 
+                                                {path: 'EmissionFactorsModel>isEditableRow'}, {path: 'EmissionFactorsModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                        <ComboBox xmlns="sap.m" id="Standard" selectionChange="onChangeStdValue_EF"
+                                                items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                        filters: [ { path: 'ID', operator: 'EQ', value1: 'Standard' } ] }"  
+                                                selectedKey="{EmissionFactorsModel>Standard}" editable="true" visible="{EmissionFactorsModel>isNewRow}">                                                
+                                            <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                                text="{ConstantsModel>Value}"/>                                        
+                                        </ComboBox> 
+                                    </HBox>
+                                </cells>
+                                <cells>                                    
+                                   <!-- <Input value="{EmissionFactorsModel>EmissionFactor}" editable="{EmissionFactorsModel>isNewRow}"/>	-->
+                                    <HBox>
+                                        <Text text="{EmissionFactorsModel>EmissionFactor}" 
+                                                    visible="{parts: [{path: 'EmissionFactorsModel>isNewRow'}, 
+                                                    {path: 'EmissionFactorsModel>isEditableRow'}, {path: 'EmissionFactorsModel>isExistingRow'}],
+                                                                formatter: '.formatDisplayField'}" />
+                                                                
+                                        <Input value="{EmissionFactorsModel>EmissionFactor}" editable="true"
+                                                visible="{parts: [{path: 'EmissionFactorsModel>isNewRow'}, 
+                                                    {path: 'EmissionFactorsModel>isEditableRow'}, {path: 'EmissionFactorsModel>isExistingRow'}],
+                                                                formatter: '.formatEditField'}"/>	
+                                    </HBox>																
+                                </cells>
+                                <cells>                                    
+                                    <!--<Input value="{EmissionFactorsModel>UoM}" editable="{EmissionFactorsModel>isNewRow}"/>	-->
+                                    <HBox>
+                                        <Text text="{EmissionFactorsModel>UoM}" 
+                                                    visible="{parts: [{path: 'EmissionFactorsModel>isNewRow'}, 
+                                                    {path: 'EmissionFactorsModel>isEditableRow'}, {path: 'EmissionFactorsModel>isExistingRow'}],
+                                                                formatter: '.formatDisplayField'}" />
+                                        <Input value="{EmissionFactorsModel>UoM}" editable="true"
+                                                visible="{parts: [{path: 'EmissionFactorsModel>isNewRow'}, 
+                                                    {path: 'EmissionFactorsModel>isEditableRow'}, {path: 'EmissionFactorsModel>isExistingRow'}],
+                                                                formatter: '.formatEditField'}"/>	
+                                    </HBox>																	
+                                </cells>
+                                <cells >                                     
+                                    <HBox visible="{ path:'EmissionFactorsModel>Type', formatter: '.formatEmissionFactor'}">
+                                        <!--<Input value="{EmissionFactorsModel>Shortlong}" visible="{EmissionFactorsModel>isExistingRow}" editable="{EmissionFactorsModel>isNewRow}"/>-->
+
+                                          <Text text="{EmissionFactorsModel>Shortlong}" 
+                                                visible="{parts: [{path: 'EmissionFactorsModel>isNewRow'}, 
+                                                {path: 'EmissionFactorsModel>isEditableRow'}, {path: 'EmissionFactorsModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                        <ComboBox xmlns="sap.m" id="Shortlong" selectionChange=""
+                                                items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                        filters: [ { path: 'ID', operator: 'EQ', value1: 'SHORTLONG' } ] }"  
+                                                selectedKey="{EmissionFactorsModel>Shortlong}" editable="true" visible="{EmissionFactorsModel>isNewRow}">                                                
+                                            <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                                text="{ConstantsModel>Value}"/>                                        
+                                        </ComboBox> 
+                                    </HBox>
+                                </cells>
+                                <cells>                                     
+                                    <HBox visible="{ path:'EmissionFactorsModel>Type', formatter: '.formatEmissionFactor'}">
+                                       <!-- <Input value="{EmissionFactorsModel>class}" visible="{EmissionFactorsModel>isExistingRow}" editable="{EmissionFactorsModel>isNewRow}"/>-->
+
+                                        <Text text="{EmissionFactorsModel>class}" 
+                                                visible="{parts: [{path: 'EmissionFactorsModel>isNewRow'}, 
+                                                {path: 'EmissionFactorsModel>isEditableRow'}, {path: 'EmissionFactorsModel>isExistingRow'}],
+                                                            formatter: '.formatPKeyField'}" />
+                                        <ComboBox xmlns="sap.m" id="Class" selectionChange=""
+                                                items="{ path : 'ConstantsModel>/results' ,templateShareable:false, 
+                                                        filters: [ { path: 'ID', operator: 'EQ', value1: 'CLASS' } ] }"  
+                                                selectedKey="{EmissionFactorsModel>class}" editable="true" visible="{EmissionFactorsModel>isNewRow}">                                                
+                                            <core:Item xmlns:core="sap.ui.core" key="{ConstantsModel>Value}" 
+                                                                                text="{ConstantsModel>Value}"/>                                        
+                                        </ComboBox> 
+                                    </HBox>
+                                </cells>
+                               <!-- <cells>                                    
+                                    <Input value="{KPIModel>IPCCValue}"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="{KPIModel>IPCCUnit}"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="{KPIModel>UserDefinedValue}"/>																	
+                                </cells>
+                                <cells>                                    
+                                    <Input value="{KPIModel>UserDefinedUnit}"/>																	
+                                </cells>-->
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+</ScrollContainer>
+</core:FragmentDefinition>

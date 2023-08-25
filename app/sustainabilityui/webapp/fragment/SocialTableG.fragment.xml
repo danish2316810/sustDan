@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uni="sap.ui.unified" xmlns:uxap="sap.uxap" xmlns:u="sap.ui.unified">
+    <Table id="SocialTableG" alternateRowColors="true" growing="true" width="95%" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" items="{path: 'SocialModel>/results'}" mode="MultiSelect">
+        <headerToolbar />
+        <infoToolbar>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button icon="sap-icon://add" press="OnPressAddNewEntry" tooltip="Add New Entry" />
+            </OverflowToolbar>
+        </infoToolbar>
+        <columns>
+            <Column>
+                <Text id="ColHeaderSocialTableG" text="" />
+            </Column>
+            <Column hAlign="Center">
+                <Text text="No.of Hrs. Devoted" />
+            </Column>
+            <Column hAlign="Center">
+                <Text text="No.of Employees trained" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <HBox>
+                        <Text text="{SocialModel>Identifier}" width="10em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                formatter: '.formatPKeyField'}" editable="false" />
+
+                        <Input value="{SocialModel>Identifier}" width="20em" visible="{SocialModel>isNewRow}" />
+                    </HBox>
+                    <HBox>
+                        <Text text="{SocialModel>NoOfHrs}" width="10em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                formatter: '.formatDisplayField'}" editable="false" />
+                        <Input
+                            value="{SocialModel>NoOfHrs}"
+                            width="10em"
+                            type="Number"
+                            tooltip="Only digits"
+                            editable="true"
+                            visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                formatter: '.formatEditField'}"
+                        />
+                    </HBox>
+                    <HBox>
+                        <Text text="{SocialModel>NoOfEmployees}" width="10em" visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                formatter: '.formatDisplayField'}" editable="false" />
+                        <Input
+                            value="{SocialModel>NoOfEmployees}"
+                            width="10em"
+                            type="Number"
+                            tooltip="Only digits"
+                            editable="true"
+                            visible="{parts: [{path: 'SocialModel>isNewRow'}, {path: 'SocialModel>isEditableRow'}, {path: 'SocialModel>isExistingRow'}],
+                                formatter: '.formatEditField'}"
+                        />
+                    </HBox>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>
