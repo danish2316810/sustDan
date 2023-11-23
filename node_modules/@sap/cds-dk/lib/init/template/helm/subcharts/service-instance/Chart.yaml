@@ -1,0 +1,7 @@
+apiVersion: v2
+name: service-instance
+description: A Helm chart for creating service instances on btp-service-operator
+type: application
+version: 0.1.0
+sources:
+- "https://github.tools.sap/unified-runtime/service-instance"

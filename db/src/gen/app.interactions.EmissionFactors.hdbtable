@@ -10,7 +10,5 @@ COLUMN TABLE app_interactions_EmissionFactors (
   UoM NVARCHAR(5000),
   Deno NVARCHAR(5000),
   Nume NVARCHAR(5000),
-  createdAt TIMESTAMP,
-  modifiedAt TIMESTAMP,
   PRIMARY KEY(Industry, KPI, Type, SubType, Standard, Shortlong, class)
 )

@@ -9,7 +9,5 @@ VIEW CatalogService_EmissionFactors AS SELECT
   EmissionFactors_0.EmissionFactor,
   EmissionFactors_0.UoM,
   EmissionFactors_0.Deno,
-  EmissionFactors_0.Nume,
-  EmissionFactors_0.createdAt,
-  EmissionFactors_0.modifiedAt
+  EmissionFactors_0.Nume
 FROM app_interactions_EmissionFactors AS EmissionFactors_0

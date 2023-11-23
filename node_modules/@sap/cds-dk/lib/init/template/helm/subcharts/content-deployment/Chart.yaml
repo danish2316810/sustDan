@@ -1,0 +1,7 @@
+apiVersion: v2
+name: content-deployment
+description: A Helm Chart for creating a Content Deployment job
+type: application
+version: 0.1.0
+sources:
+- "https://github.tools.sap/unified-runtime/content-deployment"

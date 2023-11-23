@@ -1,0 +1,83 @@
+-- PROCEDURE "emmissionSecond"()
+-- LANGUAGE SQLSCRIPT
+-- SQL SECURITY INVOKER
+-- AS
+-- BEGIN
+--
+-- Update FVALUE by adding 2 to the existing value
+--     UPDATE "APP_INTERACTIONS_ENVIRONMENT_REPORT"
+--     SET "FVALUE" = "FVALUE" + 24;
+-- END;
+PROCEDURE "emissionSecond"() 
+  LANGUAGE SQLSCRIPT 
+  SQL SECURITY INVOKER AS 
+BEGIN
+  DECLARE v_value DECIMAL(18, 5);
+  DECLARE V_COUNT INTEGER;
+  DECLARE V_I INTEGER;
+  DECLARE v_unit NVARCHAR(10);
+  DECLARE v_deno NVARCHAR(10);
+  DECLARE v_operation NVARCHAR(10);
+  DECLARE v_industry NVARCHAR(50);
+  DECLARE v_year NVARCHAR(50);
+  DECLARE v_month NVARCHAR(50);
+  DECLARE v_location NVARCHAR(50);
+  DECLARE v_kpi NVARCHAR(50);
+  DECLARE v_type NVARCHAR(50);
+  DECLARE v_subtype NVARCHAR(50);
+  DECLARE v_emission_factor DECIMAL(18, 5);
+  DECLARE v_outputunit NVARCHAR(50);
+  DECLARE v_conversionfactor DECIMAL(18, 5);
+  -- Fetch necessary data from APP_INTERACTIONS_ENVIRONMENT_REPORT
+  sel1= SELECT * FROM 
+   "APP_INTERACTIONS_ENVIRONMENT_REPORT";
+
+  --  IF sel1 IS NOT NULL THEN
+    SELECT COUNT(*) INTO V_COUNT FROM :sel1 ;
+  -- END IF;
+
+  -- Fetch emission factor and deno from APP_INTERACTIONS_EMISSIONFACTORS
+  -- Fetch emission factor and deno from APP_INTERACTIONS_EMISSIONFACTORS
+  SELECT TOP 1 "EMISSIONFACTOR",
+    "DENO" 
+  -- INTO v_emission_factor, v_unit
+    INTO v_emission_factor,
+    v_outputunit
+  FROM "APP_INTERACTIONS_EMISSIONFACTORS"
+  WHERE "KPI" = v_kpi
+    AND "TYPE" = v_type
+    AND "SUBTYPE" = v_subtype;
+  -- Check if the unit is the same as DENO in emission factors
+ 
+  IF v_unit != v_outputunit THEN 
+  
+  SELECT TOP 1 "CONVERSTIONFACTOR",
+    "OPERATION" 
+ 
+    INTO v_conversionfactor,
+    v_operation
+  FROM "APP_INTERACTIONS_UOMCONVERSIONS" 
+ 
+  WHERE "EXPECTEDOUTPUTUNIT" = v_outputunit
+    AND "USERINPUTUNIT" = v_unit
+    AND "CONVERSTIONFACTOR" IS NOT NULL;
+  -- Apply the conversion factor to the value
+  IF v_conversionfactor IS NOT NULL THEN IF v_operation = '*' THEN v_value = v_value * v_conversionfactor;
+  ELSE v_value = v_value / v_conversionfactor;
+END IF;
+END IF;
+ELSE 
+-- If the units are the same, multiply by the emission factor
+v_value = v_value * TO_DECIMAL(v_emission_factor, 18, 5);
+END IF;
+-- Update FVALUE in APP_INTERACTIONS_ENVIRONMENT_REPORT
+UPDATE "APP_INTERACTIONS_ENVIRONMENT_REPORT"
+SET "FVALUE" = v_value
+WHERE "KPI" = v_kpi
+  AND "TYPE" = v_type
+  AND "SUBTYPE" = v_subtype
+  AND "INDUSTRY" = v_industry
+  AND "YEAR" = v_year
+  AND "MONTH" = v_month
+  AND "LOCATION" = v_location;
+END;

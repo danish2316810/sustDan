@@ -120,9 +120,7 @@ entity Location {
             UoM            : String;
             Deno           : String;
             Nume           : String; //new field added
-            createdAt      : Timestamp @cds.on.insert : $now;
-            modifiedAt     : Timestamp @cds.on.insert : $now  @cds.on.update : $now;
-
+           
     }
 
     

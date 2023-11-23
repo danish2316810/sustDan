@@ -1,0 +1,108 @@
+PROCEDURE "hanaSqlemission"()
+LANGUAGE SQLSCRIPT 
+  SQL SECURITY INVOKER AS 
+BEGIN
+  DECLARE v_value DECIMAL(18, 5);
+  DECLARE V_COUNT INTEGER;
+  DECLARE V_I INTEGER;
+  DECLARE v_unit NVARCHAR(10);
+  DECLARE v_deno NVARCHAR(10);
+  DECLARE v_operation NVARCHAR(10);
+  DECLARE v_industry NVARCHAR(50);
+  DECLARE v_year NVARCHAR(50);
+  DECLARE v_month NVARCHAR(50);
+  DECLARE v_location NVARCHAR(50);
+  DECLARE v_kpi NVARCHAR(50);
+  DECLARE v_type NVARCHAR(50);
+  DECLARE v_subtype NVARCHAR(50);
+  DECLARE v_fvalue DECIMAL(18, 5);
+  DECLARE v_emission_factor DECIMAL(18, 5);
+  DECLARE v_outputunit NVARCHAR(50);
+  DECLARE v_conversionfactor DECIMAL(18, 5);
+  -- Fetch necessary data from APP_INTERACTIONS_ENVIRONMENT_REPORT
+  DECLARE CURSOR cur_environment_report FOR
+    SELECT 
+      "VALUE",
+      "UNIT",
+      "INDUSTRY",
+      "YEAR",
+      "MONTH",
+      "LOCATION",
+      "KPI",
+      "TYPE",
+      "SUBTYPE",
+      "FVALUE" 
+    FROM "APP_INTERACTIONS_ENVIRONMENT_REPORT";
+
+-- Open the cursor
+OPEN cur_environment_report;
+  
+-- Loop to process each record
+
+FOR cur_record AS cur_environment_report DO
+    -- Assign values from the current record to variables
+    v_value := cur_record."VALUE";
+    v_unit := cur_record."UNIT";
+    v_industry := cur_record."INDUSTRY";
+    v_year := cur_record."YEAR";
+    v_month := cur_record."MONTH";
+    v_location := cur_record."LOCATION";
+    v_kpi := cur_record."KPI";
+    v_type := cur_record."TYPE";
+    v_subtype := cur_record."SUBTYPE";
+    v_fvalue := cur_record."FVALUE"; -- Add a semicolon here
+    -- v_calculated_value := v_value * 2;  -- Example calculation, adjust as needed
+
+  -- Fetch emission factor and deno from APP_INTERACTIONS_EMISSIONFACTORS
+  -- Fetch emission factor and deno from APP_INTERACTIONS_EMISSIONFACTORS
+
+
+  SELECT TOP 1 "EMISSIONFACTOR",
+    "DENO" 
+  -- INTO v_emission_factor, v_unit
+    INTO v_emission_factor,
+    v_outputunit
+  FROM "APP_INTERACTIONS_EMISSIONFACTORS"
+  WHERE "KPI" = v_kpi
+    AND "TYPE" = v_type
+    AND "SUBTYPE" = v_subtype;
+  -- Check if the unit is the same as DENO in emission factors
+ 
+  IF v_unit != v_outputunit THEN 
+  
+  SELECT TOP 1 "CONVERSTIONFACTOR",
+    "OPERATION" 
+ 
+    INTO v_conversionfactor,
+    v_operation
+  FROM "APP_INTERACTIONS_UOMCONVERSIONS" 
+ 
+  WHERE "EXPECTEDOUTPUTUNIT" = v_outputunit
+    AND "USERINPUTUNIT" = v_unit
+    AND "CONVERSTIONFACTOR" IS NOT NULL;
+  -- Apply the conversion factor to the value
+  IF v_conversionfactor IS NOT NULL THEN IF v_operation = '*' THEN v_value = v_value * v_conversionfactor;
+  ELSE v_value = v_value / v_conversionfactor;
+END IF;
+END IF;
+ELSE 
+-- If the units are the same, multiply by the emission factor
+v_value = v_value * TO_DECIMAL(v_emission_factor, 18, 5);
+END IF;
+-- Update FVALUE in APP_INTERACTIONS_ENVIRONMENT_REPORT
+UPDATE "APP_INTERACTIONS_ENVIRONMENT_REPORT"
+SET "FVALUE" = v_value
+WHERE "KPI" = v_kpi
+  AND "TYPE" = v_type
+  AND "SUBTYPE" = v_subtype
+  AND "INDUSTRY" = v_industry
+  AND "YEAR" = v_year
+  AND "MONTH" = v_month
+  AND "LOCATION" = v_location;
+
+
+END FOR;
+  
+    -- Close the cursor for environment report
+    CLOSE cur_environment_report;
+END;
